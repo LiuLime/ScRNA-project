@@ -38,7 +38,7 @@ def merge_data_in_folder(filepath):
 
         dfs.append(temp_df.set_index('cell_id').drop(columns='label'))
 
-    merged_df = pd.concat(dfs, axis=1)  # 横向拼接，会有重复的cell_id列，所以下一行才需要remove，重复column
+    merged_df = pd.concat(dfs, axis=1)  # 横向拼接前set_index，相同cell_id自动合并
 
     label_df = pd.DataFrame(list(label_dict.items()), columns=['cell_id', 'label']).set_index('cell_id')
     merged_df = pd.concat([merged_df, label_df], axis=1).reset_index().rename(columns={'index': 'cell_id'})
