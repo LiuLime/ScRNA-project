@@ -1,8 +1,8 @@
 """
-2023/10/2
+2023/10/17 revised version
 Final batch processing version of logistic regression prediction revised by chatGPT4
 The feature selection were conducted by penalty
-
+Liu
 """
 import json
 import os, sys
@@ -22,10 +22,10 @@ def read_merge_file(filepath):
     labels = merged_df.loc[:, 'label']
     label_class = set(labels)
 
-    # checkpoint1
+    # checkpoint1 有两种label
     if len(label_class) <= 1:
         return None, None
-    # checkpoint2
+    # checkpoint2 每种label数量大于10
     for element, count in Counter(labels).items():
         if count <= 10:
             return None, None
@@ -34,8 +34,6 @@ def read_merge_file(filepath):
     return merged_df, features
 
 
-
-# 对数据进行标记
 def label_data(merged_df):
     x = merged_df.iloc[:, 1:-1].values.astype(float)
     y = merged_df.iloc[:, -1].values
@@ -45,7 +43,6 @@ def label_data(merged_df):
     return x, y
 
 
-# 特征选择和训练模型
 def train_and_evaluate(x, y, features):
     # split dataset
     x_train, x_test, y_train, y_test = train_test_split(x, y, stratify=y, random_state=22, test_size=0.3)
@@ -100,22 +97,25 @@ def report_coef(model, features, feature_mask):
     return coef_repo
 
 
-# 主逻辑
 def main(argv):
 
     FOLDER_PATH = argv[0]
     SAVE_PATH = argv[1]
     FILE_END = argv[2]
+    folder_name = FOLDER_PATH.split('/')[-1]
 
-    cell_types = [foldername for foldername in os.listdir(FOLDER_PATH) if not foldername.startswith('.') and foldername.endswith(FILE_END)]
+    cell_types = [filename for filename in os.listdir(FOLDER_PATH) if not filename.startswith('.') and filename.endswith(FILE_END)]
+
     reports = []
     coef_reports = {}
     missing_class_file = []
+
     for cell_type in cell_types:
         print(f"{cell_type} start process")
         filepath = os.path.join(FOLDER_PATH, cell_type)
         merged_df, features = read_merge_file(filepath)
-        # check point 1
+
+        # check point
         if merged_df is None and features is None:
             missing_class_file.append(cell_type)
             print(f"Skipped processing for missing label class: {cell_type}")
@@ -141,11 +141,11 @@ def main(argv):
 
     # save info
     df = pd.DataFrame(reports)
-    df.to_csv(f'{SAVE_PATH}/sum_report.csv', index=False)
-    with open(f'{SAVE_PATH}/coef_reports.json', 'w') as j:
+    df.to_csv(f'{SAVE_PATH}/{folder_name}_report.csv', index=False)
+    with open(f'{SAVE_PATH}/{folder_name}_coef.json', 'w') as j:
         json.dump(coef_reports, j)
     if len(missing_class_file) > 0:
-        with open(f'{SAVE_PATH}/missing_class_file.json', 'w') as j:
+        with open(f'{SAVE_PATH}/{folder_name}_missing_class_file.json', 'w') as j:
             json.dump(missing_class_file, j)
 
 
@@ -153,6 +153,6 @@ if __name__ == '__main__':
     if len(sys.argv) != 4:
         print('Usage: python ./main.py {DATA_FOLDER_PATH} {SAVE_PATH} {FILE_END}')
         print(
-            'Example: DATA_FOLDER_PATH = /Users/human_TabulaSapiens/exp/ SAVE_PATH = /Users/human_TabulaSapiens/output/ FILE_END=_merge.csv' )
+            'Example: DATA_FOLDER_PATH = /Users/human_TabulaSapiens/exp SAVE_PATH = /Users/human_TabulaSapiens/output/ FILE_END=_merge.csv' )
         sys.exit(1)
     main(sys.argv[1:])
