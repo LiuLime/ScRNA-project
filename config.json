@@ -1,0 +1,9 @@
+{
+  "rawDataFolder": "/Users/liuyuting/WorkSpace/ScRNA_project/mysql/17_human_TabulaSapiens/",
+  "corrDataFolderBy40-60":"/Users/liuyuting/WorkSpace/ScRNA_project/mysql/20230328_median_10humanStudies-20230410_40-60_5humanStudies.1ageGrpGE50cells/ageGrp_by40-60/",
+  "corrDataFolderBymedian": "/Users/liuyuting/WorkSpace/ScRNA_project/mysql/20230328_median_10humanStudies-20230410_40-60_5humanStudies.1ageGrpGE50cells/ageGrp_byMedian/",
+  "metaDataFolder": "/Users/liuyuting/WorkSpace/ScRNA_project/mysql/",
+  "donar_file": "/Users/liuyuting/WorkSpace/ScRNA_project/mysql/donor_summaries.txt",
+  "fig_save_path": "/Users/liuyuting/WorkSpace/ScRNA_project/03figure/",
+  "corr_shrefold": 0.7
+}
