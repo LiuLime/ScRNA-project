@@ -42,6 +42,7 @@ file_list = os.listdir(tissue_test)
 
 # %%
 # store tissue content:
+"""没写完，只存了bladder"""
 with sql as sql:
     for file in file_list:
         if not file.startswith("."):

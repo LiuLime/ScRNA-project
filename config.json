@@ -5,5 +5,7 @@
   "metaDataFolder": "/Users/liuyuting/WorkSpace/ScRNA_project/mysql/",
   "donar_file": "/Users/liuyuting/WorkSpace/ScRNA_project/mysql/donor_summaries.txt",
   "fig_save_path": "/Users/liuyuting/WorkSpace/ScRNA_project/03figure/",
-  "corr_shrefold": 0.7
+  "corr_shrefold": 0.7,
+  "markers": ["CDKN2A", "ICAM1","GPNMB","IL1B","PLAUR","UPAR","TNFSF8","CDKN1A",
+    "SELE","CCL2","MMP2","SIRT2","TNFRSF10D","MMP3","MEG3","MMP9", "SIRT1","CCL5","RANTES","CD28","NOS3","IL1R2"]
 }

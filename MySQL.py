@@ -125,11 +125,16 @@ class sql:
 
     def search(self, table, define_column, query_column, query):
         """
-        return one record
+        return one record, Nonetype was returned when not found
         """
-        sql = f"SELECT {query_column} FROM {table} WHERE {define_column} = %s"
+        if isinstance(define_column, str):
+            columns = f"`{define_column}` = %s"
+        if isinstance(define_column, list):
+            columns = ' AND '.join([f"`{col}` = %s" for col in define_column])
+            # print(columns, query)
+        sql = f"SELECT {query_column} FROM {table} WHERE {columns}"
         self.cur.execute(sql, (query))
         return self.cur.fetchone()
 
-    def count(self, table, query_column, query):
-        sql = f"SELECT {query_column} FROM {table} WHERE {define_column} = %s"
+    # def count(self, table, query_column, query):
+    #     sql = f"SELECT {query_column} FROM {table} WHERE {define_column} = %s"
