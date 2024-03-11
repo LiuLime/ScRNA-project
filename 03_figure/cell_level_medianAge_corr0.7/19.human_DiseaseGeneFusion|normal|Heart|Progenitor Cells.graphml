@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d1" for="edge" attr.name="cell_n" attr.type="long"/>
+<key id="d0" for="edge" attr.name="weight" attr.type="double"/>
+<graph edgedefault="undirected"><node id="SRSF11"/>
+<node id="MEG3"/>
+<node id="RPRD2"/>
+<node id="FMO2"/>
+<node id="THADA"/>
+<node id="PRKCE"/>
+<node id="AC092839.3"/>
+<node id="COMMD1"/>
+<node id="WDPCP"/>
+<node id="ZNF638"/>
+<node id="UBR3"/>
+<node id="RAPH1"/>
+<node id="SNED1"/>
+<node id="THUMPD3-AS1"/>
+<node id="RFTN1"/>
+<edge source="SRSF11" target="MEG3">
+  <data key="d0">0.783057538725304</data>
+  <data key="d1">131</data>
+</edge>
+<edge source="MEG3" target="RPRD2">
+  <data key="d0">0.754310355593566</data>
+  <data key="d1">83</data>
+</edge>
+<edge source="MEG3" target="FMO2">
+  <data key="d0">0.71769426120738</data>
+  <data key="d1">122</data>
+</edge>
+<edge source="MEG3" target="THADA">
+  <data key="d0">0.785530871247249</data>
+  <data key="d1">112</data>
+</edge>
+<edge source="MEG3" target="PRKCE">
+  <data key="d0">0.780358296629757</data>
+  <data key="d1">79</data>
+</edge>
+<edge source="MEG3" target="AC092839.3">
+  <data key="d0">0.918588404786262</data>
+  <data key="d1">71</data>
+</edge>
+<edge source="MEG3" target="COMMD1">
+  <data key="d0">0.757654110017736</data>
+  <data key="d1">90</data>
+</edge>
+<edge source="MEG3" target="WDPCP">
+  <data key="d0">0.903607791364033</data>
+  <data key="d1">95</data>
+</edge>
+<edge source="MEG3" target="ZNF638">
+  <data key="d0">0.718996660848117</data>
+  <data key="d1">143</data>
+</edge>
+<edge source="MEG3" target="UBR3">
+  <data key="d0">0.819099529377083</data>
+  <data key="d1">100</data>
+</edge>
+<edge source="MEG3" target="RAPH1">
+  <data key="d0">0.742916198718963</data>
+  <data key="d1">106</data>
+</edge>
+<edge source="MEG3" target="SNED1">
+  <data key="d0">0.822280759752883</data>
+  <data key="d1">105</data>
+</edge>
+<edge source="MEG3" target="THUMPD3-AS1">
+  <data key="d0">0.840976955903001</data>
+  <data key="d1">101</data>
+</edge>
+<edge source="MEG3" target="RFTN1">
+  <data key="d0">0.746821285227694</data>
+  <data key="d1">94</data>
+</edge>
+</graph></graphml>

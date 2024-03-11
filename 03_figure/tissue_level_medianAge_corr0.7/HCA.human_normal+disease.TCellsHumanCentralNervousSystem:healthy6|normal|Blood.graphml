@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d0" for="edge" attr.name="weight" attr.type="double"/>
+<graph edgedefault="undirected"><node id="PARK7"/>
+<node id="CCL5"/>
+<node id="CD52"/>
+<node id="LAPTM5"/>
+<node id="PTP4A2"/>
+<node id="CAP1"/>
+<node id="YBX1"/>
+<node id="C1orf162"/>
+<node id="MCL1"/>
+<node id="S100A10"/>
+<node id="S100A12"/>
+<node id="S100A8"/>
+<node id="KRTCAP2"/>
+<node id="TAGLN2"/>
+<node id="FCER1G"/>
+<node id="FCGR3A"/>
+<node id="SELL"/>
+<node id="PTPRC"/>
+<node id="FCMR"/>
+<node id="H3F3A"/>
+<node id="GUK1"/>
+<node id="CALM2"/>
+<node id="PCBP1"/>
+<node id="CD8A"/>
+<node id="CD8B"/>
+<node id="COX5B"/>
+<node id="ACTR3"/>
+<node id="DBI"/>
+<node id="HNRNPA3"/>
+<node id="ARPC2"/>
+<node id="LRRFIP1"/>
+<node id="TMA7"/>
+<node id="SPCS1"/>
+<node id="HCLS1"/>
+<node id="CNBP"/>
+<node id="SERP1"/>
+<node id="PPBP"/>
+<node id="CCNI"/>
+<node id="HNRNPDL"/>
+<node id="PLAC8"/>
+<node id="UBE2D3"/>
+<node id="LEF1"/>
+<node id="FYB1"/>
+<node id="BTF3"/>
+<node id="NSA2"/>
+<node id="CAST"/>
+<node id="HINT1"/>
+<edge source="PARK7" target="CCL5">
+  <data key="d0">0.987305769091311</data>
+</edge>
+<edge source="CCL5" target="CD52">
+  <data key="d0">0.713973857902089</data>
+</edge>
+<edge source="CCL5" target="LAPTM5">
+  <data key="d0">0.790377927021101</data>
+</edge>
+<edge source="CCL5" target="PTP4A2">
+  <data key="d0">0.990020505782946</data>
+</edge>
+<edge source="CCL5" target="CAP1">
+  <data key="d0">0.864681763465377</data>
+</edge>
+<edge source="CCL5" target="YBX1">
+  <data key="d0">0.804764886708129</data>
+</edge>
+<edge source="CCL5" target="C1orf162">
+  <data key="d0">0.954035454767281</data>
+</edge>
+<edge source="CCL5" target="MCL1">
+  <data key="d0">1.0</data>
+</edge>
+<edge source="CCL5" target="S100A10">
+  <data key="d0">0.715301995103604</data>
+</edge>
+<edge source="CCL5" target="S100A12">
+  <data key="d0">1.0</data>
+</edge>
+<edge source="CCL5" target="S100A8">
+  <data key="d0">0.915836742662527</data>
+</edge>
+<edge source="CCL5" target="KRTCAP2">
+  <data key="d0">1.0</data>
+</edge>
+<edge source="CCL5" target="TAGLN2">
+  <data key="d0">0.88155540901327</data>
+</edge>
+<edge source="CCL5" target="FCER1G">
+  <data key="d0">0.806596918681944</data>
+</edge>
+<edge source="CCL5" target="FCGR3A">
+  <data key="d0">0.79735891277157</data>
+</edge>
+<edge source="CCL5" target="SELL">
+  <data key="d0">0.82331912317512</data>
+</edge>
+<edge source="CCL5" target="PTPRC">
+  <data key="d0">0.794171782038189</data>
+</edge>
+<edge source="CCL5" target="FCMR">
+  <data key="d0">0.745219213792365</data>
+</edge>
+<edge source="CCL5" target="H3F3A">
+  <data key="d0">0.789590893169944</data>
+</edge>
+<edge source="CCL5" target="GUK1">
+  <data key="d0">0.978420169096234</data>
+</edge>
+<edge source="CCL5" target="CALM2">
+  <data key="d0">0.880938610671721</data>
+</edge>
+<edge source="CCL5" target="PCBP1">
+  <data key="d0">0.865682570417426</data>
+</edge>
+<edge source="CCL5" target="CD8A">
+  <data key="d0">0.738376306733572</data>
+</edge>
+<edge source="CCL5" target="CD8B">
+  <data key="d0">0.840382234362541</data>
+</edge>
+<edge source="CCL5" target="COX5B">
+  <data key="d0">0.798938845180454</data>
+</edge>
+<edge source="CCL5" target="ACTR3">
+  <data key="d0">0.839430398309434</data>
+</edge>
+<edge source="CCL5" target="DBI">
+  <data key="d0">0.771504230732575</data>
+</edge>
+<edge source="CCL5" target="HNRNPA3">
+  <data key="d0">0.970575631027055</data>
+</edge>
+<edge source="CCL5" target="ARPC2">
+  <data key="d0">0.761656062440733</data>
+</edge>
+<edge source="CCL5" target="LRRFIP1">
+  <data key="d0">0.9668538374148</data>
+</edge>
+<edge source="CCL5" target="TMA7">
+  <data key="d0">0.857740869623621</data>
+</edge>
+<edge source="CCL5" target="SPCS1">
+  <data key="d0">1.0</data>
+</edge>
+<edge source="CCL5" target="HCLS1">
+  <data key="d0">0.990313687813514</data>
+</edge>
+<edge source="CCL5" target="CNBP">
+  <data key="d0">0.912364939467723</data>
+</edge>
+<edge source="CCL5" target="SERP1">
+  <data key="d0">0.8751879033989</data>
+</edge>
+<edge source="CCL5" target="PPBP">
+  <data key="d0">0.886707564102341</data>
+</edge>
+<edge source="CCL5" target="CCNI">
+  <data key="d0">0.88532021579671</data>
+</edge>
+<edge source="CCL5" target="HNRNPDL">
+  <data key="d0">0.85819972242627</data>
+</edge>
+<edge source="CCL5" target="PLAC8">
+  <data key="d0">0.926772555771095</data>
+</edge>
+<edge source="CCL5" target="UBE2D3">
+  <data key="d0">0.994671536827231</data>
+</edge>
+<edge source="CCL5" target="LEF1">
+  <data key="d0">0.958876931763226</data>
+</edge>
+<edge source="CCL5" target="FYB1">
+  <data key="d0">0.902153661686203</data>
+</edge>
+<edge source="CCL5" target="BTF3">
+  <data key="d0">0.754395164610765</data>
+</edge>
+<edge source="CCL5" target="NSA2">
+  <data key="d0">0.977663466362807</data>
+</edge>
+<edge source="CCL5" target="CAST">
+  <data key="d0">0.969164458389241</data>
+</edge>
+<edge source="CCL5" target="HINT1">
+  <data key="d0">0.749284521571394</data>
+</edge>
+</graph></graphml>

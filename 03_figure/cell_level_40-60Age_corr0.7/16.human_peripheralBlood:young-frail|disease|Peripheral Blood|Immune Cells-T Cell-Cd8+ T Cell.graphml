@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d2" for="edge" attr.name="cell_n" attr.type="long"/>
+<key id="d1" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d0" for="graph" attr.name="name" attr.type="string"/>
+<graph edgedefault="undirected"><data key="d0">/Users/liuyuting/WorkSpace/ScRNA_project/03figure//16.human_peripheralBlood:young-frail|disease|Peripheral Blood|Immune Cells-T Cell-Cd8+ T Cell</data>
+<node id="LAPTM5"/>
+<node id="CCL5"/>
+<node id="YBX1"/>
+<node id="SSR2"/>
+<node id="TAGLN2"/>
+<node id="CD48"/>
+<node id="RGS1"/>
+<node id="BTG2"/>
+<node id="OST4"/>
+<node id="GNLY"/>
+<node id="CNBP"/>
+<node id="FGFBP2"/>
+<node id="CCNI"/>
+<node id="UBE2D3"/>
+<node id="IL7R"/>
+<node id="COX7C"/>
+<node id="HNRNPA0"/>
+<node id="GPSM3"/>
+<node id="HSP90AB1"/>
+<node id="HNRNPA2B1"/>
+<node id="TRBV7-6"/>
+<node id="TRBV7-9"/>
+<node id="SLC25A6"/>
+<edge source="LAPTM5" target="CCL5">
+  <data key="d1">0.741290244665152</data>
+  <data key="d2">669</data>
+</edge>
+<edge source="CCL5" target="YBX1">
+  <data key="d1">0.774373789797954</data>
+  <data key="d2">482</data>
+</edge>
+<edge source="CCL5" target="SSR2">
+  <data key="d1">0.876801161255546</data>
+  <data key="d2">81</data>
+</edge>
+<edge source="CCL5" target="TAGLN2">
+  <data key="d1">0.746375922069726</data>
+  <data key="d2">371</data>
+</edge>
+<edge source="CCL5" target="CD48">
+  <data key="d1">0.939268355336978</data>
+  <data key="d2">113</data>
+</edge>
+<edge source="CCL5" target="RGS1">
+  <data key="d1">0.746469128878536</data>
+  <data key="d2">115</data>
+</edge>
+<edge source="CCL5" target="BTG2">
+  <data key="d1">0.850079181963603</data>
+  <data key="d2">96</data>
+</edge>
+<edge source="CCL5" target="OST4">
+  <data key="d1">0.867926053877084</data>
+  <data key="d2">108</data>
+</edge>
+<edge source="CCL5" target="GNLY">
+  <data key="d1">0.777748992766377</data>
+  <data key="d2">1380</data>
+</edge>
+<edge source="CCL5" target="CNBP">
+  <data key="d1">0.804782168762774</data>
+  <data key="d2">134</data>
+</edge>
+<edge source="CCL5" target="FGFBP2">
+  <data key="d1">0.815103056744051</data>
+  <data key="d2">687</data>
+</edge>
+<edge source="CCL5" target="CCNI">
+  <data key="d1">0.718707567587982</data>
+  <data key="d2">505</data>
+</edge>
+<edge source="CCL5" target="UBE2D3">
+  <data key="d1">0.906204741706407</data>
+  <data key="d2">94</data>
+</edge>
+<edge source="CCL5" target="IL7R">
+  <data key="d1">0.924770149992378</data>
+  <data key="d2">214</data>
+</edge>
+<edge source="CCL5" target="COX7C">
+  <data key="d1">0.730493716305863</data>
+  <data key="d2">488</data>
+</edge>
+<edge source="CCL5" target="HNRNPA0">
+  <data key="d1">0.819338871922238</data>
+  <data key="d2">72</data>
+</edge>
+<edge source="CCL5" target="GPSM3">
+  <data key="d1">0.834880159144315</data>
+  <data key="d2">66</data>
+</edge>
+<edge source="CCL5" target="HSP90AB1">
+  <data key="d1">0.722114072600131</data>
+  <data key="d2">348</data>
+</edge>
+<edge source="CCL5" target="HNRNPA2B1">
+  <data key="d1">0.704117637577378</data>
+  <data key="d2">289</data>
+</edge>
+<edge source="CCL5" target="TRBV7-6">
+  <data key="d1">0.855997380757477</data>
+  <data key="d2">125</data>
+</edge>
+<edge source="CCL5" target="TRBV7-9">
+  <data key="d1">0.718730424405237</data>
+  <data key="d2">105</data>
+</edge>
+<edge source="CCL5" target="SLC25A6">
+  <data key="d1">0.732571861793141</data>
+  <data key="d2">492</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d1" for="edge" attr.name="cell_n" attr.type="long"/>
+<key id="d0" for="edge" attr.name="weight" attr.type="double"/>
+<graph edgedefault="undirected"><node id="ENO1"/>
+<node id="ICAM1"/>
+<node id="SFN"/>
+<node id="DHCR24"/>
+<node id="JUN"/>
+<node id="TXNIP"/>
+<node id="S100A4"/>
+<node id="MUC1"/>
+<node id="LMNA"/>
+<node id="C4BPA"/>
+<node id="CD55"/>
+<node id="H3F3A"/>
+<node id="CALM2"/>
+<node id="TFPI"/>
+<node id="GPX1"/>
+<node id="CLDN18"/>
+<node id="TM4SF1"/>
+<node id="LAMP3"/>
+<node id="ATP13A4-AS1"/>
+<node id="SLC34A2"/>
+<node id="CXCL8"/>
+<node id="CXCL2"/>
+<node id="SLC39A8"/>
+<node id="HHIP"/>
+<node id="LPCAT1"/>
+<node id="SKP1"/>
+<node id="EGR1"/>
+<node id="SQSTM1"/>
+<node id="HLA-A"/>
+<node id="HLA-DRB5"/>
+<node id="HLA-DRB1"/>
+<node id="HSP90AB1"/>
+<edge source="ENO1" target="ICAM1">
+  <data key="d0">0.767610557735959</data>
+  <data key="d1">136</data>
+</edge>
+<edge source="ICAM1" target="SFN">
+  <data key="d0">0.821441747199736</data>
+  <data key="d1">69</data>
+</edge>
+<edge source="ICAM1" target="DHCR24">
+  <data key="d0">0.880217088367938</data>
+  <data key="d1">127</data>
+</edge>
+<edge source="ICAM1" target="JUN">
+  <data key="d0">0.835231987196214</data>
+  <data key="d1">420</data>
+</edge>
+<edge source="ICAM1" target="TXNIP">
+  <data key="d0">0.881172823966858</data>
+  <data key="d1">92</data>
+</edge>
+<edge source="ICAM1" target="S100A4">
+  <data key="d0">0.999965045888124</data>
+  <data key="d1">27</data>
+</edge>
+<edge source="ICAM1" target="MUC1">
+  <data key="d0">0.718366159524997</data>
+  <data key="d1">495</data>
+</edge>
+<edge source="ICAM1" target="LMNA">
+  <data key="d0">0.897675375506434</data>
+  <data key="d1">127</data>
+</edge>
+<edge source="ICAM1" target="C4BPA">
+  <data key="d0">0.897381619266427</data>
+  <data key="d1">129</data>
+</edge>
+<edge source="ICAM1" target="CD55">
+  <data key="d0">0.702512670757326</data>
+  <data key="d1">120</data>
+</edge>
+<edge source="ICAM1" target="H3F3A">
+  <data key="d0">0.728661713378075</data>
+  <data key="d1">221</data>
+</edge>
+<edge source="ICAM1" target="CALM2">
+  <data key="d0">0.879776595520517</data>
+  <data key="d1">161</data>
+</edge>
+<edge source="ICAM1" target="TFPI">
+  <data key="d0">0.709520442039139</data>
+  <data key="d1">130</data>
+</edge>
+<edge source="ICAM1" target="GPX1">
+  <data key="d0">0.849505861239667</data>
+  <data key="d1">157</data>
+</edge>
+<edge source="ICAM1" target="CLDN18">
+  <data key="d0">0.851804358570021</data>
+  <data key="d1">105</data>
+</edge>
+<edge source="ICAM1" target="TM4SF1">
+  <data key="d0">0.775210480259231</data>
+  <data key="d1">178</data>
+</edge>
+<edge source="ICAM1" target="LAMP3">
+  <data key="d0">0.86698451433934</data>
+  <data key="d1">335</data>
+</edge>
+<edge source="ICAM1" target="ATP13A4-AS1">
+  <data key="d0">1.0</data>
+  <data key="d1">18</data>
+</edge>
+<edge source="ICAM1" target="SLC34A2">
+  <data key="d0">0.808774327125215</data>
+  <data key="d1">764</data>
+</edge>
+<edge source="ICAM1" target="CXCL8">
+  <data key="d0">0.918769115927555</data>
+  <data key="d1">100</data>
+</edge>
+<edge source="ICAM1" target="CXCL2">
+  <data key="d0">0.750862354395503</data>
+  <data key="d1">611</data>
+</edge>
+<edge source="ICAM1" target="SLC39A8">
+  <data key="d0">0.77286870293671</data>
+  <data key="d1">68</data>
+</edge>
+<edge source="ICAM1" target="HHIP">
+  <data key="d0">0.746157794097931</data>
+  <data key="d1">46</data>
+</edge>
+<edge source="ICAM1" target="LPCAT1">
+  <data key="d0">0.924650416666146</data>
+  <data key="d1">188</data>
+</edge>
+<edge source="ICAM1" target="SKP1">
+  <data key="d0">0.785867503711822</data>
+  <data key="d1">59</data>
+</edge>
+<edge source="ICAM1" target="EGR1">
+  <data key="d0">0.833721423583972</data>
+  <data key="d1">126</data>
+</edge>
+<edge source="ICAM1" target="SQSTM1">
+  <data key="d0">0.748333758301034</data>
+  <data key="d1">231</data>
+</edge>
+<edge source="ICAM1" target="HLA-A">
+  <data key="d0">0.719110169568802</data>
+  <data key="d1">187</data>
+</edge>
+<edge source="ICAM1" target="HLA-DRB5">
+  <data key="d0">0.734653683709104</data>
+  <data key="d1">128</data>
+</edge>
+<edge source="ICAM1" target="HLA-DRB1">
+  <data key="d0">0.780600902719352</data>
+  <data key="d1">288</data>
+</edge>
+<edge source="ICAM1" target="HSP90AB1">
+  <data key="d0">0.878725239441498</data>
+  <data key="d1">242</data>
+</edge>
+</graph></graphml>

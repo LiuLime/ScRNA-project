@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d2" for="edge" attr.name="cell_n" attr.type="long"/>
+<key id="d1" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d0" for="graph" attr.name="name" attr.type="string"/>
+<graph edgedefault="undirected"><data key="d0">/Users/liuyuting/WorkSpace/ScRNA_project/03figure//16.human_peripheralBlood:young-healthyOld|normal|Peripheral Blood|Endothelial Cell-Lympathic Endothelial Cells</data>
+<node id="SH3BGRL3"/>
+<node id="CCL5"/>
+<node id="H3F3A"/>
+<node id="TMA7"/>
+<node id="BTF3"/>
+<node id="HLA-E"/>
+<node id="HLA-B"/>
+<node id="TMSB4X"/>
+<node id="TSC22D3"/>
+<node id="YWHAZ"/>
+<node id="CFL1"/>
+<node id="CD3E"/>
+<node id="CD69"/>
+<node id="HNRNPA1"/>
+<node id="ITM2B"/>
+<node id="RPL36AL"/>
+<node id="SERF2"/>
+<node id="B2M"/>
+<node id="PFN1"/>
+<edge source="SH3BGRL3" target="CCL5">
+  <data key="d1">0.732096515291176</data>
+  <data key="d2">366</data>
+</edge>
+<edge source="CCL5" target="H3F3A">
+  <data key="d1">0.715408695693409</data>
+  <data key="d2">223</data>
+</edge>
+<edge source="CCL5" target="TMA7">
+  <data key="d1">0.806988076217022</data>
+  <data key="d2">84</data>
+</edge>
+<edge source="CCL5" target="BTF3">
+  <data key="d1">0.703189811415328</data>
+  <data key="d2">109</data>
+</edge>
+<edge source="CCL5" target="HLA-E">
+  <data key="d1">0.722826633410159</data>
+  <data key="d2">377</data>
+</edge>
+<edge source="CCL5" target="HLA-B">
+  <data key="d1">0.707170841199743</data>
+  <data key="d2">436</data>
+</edge>
+<edge source="CCL5" target="TMSB4X">
+  <data key="d1">0.715075774991764</data>
+  <data key="d2">440</data>
+</edge>
+<edge source="CCL5" target="TSC22D3">
+  <data key="d1">0.805245547246675</data>
+  <data key="d2">180</data>
+</edge>
+<edge source="CCL5" target="YWHAZ">
+  <data key="d1">0.873809115245574</data>
+  <data key="d2">134</data>
+</edge>
+<edge source="CCL5" target="CFL1">
+  <data key="d1">0.795699590071337</data>
+  <data key="d2">230</data>
+</edge>
+<edge source="CCL5" target="CD3E">
+  <data key="d1">0.812049804253252</data>
+  <data key="d2">85</data>
+</edge>
+<edge source="CCL5" target="CD69">
+  <data key="d1">0.734228796716</data>
+  <data key="d2">109</data>
+</edge>
+<edge source="CCL5" target="HNRNPA1">
+  <data key="d1">0.758876681172651</data>
+  <data key="d2">147</data>
+</edge>
+<edge source="CCL5" target="ITM2B">
+  <data key="d1">0.759150007000887</data>
+  <data key="d2">147</data>
+</edge>
+<edge source="CCL5" target="RPL36AL">
+  <data key="d1">0.756488027355798</data>
+  <data key="d2">67</data>
+</edge>
+<edge source="CCL5" target="SERF2">
+  <data key="d1">0.766244806476785</data>
+  <data key="d2">216</data>
+</edge>
+<edge source="CCL5" target="B2M">
+  <data key="d1">0.815562712344181</data>
+  <data key="d2">441</data>
+</edge>
+<edge source="CCL5" target="PFN1">
+  <data key="d1">0.714773219464507</data>
+  <data key="d2">308</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,195 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d1" for="edge" attr.name="cell_n" attr.type="long"/>
+<key id="d0" for="edge" attr.name="weight" attr.type="double"/>
+<graph edgedefault="undirected"><node id="S100A4"/>
+<node id="CCL5"/>
+<node id="RPS7"/>
+<node id="YPEL5"/>
+<node id="ZFP36L2"/>
+<node id="EEF1B2"/>
+<node id="ARL4C"/>
+<node id="H1FX"/>
+<node id="RPL35A"/>
+<node id="IL7R"/>
+<node id="RACK1"/>
+<node id="HLA-E"/>
+<node id="YWHAZ"/>
+<node id="ANXA1"/>
+<node id="RPS24"/>
+<node id="FAU"/>
+<node id="CFL1"/>
+<node id="ARHGDIB"/>
+<node id="RPS26"/>
+<node id="RGCC"/>
+<node id="RPS29"/>
+<node id="CALM1"/>
+<node id="IL32"/>
+<node id="RPL37A"/>
+<node id="HSP90AB1"/>
+<node id="KLF6"/>
+<node id="RPL26"/>
+<node id="UBB"/>
+<node id="CCL4"/>
+<node id="RPL38"/>
+<node id="DNAJB1"/>
+<node id="FTL"/>
+<node id="TMSB4X"/>
+<node id="MT-ND1"/>
+<node id="MT-CO3"/>
+<node id="MT-ND3"/>
+<node id="MT-ND5"/>
+<node id="ACTG1"/>
+<node id="RPL36"/>
+<edge source="S100A4" target="CCL5">
+  <data key="d0">0.729323504213039</data>
+  <data key="d1">48</data>
+</edge>
+<edge source="CCL5" target="RPS7">
+  <data key="d0">0.75976479154159</data>
+  <data key="d1">290</data>
+</edge>
+<edge source="CCL5" target="YPEL5">
+  <data key="d0">0.940417166691443</data>
+  <data key="d1">34</data>
+</edge>
+<edge source="CCL5" target="ZFP36L2">
+  <data key="d0">0.776240250942019</data>
+  <data key="d1">163</data>
+</edge>
+<edge source="CCL5" target="EEF1B2">
+  <data key="d0">0.813061755787555</data>
+  <data key="d1">40</data>
+</edge>
+<edge source="CCL5" target="ARL4C">
+  <data key="d0">0.772014482144913</data>
+  <data key="d1">39</data>
+</edge>
+<edge source="CCL5" target="H1FX">
+  <data key="d0">0.955127984159232</data>
+  <data key="d1">50</data>
+</edge>
+<edge source="CCL5" target="RPL35A">
+  <data key="d0">0.729841573479461</data>
+  <data key="d1">287</data>
+</edge>
+<edge source="CCL5" target="IL7R">
+  <data key="d0">0.982812071874472</data>
+  <data key="d1">31</data>
+</edge>
+<edge source="CCL5" target="RACK1">
+  <data key="d0">0.739834979629887</data>
+  <data key="d1">116</data>
+</edge>
+<edge source="CCL5" target="HLA-E">
+  <data key="d0">0.777476946481887</data>
+  <data key="d1">205</data>
+</edge>
+<edge source="CCL5" target="YWHAZ">
+  <data key="d0">0.995205945260711</data>
+  <data key="d1">25</data>
+</edge>
+<edge source="CCL5" target="ANXA1">
+  <data key="d0">0.834715924317576</data>
+  <data key="d1">64</data>
+</edge>
+<edge source="CCL5" target="RPS24">
+  <data key="d0">0.74317044478378</data>
+  <data key="d1">299</data>
+</edge>
+<edge source="CCL5" target="FAU">
+  <data key="d0">0.739742705528952</data>
+  <data key="d1">286</data>
+</edge>
+<edge source="CCL5" target="CFL1">
+  <data key="d0">0.843867574739942</data>
+  <data key="d1">66</data>
+</edge>
+<edge source="CCL5" target="ARHGDIB">
+  <data key="d0">0.862460826631665</data>
+  <data key="d1">45</data>
+</edge>
+<edge source="CCL5" target="RPS26">
+  <data key="d0">0.886542649980971</data>
+  <data key="d1">74</data>
+</edge>
+<edge source="CCL5" target="RGCC">
+  <data key="d0">0.974207264155907</data>
+  <data key="d1">55</data>
+</edge>
+<edge source="CCL5" target="RPS29">
+  <data key="d0">0.712885444154781</data>
+  <data key="d1">305</data>
+</edge>
+<edge source="CCL5" target="CALM1">
+  <data key="d0">0.796963830466035</data>
+  <data key="d1">65</data>
+</edge>
+<edge source="CCL5" target="IL32">
+  <data key="d0">0.717884442546913</data>
+  <data key="d1">145</data>
+</edge>
+<edge source="CCL5" target="RPL37A">
+  <data key="d0">0.703061013073593</data>
+  <data key="d1">180</data>
+</edge>
+<edge source="CCL5" target="HSP90AB1">
+  <data key="d0">0.786602487419325</data>
+  <data key="d1">133</data>
+</edge>
+<edge source="CCL5" target="KLF6">
+  <data key="d0">0.740218946232708</data>
+  <data key="d1">209</data>
+</edge>
+<edge source="CCL5" target="RPL26">
+  <data key="d0">0.729915776436918</data>
+  <data key="d1">376</data>
+</edge>
+<edge source="CCL5" target="UBB">
+  <data key="d0">0.935971437699596</data>
+  <data key="d1">61</data>
+</edge>
+<edge source="CCL5" target="CCL4">
+  <data key="d0">0.772117210967859</data>
+  <data key="d1">189</data>
+</edge>
+<edge source="CCL5" target="RPL38">
+  <data key="d0">0.758456430293993</data>
+  <data key="d1">30</data>
+</edge>
+<edge source="CCL5" target="DNAJB1">
+  <data key="d0">0.748351590393506</data>
+  <data key="d1">160</data>
+</edge>
+<edge source="CCL5" target="FTL">
+  <data key="d0">0.769945084277499</data>
+  <data key="d1">157</data>
+</edge>
+<edge source="CCL5" target="TMSB4X">
+  <data key="d0">0.71329974354823</data>
+  <data key="d1">553</data>
+</edge>
+<edge source="CCL5" target="MT-ND1">
+  <data key="d0">0.897131913710751</data>
+  <data key="d1">104</data>
+</edge>
+<edge source="CCL5" target="MT-CO3">
+  <data key="d0">0.765535926163342</data>
+  <data key="d1">379</data>
+</edge>
+<edge source="CCL5" target="MT-ND3">
+  <data key="d0">0.819312972271568</data>
+  <data key="d1">250</data>
+</edge>
+<edge source="CCL5" target="MT-ND5">
+  <data key="d0">0.788621252339155</data>
+  <data key="d1">99</data>
+</edge>
+<edge source="CCL5" target="ACTG1">
+  <data key="d0">0.712450132103188</data>
+  <data key="d1">200</data>
+</edge>
+<edge source="CCL5" target="RPL36">
+  <data key="d0">0.728707369992743</data>
+  <data key="d1">221</data>
+</edge>
+</graph></graphml>

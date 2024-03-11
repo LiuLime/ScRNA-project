@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d1" for="edge" attr.name="cell_n" attr.type="long"/>
+<key id="d0" for="edge" attr.name="weight" attr.type="double"/>
+<graph edgedefault="undirected"><node id="LAPTM5"/>
+<node id="IL1B"/>
+<node id="MCL1"/>
+<node id="FCER1G"/>
+<node id="CXCL8"/>
+<node id="CXCL2"/>
+<node id="DUSP1"/>
+<node id="PNRC1"/>
+<node id="SOD2"/>
+<node id="NAMPT"/>
+<node id="CTSB"/>
+<node id="CEBPD"/>
+<node id="HSPA5"/>
+<node id="SRGN"/>
+<node id="IFITM2"/>
+<node id="NFKBIA"/>
+<node id="THBS1"/>
+<node id="ATP6V0C"/>
+<node id="CCL3"/>
+<node id="EIF1"/>
+<node id="EEF2"/>
+<node id="ZFP36"/>
+<node id="C5AR1"/>
+<node id="PPP1R15A"/>
+<node id="SLC25A6"/>
+<node id="SAT1"/>
+<node id="NFKBIZ"/>
+<node id="ZFAND5"/>
+<node id="KLF6"/>
+<node id="ITM2B"/>
+<node id="FOS"/>
+<edge source="LAPTM5" target="IL1B">
+  <data key="d0">0.759822401821119</data>
+  <data key="d1">143</data>
+</edge>
+<edge source="IL1B" target="MCL1">
+  <data key="d0">0.708685542536765</data>
+  <data key="d1">68</data>
+</edge>
+<edge source="IL1B" target="FCER1G">
+  <data key="d0">0.746255459845605</data>
+  <data key="d1">168</data>
+</edge>
+<edge source="IL1B" target="CXCL8">
+  <data key="d0">0.784227323604534</data>
+  <data key="d1">120</data>
+</edge>
+<edge source="IL1B" target="CXCL2">
+  <data key="d0">0.963341881700193</data>
+  <data key="d1">101</data>
+</edge>
+<edge source="IL1B" target="DUSP1">
+  <data key="d0">0.738048843197975</data>
+  <data key="d1">178</data>
+</edge>
+<edge source="IL1B" target="PNRC1">
+  <data key="d0">0.833625831709937</data>
+  <data key="d1">115</data>
+</edge>
+<edge source="IL1B" target="SOD2">
+  <data key="d0">0.908607425789644</data>
+  <data key="d1">153</data>
+</edge>
+<edge source="IL1B" target="NAMPT">
+  <data key="d0">0.845008566676145</data>
+  <data key="d1">109</data>
+</edge>
+<edge source="IL1B" target="CTSB">
+  <data key="d0">0.925835326797208</data>
+  <data key="d1">77</data>
+</edge>
+<edge source="IL1B" target="CEBPD">
+  <data key="d0">0.845290420020858</data>
+  <data key="d1">104</data>
+</edge>
+<edge source="IL1B" target="HSPA5">
+  <data key="d0">0.902709148697365</data>
+  <data key="d1">142</data>
+</edge>
+<edge source="IL1B" target="SRGN">
+  <data key="d0">0.766713787422462</data>
+  <data key="d1">184</data>
+</edge>
+<edge source="IL1B" target="IFITM2">
+  <data key="d0">0.91867610115555</data>
+  <data key="d1">133</data>
+</edge>
+<edge source="IL1B" target="NFKBIA">
+  <data key="d0">0.928657671760016</data>
+  <data key="d1">192</data>
+</edge>
+<edge source="IL1B" target="THBS1">
+  <data key="d0">0.794142260997119</data>
+  <data key="d1">113</data>
+</edge>
+<edge source="IL1B" target="ATP6V0C">
+  <data key="d0">0.799409702453525</data>
+  <data key="d1">96</data>
+</edge>
+<edge source="IL1B" target="CCL3">
+  <data key="d0">0.781730727558798</data>
+  <data key="d1">94</data>
+</edge>
+<edge source="IL1B" target="EIF1">
+  <data key="d0">0.874086093477107</data>
+  <data key="d1">179</data>
+</edge>
+<edge source="IL1B" target="EEF2">
+  <data key="d0">0.743098301803886</data>
+  <data key="d1">96</data>
+</edge>
+<edge source="IL1B" target="ZFP36">
+  <data key="d0">0.893540245207849</data>
+  <data key="d1">186</data>
+</edge>
+<edge source="IL1B" target="C5AR1">
+  <data key="d0">0.704905332981397</data>
+  <data key="d1">81</data>
+</edge>
+<edge source="IL1B" target="PPP1R15A">
+  <data key="d0">0.872608806526013</data>
+  <data key="d1">147</data>
+</edge>
+<edge source="IL1B" target="SLC25A6">
+  <data key="d0">0.772343783168348</data>
+  <data key="d1">86</data>
+</edge>
+<edge source="IL1B" target="SAT1">
+  <data key="d0">0.837253672715841</data>
+  <data key="d1">191</data>
+</edge>
+<edge source="IL1B" target="NFKBIZ">
+  <data key="d0">0.816274979762666</data>
+  <data key="d1">101</data>
+</edge>
+<edge source="IL1B" target="ZFAND5">
+  <data key="d0">0.805648845220552</data>
+  <data key="d1">54</data>
+</edge>
+<edge source="IL1B" target="KLF6">
+  <data key="d0">0.726165405149436</data>
+  <data key="d1">162</data>
+</edge>
+<edge source="IL1B" target="ITM2B">
+  <data key="d0">0.786757062906946</data>
+  <data key="d1">82</data>
+</edge>
+<edge source="IL1B" target="FOS">
+  <data key="d0">0.701482502447063</data>
+  <data key="d1">180</data>
+</edge>
+</graph></graphml>

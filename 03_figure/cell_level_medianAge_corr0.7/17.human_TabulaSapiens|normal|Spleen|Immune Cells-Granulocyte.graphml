@@ -1,0 +1,232 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d1" for="edge" attr.name="cell_n" attr.type="long"/>
+<key id="d0" for="edge" attr.name="weight" attr.type="double"/>
+<graph edgedefault="undirected"><node id="SMAP2"/>
+<node id="IL1B"/>
+<node id="MMP9"/>
+<node id="TXNIP"/>
+<node id="S100A12"/>
+<node id="S100A8"/>
+<node id="PTPRC"/>
+<node id="IL1R2"/>
+<node id="GAPDH"/>
+<node id="HLA-B"/>
+<node id="VIM"/>
+<node id="CFL1"/>
+<node id="NFKBIA"/>
+<node id="EIF1"/>
+<node id="JUNB"/>
+<node id="TSPO"/>
+<node id="MT-ND4"/>
+<node id="IL1RN"/>
+<node id="ACSL1"/>
+<node id="EGR1"/>
+<node id="HLA-E"/>
+<node id="IER3"/>
+<node id="HLA-C"/>
+<node id="SLC25A37"/>
+<node id="TPT1"/>
+<node id="LCP1"/>
+<node id="ITM2B"/>
+<node id="FOS"/>
+<node id="PFN1"/>
+<node id="IER2"/>
+<node id="ZFP36"/>
+<node id="PPP1R15A"/>
+<node id="CSF3R"/>
+<node id="LITAF"/>
+<node id="CEBPB"/>
+<node id="SAMSN1"/>
+<edge source="SMAP2" target="IL1B">
+  <data key="d0">0.711474265822853</data>
+  <data key="d1">313</data>
+</edge>
+<edge source="SMAP2" target="MMP9">
+  <data key="d0">0.989407703471289</data>
+  <data key="d1">25</data>
+</edge>
+<edge source="IL1B" target="HLA-B">
+  <data key="d0">0.753645893146096</data>
+  <data key="d1">793</data>
+</edge>
+<edge source="IL1B" target="VIM">
+  <data key="d0">0.83854136896145</data>
+  <data key="d1">126</data>
+</edge>
+<edge source="IL1B" target="CFL1">
+  <data key="d0">0.942797048197318</data>
+  <data key="d1">43</data>
+</edge>
+<edge source="IL1B" target="GAPDH">
+  <data key="d0">0.977655977726714</data>
+  <data key="d1">26</data>
+</edge>
+<edge source="IL1B" target="NFKBIA">
+  <data key="d0">0.746250562851801</data>
+  <data key="d1">1693</data>
+</edge>
+<edge source="IL1B" target="EIF1">
+  <data key="d0">0.720760985227409</data>
+  <data key="d1">234</data>
+</edge>
+<edge source="IL1B" target="JUNB">
+  <data key="d0">0.710715246889692</data>
+  <data key="d1">739</data>
+</edge>
+<edge source="IL1B" target="TSPO">
+  <data key="d0">0.821393373962013</data>
+  <data key="d1">153</data>
+</edge>
+<edge source="IL1B" target="MT-ND4">
+  <data key="d0">0.73804737985592</data>
+  <data key="d1">171</data>
+</edge>
+<edge source="IL1B" target="IL1RN">
+  <data key="d0">0.722538490867545</data>
+  <data key="d1">685</data>
+</edge>
+<edge source="IL1B" target="EGR1">
+  <data key="d0">0.773569224400933</data>
+  <data key="d1">185</data>
+</edge>
+<edge source="IL1B" target="HLA-C">
+  <data key="d0">0.716246922799189</data>
+  <data key="d1">683</data>
+</edge>
+<edge source="IL1B" target="SLC25A37">
+  <data key="d0">0.721144135095694</data>
+  <data key="d1">437</data>
+</edge>
+<edge source="IL1B" target="PPP1R15A">
+  <data key="d0">0.716713109047833</data>
+  <data key="d1">885</data>
+</edge>
+<edge source="IL1B" target="MMP9">
+  <data key="d0">0.823064173075801</data>
+  <data key="d1">21</data>
+</edge>
+<edge source="IL1B" target="CEBPB">
+  <data key="d0">0.703457193060383</data>
+  <data key="d1">159</data>
+</edge>
+<edge source="MMP9" target="TXNIP">
+  <data key="d0">1.0</data>
+  <data key="d1">14</data>
+</edge>
+<edge source="MMP9" target="S100A12">
+  <data key="d0">0.729920273081132</data>
+  <data key="d1">267</data>
+</edge>
+<edge source="MMP9" target="S100A8">
+  <data key="d0">0.8190849441471</data>
+  <data key="d1">272</data>
+</edge>
+<edge source="MMP9" target="PTPRC">
+  <data key="d0">0.736853597014335</data>
+  <data key="d1">72</data>
+</edge>
+<edge source="MMP9" target="ACSL1">
+  <data key="d0">0.774108666216205</data>
+  <data key="d1">68</data>
+</edge>
+<edge source="MMP9" target="EGR1">
+  <data key="d0">1.0</data>
+  <data key="d1">19</data>
+</edge>
+<edge source="MMP9" target="HLA-E">
+  <data key="d0">0.829486391799673</data>
+  <data key="d1">50</data>
+</edge>
+<edge source="MMP9" target="IER3">
+  <data key="d0">0.703503687612317</data>
+  <data key="d1">28</data>
+</edge>
+<edge source="MMP9" target="HLA-C">
+  <data key="d0">0.753517381349516</data>
+  <data key="d1">69</data>
+</edge>
+<edge source="MMP9" target="HLA-B">
+  <data key="d0">0.86648132288142</data>
+  <data key="d1">72</data>
+</edge>
+<edge source="MMP9" target="SLC25A37">
+  <data key="d0">0.996647486948016</data>
+  <data key="d1">40</data>
+</edge>
+<edge source="MMP9" target="VIM">
+  <data key="d0">0.877569094692364</data>
+  <data key="d1">160</data>
+</edge>
+<edge source="MMP9" target="CFL1">
+  <data key="d0">0.778455647424379</data>
+  <data key="d1">69</data>
+</edge>
+<edge source="MMP9" target="TPT1">
+  <data key="d0">0.884262748029357</data>
+  <data key="d1">109</data>
+</edge>
+<edge source="MMP9" target="LCP1">
+  <data key="d0">0.741989719025693</data>
+  <data key="d1">98</data>
+</edge>
+<edge source="MMP9" target="ITM2B">
+  <data key="d0">0.717768724702807</data>
+  <data key="d1">86</data>
+</edge>
+<edge source="MMP9" target="FOS">
+  <data key="d0">0.858896787616664</data>
+  <data key="d1">35</data>
+</edge>
+<edge source="MMP9" target="PFN1">
+  <data key="d0">0.711279093159515</data>
+  <data key="d1">126</data>
+</edge>
+<edge source="MMP9" target="IER2">
+  <data key="d0">0.921860331373035</data>
+  <data key="d1">31</data>
+</edge>
+<edge source="MMP9" target="ZFP36">
+  <data key="d0">0.94699305261208</data>
+  <data key="d1">48</data>
+</edge>
+<edge source="MMP9" target="CSF3R">
+  <data key="d0">0.803203327700805</data>
+  <data key="d1">73</data>
+</edge>
+<edge source="MMP9" target="LITAF">
+  <data key="d0">0.83992217388418</data>
+  <data key="d1">55</data>
+</edge>
+<edge source="MMP9" target="EIF1">
+  <data key="d0">0.825926190399025</data>
+  <data key="d1">44</data>
+</edge>
+<edge source="MMP9" target="PPP1R15A">
+  <data key="d0">0.980298139353554</data>
+  <data key="d1">35</data>
+</edge>
+<edge source="MMP9" target="CEBPB">
+  <data key="d0">1.0</data>
+  <data key="d1">14</data>
+</edge>
+<edge source="MMP9" target="SAMSN1">
+  <data key="d0">0.811884592696851</data>
+  <data key="d1">65</data>
+</edge>
+<edge source="IL1R2" target="GAPDH">
+  <data key="d0">0.774152044497908</data>
+  <data key="d1">163</data>
+</edge>
+<edge source="IL1R2" target="CFL1">
+  <data key="d0">0.766660387217767</data>
+  <data key="d1">150</data>
+</edge>
+<edge source="IL1R2" target="EIF1">
+  <data key="d0">0.756919529431517</data>
+  <data key="d1">345</data>
+</edge>
+<edge source="IL1R2" target="SAMSN1">
+  <data key="d0">0.725998312052609</data>
+  <data key="d1">932</data>
+</edge>
+</graph></graphml>

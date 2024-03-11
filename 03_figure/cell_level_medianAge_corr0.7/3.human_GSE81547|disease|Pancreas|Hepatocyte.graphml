@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d1" for="edge" attr.name="cell_n" attr.type="long"/>
+<key id="d0" for="edge" attr.name="weight" attr.type="double"/>
+<graph edgedefault="undirected"><node id="AADAC"/>
+<node id="MEG3"/>
+<node id="AAK1"/>
+<node id="ABCD3"/>
+<node id="ABCE1"/>
+<node id="ABHD14B"/>
+<node id="CDKN1A"/>
+<node id="ACAA2"/>
+<node id="ACBD3"/>
+<node id="ACTR10"/>
+<node id="ACTR3"/>
+<node id="ADAM9"/>
+<node id="ADPGK"/>
+<node id="AFTPH"/>
+<node id="AGFG1"/>
+<node id="AHCTF1"/>
+<node id="AKIRIN2"/>
+<node id="ALAD"/>
+<node id="ALCAM"/>
+<node id="ALDH1L2"/>
+<node id="ALDOA"/>
+<node id="ANKHD1"/>
+<node id="ANKRD17"/>
+<node id="ANKRD36"/>
+<node id="ANXA7"/>
+<node id="AP1G1"/>
+<node id="AP2B1"/>
+<node id="AP2M1"/>
+<node id="APC"/>
+<node id="APEH"/>
+<node id="AQR"/>
+<edge source="AADAC" target="MEG3">
+  <data key="d0">0.851108118807364</data>
+  <data key="d1">146</data>
+</edge>
+<edge source="MEG3" target="AAK1">
+  <data key="d0">0.811019753503312</data>
+  <data key="d1">116</data>
+</edge>
+<edge source="MEG3" target="ABCD3">
+  <data key="d0">0.850353716129268</data>
+  <data key="d1">112</data>
+</edge>
+<edge source="MEG3" target="ABCE1">
+  <data key="d0">0.790248851089901</data>
+  <data key="d1">162</data>
+</edge>
+<edge source="MEG3" target="ACAA2">
+  <data key="d0">0.821406410311942</data>
+  <data key="d1">120</data>
+</edge>
+<edge source="MEG3" target="ACBD3">
+  <data key="d0">0.891593158320277</data>
+  <data key="d1">122</data>
+</edge>
+<edge source="MEG3" target="ACTR10">
+  <data key="d0">0.715027013467813</data>
+  <data key="d1">95</data>
+</edge>
+<edge source="MEG3" target="ACTR3">
+  <data key="d0">0.731656066740204</data>
+  <data key="d1">144</data>
+</edge>
+<edge source="MEG3" target="ADAM9">
+  <data key="d0">0.76406028418146</data>
+  <data key="d1">149</data>
+</edge>
+<edge source="MEG3" target="ADPGK">
+  <data key="d0">0.867334125429456</data>
+  <data key="d1">99</data>
+</edge>
+<edge source="MEG3" target="AFTPH">
+  <data key="d0">0.888229762481156</data>
+  <data key="d1">82</data>
+</edge>
+<edge source="MEG3" target="AGFG1">
+  <data key="d0">0.880060662475555</data>
+  <data key="d1">123</data>
+</edge>
+<edge source="MEG3" target="AHCTF1">
+  <data key="d0">0.735671589797059</data>
+  <data key="d1">89</data>
+</edge>
+<edge source="MEG3" target="AKIRIN2">
+  <data key="d0">0.703980823934143</data>
+  <data key="d1">100</data>
+</edge>
+<edge source="MEG3" target="ALAD">
+  <data key="d0">0.897532993945463</data>
+  <data key="d1">78</data>
+</edge>
+<edge source="MEG3" target="ALCAM">
+  <data key="d0">0.799833125220065</data>
+  <data key="d1">131</data>
+</edge>
+<edge source="MEG3" target="ALDH1L2">
+  <data key="d0">0.854590143330849</data>
+  <data key="d1">111</data>
+</edge>
+<edge source="MEG3" target="ANKHD1">
+  <data key="d0">0.883666106450527</data>
+  <data key="d1">95</data>
+</edge>
+<edge source="MEG3" target="ANKRD17">
+  <data key="d0">0.795646095690137</data>
+  <data key="d1">161</data>
+</edge>
+<edge source="MEG3" target="ANKRD36">
+  <data key="d0">0.755407569848725</data>
+  <data key="d1">156</data>
+</edge>
+<edge source="MEG3" target="ANXA7">
+  <data key="d0">0.735669239094214</data>
+  <data key="d1">175</data>
+</edge>
+<edge source="MEG3" target="AP1G1">
+  <data key="d0">0.774999300089374</data>
+  <data key="d1">126</data>
+</edge>
+<edge source="MEG3" target="AP2B1">
+  <data key="d0">0.705784497217863</data>
+  <data key="d1">127</data>
+</edge>
+<edge source="MEG3" target="APC">
+  <data key="d0">0.853597601150303</data>
+  <data key="d1">77</data>
+</edge>
+<edge source="MEG3" target="AQR">
+  <data key="d0">0.873888914955815</data>
+  <data key="d1">111</data>
+</edge>
+<edge source="ABHD14B" target="CDKN1A">
+  <data key="d0">0.748902072335792</data>
+  <data key="d1">164</data>
+</edge>
+<edge source="CDKN1A" target="ALDOA">
+  <data key="d0">0.706119031491396</data>
+  <data key="d1">349</data>
+</edge>
+<edge source="CDKN1A" target="AP2M1">
+  <data key="d0">0.796202224194132</data>
+  <data key="d1">192</data>
+</edge>
+<edge source="CDKN1A" target="APEH">
+  <data key="d0">0.741026230451047</data>
+  <data key="d1">131</data>
+</edge>
+</graph></graphml>

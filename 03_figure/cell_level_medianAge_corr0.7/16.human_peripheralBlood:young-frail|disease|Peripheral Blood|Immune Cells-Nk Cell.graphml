@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d1" for="edge" attr.name="cell_n" attr.type="long"/>
+<key id="d0" for="edge" attr.name="weight" attr.type="double"/>
+<graph edgedefault="undirected"><node id="CD52"/>
+<node id="CCL5"/>
+<node id="YPEL5"/>
+<node id="NCL"/>
+<node id="GZMK"/>
+<node id="PIK3R1"/>
+<node id="COX7C"/>
+<node id="KMT2E"/>
+<edge source="CD52" target="CCL5">
+  <data key="d0">0.761758823961333</data>
+  <data key="d1">1688</data>
+</edge>
+<edge source="CCL5" target="YPEL5">
+  <data key="d0">0.715871778234212</data>
+  <data key="d1">234</data>
+</edge>
+<edge source="CCL5" target="NCL">
+  <data key="d0">0.776748666316945</data>
+  <data key="d1">162</data>
+</edge>
+<edge source="CCL5" target="GZMK">
+  <data key="d0">0.770006299788338</data>
+  <data key="d1">263</data>
+</edge>
+<edge source="CCL5" target="PIK3R1">
+  <data key="d0">0.737809246145273</data>
+  <data key="d1">129</data>
+</edge>
+<edge source="CCL5" target="COX7C">
+  <data key="d0">0.735192707821819</data>
+  <data key="d1">373</data>
+</edge>
+<edge source="CCL5" target="KMT2E">
+  <data key="d0">0.748815134317061</data>
+  <data key="d1">119</data>
+</edge>
+</graph></graphml>

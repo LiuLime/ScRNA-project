@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d2" for="edge" attr.name="cell_n" attr.type="long"/>
+<key id="d1" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d0" for="graph" attr.name="name" attr.type="string"/>
+<graph edgedefault="undirected"><data key="d0">/Users/liuyuting/WorkSpace/ScRNA_project/03figure//16.human_peripheralBlood:young-healthyOld|normal|Peripheral Blood|Endothelial Cell-Global</data>
+<node id="PELI1"/>
+<node id="IL1B"/>
+<node id="CD83"/>
+<node id="SOD2"/>
+<node id="SRGN"/>
+<node id="BCL2A1"/>
+<node id="CCL3"/>
+<node id="CCL4"/>
+<node id="PPP1R15A"/>
+<node id="LYN"/>
+<node id="NFKBIA"/>
+<edge source="PELI1" target="IL1B">
+  <data key="d1">0.77484899971192</data>
+  <data key="d2">115</data>
+</edge>
+<edge source="IL1B" target="CD83">
+  <data key="d1">0.768089617444123</data>
+  <data key="d2">284</data>
+</edge>
+<edge source="IL1B" target="SOD2">
+  <data key="d1">0.798007406315811</data>
+  <data key="d2">280</data>
+</edge>
+<edge source="IL1B" target="SRGN">
+  <data key="d1">0.710664272664094</data>
+  <data key="d2">289</data>
+</edge>
+<edge source="IL1B" target="BCL2A1">
+  <data key="d1">0.872505303102303</data>
+  <data key="d2">287</data>
+</edge>
+<edge source="IL1B" target="CCL3">
+  <data key="d1">0.775369319220639</data>
+  <data key="d2">268</data>
+</edge>
+<edge source="IL1B" target="CCL4">
+  <data key="d1">0.775499493229347</data>
+  <data key="d2">276</data>
+</edge>
+<edge source="IL1B" target="PPP1R15A">
+  <data key="d1">0.87497923397026</data>
+  <data key="d2">291</data>
+</edge>
+<edge source="IL1B" target="LYN">
+  <data key="d1">0.80335174937469</data>
+  <data key="d2">77</data>
+</edge>
+<edge source="IL1B" target="NFKBIA">
+  <data key="d1">0.722717162804878</data>
+  <data key="d2">307</data>
+</edge>
+</graph></graphml>

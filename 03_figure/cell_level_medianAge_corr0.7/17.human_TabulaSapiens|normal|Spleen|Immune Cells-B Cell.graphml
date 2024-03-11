@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d1" for="edge" attr.name="cell_n" attr.type="long"/>
+<key id="d0" for="edge" attr.name="weight" attr.type="double"/>
+<graph edgedefault="undirected"><node id="MRTO4"/>
+<node id="CDKN1A"/>
+<node id="CAPZB"/>
+<node id="CLIC4"/>
+<node id="CD52"/>
+<node id="CLSPN"/>
+<node id="MRPL37"/>
+<node id="SARS"/>
+<node id="RAP1A"/>
+<node id="S100A4"/>
+<node id="C1orf43"/>
+<edge source="MRTO4" target="CDKN1A">
+  <data key="d0">0.860530669112539</data>
+  <data key="d1">23</data>
+</edge>
+<edge source="CDKN1A" target="CAPZB">
+  <data key="d0">0.890687634622298</data>
+  <data key="d1">64</data>
+</edge>
+<edge source="CDKN1A" target="CLIC4">
+  <data key="d0">0.846083302668715</data>
+  <data key="d1">66</data>
+</edge>
+<edge source="CDKN1A" target="CD52">
+  <data key="d0">0.902283842260429</data>
+  <data key="d1">43</data>
+</edge>
+<edge source="CDKN1A" target="CLSPN">
+  <data key="d0">0.783779598067262</data>
+  <data key="d1">38</data>
+</edge>
+<edge source="CDKN1A" target="MRPL37">
+  <data key="d0">0.95790183563176</data>
+  <data key="d1">47</data>
+</edge>
+<edge source="CDKN1A" target="SARS">
+  <data key="d0">0.725656905285726</data>
+  <data key="d1">61</data>
+</edge>
+<edge source="CDKN1A" target="RAP1A">
+  <data key="d0">0.708925203028421</data>
+  <data key="d1">37</data>
+</edge>
+<edge source="CDKN1A" target="S100A4">
+  <data key="d0">0.714862952355392</data>
+  <data key="d1">59</data>
+</edge>
+<edge source="CDKN1A" target="C1orf43">
+  <data key="d0">0.933806015154672</data>
+  <data key="d1">60</data>
+</edge>
+</graph></graphml>

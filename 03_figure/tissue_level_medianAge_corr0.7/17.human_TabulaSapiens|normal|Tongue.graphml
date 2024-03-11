@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d0" for="edge" attr.name="weight" attr.type="double"/>
+<graph edgedefault="undirected"><node id="AURKAIP1"/>
+<node id="IL1B"/>
+<node id="PLAUR"/>
+<node id="MRPL20"/>
+<node id="RER1"/>
+<node id="PARK7"/>
+<node id="EPHA2"/>
+<node id="CDKN1A"/>
+<node id="IFFO2"/>
+<node id="CAPZB"/>
+<node id="SRRM1"/>
+<node id="TMEM50A"/>
+<node id="STMN1"/>
+<node id="NUDC"/>
+<node id="DNAJC8"/>
+<node id="PHACTR4"/>
+<node id="SRSF4"/>
+<node id="KHDRBS1"/>
+<node id="TMEM54"/>
+<node id="AK2"/>
+<node id="MAP7D1"/>
+<node id="MRPS15"/>
+<node id="MACF1"/>
+<node id="CAP1"/>
+<node id="NRDC"/>
+<node id="JUN"/>
+<node id="GADD45A"/>
+<node id="CLCA4"/>
+<node id="SH3GLB1"/>
+<node id="DNTTIP2"/>
+<node id="GCLM"/>
+<node id="RPL7P9"/>
+<node id="SARS"/>
+<node id="GNAI3"/>
+<node id="LAMTOR5"/>
+<node id="DENND2C"/>
+<node id="TXNIP"/>
+<node id="MCL1"/>
+<node id="PSMD4"/>
+<node id="CRCT1"/>
+<edge source="AURKAIP1" target="IL1B">
+  <data key="d0">0.901551727968903</data>
+</edge>
+<edge source="AURKAIP1" target="PLAUR">
+  <data key="d0">0.727921072109749</data>
+</edge>
+<edge source="IL1B" target="MRPL20">
+  <data key="d0">0.857375258778107</data>
+</edge>
+<edge source="IL1B" target="RER1">
+  <data key="d0">0.860029317670494</data>
+</edge>
+<edge source="IL1B" target="PARK7">
+  <data key="d0">0.789278638027842</data>
+</edge>
+<edge source="IL1B" target="EPHA2">
+  <data key="d0">1.0</data>
+</edge>
+<edge source="IL1B" target="CAPZB">
+  <data key="d0">0.708940647521741</data>
+</edge>
+<edge source="IL1B" target="SRRM1">
+  <data key="d0">0.954027402668784</data>
+</edge>
+<edge source="IL1B" target="TMEM50A">
+  <data key="d0">0.843359335012237</data>
+</edge>
+<edge source="IL1B" target="STMN1">
+  <data key="d0">0.926311638665074</data>
+</edge>
+<edge source="IL1B" target="NUDC">
+  <data key="d0">0.907024518806373</data>
+</edge>
+<edge source="IL1B" target="DNAJC8">
+  <data key="d0">0.906226474773601</data>
+</edge>
+<edge source="IL1B" target="PHACTR4">
+  <data key="d0">1.0</data>
+</edge>
+<edge source="IL1B" target="SRSF4">
+  <data key="d0">1.0</data>
+</edge>
+<edge source="IL1B" target="KHDRBS1">
+  <data key="d0">0.824634994309605</data>
+</edge>
+<edge source="IL1B" target="TMEM54">
+  <data key="d0">1.0</data>
+</edge>
+<edge source="IL1B" target="AK2">
+  <data key="d0">1.0</data>
+</edge>
+<edge source="IL1B" target="MRPS15">
+  <data key="d0">1.0</data>
+</edge>
+<edge source="IL1B" target="MACF1">
+  <data key="d0">0.813357999630913</data>
+</edge>
+<edge source="IL1B" target="CAP1">
+  <data key="d0">0.881168958952731</data>
+</edge>
+<edge source="IL1B" target="NRDC">
+  <data key="d0">1.0</data>
+</edge>
+<edge source="IL1B" target="JUN">
+  <data key="d0">0.750155646408569</data>
+</edge>
+<edge source="IL1B" target="GADD45A">
+  <data key="d0">0.735441485556164</data>
+</edge>
+<edge source="IL1B" target="SH3GLB1">
+  <data key="d0">0.828144802029855</data>
+</edge>
+<edge source="IL1B" target="DNTTIP2">
+  <data key="d0">0.993213177929223</data>
+</edge>
+<edge source="IL1B" target="RPL7P9">
+  <data key="d0">0.91666252308414</data>
+</edge>
+<edge source="IL1B" target="SARS">
+  <data key="d0">1.0</data>
+</edge>
+<edge source="IL1B" target="GNAI3">
+  <data key="d0">0.891686933150887</data>
+</edge>
+<edge source="IL1B" target="LAMTOR5">
+  <data key="d0">0.83955815400399</data>
+</edge>
+<edge source="IL1B" target="DENND2C">
+  <data key="d0">1.0</data>
+</edge>
+<edge source="IL1B" target="TXNIP">
+  <data key="d0">0.784653716085233</data>
+</edge>
+<edge source="IL1B" target="MCL1">
+  <data key="d0">0.816741047816667</data>
+</edge>
+<edge source="IL1B" target="PSMD4">
+  <data key="d0">0.829337591685906</data>
+</edge>
+<edge source="IL1B" target="CRCT1">
+  <data key="d0">0.990786636365596</data>
+</edge>
+<edge source="PLAUR" target="NUDC">
+  <data key="d0">0.917173072565623</data>
+</edge>
+<edge source="PLAUR" target="SRSF4">
+  <data key="d0">0.786812440302622</data>
+</edge>
+<edge source="PLAUR" target="MAP7D1">
+  <data key="d0">0.70004141888032</data>
+</edge>
+<edge source="PLAUR" target="MRPS15">
+  <data key="d0">0.928458705261513</data>
+</edge>
+<edge source="PLAUR" target="CAP1">
+  <data key="d0">0.869976714428132</data>
+</edge>
+<edge source="PLAUR" target="CLCA4">
+  <data key="d0">1.0</data>
+</edge>
+<edge source="PLAUR" target="LAMTOR5">
+  <data key="d0">0.709949412234182</data>
+</edge>
+<edge source="PLAUR" target="MCL1">
+  <data key="d0">0.856994613579646</data>
+</edge>
+<edge source="EPHA2" target="CDKN1A">
+  <data key="d0">0.830256263994147</data>
+</edge>
+<edge source="CDKN1A" target="IFFO2">
+  <data key="d0">0.780337857079771</data>
+</edge>
+<edge source="CDKN1A" target="SRRM1">
+  <data key="d0">0.752883724088251</data>
+</edge>
+<edge source="CDKN1A" target="NUDC">
+  <data key="d0">0.830717985649363</data>
+</edge>
+<edge source="CDKN1A" target="DNAJC8">
+  <data key="d0">0.833815787408476</data>
+</edge>
+<edge source="CDKN1A" target="PHACTR4">
+  <data key="d0">0.736314124937352</data>
+</edge>
+<edge source="CDKN1A" target="SRSF4">
+  <data key="d0">0.732378711247169</data>
+</edge>
+<edge source="CDKN1A" target="KHDRBS1">
+  <data key="d0">0.732295475230793</data>
+</edge>
+<edge source="CDKN1A" target="MAP7D1">
+  <data key="d0">0.755839463454366</data>
+</edge>
+<edge source="CDKN1A" target="MRPS15">
+  <data key="d0">0.740868060038344</data>
+</edge>
+<edge source="CDKN1A" target="JUN">
+  <data key="d0">0.749178928256693</data>
+</edge>
+<edge source="CDKN1A" target="GCLM">
+  <data key="d0">0.877521043020869</data>
+</edge>
+<edge source="CDKN1A" target="TXNIP">
+  <data key="d0">0.878310370980754</data>
+</edge>
+<edge source="CDKN1A" target="MCL1">
+  <data key="d0">0.833947217615584</data>
+</edge>
+</graph></graphml>

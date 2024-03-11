@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d1" for="edge" attr.name="cell_n" attr.type="long"/>
+<key id="d0" for="edge" attr.name="weight" attr.type="double"/>
+<graph edgedefault="undirected"><node id="LAPTM5"/>
+<node id="IL1R2"/>
+<node id="S100A11"/>
+<node id="S100A12"/>
+<node id="FCER1G"/>
+<node id="OST4"/>
+<node id="GNAI2"/>
+<node id="PF4"/>
+<node id="PPBP"/>
+<node id="DUSP1"/>
+<node id="HLA-E"/>
+<node id="HLA-C"/>
+<node id="ARPC1B"/>
+<node id="CEBPD"/>
+<node id="SRGN"/>
+<node id="IFITM2"/>
+<node id="CTSD"/>
+<node id="ITM2B"/>
+<node id="RPL4"/>
+<node id="EEF2"/>
+<node id="RPS21"/>
+<node id="ITGB2"/>
+<node id="HLA-A"/>
+<node id="RPS10"/>
+<node id="PABPC1"/>
+<node id="NRGN"/>
+<node id="LCP1"/>
+<node id="SERF2"/>
+<node id="COX4I1"/>
+<node id="PFN1"/>
+<node id="MYL12A"/>
+<edge source="LAPTM5" target="IL1R2">
+  <data key="d0">0.781746376502348</data>
+  <data key="d1">113</data>
+</edge>
+<edge source="IL1R2" target="S100A11">
+  <data key="d0">0.709279283129578</data>
+  <data key="d1">158</data>
+</edge>
+<edge source="IL1R2" target="S100A12">
+  <data key="d0">0.755822351811584</data>
+  <data key="d1">147</data>
+</edge>
+<edge source="IL1R2" target="FCER1G">
+  <data key="d0">0.760238659439653</data>
+  <data key="d1">105</data>
+</edge>
+<edge source="IL1R2" target="OST4">
+  <data key="d0">0.999724925639584</data>
+  <data key="d1">36</data>
+</edge>
+<edge source="IL1R2" target="GNAI2">
+  <data key="d0">0.832450551107327</data>
+  <data key="d1">56</data>
+</edge>
+<edge source="IL1R2" target="PF4">
+  <data key="d0">0.711502295947095</data>
+  <data key="d1">47</data>
+</edge>
+<edge source="IL1R2" target="PPBP">
+  <data key="d0">0.7386613332136</data>
+  <data key="d1">101</data>
+</edge>
+<edge source="IL1R2" target="DUSP1">
+  <data key="d0">0.924601163694503</data>
+  <data key="d1">134</data>
+</edge>
+<edge source="IL1R2" target="HLA-E">
+  <data key="d0">0.924499994495818</data>
+  <data key="d1">106</data>
+</edge>
+<edge source="IL1R2" target="HLA-C">
+  <data key="d0">0.861918302130017</data>
+  <data key="d1">102</data>
+</edge>
+<edge source="IL1R2" target="ARPC1B">
+  <data key="d0">0.745613240669369</data>
+  <data key="d1">71</data>
+</edge>
+<edge source="IL1R2" target="CEBPD">
+  <data key="d0">0.784141283268262</data>
+  <data key="d1">104</data>
+</edge>
+<edge source="IL1R2" target="SRGN">
+  <data key="d0">0.797158572509927</data>
+  <data key="d1">157</data>
+</edge>
+<edge source="IL1R2" target="IFITM2">
+  <data key="d0">0.798430537468157</data>
+  <data key="d1">89</data>
+</edge>
+<edge source="IL1R2" target="CTSD">
+  <data key="d0">0.72998092430393</data>
+  <data key="d1">101</data>
+</edge>
+<edge source="IL1R2" target="ITM2B">
+  <data key="d0">0.857978906294066</data>
+  <data key="d1">103</data>
+</edge>
+<edge source="IL1R2" target="RPL4">
+  <data key="d0">0.865378787103938</data>
+  <data key="d1">72</data>
+</edge>
+<edge source="IL1R2" target="EEF2">
+  <data key="d0">0.847304953352925</data>
+  <data key="d1">44</data>
+</edge>
+<edge source="IL1R2" target="RPS21">
+  <data key="d0">0.702813569248907</data>
+  <data key="d1">125</data>
+</edge>
+<edge source="IL1R2" target="ITGB2">
+  <data key="d0">0.8369945312891</data>
+  <data key="d1">72</data>
+</edge>
+<edge source="IL1R2" target="HLA-A">
+  <data key="d0">0.874565670968568</data>
+  <data key="d1">118</data>
+</edge>
+<edge source="IL1R2" target="RPS10">
+  <data key="d0">0.845102749289361</data>
+  <data key="d1">49</data>
+</edge>
+<edge source="IL1R2" target="PABPC1">
+  <data key="d0">0.785957385022174</data>
+  <data key="d1">113</data>
+</edge>
+<edge source="IL1R2" target="NRGN">
+  <data key="d0">0.940014277848053</data>
+  <data key="d1">94</data>
+</edge>
+<edge source="IL1R2" target="LCP1">
+  <data key="d0">0.946658381500225</data>
+  <data key="d1">109</data>
+</edge>
+<edge source="IL1R2" target="SERF2">
+  <data key="d0">0.872535904666043</data>
+  <data key="d1">159</data>
+</edge>
+<edge source="IL1R2" target="COX4I1">
+  <data key="d0">0.761438497442528</data>
+  <data key="d1">112</data>
+</edge>
+<edge source="IL1R2" target="PFN1">
+  <data key="d0">0.706429800653731</data>
+  <data key="d1">137</data>
+</edge>
+<edge source="IL1R2" target="MYL12A">
+  <data key="d0">0.895206147088356</data>
+  <data key="d1">71</data>
+</edge>
+</graph></graphml>

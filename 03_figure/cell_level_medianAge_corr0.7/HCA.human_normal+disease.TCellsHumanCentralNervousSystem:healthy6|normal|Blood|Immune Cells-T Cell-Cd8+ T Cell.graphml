@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d1" for="edge" attr.name="cell_n" attr.type="long"/>
+<key id="d0" for="edge" attr.name="weight" attr.type="double"/>
+<graph edgedefault="undirected"><node id="SSR2"/>
+<node id="CCL5"/>
+<node id="PCBP1"/>
+<node id="TRBV4-1"/>
+<node id="TRBV5-1"/>
+<node id="TRBV6-5"/>
+<node id="EIF3H"/>
+<edge source="SSR2" target="CCL5">
+  <data key="d0">0.822196373060606</data>
+  <data key="d1">34</data>
+</edge>
+<edge source="CCL5" target="PCBP1">
+  <data key="d0">0.709853584597865</data>
+  <data key="d1">302</data>
+</edge>
+<edge source="CCL5" target="TRBV4-1">
+  <data key="d0">0.923931163215436</data>
+  <data key="d1">54</data>
+</edge>
+<edge source="CCL5" target="TRBV5-1">
+  <data key="d0">0.721360894231148</data>
+  <data key="d1">102</data>
+</edge>
+<edge source="CCL5" target="TRBV6-5">
+  <data key="d0">0.86296873850554</data>
+  <data key="d1">81</data>
+</edge>
+<edge source="CCL5" target="EIF3H">
+  <data key="d0">0.82601236901208</data>
+  <data key="d1">24</data>
+</edge>
+</graph></graphml>

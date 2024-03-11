@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d2" for="edge" attr.name="cell_n" attr.type="long"/>
+<key id="d1" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d0" for="graph" attr.name="name" attr.type="string"/>
+<graph edgedefault="undirected"><data key="d0">/Users/liuyuting/WorkSpace/ScRNA_project/03figure//16.human_peripheralBlood:young-healthyOld|normal|Peripheral Blood|Immune Cells-Nk Cell</data>
+<node id="CD52"/>
+<node id="CCL5"/>
+<node id="BTG2"/>
+<node id="TMA7"/>
+<node id="CCNI"/>
+<node id="IL7R"/>
+<node id="TOMM7"/>
+<node id="SLC25A6"/>
+<node id="RBM3"/>
+<node id="UQCRB"/>
+<edge source="CD52" target="CCL5">
+  <data key="d1">0.824246345740996</data>
+  <data key="d2">1116</data>
+</edge>
+<edge source="CCL5" target="BTG2">
+  <data key="d1">0.704034596768771</data>
+  <data key="d2">289</data>
+</edge>
+<edge source="CCL5" target="TMA7">
+  <data key="d1">0.79934429934114</data>
+  <data key="d2">859</data>
+</edge>
+<edge source="CCL5" target="CCNI">
+  <data key="d1">0.761113732870171</data>
+  <data key="d2">425</data>
+</edge>
+<edge source="CCL5" target="IL7R">
+  <data key="d1">0.734675919732615</data>
+  <data key="d2">266</data>
+</edge>
+<edge source="CCL5" target="TOMM7">
+  <data key="d1">0.731906142632071</data>
+  <data key="d2">532</data>
+</edge>
+<edge source="CCL5" target="SLC25A6">
+  <data key="d1">0.704814044331103</data>
+  <data key="d2">371</data>
+</edge>
+<edge source="CCL5" target="RBM3">
+  <data key="d1">0.757952666530085</data>
+  <data key="d2">639</data>
+</edge>
+<edge source="CCL5" target="UQCRB">
+  <data key="d1">0.834211723515614</data>
+  <data key="d2">218</data>
+</edge>
+</graph></graphml>
