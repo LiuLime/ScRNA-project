@@ -86,7 +86,6 @@ def generate_network_from_dataframe(df, group_level, fig_save_path, markers):
     return graph_list
 
 
-@staticmethod
 def is_marker(x, markers):
     if x in markers:
         return True
@@ -120,7 +119,7 @@ def create_graphs_from_csv_data(folder_path, file, group_level, fig_save_path, *
 
     # correlation shrefold & p-value shrefold
     marker_tissue_corr_slice = marker_tissue_corr_data[
-        marker_tissue_corr_data["cor_pearson.binMean"] > kwargs["corr_shrefold"]]
+        abs(marker_tissue_corr_data["cor_pearson.binMean"]) > kwargs["corr_shrefold"]]
     marker_tissue_corr_slice = marker_tissue_corr_slice[marker_tissue_corr_slice["p1"] < kwargs["p_shrefold"]]
     marker_tissue_corr_slice = marker_tissue_corr_slice[marker_tissue_corr_slice["p2"] < kwargs["p_shrefold"]]
     graph_list = generate_network_from_dataframe(marker_tissue_corr_slice, group_level=group_level,
@@ -158,12 +157,6 @@ create_graphs_from_csv_data(corrDatafilebymedian,
                             corr_shrefold=corr_shrefold,
                             p_shrefold=p_shrefold,
                             )
-# marker_tissue_corr_data_path = os.path.join(corrDatafilebymedian, TissueMarkerCorrFile)
-# marker_tissue_corr_data = pd.read_csv(marker_tissue_corr_data_path, sep="\t", header=0)
-# # correlation shrefold & p-value shrefold
-# marker_tissue_corr_slice = marker_tissue_corr_data[marker_tissue_corr_data["cor_pearson.binMean"] > corr_shrefold]
-# marker_tissue_corr_slice = marker_tissue_corr_slice[marker_tissue_corr_slice["p1"] < p_shrefold]
-# graph_list = create_df_network(marker_tissue_corr_slice, group_level="tissue", fig_save_path=fig_save_path, markers=markers)
 
 # Cell level
 create_graphs_from_csv_data(corrDatafilebymedian,
@@ -173,12 +166,6 @@ create_graphs_from_csv_data(corrDatafilebymedian,
                             corr_shrefold=corr_shrefold,
                             p_shrefold=p_shrefold)
 
-# marker_cell_corr_data_path = os.path.join(corrDatafilebymedian, CellMarkerCorrFile)
-# marker_cell_corr_data = pd.read_csv(marker_cell_corr_data_path, sep="\t", header=0)
-#
-# marker_cell_corr_slice = marker_cell_corr_data[marker_cell_corr_data["cor_pearson.binMean"] > corr_shrefold]
-# marker_cell_corr_slice = marker_cell_corr_slice[marker_cell_corr_slice["p1"] < p_shrefold]
-# graph_list = create_df_network(marker_cell_corr_slice, group_level="cell", fig_save_path=fig_save_path, markers=markers)
 
 """
 Aging markers-related correlation network <- 40-60 age
@@ -192,12 +179,6 @@ create_graphs_from_csv_data(corrDatafileby4060,
                             p_shrefold=p_shrefold,
                             )
 
-# marker_tissue_corr_data_path = os.path.join(corrDatafileby4060, TissueMarkerCorrFile)
-# marker_tissue_corr_data = pd.read_csv(marker_tissue_corr_data_path, sep="\t", header=0)
-# # correlation shrefold
-# marker_tissue_corr_slice = marker_tissue_corr_data[marker_tissue_corr_data["cor_pearson.binMean"] > corr_shrefold]
-# marker_tissue_corr_slice = marker_tissue_corr_slice[marker_tissue_corr_slice["p1"] < p_shrefold]
-# graph_list = create_df_network(marker_tissue_corr_slice, group_level="tissue", fig_save_path=fig_save_path, markers=markers)
 
 # Cell level
 create_graphs_from_csv_data(corrDatafileby4060,
@@ -207,12 +188,5 @@ create_graphs_from_csv_data(corrDatafileby4060,
                             corr_shrefold=corr_shrefold,
                             p_shrefold=p_shrefold)
 
-# marker_cell_corr_data_path = os.path.join(corrDatafileby4060, CellMarkerCorrFile)
-# marker_cell_corr_data = pd.read_csv(marker_cell_corr_data_path, sep="\t", header=0)
-#
-# marker_cell_corr_slice = marker_cell_corr_data[marker_cell_corr_data["cor_pearson.binMean"] > corr_shrefold]
-# marker_cell_corr_slice = marker_cell_corr_slice[marker_cell_corr_slice["p1"] < p_shrefold]
-# graph_list = generate_network_from_dataframe(marker_cell_corr_slice, group_level="cell", fig_save_path=fig_save_path,
-#                                              markers=markers)
 
 # %%
