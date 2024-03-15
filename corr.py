@@ -1,11 +1,9 @@
 """
 Step 1:
-根据相关性筛出network
-根据表达量列出每个细胞中marker相关基因随着marker基因表达量排序的表达量变化
+根据相关性和p-value筛出network
 
-Step 2:
-3-D网络图
 """
+
 import os
 
 import networkx as nx
@@ -88,9 +86,9 @@ def generate_network_from_dataframe(df, group_level, fig_save_path, markers):
 
 def is_marker(x, markers):
     if x in markers:
-        return True
+        return "yes"
     else:
-        return False
+        return "no"
 
 
 def generate_count_from_dataframe(df, group_level, fig_save_path, markers):
@@ -131,11 +129,17 @@ def create_graphs_from_csv_data(folder_path, file, group_level, fig_save_path, *
     return graph_list, marker_degree
 
 
+def create_folder(path):
+    if not os.path.exists(path):
+        os.makedirs(path)
+
+
 # %%
 with open("./config.json") as j:
     config = json.load(j)
 
 fig_save_path = config["fig_save_path"]
+folder_dict = config["folder_dict"]
 corrDatafilebymedian = config["corrDataFolderBymedian"]
 corrDatafileby4060 = config["corrDataFolderBy40-60"]
 corr_shrefold = config["corr_shrefold"]
@@ -150,43 +154,48 @@ p-value使用的双边检的值
 """
 
 # Tissue level
+path1 = fig_save_path + f"{folder_dict['tm']}corr{corr_shrefold}_p{p_shrefold}/"
+create_folder(path1)
 create_graphs_from_csv_data(corrDatafilebymedian,
                             TissueMarkerCorrFile,
                             group_level="tissue",
-                            fig_save_path=fig_save_path + "tissue_level_medianAge_corr0.7_p0.001/",
+                            fig_save_path=path1,
                             corr_shrefold=corr_shrefold,
                             p_shrefold=p_shrefold,
                             )
 
 # Cell level
+path2 = fig_save_path + f"{folder_dict['cm']}corr{corr_shrefold}_p{p_shrefold}/"
+create_folder(path2)
 create_graphs_from_csv_data(corrDatafilebymedian,
                             CellMarkerCorrFile,
                             group_level="cell",
-                            fig_save_path=fig_save_path + "cell_level_medianAge_corr0.7_p0.001/",
+                            fig_save_path=path2,
                             corr_shrefold=corr_shrefold,
                             p_shrefold=p_shrefold)
-
 
 """
 Aging markers-related correlation network <- 40-60 age
 """
 # Tissue level
+path3 = fig_save_path + f"{folder_dict['t46']}corr{corr_shrefold}_p{p_shrefold}/"
+create_folder(path3)
 create_graphs_from_csv_data(corrDatafileby4060,
                             TissueMarkerCorrFile,
                             group_level="tissue",
-                            fig_save_path=fig_save_path + "tissue_level_40-60Age_corr0.7_p0.001/",
+                            fig_save_path=path3,
                             corr_shrefold=corr_shrefold,
                             p_shrefold=p_shrefold,
                             )
 
-
 # Cell level
+path4 = fig_save_path + f"{folder_dict['c46']}corr{corr_shrefold}_p{p_shrefold}/"
+create_folder(path4)
 create_graphs_from_csv_data(corrDatafileby4060,
                             CellMarkerCorrFile,
                             group_level="cell",
-                            fig_save_path=fig_save_path + "cell_level_40-60Age_corr0.7_p0.001/",
+                            fig_save_path=path4,
                             corr_shrefold=corr_shrefold,
                             p_shrefold=p_shrefold)
-
 
 # %%

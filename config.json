@@ -5,6 +5,9 @@
   "metaDataFolder": "/Users/liuyuting/WorkSpace/ScRNA_project/mysql/",
   "donar_file": "/Users/liuyuting/WorkSpace/ScRNA_project/mysql/donor_summaries.txt",
   "fig_save_path": "/Users/liuyuting/WorkSpace/ScRNA_project/03figure/corr_pval/",
+  "fig_config": {"fmt": "png","title_size": 14,"label_size": 14,"font_size": 14,"font_family": "arial"},
+
+  "folder_dict": {"tm":"tissue_level_medianAge_","cm":"cell_level_medianAge_","t46":"tissue_level_40-60Age_","c46":"cell_level_40-60Age_"},
   "corr_shrefold": 0.7,
   "log10p_abs_shrefold": 3,
   "p_shrefold": 0.001,
