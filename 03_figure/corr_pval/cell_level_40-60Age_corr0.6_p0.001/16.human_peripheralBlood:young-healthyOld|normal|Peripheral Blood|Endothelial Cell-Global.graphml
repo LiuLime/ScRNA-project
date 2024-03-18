@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d2" for="edge" attr.name="cell_n" attr.type="long"/>
+<key id="d1" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d0" for="graph" attr.name="name" attr.type="string"/>
+<graph edgedefault="undirected"><data key="d0">/Users/liuyuting/WorkSpace/ScRNA_project/03figure/corr_pval/cell_level_40-60Age_corr0.6_p0.001//16.human_peripheralBlood:young-healthyOld|normal|Peripheral Blood|Endothelial Cell-Global</data>
+<node id="PELI1"/>
+<node id="IL1B"/>
+<node id="PLEK"/>
+<node id="HLA-A"/>
+<node id="PNRC1"/>
+<node id="SOD2"/>
+<node id="BCL2A1"/>
+<node id="CCL3"/>
+<node id="CCL4"/>
+<node id="CCL3L3"/>
+<node id="CCL4L2"/>
+<node id="PTMA"/>
+<edge source="PELI1" target="IL1B">
+  <data key="d1">0.77484899971192</data>
+  <data key="d2">115</data>
+</edge>
+<edge source="IL1B" target="PLEK">
+  <data key="d1">0.657363159156445</data>
+  <data key="d2">215</data>
+</edge>
+<edge source="IL1B" target="HLA-A">
+  <data key="d1">-0.697370285846998</data>
+  <data key="d2">275</data>
+</edge>
+<edge source="IL1B" target="PNRC1">
+  <data key="d1">0.666946163079878</data>
+  <data key="d2">286</data>
+</edge>
+<edge source="IL1B" target="SOD2">
+  <data key="d1">0.798007406315811</data>
+  <data key="d2">280</data>
+</edge>
+<edge source="IL1B" target="BCL2A1">
+  <data key="d1">0.872505303102303</data>
+  <data key="d2">287</data>
+</edge>
+<edge source="IL1B" target="CCL3">
+  <data key="d1">0.775369319220639</data>
+  <data key="d2">268</data>
+</edge>
+<edge source="IL1B" target="CCL4">
+  <data key="d1">0.775499493229347</data>
+  <data key="d2">276</data>
+</edge>
+<edge source="IL1B" target="CCL3L3">
+  <data key="d1">0.655663699605765</data>
+  <data key="d2">179</data>
+</edge>
+<edge source="IL1B" target="CCL4L2">
+  <data key="d1">0.606265523032528</data>
+  <data key="d2">171</data>
+</edge>
+<edge source="IL1B" target="PTMA">
+  <data key="d1">-0.637810438708015</data>
+  <data key="d2">300</data>
+</edge>
+</graph></graphml>

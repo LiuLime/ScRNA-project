@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d2" for="edge" attr.name="cell_n" attr.type="long"/>
+<key id="d1" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d0" for="graph" attr.name="name" attr.type="string"/>
+<graph edgedefault="undirected"><data key="d0">/Users/liuyuting/WorkSpace/ScRNA_project/03figure/corr_pval/cell_level_medianAge_corr0.7_p0.01//17.human_TabulaSapiens|normal|Spleen|Immune Cells-Granulocyte</data>
+<node id="TXNIP"/>
+<node id="MMP9"/>
+<node id="S100A8"/>
+<node id="FCGR3B"/>
+<node id="PTPRC"/>
+<node id="IL1R2"/>
+<node id="GAPDH"/>
+<node id="HLA-E"/>
+<node id="HLA-C"/>
+<node id="HLA-B"/>
+<node id="VIM"/>
+<node id="FTH1"/>
+<node id="NEAT1"/>
+<node id="TPT1"/>
+<node id="ITM2B"/>
+<node id="FOS"/>
+<node id="B2M"/>
+<node id="RPLP1"/>
+<node id="PFN1"/>
+<node id="EIF1"/>
+<node id="IER2"/>
+<node id="ZFP36"/>
+<node id="CSF3R"/>
+<node id="SRGN"/>
+<node id="PPP1R15A"/>
+<node id="SAMSN1"/>
+<node id="MT-CYB"/>
+<edge source="TXNIP" target="MMP9">
+  <data key="d1">-1.0</data>
+  <data key="d2">14</data>
+</edge>
+<edge source="MMP9" target="S100A8">
+  <data key="d1">0.8190849441471</data>
+  <data key="d2">272</data>
+</edge>
+<edge source="MMP9" target="FCGR3B">
+  <data key="d1">-0.998411095997364</data>
+  <data key="d2">21</data>
+</edge>
+<edge source="MMP9" target="PTPRC">
+  <data key="d1">0.736853597014335</data>
+  <data key="d2">72</data>
+</edge>
+<edge source="MMP9" target="HLA-E">
+  <data key="d1">0.829486391799673</data>
+  <data key="d2">50</data>
+</edge>
+<edge source="MMP9" target="HLA-C">
+  <data key="d1">0.753517381349516</data>
+  <data key="d2">69</data>
+</edge>
+<edge source="MMP9" target="HLA-B">
+  <data key="d1">0.86648132288142</data>
+  <data key="d2">72</data>
+</edge>
+<edge source="MMP9" target="VIM">
+  <data key="d1">0.877569094692364</data>
+  <data key="d2">160</data>
+</edge>
+<edge source="MMP9" target="FTH1">
+  <data key="d1">-0.804505060929023</data>
+  <data key="d2">225</data>
+</edge>
+<edge source="MMP9" target="NEAT1">
+  <data key="d1">-0.779255915772762</data>
+  <data key="d2">189</data>
+</edge>
+<edge source="MMP9" target="TPT1">
+  <data key="d1">0.884262748029357</data>
+  <data key="d2">109</data>
+</edge>
+<edge source="MMP9" target="ITM2B">
+  <data key="d1">0.717768724702807</data>
+  <data key="d2">86</data>
+</edge>
+<edge source="MMP9" target="FOS">
+  <data key="d1">0.858896787616664</data>
+  <data key="d2">35</data>
+</edge>
+<edge source="MMP9" target="B2M">
+  <data key="d1">-0.742882606444577</data>
+  <data key="d2">247</data>
+</edge>
+<edge source="MMP9" target="RPLP1">
+  <data key="d1">-1.0</data>
+  <data key="d2">18</data>
+</edge>
+<edge source="MMP9" target="PFN1">
+  <data key="d1">0.711279093159515</data>
+  <data key="d2">126</data>
+</edge>
+<edge source="MMP9" target="IER2">
+  <data key="d1">0.921860331373035</data>
+  <data key="d2">31</data>
+</edge>
+<edge source="MMP9" target="ZFP36">
+  <data key="d1">0.94699305261208</data>
+  <data key="d2">48</data>
+</edge>
+<edge source="MMP9" target="CSF3R">
+  <data key="d1">0.803203327700805</data>
+  <data key="d2">73</data>
+</edge>
+<edge source="MMP9" target="SRGN">
+  <data key="d1">-0.786401088516895</data>
+  <data key="d2">224</data>
+</edge>
+<edge source="MMP9" target="EIF1">
+  <data key="d1">0.825926190399025</data>
+  <data key="d2">44</data>
+</edge>
+<edge source="MMP9" target="PPP1R15A">
+  <data key="d1">0.980298139353554</data>
+  <data key="d2">35</data>
+</edge>
+<edge source="MMP9" target="SAMSN1">
+  <data key="d1">0.811884592696851</data>
+  <data key="d2">65</data>
+</edge>
+<edge source="MMP9" target="MT-CYB">
+  <data key="d1">-0.8331938272506</data>
+  <data key="d2">21</data>
+</edge>
+<edge source="IL1R2" target="GAPDH">
+  <data key="d1">0.774152044497908</data>
+  <data key="d2">163</data>
+</edge>
+<edge source="IL1R2" target="RPLP1">
+  <data key="d1">-0.797524245430182</data>
+  <data key="d2">43</data>
+</edge>
+<edge source="IL1R2" target="EIF1">
+  <data key="d1">0.756919529431517</data>
+  <data key="d2">345</data>
+</edge>
+<edge source="IL1R2" target="SAMSN1">
+  <data key="d1">0.725998312052609</data>
+  <data key="d2">932</data>
+</edge>
+</graph></graphml>

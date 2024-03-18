@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d2" for="edge" attr.name="cell_n" attr.type="long"/>
+<key id="d1" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d0" for="graph" attr.name="name" attr.type="string"/>
+<graph edgedefault="undirected"><data key="d0">/Users/liuyuting/WorkSpace/ScRNA_project/03figure/corr_pval/cell_level_medianAge_corr0.7_p0.01//19.human_DiseaseGeneFusion|normal|Esophagus Muscularis|Stellate Cell</data>
+<node id="VWA1"/>
+<node id="CDKN1A"/>
+<node id="DHRS3"/>
+<node id="MAN1C1"/>
+<node id="RCC1"/>
+<node id="PUM1"/>
+<node id="PHC2"/>
+<node id="SFPQ"/>
+<node id="AGO3"/>
+<node id="RLF"/>
+<node id="SSBP3"/>
+<node id="AK4"/>
+<node id="GNG12"/>
+<node id="GBP2"/>
+<node id="ZNF644"/>
+<node id="CNN3"/>
+<node id="MFSD14A"/>
+<node id="PTGFRN"/>
+<node id="RPS27"/>
+<node id="ADAR"/>
+<node id="LAMTOR2"/>
+<node id="LMNA"/>
+<node id="MEF2D"/>
+<node id="ATF6"/>
+<node id="DDR2"/>
+<edge source="VWA1" target="CDKN1A">
+  <data key="d1">0.76001647104137</data>
+  <data key="d2">194</data>
+</edge>
+<edge source="CDKN1A" target="DHRS3">
+  <data key="d1">0.776106533928267</data>
+  <data key="d2">190</data>
+</edge>
+<edge source="CDKN1A" target="MAN1C1">
+  <data key="d1">0.736308854064834</data>
+  <data key="d2">84</data>
+</edge>
+<edge source="CDKN1A" target="RCC1">
+  <data key="d1">0.943481302897267</data>
+  <data key="d2">104</data>
+</edge>
+<edge source="CDKN1A" target="PUM1">
+  <data key="d1">0.78635505273443</data>
+  <data key="d2">140</data>
+</edge>
+<edge source="CDKN1A" target="PHC2">
+  <data key="d1">0.871775409437225</data>
+  <data key="d2">152</data>
+</edge>
+<edge source="CDKN1A" target="SFPQ">
+  <data key="d1">0.84401965267482</data>
+  <data key="d2">114</data>
+</edge>
+<edge source="CDKN1A" target="AGO3">
+  <data key="d1">0.865101639131128</data>
+  <data key="d2">112</data>
+</edge>
+<edge source="CDKN1A" target="RLF">
+  <data key="d1">0.890653547416289</data>
+  <data key="d2">80</data>
+</edge>
+<edge source="CDKN1A" target="SSBP3">
+  <data key="d1">0.716570660924837</data>
+  <data key="d2">129</data>
+</edge>
+<edge source="CDKN1A" target="AK4">
+  <data key="d1">0.704585946704688</data>
+  <data key="d2">128</data>
+</edge>
+<edge source="CDKN1A" target="GNG12">
+  <data key="d1">0.788567416904432</data>
+  <data key="d2">166</data>
+</edge>
+<edge source="CDKN1A" target="GBP2">
+  <data key="d1">0.807540211985522</data>
+  <data key="d2">178</data>
+</edge>
+<edge source="CDKN1A" target="ZNF644">
+  <data key="d1">0.875321395394313</data>
+  <data key="d2">87</data>
+</edge>
+<edge source="CDKN1A" target="CNN3">
+  <data key="d1">0.825943985054732</data>
+  <data key="d2">165</data>
+</edge>
+<edge source="CDKN1A" target="MFSD14A">
+  <data key="d1">0.793132904045506</data>
+  <data key="d2">82</data>
+</edge>
+<edge source="CDKN1A" target="PTGFRN">
+  <data key="d1">0.865889904617202</data>
+  <data key="d2">80</data>
+</edge>
+<edge source="CDKN1A" target="RPS27">
+  <data key="d1">0.726619579333449</data>
+  <data key="d2">268</data>
+</edge>
+<edge source="CDKN1A" target="ADAR">
+  <data key="d1">0.869746878157243</data>
+  <data key="d2">77</data>
+</edge>
+<edge source="CDKN1A" target="LAMTOR2">
+  <data key="d1">0.880876459818973</data>
+  <data key="d2">119</data>
+</edge>
+<edge source="CDKN1A" target="LMNA">
+  <data key="d1">0.80749709961971</data>
+  <data key="d2">213</data>
+</edge>
+<edge source="CDKN1A" target="MEF2D">
+  <data key="d1">0.801156759259563</data>
+  <data key="d2">90</data>
+</edge>
+<edge source="CDKN1A" target="ATF6">
+  <data key="d1">0.825153980038341</data>
+  <data key="d2">89</data>
+</edge>
+<edge source="CDKN1A" target="DDR2">
+  <data key="d1">0.754002759370874</data>
+  <data key="d2">211</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d2" for="edge" attr.name="cell_n" attr.type="long"/>
+<key id="d1" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d0" for="graph" attr.name="name" attr.type="string"/>
+<graph edgedefault="undirected"><data key="d0">/Users/liuyuting/WorkSpace/ScRNA_project/03figure/corr_pval/cell_level_medianAge_corr0.6_p0.001//17.human_TabulaSapiens|normal|Spleen|Immune Cells-Granulocyte</data>
+<node id="IL1R2"/>
+<node id="TXNIP"/>
+<node id="HLA-B"/>
+<node id="GAPDH"/>
+<node id="FOS"/>
+<node id="OAZ1"/>
+<node id="SAMSN1"/>
+<node id="MT-ND1"/>
+<node id="BASP1"/>
+<edge source="IL1R2" target="TXNIP">
+  <data key="d1">0.612494097615787</data>
+  <data key="d2">907</data>
+</edge>
+<edge source="IL1R2" target="HLA-B">
+  <data key="d1">0.66753415304353</data>
+  <data key="d2">1042</data>
+</edge>
+<edge source="IL1R2" target="GAPDH">
+  <data key="d1">0.774152044497908</data>
+  <data key="d2">163</data>
+</edge>
+<edge source="IL1R2" target="FOS">
+  <data key="d1">0.687720471220239</data>
+  <data key="d2">393</data>
+</edge>
+<edge source="IL1R2" target="OAZ1">
+  <data key="d1">0.649194213338314</data>
+  <data key="d2">634</data>
+</edge>
+<edge source="IL1R2" target="SAMSN1">
+  <data key="d1">0.725998312052609</data>
+  <data key="d2">932</data>
+</edge>
+<edge source="IL1R2" target="MT-ND1">
+  <data key="d1">0.60924840552553</data>
+  <data key="d2">327</data>
+</edge>
+<edge source="IL1R2" target="BASP1">
+  <data key="d1">0.600674800027575</data>
+  <data key="d2">1136</data>
+</edge>
+</graph></graphml>

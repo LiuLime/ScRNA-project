@@ -1,0 +1,1027 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d2" for="edge" attr.name="cell_n" attr.type="long"/>
+<key id="d1" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d0" for="graph" attr.name="name" attr.type="string"/>
+<graph edgedefault="undirected"><data key="d0">/Users/liuyuting/WorkSpace/ScRNA_project/03figure/corr_pval/tissue_level_medianAge_corr0.6_p0.01//HCA.human_normal.TissueStability|normal|Lung</data>
+<node id="MTATP6P1"/>
+<node id="IL1B"/>
+<node id="GPNMB"/>
+<node id="MMP2"/>
+<node id="CCL5"/>
+<node id="PLAUR"/>
+<node id="ISG15"/>
+<node id="RPL22"/>
+<node id="PARK7"/>
+<node id="ENO1"/>
+<node id="CAPZB"/>
+<node id="MINOS1"/>
+<node id="AL031727.1"/>
+<node id="NBL1"/>
+<node id="CDC42"/>
+<node id="C1QA"/>
+<node id="C1QC"/>
+<node id="C1QB"/>
+<node id="ID3"/>
+<node id="STMN1"/>
+<node id="SH3BGRL3"/>
+<node id="CD52"/>
+<node id="HMGN2"/>
+<node id="IFI6"/>
+<node id="FABP3"/>
+<node id="MARCKSL1"/>
+<node id="NDUFS5"/>
+<node id="CAP1"/>
+<node id="YBX1"/>
+<node id="ATP6V0B"/>
+<node id="RPS8"/>
+<node id="AKR1A1"/>
+<node id="UQCRH"/>
+<node id="RPS13P2"/>
+<node id="SCP2"/>
+<node id="TMEM59"/>
+<node id="JUN"/>
+<node id="CYR61"/>
+<node id="RPL5"/>
+<node id="CNN3"/>
+<node id="RPL7P9"/>
+<node id="CD53"/>
+<node id="TXNIP"/>
+<node id="MCL1"/>
+<node id="S100A10"/>
+<node id="S100A11"/>
+<node id="S100A9"/>
+<node id="JTB"/>
+<node id="RPS27"/>
+<node id="TPM3"/>
+<node id="LAMTOR2"/>
+<node id="CD1C"/>
+<node id="IFI16"/>
+<node id="TAGLN2"/>
+<node id="FCER1G"/>
+<node id="HSPA6"/>
+<node id="FCGR2B"/>
+<node id="UAP1"/>
+<node id="MGST3"/>
+<node id="ATP1B1"/>
+<node id="PRDX6"/>
+<node id="ABL2"/>
+<node id="GLUL"/>
+<node id="RGS16"/>
+<node id="ARPC5"/>
+<node id="RGS1"/>
+<node id="RGS2"/>
+<node id="CSRP1"/>
+<node id="CHI3L1"/>
+<node id="CD55"/>
+<node id="G0S2"/>
+<node id="ARF1"/>
+<node id="GUK1"/>
+<node id="RPS7"/>
+<node id="ID2"/>
+<node id="PDIA6"/>
+<node id="LAPTM4A"/>
+<node id="OST4"/>
+<node id="CYP1B1"/>
+<node id="RPS27A"/>
+<node id="EFEMP1"/>
+<edge source="MTATP6P1" target="IL1B">
+  <data key="d1">0.746106231353637</data>
+  <data key="d2">404</data>
+</edge>
+<edge source="MTATP6P1" target="GPNMB">
+  <data key="d1">0.640964136472634</data>
+  <data key="d2">485</data>
+</edge>
+<edge source="MTATP6P1" target="MMP2">
+  <data key="d1">0.845606954196072</data>
+  <data key="d2">487</data>
+</edge>
+<edge source="MTATP6P1" target="CCL5">
+  <data key="d1">0.956721662399416</data>
+  <data key="d2">80</data>
+</edge>
+<edge source="MTATP6P1" target="PLAUR">
+  <data key="d1">0.927590438951581</data>
+  <data key="d2">599</data>
+</edge>
+<edge source="IL1B" target="ISG15">
+  <data key="d1">0.74716234890224</data>
+  <data key="d2">127</data>
+</edge>
+<edge source="IL1B" target="RPL22">
+  <data key="d1">0.760105319074103</data>
+  <data key="d2">294</data>
+</edge>
+<edge source="IL1B" target="PARK7">
+  <data key="d1">0.918795024970595</data>
+  <data key="d2">45</data>
+</edge>
+<edge source="IL1B" target="ENO1">
+  <data key="d1">0.83885335741827</data>
+  <data key="d2">292</data>
+</edge>
+<edge source="IL1B" target="CAPZB">
+  <data key="d1">0.916581359025398</data>
+  <data key="d2">35</data>
+</edge>
+<edge source="IL1B" target="AL031727.1">
+  <data key="d1">1.0</data>
+  <data key="d2">20</data>
+</edge>
+<edge source="IL1B" target="CDC42">
+  <data key="d1">0.716842549795839</data>
+  <data key="d2">87</data>
+</edge>
+<edge source="IL1B" target="ID3">
+  <data key="d1">1.0</data>
+  <data key="d2">19</data>
+</edge>
+<edge source="IL1B" target="CAP1">
+  <data key="d1">0.606609341603194</data>
+  <data key="d2">71</data>
+</edge>
+<edge source="IL1B" target="UQCRH">
+  <data key="d1">0.642430007868147</data>
+  <data key="d2">123</data>
+</edge>
+<edge source="IL1B" target="RPS13P2">
+  <data key="d1">0.989134747929871</data>
+  <data key="d2">29</data>
+</edge>
+<edge source="IL1B" target="TMEM59">
+  <data key="d1">0.888208534814541</data>
+  <data key="d2">30</data>
+</edge>
+<edge source="IL1B" target="RPL7P9">
+  <data key="d1">0.847139623577541</data>
+  <data key="d2">26</data>
+</edge>
+<edge source="IL1B" target="CD53">
+  <data key="d1">0.787153424568759</data>
+  <data key="d2">52</data>
+</edge>
+<edge source="IL1B" target="TXNIP">
+  <data key="d1">0.867679689727092</data>
+  <data key="d2">74</data>
+</edge>
+<edge source="IL1B" target="MCL1">
+  <data key="d1">0.861780449104354</data>
+  <data key="d2">148</data>
+</edge>
+<edge source="IL1B" target="S100A10">
+  <data key="d1">0.650991192781934</data>
+  <data key="d2">1394</data>
+</edge>
+<edge source="IL1B" target="JTB">
+  <data key="d1">1.0</data>
+  <data key="d2">13</data>
+</edge>
+<edge source="IL1B" target="TPM3">
+  <data key="d1">0.69205185242324</data>
+  <data key="d2">65</data>
+</edge>
+<edge source="IL1B" target="IFI16">
+  <data key="d1">1.0</data>
+  <data key="d2">14</data>
+</edge>
+<edge source="IL1B" target="TAGLN2">
+  <data key="d1">0.818858899288958</data>
+  <data key="d2">258</data>
+</edge>
+<edge source="IL1B" target="MGST3">
+  <data key="d1">-0.817041641963412</data>
+  <data key="d2">61</data>
+</edge>
+<edge source="IL1B" target="PRDX6">
+  <data key="d1">1.0</data>
+  <data key="d2">14</data>
+</edge>
+<edge source="IL1B" target="ABL2">
+  <data key="d1">0.916647372581595</data>
+  <data key="d2">43</data>
+</edge>
+<edge source="IL1B" target="GLUL">
+  <data key="d1">0.75333392132102</data>
+  <data key="d2">271</data>
+</edge>
+<edge source="IL1B" target="ARPC5">
+  <data key="d1">0.732920670693295</data>
+  <data key="d2">79</data>
+</edge>
+<edge source="IL1B" target="CD55">
+  <data key="d1">0.927897084402069</data>
+  <data key="d2">38</data>
+</edge>
+<edge source="IL1B" target="G0S2">
+  <data key="d1">0.809961643084444</data>
+  <data key="d2">1321</data>
+</edge>
+<edge source="IL1B" target="ARF1">
+  <data key="d1">0.907097502755322</data>
+  <data key="d2">24</data>
+</edge>
+<edge source="IL1B" target="GUK1">
+  <data key="d1">0.995363779388681</data>
+  <data key="d2">21</data>
+</edge>
+<edge source="IL1B" target="ID2">
+  <data key="d1">0.678633117350908</data>
+  <data key="d2">273</data>
+</edge>
+<edge source="IL1B" target="PDIA6">
+  <data key="d1">0.923882078182143</data>
+  <data key="d2">28</data>
+</edge>
+<edge source="IL1B" target="LAPTM4A">
+  <data key="d1">0.979838411105203</data>
+  <data key="d2">23</data>
+</edge>
+<edge source="IL1B" target="OST4">
+  <data key="d1">0.84596283113935</data>
+  <data key="d2">132</data>
+</edge>
+<edge source="GPNMB" target="ISG15">
+  <data key="d1">0.732632757648947</data>
+  <data key="d2">195</data>
+</edge>
+<edge source="GPNMB" target="RPL22">
+  <data key="d1">0.658104829201908</data>
+  <data key="d2">362</data>
+</edge>
+<edge source="GPNMB" target="ENO1">
+  <data key="d1">0.768980174257016</data>
+  <data key="d2">462</data>
+</edge>
+<edge source="GPNMB" target="NBL1">
+  <data key="d1">0.8497381151061</data>
+  <data key="d2">124</data>
+</edge>
+<edge source="GPNMB" target="CDC42">
+  <data key="d1">0.81840869972808</data>
+  <data key="d2">254</data>
+</edge>
+<edge source="GPNMB" target="C1QA">
+  <data key="d1">-0.860546599229756</data>
+  <data key="d2">694</data>
+</edge>
+<edge source="GPNMB" target="C1QB">
+  <data key="d1">-0.781206614103703</data>
+  <data key="d2">691</data>
+</edge>
+<edge source="GPNMB" target="ID3">
+  <data key="d1">0.636806842428389</data>
+  <data key="d2">99</data>
+</edge>
+<edge source="GPNMB" target="IFI6">
+  <data key="d1">0.741406190508904</data>
+  <data key="d2">398</data>
+</edge>
+<edge source="GPNMB" target="CAP1">
+  <data key="d1">0.667221019832923</data>
+  <data key="d2">267</data>
+</edge>
+<edge source="GPNMB" target="ATP6V0B">
+  <data key="d1">0.643870873492687</data>
+  <data key="d2">546</data>
+</edge>
+<edge source="GPNMB" target="RPS8">
+  <data key="d1">0.639447247373161</data>
+  <data key="d2">889</data>
+</edge>
+<edge source="GPNMB" target="AKR1A1">
+  <data key="d1">0.753199589889358</data>
+  <data key="d2">132</data>
+</edge>
+<edge source="GPNMB" target="TMEM59">
+  <data key="d1">0.651342527919538</data>
+  <data key="d2">352</data>
+</edge>
+<edge source="GPNMB" target="JUN">
+  <data key="d1">0.848394214847859</data>
+  <data key="d2">358</data>
+</edge>
+<edge source="GPNMB" target="CYR61">
+  <data key="d1">0.919360221218812</data>
+  <data key="d2">32</data>
+</edge>
+<edge source="GPNMB" target="RPL5">
+  <data key="d1">0.640785507671552</data>
+  <data key="d2">669</data>
+</edge>
+<edge source="GPNMB" target="CNN3">
+  <data key="d1">0.961223839855554</data>
+  <data key="d2">42</data>
+</edge>
+<edge source="GPNMB" target="RPL7P9">
+  <data key="d1">-0.746029654871892</data>
+  <data key="d2">40</data>
+</edge>
+<edge source="GPNMB" target="CD53">
+  <data key="d1">0.766936379361191</data>
+  <data key="d2">347</data>
+</edge>
+<edge source="GPNMB" target="MCL1">
+  <data key="d1">0.954976961646136</data>
+  <data key="d2">62</data>
+</edge>
+<edge source="GPNMB" target="S100A10">
+  <data key="d1">-0.688569980661255</data>
+  <data key="d2">879</data>
+</edge>
+<edge source="GPNMB" target="TPM3">
+  <data key="d1">0.692917517177667</data>
+  <data key="d2">143</data>
+</edge>
+<edge source="GPNMB" target="IFI16">
+  <data key="d1">0.991067020735175</data>
+  <data key="d2">29</data>
+</edge>
+<edge source="GPNMB" target="FCER1G">
+  <data key="d1">-0.647950323538874</data>
+  <data key="d2">768</data>
+</edge>
+<edge source="GPNMB" target="HSPA6">
+  <data key="d1">0.880620487240289</data>
+  <data key="d2">35</data>
+</edge>
+<edge source="GPNMB" target="UAP1">
+  <data key="d1">0.812977350765306</data>
+  <data key="d2">25</data>
+</edge>
+<edge source="GPNMB" target="ABL2">
+  <data key="d1">0.826515122529055</data>
+  <data key="d2">28</data>
+</edge>
+<edge source="GPNMB" target="ARPC5">
+  <data key="d1">0.81462059655976</data>
+  <data key="d2">345</data>
+</edge>
+<edge source="GPNMB" target="RGS1">
+  <data key="d1">0.643973796666062</data>
+  <data key="d2">71</data>
+</edge>
+<edge source="GPNMB" target="CHI3L1">
+  <data key="d1">0.830320446113385</data>
+  <data key="d2">52</data>
+</edge>
+<edge source="GPNMB" target="CD55">
+  <data key="d1">0.943960161923585</data>
+  <data key="d2">37</data>
+</edge>
+<edge source="GPNMB" target="G0S2">
+  <data key="d1">0.761617568408191</data>
+  <data key="d2">79</data>
+</edge>
+<edge source="GPNMB" target="ARF1">
+  <data key="d1">0.642023530621364</data>
+  <data key="d2">159</data>
+</edge>
+<edge source="GPNMB" target="RPS7">
+  <data key="d1">0.72314513595663</data>
+  <data key="d2">827</data>
+</edge>
+<edge source="GPNMB" target="ID2">
+  <data key="d1">0.891999002588207</data>
+  <data key="d2">238</data>
+</edge>
+<edge source="GPNMB" target="LAPTM4A">
+  <data key="d1">0.646550644301961</data>
+  <data key="d2">279</data>
+</edge>
+<edge source="GPNMB" target="CYP1B1">
+  <data key="d1">-1.0</data>
+  <data key="d2">17</data>
+</edge>
+<edge source="GPNMB" target="EFEMP1">
+  <data key="d1">0.701861631987704</data>
+  <data key="d2">86</data>
+</edge>
+<edge source="MMP2" target="ISG15">
+  <data key="d1">1.0</data>
+  <data key="d2">15</data>
+</edge>
+<edge source="MMP2" target="PARK7">
+  <data key="d1">0.634090770446033</data>
+  <data key="d2">290</data>
+</edge>
+<edge source="MMP2" target="CAPZB">
+  <data key="d1">0.890652581519166</data>
+  <data key="d2">308</data>
+</edge>
+<edge source="MMP2" target="MINOS1">
+  <data key="d1">0.989550434225644</data>
+  <data key="d2">39</data>
+</edge>
+<edge source="MMP2" target="AL031727.1">
+  <data key="d1">0.640181993560081</data>
+  <data key="d2">38</data>
+</edge>
+<edge source="MMP2" target="NBL1">
+  <data key="d1">0.911812460410231</data>
+  <data key="d2">688</data>
+</edge>
+<edge source="MMP2" target="CDC42">
+  <data key="d1">0.897178313244286</data>
+  <data key="d2">85</data>
+</edge>
+<edge source="MMP2" target="C1QA">
+  <data key="d1">-1.0</data>
+  <data key="d2">13</data>
+</edge>
+<edge source="MMP2" target="C1QC">
+  <data key="d1">-1.0</data>
+  <data key="d2">13</data>
+</edge>
+<edge source="MMP2" target="C1QB">
+  <data key="d1">-1.0</data>
+  <data key="d2">13</data>
+</edge>
+<edge source="MMP2" target="ID3">
+  <data key="d1">0.726398796458641</data>
+  <data key="d2">372</data>
+</edge>
+<edge source="MMP2" target="STMN1">
+  <data key="d1">0.781492729361709</data>
+  <data key="d2">25</data>
+</edge>
+<edge source="MMP2" target="CD52">
+  <data key="d1">1.0</data>
+  <data key="d2">12</data>
+</edge>
+<edge source="MMP2" target="IFI6">
+  <data key="d1">0.992170701124383</data>
+  <data key="d2">26</data>
+</edge>
+<edge source="MMP2" target="MARCKSL1">
+  <data key="d1">0.985863913120997</data>
+  <data key="d2">38</data>
+</edge>
+<edge source="MMP2" target="NDUFS5">
+  <data key="d1">0.638469143738866</data>
+  <data key="d2">324</data>
+</edge>
+<edge source="MMP2" target="CAP1">
+  <data key="d1">0.902692258735174</data>
+  <data key="d2">41</data>
+</edge>
+<edge source="MMP2" target="YBX1">
+  <data key="d1">-0.741304777838716</data>
+  <data key="d2">685</data>
+</edge>
+<edge source="MMP2" target="ATP6V0B">
+  <data key="d1">0.895097087217009</data>
+  <data key="d2">53</data>
+</edge>
+<edge source="MMP2" target="AKR1A1">
+  <data key="d1">1.0</data>
+  <data key="d2">11</data>
+</edge>
+<edge source="MMP2" target="UQCRH">
+  <data key="d1">0.706382483983105</data>
+  <data key="d2">184</data>
+</edge>
+<edge source="MMP2" target="RPS13P2">
+  <data key="d1">0.955317237418227</data>
+  <data key="d2">31</data>
+</edge>
+<edge source="MMP2" target="SCP2">
+  <data key="d1">0.938034253402763</data>
+  <data key="d2">69</data>
+</edge>
+<edge source="MMP2" target="TMEM59">
+  <data key="d1">0.84258587170841</data>
+  <data key="d2">340</data>
+</edge>
+<edge source="MMP2" target="JUN">
+  <data key="d1">0.699606403998946</data>
+  <data key="d2">638</data>
+</edge>
+<edge source="MMP2" target="CYR61">
+  <data key="d1">0.707967450218406</data>
+  <data key="d2">315</data>
+</edge>
+<edge source="MMP2" target="CNN3">
+  <data key="d1">0.847803219877017</data>
+  <data key="d2">224</data>
+</edge>
+<edge source="MMP2" target="TXNIP">
+  <data key="d1">0.694005818402262</data>
+  <data key="d2">114</data>
+</edge>
+<edge source="MMP2" target="MCL1">
+  <data key="d1">0.917525423078947</data>
+  <data key="d2">51</data>
+</edge>
+<edge source="MMP2" target="S100A10">
+  <data key="d1">-0.653777213872728</data>
+  <data key="d2">769</data>
+</edge>
+<edge source="MMP2" target="S100A11">
+  <data key="d1">-0.624640875013122</data>
+  <data key="d2">703</data>
+</edge>
+<edge source="MMP2" target="S100A9">
+  <data key="d1">0.882866177157794</data>
+  <data key="d2">24</data>
+</edge>
+<edge source="MMP2" target="JTB">
+  <data key="d1">0.95098471795447</data>
+  <data key="d2">88</data>
+</edge>
+<edge source="MMP2" target="LAMTOR2">
+  <data key="d1">-1.0</data>
+  <data key="d2">11</data>
+</edge>
+<edge source="MMP2" target="IFI16">
+  <data key="d1">0.847915217166263</data>
+  <data key="d2">79</data>
+</edge>
+<edge source="MMP2" target="FCER1G">
+  <data key="d1">-1.0</data>
+  <data key="d2">15</data>
+</edge>
+<edge source="MMP2" target="HSPA6">
+  <data key="d1">0.834885607511447</data>
+  <data key="d2">58</data>
+</edge>
+<edge source="MMP2" target="UAP1">
+  <data key="d1">0.68659854494754</data>
+  <data key="d2">94</data>
+</edge>
+<edge source="MMP2" target="PRDX6">
+  <data key="d1">0.756445390813903</data>
+  <data key="d2">297</data>
+</edge>
+<edge source="MMP2" target="ABL2">
+  <data key="d1">1.0</data>
+  <data key="d2">19</data>
+</edge>
+<edge source="MMP2" target="GLUL">
+  <data key="d1">0.758446726549321</data>
+  <data key="d2">127</data>
+</edge>
+<edge source="MMP2" target="RGS16">
+  <data key="d1">0.914682876914653</data>
+  <data key="d2">28</data>
+</edge>
+<edge source="MMP2" target="ARPC5">
+  <data key="d1">0.831234498215246</data>
+  <data key="d2">70</data>
+</edge>
+<edge source="MMP2" target="RGS2">
+  <data key="d1">0.871982403101846</data>
+  <data key="d2">105</data>
+</edge>
+<edge source="MMP2" target="CSRP1">
+  <data key="d1">0.93705134744204</data>
+  <data key="d2">39</data>
+</edge>
+<edge source="MMP2" target="CD55">
+  <data key="d1">0.95611404427488</data>
+  <data key="d2">29</data>
+</edge>
+<edge source="MMP2" target="G0S2">
+  <data key="d1">0.647680242276233</data>
+  <data key="d2">200</data>
+</edge>
+<edge source="MMP2" target="ARF1">
+  <data key="d1">0.852765034946423</data>
+  <data key="d2">166</data>
+</edge>
+<edge source="MMP2" target="GUK1">
+  <data key="d1">0.626421016726774</data>
+  <data key="d2">238</data>
+</edge>
+<edge source="MMP2" target="RPS7">
+  <data key="d1">-0.673195573068628</data>
+  <data key="d2">864</data>
+</edge>
+<edge source="MMP2" target="ID2">
+  <data key="d1">0.798672635112134</data>
+  <data key="d2">312</data>
+</edge>
+<edge source="MMP2" target="LAPTM4A">
+  <data key="d1">0.844180734479352</data>
+  <data key="d2">715</data>
+</edge>
+<edge source="MMP2" target="CYP1B1">
+  <data key="d1">0.735582024324064</data>
+  <data key="d2">103</data>
+</edge>
+<edge source="MMP2" target="EFEMP1">
+  <data key="d1">0.620854638243716</data>
+  <data key="d2">390</data>
+</edge>
+<edge source="CCL5" target="ISG15">
+  <data key="d1">1.0</data>
+  <data key="d2">15</data>
+</edge>
+<edge source="CCL5" target="RPL22">
+  <data key="d1">0.940867945607546</data>
+  <data key="d2">61</data>
+</edge>
+<edge source="CCL5" target="PARK7">
+  <data key="d1">1.0</data>
+  <data key="d2">18</data>
+</edge>
+<edge source="CCL5" target="ENO1">
+  <data key="d1">0.953250161583972</data>
+  <data key="d2">45</data>
+</edge>
+<edge source="CCL5" target="CAPZB">
+  <data key="d1">1.0</data>
+  <data key="d2">14</data>
+</edge>
+<edge source="CCL5" target="AL031727.1">
+  <data key="d1">1.0</data>
+  <data key="d2">12</data>
+</edge>
+<edge source="CCL5" target="CDC42">
+  <data key="d1">1.0</data>
+  <data key="d2">20</data>
+</edge>
+<edge source="CCL5" target="C1QC">
+  <data key="d1">-0.830430017903548</data>
+  <data key="d2">31</data>
+</edge>
+<edge source="CCL5" target="ID3">
+  <data key="d1">1.0</data>
+  <data key="d2">14</data>
+</edge>
+<edge source="CCL5" target="STMN1">
+  <data key="d1">0.991656198112671</data>
+  <data key="d2">31</data>
+</edge>
+<edge source="CCL5" target="SH3BGRL3">
+  <data key="d1">0.908966763469861</data>
+  <data key="d2">459</data>
+</edge>
+<edge source="CCL5" target="CD52">
+  <data key="d1">0.790429214845202</data>
+  <data key="d2">623</data>
+</edge>
+<edge source="CCL5" target="HMGN2">
+  <data key="d1">0.995558591030408</data>
+  <data key="d2">29</data>
+</edge>
+<edge source="CCL5" target="NDUFS5">
+  <data key="d1">0.95996492595713</data>
+  <data key="d2">23</data>
+</edge>
+<edge source="CCL5" target="CAP1">
+  <data key="d1">1.0</data>
+  <data key="d2">11</data>
+</edge>
+<edge source="CCL5" target="ATP6V0B">
+  <data key="d1">1.0</data>
+  <data key="d2">16</data>
+</edge>
+<edge source="CCL5" target="RPS8">
+  <data key="d1">0.663291118678512</data>
+  <data key="d2">1574</data>
+</edge>
+<edge source="CCL5" target="UQCRH">
+  <data key="d1">0.991990136114667</data>
+  <data key="d2">27</data>
+</edge>
+<edge source="CCL5" target="RPS13P2">
+  <data key="d1">1.0</data>
+  <data key="d2">13</data>
+</edge>
+<edge source="CCL5" target="TMEM59">
+  <data key="d1">1.0</data>
+  <data key="d2">13</data>
+</edge>
+<edge source="CCL5" target="JUN">
+  <data key="d1">0.821516721425214</data>
+  <data key="d2">792</data>
+</edge>
+<edge source="CCL5" target="CYR61">
+  <data key="d1">1.0</data>
+  <data key="d2">19</data>
+</edge>
+<edge source="CCL5" target="RPL5">
+  <data key="d1">0.912437353611049</data>
+  <data key="d2">546</data>
+</edge>
+<edge source="CCL5" target="RPL7P9">
+  <data key="d1">1.0</data>
+  <data key="d2">13</data>
+</edge>
+<edge source="CCL5" target="TXNIP">
+  <data key="d1">0.914643489276482</data>
+  <data key="d2">295</data>
+</edge>
+<edge source="CCL5" target="MCL1">
+  <data key="d1">0.987362554236281</data>
+  <data key="d2">28</data>
+</edge>
+<edge source="CCL5" target="TPM3">
+  <data key="d1">1.0</data>
+  <data key="d2">12</data>
+</edge>
+<edge source="CCL5" target="TAGLN2">
+  <data key="d1">0.804668380088366</data>
+  <data key="d2">51</data>
+</edge>
+<edge source="CCL5" target="FCER1G">
+  <data key="d1">0.899347340494297</data>
+  <data key="d2">83</data>
+</edge>
+<edge source="CCL5" target="HSPA6">
+  <data key="d1">0.857652625174772</data>
+  <data key="d2">120</data>
+</edge>
+<edge source="CCL5" target="MGST3">
+  <data key="d1">1.0</data>
+  <data key="d2">17</data>
+</edge>
+<edge source="CCL5" target="PRDX6">
+  <data key="d1">1.0</data>
+  <data key="d2">12</data>
+</edge>
+<edge source="CCL5" target="GLUL">
+  <data key="d1">0.823949507828573</data>
+  <data key="d2">22</data>
+</edge>
+<edge source="CCL5" target="ARPC5">
+  <data key="d1">1.0</data>
+  <data key="d2">11</data>
+</edge>
+<edge source="CCL5" target="RGS1">
+  <data key="d1">0.831316417934607</data>
+  <data key="d2">336</data>
+</edge>
+<edge source="CCL5" target="RGS2">
+  <data key="d1">0.962627600257197</data>
+  <data key="d2">77</data>
+</edge>
+<edge source="CCL5" target="G0S2">
+  <data key="d1">0.891475221911695</data>
+  <data key="d2">26</data>
+</edge>
+<edge source="CCL5" target="ARF1">
+  <data key="d1">1.0</data>
+  <data key="d2">12</data>
+</edge>
+<edge source="CCL5" target="GUK1">
+  <data key="d1">1.0</data>
+  <data key="d2">17</data>
+</edge>
+<edge source="CCL5" target="RPS7">
+  <data key="d1">0.827133853451874</data>
+  <data key="d2">1258</data>
+</edge>
+<edge source="CCL5" target="ID2">
+  <data key="d1">0.900878896466073</data>
+  <data key="d2">455</data>
+</edge>
+<edge source="CCL5" target="LAPTM4A">
+  <data key="d1">1.0</data>
+  <data key="d2">16</data>
+</edge>
+<edge source="CCL5" target="OST4">
+  <data key="d1">0.919528845780263</data>
+  <data key="d2">48</data>
+</edge>
+<edge source="PLAUR" target="ISG15">
+  <data key="d1">0.895212063622125</data>
+  <data key="d2">214</data>
+</edge>
+<edge source="PLAUR" target="RPL22">
+  <data key="d1">0.873321408683969</data>
+  <data key="d2">489</data>
+</edge>
+<edge source="PLAUR" target="ENO1">
+  <data key="d1">0.671029765327855</data>
+  <data key="d2">575</data>
+</edge>
+<edge source="PLAUR" target="MINOS1">
+  <data key="d1">0.72366435783931</data>
+  <data key="d2">64</data>
+</edge>
+<edge source="PLAUR" target="AL031727.1">
+  <data key="d1">0.952509592896207</data>
+  <data key="d2">56</data>
+</edge>
+<edge source="PLAUR" target="NBL1">
+  <data key="d1">0.74645198403386</data>
+  <data key="d2">82</data>
+</edge>
+<edge source="PLAUR" target="CDC42">
+  <data key="d1">0.932620562438407</data>
+  <data key="d2">257</data>
+</edge>
+<edge source="PLAUR" target="C1QA">
+  <data key="d1">-0.647095292354088</data>
+  <data key="d2">888</data>
+</edge>
+<edge source="PLAUR" target="C1QB">
+  <data key="d1">-0.801236779100048</data>
+  <data key="d2">725</data>
+</edge>
+<edge source="PLAUR" target="ID3">
+  <data key="d1">0.699431545651205</data>
+  <data key="d2">102</data>
+</edge>
+<edge source="PLAUR" target="SH3BGRL3">
+  <data key="d1">0.600558614721712</data>
+  <data key="d2">1554</data>
+</edge>
+<edge source="PLAUR" target="HMGN2">
+  <data key="d1">0.785784159917091</data>
+  <data key="d2">128</data>
+</edge>
+<edge source="PLAUR" target="IFI6">
+  <data key="d1">0.791137955164958</data>
+  <data key="d2">316</data>
+</edge>
+<edge source="PLAUR" target="FABP3">
+  <data key="d1">0.647730854965545</data>
+  <data key="d2">100</data>
+</edge>
+<edge source="PLAUR" target="MARCKSL1">
+  <data key="d1">0.965130706499366</data>
+  <data key="d2">29</data>
+</edge>
+<edge source="PLAUR" target="CAP1">
+  <data key="d1">0.942336442581266</data>
+  <data key="d2">242</data>
+</edge>
+<edge source="PLAUR" target="ATP6V0B">
+  <data key="d1">0.855107733735214</data>
+  <data key="d2">451</data>
+</edge>
+<edge source="PLAUR" target="RPS8">
+  <data key="d1">0.65768552455589</data>
+  <data key="d2">1765</data>
+</edge>
+<edge source="PLAUR" target="AKR1A1">
+  <data key="d1">0.882889432234497</data>
+  <data key="d2">102</data>
+</edge>
+<edge source="PLAUR" target="UQCRH">
+  <data key="d1">0.889818789863573</data>
+  <data key="d2">455</data>
+</edge>
+<edge source="PLAUR" target="RPS13P2">
+  <data key="d1">0.931397266950498</data>
+  <data key="d2">59</data>
+</edge>
+<edge source="PLAUR" target="SCP2">
+  <data key="d1">0.932616087638715</data>
+  <data key="d2">110</data>
+</edge>
+<edge source="PLAUR" target="TMEM59">
+  <data key="d1">0.703469827044536</data>
+  <data key="d2">228</data>
+</edge>
+<edge source="PLAUR" target="JUN">
+  <data key="d1">0.860554632284832</data>
+  <data key="d2">622</data>
+</edge>
+<edge source="PLAUR" target="CYR61">
+  <data key="d1">0.956137052230704</data>
+  <data key="d2">70</data>
+</edge>
+<edge source="PLAUR" target="RPL5">
+  <data key="d1">0.68112384590483</data>
+  <data key="d2">949</data>
+</edge>
+<edge source="PLAUR" target="CNN3">
+  <data key="d1">0.963321092749158</data>
+  <data key="d2">64</data>
+</edge>
+<edge source="PLAUR" target="RPL7P9">
+  <data key="d1">0.839789369503017</data>
+  <data key="d2">70</data>
+</edge>
+<edge source="PLAUR" target="CD53">
+  <data key="d1">0.768925203022061</data>
+  <data key="d2">246</data>
+</edge>
+<edge source="PLAUR" target="TXNIP">
+  <data key="d1">0.87182491678178</data>
+  <data key="d2">282</data>
+</edge>
+<edge source="PLAUR" target="MCL1">
+  <data key="d1">0.960016290609958</data>
+  <data key="d2">202</data>
+</edge>
+<edge source="PLAUR" target="S100A9">
+  <data key="d1">0.828975363836151</data>
+  <data key="d2">907</data>
+</edge>
+<edge source="PLAUR" target="JTB">
+  <data key="d1">0.88759941159847</data>
+  <data key="d2">110</data>
+</edge>
+<edge source="PLAUR" target="RPS27">
+  <data key="d1">0.772896578085975</data>
+  <data key="d2">2058</data>
+</edge>
+<edge source="PLAUR" target="TPM3">
+  <data key="d1">0.921133534003497</data>
+  <data key="d2">195</data>
+</edge>
+<edge source="PLAUR" target="LAMTOR2">
+  <data key="d1">0.831573645589013</data>
+  <data key="d2">98</data>
+</edge>
+<edge source="PLAUR" target="CD1C">
+  <data key="d1">0.916634449444491</data>
+  <data key="d2">65</data>
+</edge>
+<edge source="PLAUR" target="IFI16">
+  <data key="d1">0.982422380291573</data>
+  <data key="d2">42</data>
+</edge>
+<edge source="PLAUR" target="TAGLN2">
+  <data key="d1">0.839026779954608</data>
+  <data key="d2">557</data>
+</edge>
+<edge source="PLAUR" target="HSPA6">
+  <data key="d1">0.824701174970052</data>
+  <data key="d2">118</data>
+</edge>
+<edge source="PLAUR" target="FCGR2B">
+  <data key="d1">0.650003720611304</data>
+  <data key="d2">70</data>
+</edge>
+<edge source="PLAUR" target="UAP1">
+  <data key="d1">0.973733339240105</data>
+  <data key="d2">25</data>
+</edge>
+<edge source="PLAUR" target="ATP1B1">
+  <data key="d1">0.748699948603916</data>
+  <data key="d2">25</data>
+</edge>
+<edge source="PLAUR" target="ABL2">
+  <data key="d1">0.981603103203939</data>
+  <data key="d2">59</data>
+</edge>
+<edge source="PLAUR" target="GLUL">
+  <data key="d1">0.847365959150749</data>
+  <data key="d2">572</data>
+</edge>
+<edge source="PLAUR" target="ARPC5">
+  <data key="d1">0.927527744323862</data>
+  <data key="d2">320</data>
+</edge>
+<edge source="PLAUR" target="RGS1">
+  <data key="d1">0.723919652502187</data>
+  <data key="d2">278</data>
+</edge>
+<edge source="PLAUR" target="RGS2">
+  <data key="d1">0.835101766632813</data>
+  <data key="d2">451</data>
+</edge>
+<edge source="PLAUR" target="CSRP1">
+  <data key="d1">0.996829173761797</data>
+  <data key="d2">25</data>
+</edge>
+<edge source="PLAUR" target="CHI3L1">
+  <data key="d1">-0.805098102218772</data>
+  <data key="d2">30</data>
+</edge>
+<edge source="PLAUR" target="CD55">
+  <data key="d1">0.984646507975504</data>
+  <data key="d2">58</data>
+</edge>
+<edge source="PLAUR" target="G0S2">
+  <data key="d1">0.848783889657204</data>
+  <data key="d2">1054</data>
+</edge>
+<edge source="PLAUR" target="ARF1">
+  <data key="d1">0.672140366209387</data>
+  <data key="d2">185</data>
+</edge>
+<edge source="PLAUR" target="GUK1">
+  <data key="d1">0.655047353500301</data>
+  <data key="d2">182</data>
+</edge>
+<edge source="PLAUR" target="RPS7">
+  <data key="d1">0.673158559145875</data>
+  <data key="d2">1433</data>
+</edge>
+<edge source="PLAUR" target="ID2">
+  <data key="d1">0.930833143548875</data>
+  <data key="d2">393</data>
+</edge>
+<edge source="PLAUR" target="PDIA6">
+  <data key="d1">0.641237316386842</data>
+  <data key="d2">179</data>
+</edge>
+<edge source="PLAUR" target="LAPTM4A">
+  <data key="d1">0.66095044527142</data>
+  <data key="d2">190</data>
+</edge>
+<edge source="PLAUR" target="CYP1B1">
+  <data key="d1">0.999830953491295</data>
+  <data key="d2">22</data>
+</edge>
+<edge source="PLAUR" target="RPS27A">
+  <data key="d1">0.622385166423431</data>
+  <data key="d2">1847</data>
+</edge>
+</graph></graphml>

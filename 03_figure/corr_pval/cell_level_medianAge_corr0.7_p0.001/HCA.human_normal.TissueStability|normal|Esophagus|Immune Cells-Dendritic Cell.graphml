@@ -1,0 +1,847 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d2" for="edge" attr.name="cell_n" attr.type="long"/>
+<key id="d1" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d0" for="graph" attr.name="name" attr.type="string"/>
+<graph edgedefault="undirected"><data key="d0">/Users/liuyuting/WorkSpace/ScRNA_project/03figure/corr_pval/cell_level_medianAge_corr0.7_p0.001//HCA.human_normal.TissueStability|normal|Esophagus|Immune Cells-Dendritic Cell</data>
+<node id="MTATP6P1"/>
+<node id="CDKN1A"/>
+<node id="RPL22"/>
+<node id="ENO1"/>
+<node id="YBX1"/>
+<node id="UQCRH"/>
+<node id="JUN"/>
+<node id="CLCA4"/>
+<node id="RPL5"/>
+<node id="CRCT1"/>
+<node id="SPRR1B"/>
+<node id="SPRR2D"/>
+<node id="SPRR2A"/>
+<node id="SPRR2E"/>
+<node id="S100A8"/>
+<node id="S100A2"/>
+<node id="S100A14"/>
+<node id="RPS27"/>
+<node id="CRABP2"/>
+<node id="ELF3"/>
+<node id="GUK1"/>
+<node id="SDC1"/>
+<node id="OST4"/>
+<node id="RPS27A"/>
+<node id="TMSB10"/>
+<node id="MAL"/>
+<node id="COX5B"/>
+<node id="ATP5G3"/>
+<node id="EEF1B2"/>
+<node id="ARPC2"/>
+<node id="PTMA"/>
+<node id="RPSA"/>
+<node id="RPL14"/>
+<node id="TMA7"/>
+<node id="RPL29"/>
+<node id="RPL24"/>
+<node id="CSTA"/>
+<node id="FAM162A"/>
+<node id="HES1"/>
+<node id="RPL35A"/>
+<node id="ATP5I"/>
+<node id="FGFBP1"/>
+<node id="TMPRSS11B"/>
+<node id="AREG"/>
+<node id="CCNI"/>
+<node id="RPL34"/>
+<node id="C4orf3"/>
+<node id="RPL37"/>
+<node id="RPS23"/>
+<node id="COX7C"/>
+<node id="CAST"/>
+<node id="HINT1"/>
+<node id="PITX1"/>
+<node id="SPINK7"/>
+<node id="DUSP1"/>
+<node id="RACK1"/>
+<node id="DSP"/>
+<node id="IER3"/>
+<node id="CLIC1"/>
+<node id="CTNNBIP1"/>
+<node id="S100A10"/>
+<node id="IVL"/>
+<node id="SPRR3"/>
+<node id="RAB10"/>
+<node id="VAMP8"/>
+<node id="RPL37A"/>
+<node id="TMEM40"/>
+<node id="TM4SF1"/>
+<node id="COX7A2"/>
+<node id="SNX3"/>
+<node id="EZR"/>
+<node id="NDUFA4"/>
+<node id="CYCS"/>
+<node id="UPP1"/>
+<node id="CHCHD2"/>
+<node id="RPS20"/>
+<node id="RPL7"/>
+<node id="UQCRB"/>
+<node id="COX6C"/>
+<node id="PABPC1"/>
+<node id="YWHAZ"/>
+<node id="NDRG1"/>
+<node id="LY6D"/>
+<node id="EEF1D"/>
+<node id="AQP3"/>
+<node id="RPL7A"/>
+<node id="C10orf99"/>
+<node id="USMG5"/>
+<node id="POLR2L"/>
+<node id="PHLDA2"/>
+<node id="RPL27A"/>
+<node id="NUCB2"/>
+<node id="LDHA"/>
+<node id="COX8A"/>
+<node id="MALAT1"/>
+<node id="CRYAB"/>
+<node id="ATP5L"/>
+<node id="RPS25"/>
+<node id="TRIM29"/>
+<node id="KRT6B"/>
+<node id="KRT6C"/>
+<node id="KRT4"/>
+<node id="ATP5G2"/>
+<node id="RPS26"/>
+<node id="SLC25A3"/>
+<node id="GLTP"/>
+<node id="TPT1"/>
+<node id="ITM2B"/>
+<node id="TGM1"/>
+<node id="NFKBIA"/>
+<node id="RPS29"/>
+<node id="RPL36AL"/>
+<node id="FOS"/>
+<node id="IFI27"/>
+<node id="HSP90AA1"/>
+<node id="C14orf2"/>
+<node id="RPL4"/>
+<node id="RPS17"/>
+<node id="PPL"/>
+<node id="EMP2"/>
+<node id="RPS15A"/>
+<node id="MT1X"/>
+<node id="FAM96B"/>
+<node id="PFN1"/>
+<node id="CLDN7"/>
+<node id="LRRC75A-AS1"/>
+<node id="RPL23"/>
+<node id="RPL19"/>
+<node id="KRT13"/>
+<node id="KRT16"/>
+<node id="KRT17"/>
+<node id="JUP"/>
+<node id="RPL27"/>
+<node id="RPL38"/>
+<node id="DSC2"/>
+<node id="DSG3"/>
+<node id="ATP5D"/>
+<node id="OAZ1"/>
+<node id="EEF2"/>
+<node id="RPL36"/>
+<node id="UBL5"/>
+<node id="JUNB"/>
+<node id="IER2"/>
+<node id="DNAJB1"/>
+<node id="RPL18A"/>
+<node id="UBA52"/>
+<node id="SBSN"/>
+<node id="LGALS7B"/>
+<node id="ZFP36"/>
+<node id="RPS16"/>
+<node id="SULT2B1"/>
+<node id="FTL"/>
+<node id="RPS11"/>
+<node id="KLK11"/>
+<node id="TGM3"/>
+<node id="ID1"/>
+<node id="PI3"/>
+<node id="ATP5E"/>
+<node id="RPS21"/>
+<node id="SAT1"/>
+<node id="COX7B"/>
+<node id="SLC25A5"/>
+<node id="RPL39"/>
+<node id="MT-ND2"/>
+<node id="MT-CO2"/>
+<node id="MT-CO3"/>
+<node id="MT-ND3"/>
+<node id="MT-ND5"/>
+<node id="MT-CYB"/>
+<edge source="MTATP6P1" target="CDKN1A">
+  <data key="d1">0.930598811482056</data>
+  <data key="d2">24</data>
+</edge>
+<edge source="CDKN1A" target="RPL22">
+  <data key="d1">0.950698389840536</data>
+  <data key="d2">108</data>
+</edge>
+<edge source="CDKN1A" target="ENO1">
+  <data key="d1">0.912065432382056</data>
+  <data key="d2">56</data>
+</edge>
+<edge source="CDKN1A" target="YBX1">
+  <data key="d1">0.928714181507435</data>
+  <data key="d2">51</data>
+</edge>
+<edge source="CDKN1A" target="UQCRH">
+  <data key="d1">0.71829674488212</data>
+  <data key="d2">135</data>
+</edge>
+<edge source="CDKN1A" target="JUN">
+  <data key="d1">0.982006650777877</data>
+  <data key="d2">73</data>
+</edge>
+<edge source="CDKN1A" target="CLCA4">
+  <data key="d1">0.9373274835467</data>
+  <data key="d2">40</data>
+</edge>
+<edge source="CDKN1A" target="RPL5">
+  <data key="d1">0.844651810208184</data>
+  <data key="d2">159</data>
+</edge>
+<edge source="CDKN1A" target="CRCT1">
+  <data key="d1">0.73350720062996</data>
+  <data key="d2">111</data>
+</edge>
+<edge source="CDKN1A" target="SPRR1B">
+  <data key="d1">0.864590578980559</data>
+  <data key="d2">80</data>
+</edge>
+<edge source="CDKN1A" target="SPRR2D">
+  <data key="d1">0.984585528519289</data>
+  <data key="d2">34</data>
+</edge>
+<edge source="CDKN1A" target="SPRR2A">
+  <data key="d1">0.860196687334552</data>
+  <data key="d2">126</data>
+</edge>
+<edge source="CDKN1A" target="SPRR2E">
+  <data key="d1">0.990157732345617</data>
+  <data key="d2">50</data>
+</edge>
+<edge source="CDKN1A" target="S100A8">
+  <data key="d1">-0.741141069375452</data>
+  <data key="d2">171</data>
+</edge>
+<edge source="CDKN1A" target="S100A2">
+  <data key="d1">0.804720445245481</data>
+  <data key="d2">170</data>
+</edge>
+<edge source="CDKN1A" target="S100A14">
+  <data key="d1">-0.719248698967159</data>
+  <data key="d2">171</data>
+</edge>
+<edge source="CDKN1A" target="RPS27">
+  <data key="d1">0.821821743640982</data>
+  <data key="d2">168</data>
+</edge>
+<edge source="CDKN1A" target="CRABP2">
+  <data key="d1">0.835584029186064</data>
+  <data key="d2">111</data>
+</edge>
+<edge source="CDKN1A" target="ELF3">
+  <data key="d1">0.98816594639868</data>
+  <data key="d2">36</data>
+</edge>
+<edge source="CDKN1A" target="GUK1">
+  <data key="d1">0.807742868556092</data>
+  <data key="d2">137</data>
+</edge>
+<edge source="CDKN1A" target="SDC1">
+  <data key="d1">0.946715235474024</data>
+  <data key="d2">107</data>
+</edge>
+<edge source="CDKN1A" target="OST4">
+  <data key="d1">0.91715671016131</data>
+  <data key="d2">115</data>
+</edge>
+<edge source="CDKN1A" target="RPS27A">
+  <data key="d1">0.79425635813407</data>
+  <data key="d2">171</data>
+</edge>
+<edge source="CDKN1A" target="TMSB10">
+  <data key="d1">0.848357938758952</data>
+  <data key="d2">171</data>
+</edge>
+<edge source="CDKN1A" target="MAL">
+  <data key="d1">-0.76189283673675</data>
+  <data key="d2">117</data>
+</edge>
+<edge source="CDKN1A" target="COX5B">
+  <data key="d1">0.926215784526939</data>
+  <data key="d2">113</data>
+</edge>
+<edge source="CDKN1A" target="ATP5G3">
+  <data key="d1">0.834147855142784</data>
+  <data key="d2">63</data>
+</edge>
+<edge source="CDKN1A" target="EEF1B2">
+  <data key="d1">0.866550239643614</data>
+  <data key="d2">158</data>
+</edge>
+<edge source="CDKN1A" target="ARPC2">
+  <data key="d1">0.805745089542847</data>
+  <data key="d2">111</data>
+</edge>
+<edge source="CDKN1A" target="PTMA">
+  <data key="d1">0.900325563736806</data>
+  <data key="d2">134</data>
+</edge>
+<edge source="CDKN1A" target="RPSA">
+  <data key="d1">0.910908442772179</data>
+  <data key="d2">158</data>
+</edge>
+<edge source="CDKN1A" target="RPL14">
+  <data key="d1">0.869576712684344</data>
+  <data key="d2">164</data>
+</edge>
+<edge source="CDKN1A" target="TMA7">
+  <data key="d1">0.967241006234252</data>
+  <data key="d2">57</data>
+</edge>
+<edge source="CDKN1A" target="RPL29">
+  <data key="d1">0.79013978742034</data>
+  <data key="d2">171</data>
+</edge>
+<edge source="CDKN1A" target="RPL24">
+  <data key="d1">0.792416783813495</data>
+  <data key="d2">167</data>
+</edge>
+<edge source="CDKN1A" target="CSTA">
+  <data key="d1">-0.702927977974318</data>
+  <data key="d2">171</data>
+</edge>
+<edge source="CDKN1A" target="FAM162A">
+  <data key="d1">0.885392163317469</data>
+  <data key="d2">47</data>
+</edge>
+<edge source="CDKN1A" target="HES1">
+  <data key="d1">0.945660289492641</data>
+  <data key="d2">36</data>
+</edge>
+<edge source="CDKN1A" target="RPL35A">
+  <data key="d1">0.856943695516743</data>
+  <data key="d2">166</data>
+</edge>
+<edge source="CDKN1A" target="ATP5I">
+  <data key="d1">0.990354507760887</data>
+  <data key="d2">58</data>
+</edge>
+<edge source="CDKN1A" target="FGFBP1">
+  <data key="d1">0.946737175572094</data>
+  <data key="d2">50</data>
+</edge>
+<edge source="CDKN1A" target="TMPRSS11B">
+  <data key="d1">1.0</data>
+  <data key="d2">16</data>
+</edge>
+<edge source="CDKN1A" target="AREG">
+  <data key="d1">0.997447866878358</data>
+  <data key="d2">29</data>
+</edge>
+<edge source="CDKN1A" target="CCNI">
+  <data key="d1">0.758405225264368</data>
+  <data key="d2">48</data>
+</edge>
+<edge source="CDKN1A" target="RPL34">
+  <data key="d1">0.807799633203682</data>
+  <data key="d2">170</data>
+</edge>
+<edge source="CDKN1A" target="C4orf3">
+  <data key="d1">-0.708629633314451</data>
+  <data key="d2">141</data>
+</edge>
+<edge source="CDKN1A" target="RPL37">
+  <data key="d1">0.851300548787175</data>
+  <data key="d2">168</data>
+</edge>
+<edge source="CDKN1A" target="RPS23">
+  <data key="d1">0.722400382894997</data>
+  <data key="d2">168</data>
+</edge>
+<edge source="CDKN1A" target="COX7C">
+  <data key="d1">0.828109228663213</data>
+  <data key="d2">143</data>
+</edge>
+<edge source="CDKN1A" target="CAST">
+  <data key="d1">0.956722103551636</data>
+  <data key="d2">82</data>
+</edge>
+<edge source="CDKN1A" target="HINT1">
+  <data key="d1">0.88942768870168</data>
+  <data key="d2">85</data>
+</edge>
+<edge source="CDKN1A" target="PITX1">
+  <data key="d1">0.768412402069951</data>
+  <data key="d2">119</data>
+</edge>
+<edge source="CDKN1A" target="SPINK7">
+  <data key="d1">1.0</data>
+  <data key="d2">14</data>
+</edge>
+<edge source="CDKN1A" target="DUSP1">
+  <data key="d1">0.974175809126241</data>
+  <data key="d2">94</data>
+</edge>
+<edge source="CDKN1A" target="RACK1">
+  <data key="d1">0.730711816959282</data>
+  <data key="d2">167</data>
+</edge>
+<edge source="CDKN1A" target="DSP">
+  <data key="d1">0.832453883770365</data>
+  <data key="d2">147</data>
+</edge>
+<edge source="CDKN1A" target="IER3">
+  <data key="d1">0.926958333688954</data>
+  <data key="d2">76</data>
+</edge>
+<edge source="CDKN1A" target="CLIC1">
+  <data key="d1">0.967277757285523</data>
+  <data key="d2">68</data>
+</edge>
+<edge source="CDKN1A" target="CTNNBIP1">
+  <data key="d1">0.825323743902957</data>
+  <data key="d2">110</data>
+</edge>
+<edge source="CDKN1A" target="S100A10">
+  <data key="d1">-0.751417019359201</data>
+  <data key="d2">171</data>
+</edge>
+<edge source="CDKN1A" target="IVL">
+  <data key="d1">0.839424155520183</data>
+  <data key="d2">94</data>
+</edge>
+<edge source="CDKN1A" target="SPRR3">
+  <data key="d1">-0.707520122847165</data>
+  <data key="d2">168</data>
+</edge>
+<edge source="CDKN1A" target="RAB10">
+  <data key="d1">0.849562495731664</data>
+  <data key="d2">79</data>
+</edge>
+<edge source="CDKN1A" target="VAMP8">
+  <data key="d1">0.825214590574852</data>
+  <data key="d2">97</data>
+</edge>
+<edge source="CDKN1A" target="RPL37A">
+  <data key="d1">0.753860726711355</data>
+  <data key="d2">171</data>
+</edge>
+<edge source="CDKN1A" target="TMEM40">
+  <data key="d1">0.897871053592377</data>
+  <data key="d2">79</data>
+</edge>
+<edge source="CDKN1A" target="TM4SF1">
+  <data key="d1">0.892633632079208</data>
+  <data key="d2">132</data>
+</edge>
+<edge source="CDKN1A" target="COX7A2">
+  <data key="d1">0.783417937858412</data>
+  <data key="d2">128</data>
+</edge>
+<edge source="CDKN1A" target="SNX3">
+  <data key="d1">0.775083176266247</data>
+  <data key="d2">57</data>
+</edge>
+<edge source="CDKN1A" target="EZR">
+  <data key="d1">0.96877548391886</data>
+  <data key="d2">80</data>
+</edge>
+<edge source="CDKN1A" target="NDUFA4">
+  <data key="d1">0.961188584580321</data>
+  <data key="d2">62</data>
+</edge>
+<edge source="CDKN1A" target="CYCS">
+  <data key="d1">0.864208061119207</data>
+  <data key="d2">101</data>
+</edge>
+<edge source="CDKN1A" target="UPP1">
+  <data key="d1">0.984042702894292</data>
+  <data key="d2">48</data>
+</edge>
+<edge source="CDKN1A" target="CHCHD2">
+  <data key="d1">0.829333411154985</data>
+  <data key="d2">113</data>
+</edge>
+<edge source="CDKN1A" target="RPS20">
+  <data key="d1">0.816965353680736</data>
+  <data key="d2">168</data>
+</edge>
+<edge source="CDKN1A" target="RPL7">
+  <data key="d1">0.797016305181132</data>
+  <data key="d2">164</data>
+</edge>
+<edge source="CDKN1A" target="UQCRB">
+  <data key="d1">0.854842670011359</data>
+  <data key="d2">124</data>
+</edge>
+<edge source="CDKN1A" target="COX6C">
+  <data key="d1">0.970466264352505</data>
+  <data key="d2">75</data>
+</edge>
+<edge source="CDKN1A" target="PABPC1">
+  <data key="d1">0.893513152879464</data>
+  <data key="d2">103</data>
+</edge>
+<edge source="CDKN1A" target="YWHAZ">
+  <data key="d1">0.953048524540417</data>
+  <data key="d2">104</data>
+</edge>
+<edge source="CDKN1A" target="NDRG1">
+  <data key="d1">0.906768732620148</data>
+  <data key="d2">138</data>
+</edge>
+<edge source="CDKN1A" target="LY6D">
+  <data key="d1">0.826449636943193</data>
+  <data key="d2">169</data>
+</edge>
+<edge source="CDKN1A" target="EEF1D">
+  <data key="d1">0.928585130260896</data>
+  <data key="d2">101</data>
+</edge>
+<edge source="CDKN1A" target="AQP3">
+  <data key="d1">0.854425709914</data>
+  <data key="d2">155</data>
+</edge>
+<edge source="CDKN1A" target="RPL7A">
+  <data key="d1">0.778598479488017</data>
+  <data key="d2">170</data>
+</edge>
+<edge source="CDKN1A" target="C10orf99">
+  <data key="d1">0.936793439592496</data>
+  <data key="d2">51</data>
+</edge>
+<edge source="CDKN1A" target="USMG5">
+  <data key="d1">0.924694737438764</data>
+  <data key="d2">105</data>
+</edge>
+<edge source="CDKN1A" target="POLR2L">
+  <data key="d1">0.986068141187969</data>
+  <data key="d2">43</data>
+</edge>
+<edge source="CDKN1A" target="PHLDA2">
+  <data key="d1">0.934148303119983</data>
+  <data key="d2">107</data>
+</edge>
+<edge source="CDKN1A" target="RPL27A">
+  <data key="d1">0.798384088142723</data>
+  <data key="d2">170</data>
+</edge>
+<edge source="CDKN1A" target="NUCB2">
+  <data key="d1">0.817182358154973</data>
+  <data key="d2">63</data>
+</edge>
+<edge source="CDKN1A" target="LDHA">
+  <data key="d1">0.853908547742431</data>
+  <data key="d2">100</data>
+</edge>
+<edge source="CDKN1A" target="COX8A">
+  <data key="d1">0.974914689237375</data>
+  <data key="d2">98</data>
+</edge>
+<edge source="CDKN1A" target="MALAT1">
+  <data key="d1">0.801151524635472</data>
+  <data key="d2">169</data>
+</edge>
+<edge source="CDKN1A" target="CRYAB">
+  <data key="d1">0.849108250982389</data>
+  <data key="d2">29</data>
+</edge>
+<edge source="CDKN1A" target="ATP5L">
+  <data key="d1">0.786360483052001</data>
+  <data key="d2">101</data>
+</edge>
+<edge source="CDKN1A" target="RPS25">
+  <data key="d1">0.899072099434869</data>
+  <data key="d2">153</data>
+</edge>
+<edge source="CDKN1A" target="TRIM29">
+  <data key="d1">0.950487241116746</data>
+  <data key="d2">61</data>
+</edge>
+<edge source="CDKN1A" target="KRT6B">
+  <data key="d1">0.832039351261287</data>
+  <data key="d2">128</data>
+</edge>
+<edge source="CDKN1A" target="KRT6C">
+  <data key="d1">0.9666706304104</data>
+  <data key="d2">78</data>
+</edge>
+<edge source="CDKN1A" target="KRT4">
+  <data key="d1">-0.705045687404074</data>
+  <data key="d2">168</data>
+</edge>
+<edge source="CDKN1A" target="ATP5G2">
+  <data key="d1">0.981587176751733</data>
+  <data key="d2">67</data>
+</edge>
+<edge source="CDKN1A" target="RPS26">
+  <data key="d1">0.853378586241461</data>
+  <data key="d2">150</data>
+</edge>
+<edge source="CDKN1A" target="SLC25A3">
+  <data key="d1">0.977462871595985</data>
+  <data key="d2">24</data>
+</edge>
+<edge source="CDKN1A" target="GLTP">
+  <data key="d1">0.919286636513155</data>
+  <data key="d2">89</data>
+</edge>
+<edge source="CDKN1A" target="TPT1">
+  <data key="d1">0.778457604475406</data>
+  <data key="d2">171</data>
+</edge>
+<edge source="CDKN1A" target="ITM2B">
+  <data key="d1">0.80560767896353</data>
+  <data key="d2">93</data>
+</edge>
+<edge source="CDKN1A" target="TGM1">
+  <data key="d1">0.931523742320898</data>
+  <data key="d2">91</data>
+</edge>
+<edge source="CDKN1A" target="NFKBIA">
+  <data key="d1">0.973247298299427</data>
+  <data key="d2">36</data>
+</edge>
+<edge source="CDKN1A" target="RPS29">
+  <data key="d1">0.924147078693525</data>
+  <data key="d2">145</data>
+</edge>
+<edge source="CDKN1A" target="RPL36AL">
+  <data key="d1">0.930357935706313</data>
+  <data key="d2">102</data>
+</edge>
+<edge source="CDKN1A" target="FOS">
+  <data key="d1">0.951433186956442</data>
+  <data key="d2">46</data>
+</edge>
+<edge source="CDKN1A" target="IFI27">
+  <data key="d1">0.810549849555467</data>
+  <data key="d2">50</data>
+</edge>
+<edge source="CDKN1A" target="HSP90AA1">
+  <data key="d1">0.998789891112986</data>
+  <data key="d2">28</data>
+</edge>
+<edge source="CDKN1A" target="C14orf2">
+  <data key="d1">0.992941313990091</data>
+  <data key="d2">48</data>
+</edge>
+<edge source="CDKN1A" target="RPL4">
+  <data key="d1">0.917605355935433</data>
+  <data key="d2">149</data>
+</edge>
+<edge source="CDKN1A" target="RPS17">
+  <data key="d1">0.705409765789614</data>
+  <data key="d2">170</data>
+</edge>
+<edge source="CDKN1A" target="PPL">
+  <data key="d1">0.808131077107826</data>
+  <data key="d2">54</data>
+</edge>
+<edge source="CDKN1A" target="EMP2">
+  <data key="d1">0.93576783991887</data>
+  <data key="d2">62</data>
+</edge>
+<edge source="CDKN1A" target="RPS15A">
+  <data key="d1">0.734173683476801</data>
+  <data key="d2">168</data>
+</edge>
+<edge source="CDKN1A" target="MT1X">
+  <data key="d1">0.992866085514431</data>
+  <data key="d2">27</data>
+</edge>
+<edge source="CDKN1A" target="FAM96B">
+  <data key="d1">0.946476814893267</data>
+  <data key="d2">71</data>
+</edge>
+<edge source="CDKN1A" target="PFN1">
+  <data key="d1">0.92858005828052</data>
+  <data key="d2">105</data>
+</edge>
+<edge source="CDKN1A" target="CLDN7">
+  <data key="d1">0.928074102558879</data>
+  <data key="d2">94</data>
+</edge>
+<edge source="CDKN1A" target="LRRC75A-AS1">
+  <data key="d1">0.863220546275198</data>
+  <data key="d2">127</data>
+</edge>
+<edge source="CDKN1A" target="RPL23">
+  <data key="d1">0.897053995087665</data>
+  <data key="d2">152</data>
+</edge>
+<edge source="CDKN1A" target="RPL19">
+  <data key="d1">0.797760362762887</data>
+  <data key="d2">170</data>
+</edge>
+<edge source="CDKN1A" target="KRT13">
+  <data key="d1">-0.84469160524567</data>
+  <data key="d2">171</data>
+</edge>
+<edge source="CDKN1A" target="KRT16">
+  <data key="d1">0.965559508751069</data>
+  <data key="d2">87</data>
+</edge>
+<edge source="CDKN1A" target="KRT17">
+  <data key="d1">0.748152606355637</data>
+  <data key="d2">40</data>
+</edge>
+<edge source="CDKN1A" target="JUP">
+  <data key="d1">0.864908210422206</data>
+  <data key="d2">97</data>
+</edge>
+<edge source="CDKN1A" target="RPL27">
+  <data key="d1">0.772121485823591</data>
+  <data key="d2">166</data>
+</edge>
+<edge source="CDKN1A" target="RPL38">
+  <data key="d1">0.93835944533564</data>
+  <data key="d2">140</data>
+</edge>
+<edge source="CDKN1A" target="DSC2">
+  <data key="d1">0.787010443246972</data>
+  <data key="d2">126</data>
+</edge>
+<edge source="CDKN1A" target="DSG3">
+  <data key="d1">0.980206802823103</data>
+  <data key="d2">110</data>
+</edge>
+<edge source="CDKN1A" target="ATP5D">
+  <data key="d1">0.973675631158783</data>
+  <data key="d2">51</data>
+</edge>
+<edge source="CDKN1A" target="OAZ1">
+  <data key="d1">0.872428265317925</data>
+  <data key="d2">113</data>
+</edge>
+<edge source="CDKN1A" target="EEF2">
+  <data key="d1">0.915083239931641</data>
+  <data key="d2">66</data>
+</edge>
+<edge source="CDKN1A" target="RPL36">
+  <data key="d1">0.909581437141873</data>
+  <data key="d2">165</data>
+</edge>
+<edge source="CDKN1A" target="UBL5">
+  <data key="d1">0.966878985206828</data>
+  <data key="d2">86</data>
+</edge>
+<edge source="CDKN1A" target="JUNB">
+  <data key="d1">0.881960372576475</data>
+  <data key="d2">111</data>
+</edge>
+<edge source="CDKN1A" target="IER2">
+  <data key="d1">0.968367038913543</data>
+  <data key="d2">79</data>
+</edge>
+<edge source="CDKN1A" target="DNAJB1">
+  <data key="d1">0.904097463198186</data>
+  <data key="d2">80</data>
+</edge>
+<edge source="CDKN1A" target="RPL18A">
+  <data key="d1">0.705940664514804</data>
+  <data key="d2">169</data>
+</edge>
+<edge source="CDKN1A" target="UBA52">
+  <data key="d1">0.783396256543781</data>
+  <data key="d2">168</data>
+</edge>
+<edge source="CDKN1A" target="SBSN">
+  <data key="d1">0.943748686543161</data>
+  <data key="d2">94</data>
+</edge>
+<edge source="CDKN1A" target="LGALS7B">
+  <data key="d1">0.936992754347295</data>
+  <data key="d2">26</data>
+</edge>
+<edge source="CDKN1A" target="ZFP36">
+  <data key="d1">0.935048945259141</data>
+  <data key="d2">125</data>
+</edge>
+<edge source="CDKN1A" target="RPS16">
+  <data key="d1">0.867738122791264</data>
+  <data key="d2">170</data>
+</edge>
+<edge source="CDKN1A" target="SULT2B1">
+  <data key="d1">0.867775415644241</data>
+  <data key="d2">62</data>
+</edge>
+<edge source="CDKN1A" target="FTL">
+  <data key="d1">0.876509752519011</data>
+  <data key="d2">115</data>
+</edge>
+<edge source="CDKN1A" target="RPS11">
+  <data key="d1">0.944752811801234</data>
+  <data key="d2">164</data>
+</edge>
+<edge source="CDKN1A" target="KLK11">
+  <data key="d1">0.890610177845526</data>
+  <data key="d2">90</data>
+</edge>
+<edge source="CDKN1A" target="TGM3">
+  <data key="d1">0.96557372019697</data>
+  <data key="d2">47</data>
+</edge>
+<edge source="CDKN1A" target="ID1">
+  <data key="d1">0.756053178690128</data>
+  <data key="d2">113</data>
+</edge>
+<edge source="CDKN1A" target="PI3">
+  <data key="d1">0.953285442472255</data>
+  <data key="d2">57</data>
+</edge>
+<edge source="CDKN1A" target="ATP5E">
+  <data key="d1">0.765294411036638</data>
+  <data key="d2">156</data>
+</edge>
+<edge source="CDKN1A" target="RPS21">
+  <data key="d1">0.93735910274988</data>
+  <data key="d2">159</data>
+</edge>
+<edge source="CDKN1A" target="SAT1">
+  <data key="d1">0.968973556659294</data>
+  <data key="d2">83</data>
+</edge>
+<edge source="CDKN1A" target="COX7B">
+  <data key="d1">0.830285744642977</data>
+  <data key="d2">125</data>
+</edge>
+<edge source="CDKN1A" target="SLC25A5">
+  <data key="d1">0.936169036293282</data>
+  <data key="d2">52</data>
+</edge>
+<edge source="CDKN1A" target="RPL39">
+  <data key="d1">0.908950607932975</data>
+  <data key="d2">128</data>
+</edge>
+<edge source="CDKN1A" target="MT-ND2">
+  <data key="d1">0.861045033083638</data>
+  <data key="d2">170</data>
+</edge>
+<edge source="CDKN1A" target="MT-CO2">
+  <data key="d1">0.791354570565689</data>
+  <data key="d2">171</data>
+</edge>
+<edge source="CDKN1A" target="MT-CO3">
+  <data key="d1">0.837550013631602</data>
+  <data key="d2">171</data>
+</edge>
+<edge source="CDKN1A" target="MT-ND3">
+  <data key="d1">0.895123118880526</data>
+  <data key="d2">170</data>
+</edge>
+<edge source="CDKN1A" target="MT-ND5">
+  <data key="d1">0.904652087746803</data>
+  <data key="d2">140</data>
+</edge>
+<edge source="CDKN1A" target="MT-CYB">
+  <data key="d1">0.792944433456141</data>
+  <data key="d2">171</data>
+</edge>
+</graph></graphml>

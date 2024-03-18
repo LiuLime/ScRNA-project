@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d2" for="edge" attr.name="cell_n" attr.type="long"/>
+<key id="d1" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d0" for="graph" attr.name="name" attr.type="string"/>
+<graph edgedefault="undirected"><data key="d0">/Users/liuyuting/WorkSpace/ScRNA_project/03figure/corr_pval/cell_level_40-60Age_corr0.7_p0.001//17.human_TabulaSapiens|normal|Muscle|Satellite Cell</data>
+<node id="RPL11"/>
+<node id="MEG3"/>
+<node id="NDUFS5"/>
+<node id="S100A10"/>
+<node id="RPL37A"/>
+<node id="IGFBP5"/>
+<node id="RPL24"/>
+<node id="RPL37"/>
+<node id="RPL10P9"/>
+<node id="RPS10"/>
+<node id="SOD2"/>
+<edge source="RPL11" target="MEG3">
+  <data key="d1">0.785075690925349</data>
+  <data key="d2">489</data>
+</edge>
+<edge source="MEG3" target="NDUFS5">
+  <data key="d1">-0.700016228874198</data>
+  <data key="d2">119</data>
+</edge>
+<edge source="MEG3" target="S100A10">
+  <data key="d1">0.797728407098249</data>
+  <data key="d2">206</data>
+</edge>
+<edge source="MEG3" target="RPL37A">
+  <data key="d1">0.724353671075299</data>
+  <data key="d2">507</data>
+</edge>
+<edge source="MEG3" target="IGFBP5">
+  <data key="d1">0.760255704677804</data>
+  <data key="d2">387</data>
+</edge>
+<edge source="MEG3" target="RPL24">
+  <data key="d1">0.795994896326036</data>
+  <data key="d2">490</data>
+</edge>
+<edge source="MEG3" target="RPL37">
+  <data key="d1">0.746193722424245</data>
+  <data key="d2">505</data>
+</edge>
+<edge source="MEG3" target="RPL10P9">
+  <data key="d1">0.708077001037126</data>
+  <data key="d2">279</data>
+</edge>
+<edge source="MEG3" target="RPS10">
+  <data key="d1">0.700569426564343</data>
+  <data key="d2">187</data>
+</edge>
+<edge source="MEG3" target="SOD2">
+  <data key="d1">0.829889100546978</data>
+  <data key="d2">321</data>
+</edge>
+</graph></graphml>

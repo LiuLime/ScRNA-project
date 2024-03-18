@@ -1,0 +1,277 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d2" for="edge" attr.name="cell_n" attr.type="long"/>
+<key id="d1" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d0" for="graph" attr.name="name" attr.type="string"/>
+<graph edgedefault="undirected"><data key="d0">/Users/liuyuting/WorkSpace/ScRNA_project/03figure/corr_pval/cell_level_medianAge_corr0.7_p0.01//HCA.human_disease.PulmonaryFibrosisGSE135893|disease|Lung|Glomerular Parietal Epithelial Cell</data>
+<node id="ID3"/>
+<node id="ICAM1"/>
+<node id="HMGN2"/>
+<node id="CCL2"/>
+<node id="ATPIF1"/>
+<node id="NDUFS5"/>
+<node id="RPS8"/>
+<node id="PRDX1"/>
+<node id="CYP4B1"/>
+<node id="TACSTD2"/>
+<node id="JUN"/>
+<node id="S100A4"/>
+<node id="S100A14"/>
+<node id="MUC1"/>
+<node id="LMNA"/>
+<node id="CTSE"/>
+<node id="CD55"/>
+<node id="GUK1"/>
+<node id="SDC1"/>
+<node id="CALM2"/>
+<node id="RPL14"/>
+<node id="GPX1"/>
+<node id="CD47"/>
+<node id="TM4SF1"/>
+<node id="HOPX"/>
+<node id="ANXA5"/>
+<node id="RPL37"/>
+<node id="BTF3"/>
+<node id="RPS23"/>
+<node id="HINT1"/>
+<node id="EGR1"/>
+<node id="SCGB3A2"/>
+<node id="HIGD2A"/>
+<node id="SCGB3A1"/>
+<node id="GNB2L1"/>
+<node id="SFTA2"/>
+<node id="HLA-C"/>
+<node id="HLA-B"/>
+<node id="AGER"/>
+<edge source="ID3" target="ICAM1">
+  <data key="d1">0.993380091780765</data>
+  <data key="d2">28</data>
+</edge>
+<edge source="ICAM1" target="HMGN2">
+  <data key="d1">0.943902163150583</data>
+  <data key="d2">24</data>
+</edge>
+<edge source="ICAM1" target="ATPIF1">
+  <data key="d1">0.934380336887371</data>
+  <data key="d2">30</data>
+</edge>
+<edge source="ICAM1" target="NDUFS5">
+  <data key="d1">0.742838545497707</data>
+  <data key="d2">72</data>
+</edge>
+<edge source="ICAM1" target="RPS8">
+  <data key="d1">-0.77391209857999</data>
+  <data key="d2">258</data>
+</edge>
+<edge source="ICAM1" target="PRDX1">
+  <data key="d1">0.80457104326327</data>
+  <data key="d2">144</data>
+</edge>
+<edge source="ICAM1" target="CYP4B1">
+  <data key="d1">0.932464034699757</data>
+  <data key="d2">106</data>
+</edge>
+<edge source="ICAM1" target="JUN">
+  <data key="d1">0.801160224339323</data>
+  <data key="d2">185</data>
+</edge>
+<edge source="ICAM1" target="S100A4">
+  <data key="d1">0.888653366421589</data>
+  <data key="d2">37</data>
+</edge>
+<edge source="ICAM1" target="S100A14">
+  <data key="d1">0.898883677099613</data>
+  <data key="d2">34</data>
+</edge>
+<edge source="ICAM1" target="MUC1">
+  <data key="d1">0.830598654705575</data>
+  <data key="d2">106</data>
+</edge>
+<edge source="ICAM1" target="LMNA">
+  <data key="d1">0.937916922761189</data>
+  <data key="d2">155</data>
+</edge>
+<edge source="ICAM1" target="CTSE">
+  <data key="d1">0.944605279848199</data>
+  <data key="d2">114</data>
+</edge>
+<edge source="ICAM1" target="CD55">
+  <data key="d1">0.939512553438091</data>
+  <data key="d2">226</data>
+</edge>
+<edge source="ICAM1" target="GUK1">
+  <data key="d1">0.908017469649697</data>
+  <data key="d2">56</data>
+</edge>
+<edge source="ICAM1" target="SDC1">
+  <data key="d1">0.972318444159034</data>
+  <data key="d2">41</data>
+</edge>
+<edge source="ICAM1" target="CALM2">
+  <data key="d1">0.701435456748881</data>
+  <data key="d2">202</data>
+</edge>
+<edge source="ICAM1" target="GPX1">
+  <data key="d1">0.896797192110024</data>
+  <data key="d2">110</data>
+</edge>
+<edge source="ICAM1" target="CD47">
+  <data key="d1">0.984793306445958</data>
+  <data key="d2">64</data>
+</edge>
+<edge source="ICAM1" target="TM4SF1">
+  <data key="d1">0.879276639931075</data>
+  <data key="d2">258</data>
+</edge>
+<edge source="ICAM1" target="HOPX">
+  <data key="d1">0.856986298784173</data>
+  <data key="d2">263</data>
+</edge>
+<edge source="ICAM1" target="ANXA5">
+  <data key="d1">0.914957617931171</data>
+  <data key="d2">87</data>
+</edge>
+<edge source="ICAM1" target="RPL37">
+  <data key="d1">-0.720827503093844</data>
+  <data key="d2">238</data>
+</edge>
+<edge source="ICAM1" target="RPS23">
+  <data key="d1">-0.751283793126516</data>
+  <data key="d2">241</data>
+</edge>
+<edge source="ICAM1" target="HINT1">
+  <data key="d1">0.845377130968986</data>
+  <data key="d2">163</data>
+</edge>
+<edge source="ICAM1" target="EGR1">
+  <data key="d1">0.947378211588046</data>
+  <data key="d2">72</data>
+</edge>
+<edge source="ICAM1" target="SCGB3A2">
+  <data key="d1">0.853659956260598</data>
+  <data key="d2">59</data>
+</edge>
+<edge source="ICAM1" target="HIGD2A">
+  <data key="d1">-1.0</data>
+  <data key="d2">13</data>
+</edge>
+<edge source="ICAM1" target="SFTA2">
+  <data key="d1">0.833302366578043</data>
+  <data key="d2">133</data>
+</edge>
+<edge source="ICAM1" target="HLA-C">
+  <data key="d1">0.834448802845319</data>
+  <data key="d2">206</data>
+</edge>
+<edge source="ICAM1" target="HLA-B">
+  <data key="d1">0.896046844931663</data>
+  <data key="d2">248</data>
+</edge>
+<edge source="ICAM1" target="AGER">
+  <data key="d1">0.950892340644072</data>
+  <data key="d2">146</data>
+</edge>
+<edge source="HMGN2" target="CCL2">
+  <data key="d1">-1.0</data>
+  <data key="d2">11</data>
+</edge>
+<edge source="CCL2" target="NDUFS5">
+  <data key="d1">0.882391281427866</data>
+  <data key="d2">24</data>
+</edge>
+<edge source="CCL2" target="CYP4B1">
+  <data key="d1">0.87345851491394</data>
+  <data key="d2">23</data>
+</edge>
+<edge source="CCL2" target="TACSTD2">
+  <data key="d1">0.75128124671434</data>
+  <data key="d2">68</data>
+</edge>
+<edge source="CCL2" target="JUN">
+  <data key="d1">0.710216166197684</data>
+  <data key="d2">45</data>
+</edge>
+<edge source="CCL2" target="S100A4">
+  <data key="d1">1.0</data>
+  <data key="d2">15</data>
+</edge>
+<edge source="CCL2" target="MUC1">
+  <data key="d1">0.976746199120655</data>
+  <data key="d2">24</data>
+</edge>
+<edge source="CCL2" target="LMNA">
+  <data key="d1">0.918168777885858</data>
+  <data key="d2">48</data>
+</edge>
+<edge source="CCL2" target="CTSE">
+  <data key="d1">0.785433633304612</data>
+  <data key="d2">29</data>
+</edge>
+<edge source="CCL2" target="CD55">
+  <data key="d1">0.94711696934332</data>
+  <data key="d2">63</data>
+</edge>
+<edge source="CCL2" target="GUK1">
+  <data key="d1">1.0</data>
+  <data key="d2">13</data>
+</edge>
+<edge source="CCL2" target="CALM2">
+  <data key="d1">0.792131548365823</data>
+  <data key="d2">60</data>
+</edge>
+<edge source="CCL2" target="RPL14">
+  <data key="d1">0.783775512774773</data>
+  <data key="d2">73</data>
+</edge>
+<edge source="CCL2" target="GPX1">
+  <data key="d1">0.988979335638886</data>
+  <data key="d2">27</data>
+</edge>
+<edge source="CCL2" target="CD47">
+  <data key="d1">-1.0</data>
+  <data key="d2">12</data>
+</edge>
+<edge source="CCL2" target="HOPX">
+  <data key="d1">0.896618865044567</data>
+  <data key="d2">73</data>
+</edge>
+<edge source="CCL2" target="ANXA5">
+  <data key="d1">0.737140502340799</data>
+  <data key="d2">33</data>
+</edge>
+<edge source="CCL2" target="BTF3">
+  <data key="d1">0.836483257682497</data>
+  <data key="d2">42</data>
+</edge>
+<edge source="CCL2" target="HINT1">
+  <data key="d1">0.812421365388433</data>
+  <data key="d2">54</data>
+</edge>
+<edge source="CCL2" target="EGR1">
+  <data key="d1">1.0</data>
+  <data key="d2">19</data>
+</edge>
+<edge source="CCL2" target="SCGB3A2">
+  <data key="d1">1.0</data>
+  <data key="d2">13</data>
+</edge>
+<edge source="CCL2" target="SCGB3A1">
+  <data key="d1">-1.0</data>
+  <data key="d2">12</data>
+</edge>
+<edge source="CCL2" target="GNB2L1">
+  <data key="d1">0.779188091608007</data>
+  <data key="d2">71</data>
+</edge>
+<edge source="CCL2" target="HLA-C">
+  <data key="d1">0.96734577003719</data>
+  <data key="d2">64</data>
+</edge>
+<edge source="CCL2" target="HLA-B">
+  <data key="d1">0.709944500940063</data>
+  <data key="d2">93</data>
+</edge>
+<edge source="CCL2" target="AGER">
+  <data key="d1">0.701528143003038</data>
+  <data key="d2">57</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d2" for="edge" attr.name="cell_n" attr.type="long"/>
+<key id="d1" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d0" for="graph" attr.name="name" attr.type="string"/>
+<graph edgedefault="undirected"><data key="d0">/Users/liuyuting/WorkSpace/ScRNA_project/03figure/corr_pval/cell_level_medianAge_corr0.6_p0.01//17.human_TabulaSapiens|normal|Blood|Immune Cells-Eosinophil</data>
+<node id="CSF3R"/>
+<node id="IL1R2"/>
+<node id="S100A8"/>
+<node id="NAMPT"/>
+<node id="NEAT1"/>
+<node id="MALAT1"/>
+<edge source="CSF3R" target="IL1R2">
+  <data key="d1">0.658126434459126</data>
+  <data key="d2">2894</data>
+</edge>
+<edge source="IL1R2" target="S100A8">
+  <data key="d1">-0.625095178325965</data>
+  <data key="d2">4437</data>
+</edge>
+<edge source="IL1R2" target="NAMPT">
+  <data key="d1">0.730424276172382</data>
+  <data key="d2">3215</data>
+</edge>
+<edge source="IL1R2" target="NEAT1">
+  <data key="d1">0.619640174271621</data>
+  <data key="d2">4319</data>
+</edge>
+<edge source="IL1R2" target="MALAT1">
+  <data key="d1">0.721059619345701</data>
+  <data key="d2">4416</data>
+</edge>
+</graph></graphml>

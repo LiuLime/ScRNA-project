@@ -1,0 +1,192 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d2" for="edge" attr.name="cell_n" attr.type="long"/>
+<key id="d1" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d0" for="graph" attr.name="name" attr.type="string"/>
+<graph edgedefault="undirected"><data key="d0">/Users/liuyuting/WorkSpace/ScRNA_project/03figure/corr_pval/cell_level_medianAge_corr0.6_p0.01//17.human_TabulaSapiens|normal|Bladder|Smooth Muscle Cells</data>
+<node id="BTG2"/>
+<node id="CDKN1A"/>
+<node id="RHOB"/>
+<node id="LPP"/>
+<node id="CCNI"/>
+<node id="SPARCL1"/>
+<node id="COX7C"/>
+<node id="S100A4"/>
+<node id="CALD1"/>
+<node id="RPL7"/>
+<node id="TPM2"/>
+<node id="VIM"/>
+<node id="ADIRF"/>
+<node id="CD81"/>
+<node id="C11orf96"/>
+<node id="FTH1"/>
+<node id="TAGLN"/>
+<node id="RPS25"/>
+<node id="PTMS"/>
+<node id="MYL6"/>
+<node id="RPL36AL"/>
+<node id="B2M"/>
+<node id="MYH11"/>
+<node id="MT1M"/>
+<node id="RPL23A"/>
+<node id="JUNB"/>
+<node id="FOSB"/>
+<node id="FTL"/>
+<node id="DSTN"/>
+<node id="MYL9"/>
+<node id="TGM2"/>
+<node id="GNAS"/>
+<node id="FLNA"/>
+<node id="MT-ND1"/>
+<node id="MT-ND5"/>
+<node id="NDUFA4"/>
+<node id="TOMM7"/>
+<node id="BTG1"/>
+<edge source="BTG2" target="CDKN1A">
+  <data key="d1">0.657693118325286</data>
+  <data key="d2">505</data>
+</edge>
+<edge source="CDKN1A" target="RHOB">
+  <data key="d1">0.851600924932917</data>
+  <data key="d2">300</data>
+</edge>
+<edge source="CDKN1A" target="LPP">
+  <data key="d1">0.63733456454149</data>
+  <data key="d2">158</data>
+</edge>
+<edge source="CDKN1A" target="CCNI">
+  <data key="d1">0.820254036792564</data>
+  <data key="d2">110</data>
+</edge>
+<edge source="CDKN1A" target="SPARCL1">
+  <data key="d1">0.825997960569169</data>
+  <data key="d2">266</data>
+</edge>
+<edge source="CDKN1A" target="COX7C">
+  <data key="d1">0.746473343741984</data>
+  <data key="d2">133</data>
+</edge>
+<edge source="CDKN1A" target="S100A4">
+  <data key="d1">0.732689822939976</data>
+  <data key="d2">131</data>
+</edge>
+<edge source="CDKN1A" target="CALD1">
+  <data key="d1">0.689379424951739</data>
+  <data key="d2">459</data>
+</edge>
+<edge source="CDKN1A" target="RPL7">
+  <data key="d1">0.758895365584478</data>
+  <data key="d2">246</data>
+</edge>
+<edge source="CDKN1A" target="TPM2">
+  <data key="d1">0.605523117541633</data>
+  <data key="d2">253</data>
+</edge>
+<edge source="CDKN1A" target="VIM">
+  <data key="d1">0.665363041474029</data>
+  <data key="d2">445</data>
+</edge>
+<edge source="CDKN1A" target="ADIRF">
+  <data key="d1">0.77659025850035</data>
+  <data key="d2">169</data>
+</edge>
+<edge source="CDKN1A" target="CD81">
+  <data key="d1">0.673265442959397</data>
+  <data key="d2">170</data>
+</edge>
+<edge source="CDKN1A" target="C11orf96">
+  <data key="d1">0.798137763012887</data>
+  <data key="d2">554</data>
+</edge>
+<edge source="CDKN1A" target="FTH1">
+  <data key="d1">-0.68929787399077</data>
+  <data key="d2">577</data>
+</edge>
+<edge source="CDKN1A" target="TAGLN">
+  <data key="d1">0.673051470418849</data>
+  <data key="d2">296</data>
+</edge>
+<edge source="CDKN1A" target="RPS25">
+  <data key="d1">0.634967042950509</data>
+  <data key="d2">310</data>
+</edge>
+<edge source="CDKN1A" target="PTMS">
+  <data key="d1">0.622173802365305</data>
+  <data key="d2">126</data>
+</edge>
+<edge source="CDKN1A" target="MYL6">
+  <data key="d1">0.707450810668364</data>
+  <data key="d2">451</data>
+</edge>
+<edge source="CDKN1A" target="RPL36AL">
+  <data key="d1">0.725731076547293</data>
+  <data key="d2">145</data>
+</edge>
+<edge source="CDKN1A" target="B2M">
+  <data key="d1">-0.655316044607965</data>
+  <data key="d2">548</data>
+</edge>
+<edge source="CDKN1A" target="MYH11">
+  <data key="d1">0.813132635094461</data>
+  <data key="d2">183</data>
+</edge>
+<edge source="CDKN1A" target="MT1M">
+  <data key="d1">0.704645681514716</data>
+  <data key="d2">296</data>
+</edge>
+<edge source="CDKN1A" target="RPL23A">
+  <data key="d1">0.661153127110255</data>
+  <data key="d2">444</data>
+</edge>
+<edge source="CDKN1A" target="JUNB">
+  <data key="d1">0.808806715104269</data>
+  <data key="d2">561</data>
+</edge>
+<edge source="CDKN1A" target="FOSB">
+  <data key="d1">0.685319689751093</data>
+  <data key="d2">445</data>
+</edge>
+<edge source="CDKN1A" target="FTL">
+  <data key="d1">-0.618617826336456</data>
+  <data key="d2">558</data>
+</edge>
+<edge source="CDKN1A" target="DSTN">
+  <data key="d1">0.772489698767909</data>
+  <data key="d2">246</data>
+</edge>
+<edge source="CDKN1A" target="MYL9">
+  <data key="d1">0.773798149106053</data>
+  <data key="d2">206</data>
+</edge>
+<edge source="CDKN1A" target="TGM2">
+  <data key="d1">0.611059601124905</data>
+  <data key="d2">172</data>
+</edge>
+<edge source="CDKN1A" target="GNAS">
+  <data key="d1">0.684766266670487</data>
+  <data key="d2">195</data>
+</edge>
+<edge source="CDKN1A" target="FLNA">
+  <data key="d1">0.818151463240651</data>
+  <data key="d2">148</data>
+</edge>
+<edge source="CDKN1A" target="MT-ND1">
+  <data key="d1">0.626735650486085</data>
+  <data key="d2">312</data>
+</edge>
+<edge source="CDKN1A" target="MT-ND5">
+  <data key="d1">0.617741340018305</data>
+  <data key="d2">238</data>
+</edge>
+<edge source="CDKN1A" target="NDUFA4">
+  <data key="d1">0.791116701310737</data>
+  <data key="d2">202</data>
+</edge>
+<edge source="CDKN1A" target="TOMM7">
+  <data key="d1">0.705505145883592</data>
+  <data key="d2">129</data>
+</edge>
+<edge source="CDKN1A" target="BTG1">
+  <data key="d1">0.700264847519401</data>
+  <data key="d2">211</data>
+</edge>
+</graph></graphml>

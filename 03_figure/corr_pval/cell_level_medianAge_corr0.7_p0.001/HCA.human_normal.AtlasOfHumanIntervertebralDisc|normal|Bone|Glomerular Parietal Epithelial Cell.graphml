@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d2" for="edge" attr.name="cell_n" attr.type="long"/>
+<key id="d1" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d0" for="graph" attr.name="name" attr.type="string"/>
+<graph edgedefault="undirected"><data key="d0">/Users/liuyuting/WorkSpace/ScRNA_project/03figure/corr_pval/cell_level_medianAge_corr0.7_p0.001//HCA.human_normal.AtlasOfHumanIntervertebralDisc|normal|Bone|Glomerular Parietal Epithelial Cell</data>
+<node id="RBP7"/>
+<node id="CCL2"/>
+<node id="HP1BP3"/>
+<node id="SH3BGRL3"/>
+<edge source="RBP7" target="CCL2">
+  <data key="d1">0.998183111191788</data>
+  <data key="d2">26</data>
+</edge>
+<edge source="CCL2" target="HP1BP3">
+  <data key="d1">0.711932318935178</data>
+  <data key="d2">541</data>
+</edge>
+<edge source="CCL2" target="SH3BGRL3">
+  <data key="d1">-0.713586132674046</data>
+  <data key="d2">654</data>
+</edge>
+</graph></graphml>

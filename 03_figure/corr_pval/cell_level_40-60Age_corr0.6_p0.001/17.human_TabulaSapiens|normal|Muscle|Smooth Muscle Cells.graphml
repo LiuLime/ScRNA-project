@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d2" for="edge" attr.name="cell_n" attr.type="long"/>
+<key id="d1" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d0" for="graph" attr.name="name" attr.type="string"/>
+<graph edgedefault="undirected"><data key="d0">/Users/liuyuting/WorkSpace/ScRNA_project/03figure/corr_pval/cell_level_40-60Age_corr0.6_p0.001//17.human_TabulaSapiens|normal|Muscle|Smooth Muscle Cells</data>
+<node id="MTND1P23"/>
+<node id="CCL2"/>
+<node id="RPS27"/>
+<node id="ADAMTS4"/>
+<node id="CALM2"/>
+<node id="RPL9"/>
+<node id="IGFBP7"/>
+<node id="SPARCL1"/>
+<node id="RPS14"/>
+<node id="EEF1A1"/>
+<node id="RPL41"/>
+<node id="TPT1"/>
+<node id="RPLP1"/>
+<node id="FABP4"/>
+<node id="HSP90AA1"/>
+<node id="RPL23"/>
+<node id="RPL27"/>
+<node id="JUNB"/>
+<node id="RPS11"/>
+<node id="MYL9"/>
+<node id="MT-CO1"/>
+<node id="MT-CO3"/>
+<edge source="MTND1P23" target="CCL2">
+  <data key="d1">-0.683853169836279</data>
+  <data key="d2">216</data>
+</edge>
+<edge source="CCL2" target="RPS27">
+  <data key="d1">-0.709883334293509</data>
+  <data key="d2">360</data>
+</edge>
+<edge source="CCL2" target="ADAMTS4">
+  <data key="d1">0.804682531323123</data>
+  <data key="d2">311</data>
+</edge>
+<edge source="CCL2" target="CALM2">
+  <data key="d1">0.676094179905685</data>
+  <data key="d2">191</data>
+</edge>
+<edge source="CCL2" target="RPL9">
+  <data key="d1">-0.667488815228364</data>
+  <data key="d2">298</data>
+</edge>
+<edge source="CCL2" target="IGFBP7">
+  <data key="d1">0.823450338236006</data>
+  <data key="d2">387</data>
+</edge>
+<edge source="CCL2" target="SPARCL1">
+  <data key="d1">-0.650539214739497</data>
+  <data key="d2">402</data>
+</edge>
+<edge source="CCL2" target="RPS14">
+  <data key="d1">-0.682832478605432</data>
+  <data key="d2">327</data>
+</edge>
+<edge source="CCL2" target="EEF1A1">
+  <data key="d1">-0.754831515454793</data>
+  <data key="d2">388</data>
+</edge>
+<edge source="CCL2" target="RPL41">
+  <data key="d1">-0.807344401764542</data>
+  <data key="d2">391</data>
+</edge>
+<edge source="CCL2" target="TPT1">
+  <data key="d1">-0.696462372599112</data>
+  <data key="d2">392</data>
+</edge>
+<edge source="CCL2" target="RPLP1">
+  <data key="d1">-0.74906982531521</data>
+  <data key="d2">381</data>
+</edge>
+<edge source="CCL2" target="FABP4">
+  <data key="d1">-0.643112677398026</data>
+  <data key="d2">328</data>
+</edge>
+<edge source="CCL2" target="HSP90AA1">
+  <data key="d1">-0.614274403243606</data>
+  <data key="d2">404</data>
+</edge>
+<edge source="CCL2" target="RPL23">
+  <data key="d1">-0.785878627266691</data>
+  <data key="d2">277</data>
+</edge>
+<edge source="CCL2" target="RPL27">
+  <data key="d1">-0.693728826632785</data>
+  <data key="d2">208</data>
+</edge>
+<edge source="CCL2" target="JUNB">
+  <data key="d1">-0.613145701627572</data>
+  <data key="d2">390</data>
+</edge>
+<edge source="CCL2" target="RPS11">
+  <data key="d1">-0.799476334341415</data>
+  <data key="d2">294</data>
+</edge>
+<edge source="CCL2" target="MYL9">
+  <data key="d1">-0.621159482993879</data>
+  <data key="d2">161</data>
+</edge>
+<edge source="CCL2" target="MT-CO1">
+  <data key="d1">0.798341579865699</data>
+  <data key="d2">397</data>
+</edge>
+<edge source="CCL2" target="MT-CO3">
+  <data key="d1">0.73294521875361</data>
+  <data key="d2">406</data>
+</edge>
+</graph></graphml>

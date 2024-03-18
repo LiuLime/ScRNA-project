@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d2" for="edge" attr.name="cell_n" attr.type="long"/>
+<key id="d1" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d0" for="graph" attr.name="name" attr.type="string"/>
+<graph edgedefault="undirected"><data key="d0">/Users/liuyuting/WorkSpace/ScRNA_project/03figure/corr_pval/tissue_level_medianAge_corr0.7_p0.001//3.human_GSE81547|disease|Pancreas</data>
+<node id="A4GALT"/>
+<node id="MEG3"/>
+<node id="AADAC"/>
+<edge source="A4GALT" target="MEG3">
+  <data key="d1">0.720765310923139</data>
+  <data key="d2">45</data>
+</edge>
+<edge source="MEG3" target="AADAC">
+  <data key="d1">0.775523237042268</data>
+  <data key="d2">154</data>
+</edge>
+</graph></graphml>

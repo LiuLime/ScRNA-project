@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d2" for="edge" attr.name="cell_n" attr.type="long"/>
+<key id="d1" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d0" for="graph" attr.name="name" attr.type="string"/>
+<graph edgedefault="undirected"><data key="d0">/Users/liuyuting/WorkSpace/ScRNA_project/03figure/corr_pval/cell_level_medianAge_corr0.7_p0.01//16.human_peripheralBlood:young-frail|disease|Peripheral Blood|Immune Cells-Nk Cell</data>
+<node id="CD52"/>
+<node id="CCL5"/>
+<node id="YPEL5"/>
+<edge source="CD52" target="CCL5">
+  <data key="d1">0.761758823961333</data>
+  <data key="d2">1688</data>
+</edge>
+<edge source="CCL5" target="YPEL5">
+  <data key="d1">0.715871778234212</data>
+  <data key="d2">234</data>
+</edge>
+</graph></graphml>

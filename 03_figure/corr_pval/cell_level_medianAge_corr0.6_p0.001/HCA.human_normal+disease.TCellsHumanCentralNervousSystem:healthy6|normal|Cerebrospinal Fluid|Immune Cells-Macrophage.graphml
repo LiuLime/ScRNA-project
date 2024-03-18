@@ -1,0 +1,242 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d2" for="edge" attr.name="cell_n" attr.type="long"/>
+<key id="d1" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d0" for="graph" attr.name="name" attr.type="string"/>
+<graph edgedefault="undirected"><data key="d0">/Users/liuyuting/WorkSpace/ScRNA_project/03figure/corr_pval/cell_level_medianAge_corr0.6_p0.001//HCA.human_normal+disease.TCellsHumanCentralNervousSystem:healthy6|normal|Cerebrospinal Fluid|Immune Cells-Macrophage</data>
+<node id="RPL22"/>
+<node id="CCL5"/>
+<node id="RPL11"/>
+<node id="YBX1"/>
+<node id="GNG5"/>
+<node id="RPL5"/>
+<node id="FCER1G"/>
+<node id="RPS7"/>
+<node id="OST4"/>
+<node id="RPS27A"/>
+<node id="VAMP8"/>
+<node id="RPL31"/>
+<node id="DBI"/>
+<node id="RPL32"/>
+<node id="RPSA"/>
+<node id="RPL14"/>
+<node id="MTRNR2L12"/>
+<node id="RPL24"/>
+<node id="SERP1"/>
+<node id="CCNI"/>
+<node id="RPS3A"/>
+<node id="BTF3"/>
+<node id="COX7C"/>
+<node id="HINT1"/>
+<node id="CD74"/>
+<node id="NPM1"/>
+<node id="RNF130"/>
+<node id="RACK1"/>
+<node id="HLA-C"/>
+<node id="HLA-B"/>
+<node id="LST1"/>
+<node id="AIF1"/>
+<node id="HLA-DRA"/>
+<node id="HLA-DPB1"/>
+<node id="RPS18"/>
+<node id="PNRC1"/>
+<node id="RAC1"/>
+<node id="PPIA"/>
+<node id="SLC25A6"/>
+<node id="SLC25A5"/>
+<node id="RPL39"/>
+<node id="RPL10"/>
+<node id="CEBPD"/>
+<node id="RPL7"/>
+<node id="MTDH"/>
+<node id="RPL30"/>
+<node id="EIF3H"/>
+<node id="EEF1D"/>
+<edge source="RPL22" target="CCL5">
+  <data key="d1">0.745940326920257</data>
+  <data key="d2">103</data>
+</edge>
+<edge source="CCL5" target="RPL11">
+  <data key="d1">0.772557312463371</data>
+  <data key="d2">113</data>
+</edge>
+<edge source="CCL5" target="YBX1">
+  <data key="d1">0.82863235718778</data>
+  <data key="d2">84</data>
+</edge>
+<edge source="CCL5" target="GNG5">
+  <data key="d1">0.826455984512413</data>
+  <data key="d2">37</data>
+</edge>
+<edge source="CCL5" target="RPL5">
+  <data key="d1">0.879857839994953</data>
+  <data key="d2">113</data>
+</edge>
+<edge source="CCL5" target="FCER1G">
+  <data key="d1">0.651851725753658</data>
+  <data key="d2">64</data>
+</edge>
+<edge source="CCL5" target="RPS7">
+  <data key="d1">0.710853115313629</data>
+  <data key="d2">113</data>
+</edge>
+<edge source="CCL5" target="OST4">
+  <data key="d1">0.937237006175223</data>
+  <data key="d2">61</data>
+</edge>
+<edge source="CCL5" target="RPS27A">
+  <data key="d1">0.714241334624191</data>
+  <data key="d2">113</data>
+</edge>
+<edge source="CCL5" target="VAMP8">
+  <data key="d1">0.80749965880113</data>
+  <data key="d2">31</data>
+</edge>
+<edge source="CCL5" target="RPL31">
+  <data key="d1">0.811256232898546</data>
+  <data key="d2">69</data>
+</edge>
+<edge source="CCL5" target="DBI">
+  <data key="d1">0.994932741305789</data>
+  <data key="d2">28</data>
+</edge>
+<edge source="CCL5" target="RPL32">
+  <data key="d1">0.71375835085962</data>
+  <data key="d2">113</data>
+</edge>
+<edge source="CCL5" target="RPSA">
+  <data key="d1">0.81726871719924</data>
+  <data key="d2">94</data>
+</edge>
+<edge source="CCL5" target="RPL14">
+  <data key="d1">0.773157691347673</data>
+  <data key="d2">113</data>
+</edge>
+<edge source="CCL5" target="MTRNR2L12">
+  <data key="d1">-0.614136815652629</data>
+  <data key="d2">96</data>
+</edge>
+<edge source="CCL5" target="RPL24">
+  <data key="d1">0.747268929934359</data>
+  <data key="d2">111</data>
+</edge>
+<edge source="CCL5" target="SERP1">
+  <data key="d1">0.848106604831341</data>
+  <data key="d2">55</data>
+</edge>
+<edge source="CCL5" target="CCNI">
+  <data key="d1">0.802782790827748</data>
+  <data key="d2">69</data>
+</edge>
+<edge source="CCL5" target="RPS3A">
+  <data key="d1">0.634940976670984</data>
+  <data key="d2">113</data>
+</edge>
+<edge source="CCL5" target="BTF3">
+  <data key="d1">0.684172175377406</data>
+  <data key="d2">89</data>
+</edge>
+<edge source="CCL5" target="COX7C">
+  <data key="d1">0.824591250191397</data>
+  <data key="d2">63</data>
+</edge>
+<edge source="CCL5" target="HINT1">
+  <data key="d1">0.721731071899451</data>
+  <data key="d2">67</data>
+</edge>
+<edge source="CCL5" target="CD74">
+  <data key="d1">-0.860315909080357</data>
+  <data key="d2">106</data>
+</edge>
+<edge source="CCL5" target="NPM1">
+  <data key="d1">0.729719635701084</data>
+  <data key="d2">69</data>
+</edge>
+<edge source="CCL5" target="RNF130">
+  <data key="d1">0.96051557219228</data>
+  <data key="d2">24</data>
+</edge>
+<edge source="CCL5" target="RACK1">
+  <data key="d1">0.809726299112817</data>
+  <data key="d2">109</data>
+</edge>
+<edge source="CCL5" target="HLA-C">
+  <data key="d1">0.838491522316869</data>
+  <data key="d2">108</data>
+</edge>
+<edge source="CCL5" target="HLA-B">
+  <data key="d1">0.879277297408225</data>
+  <data key="d2">110</data>
+</edge>
+<edge source="CCL5" target="LST1">
+  <data key="d1">0.992625659407529</data>
+  <data key="d2">21</data>
+</edge>
+<edge source="CCL5" target="AIF1">
+  <data key="d1">0.864038524314654</data>
+  <data key="d2">58</data>
+</edge>
+<edge source="CCL5" target="HLA-DRA">
+  <data key="d1">-0.622272724620581</data>
+  <data key="d2">92</data>
+</edge>
+<edge source="CCL5" target="HLA-DPB1">
+  <data key="d1">-0.616751912578312</data>
+  <data key="d2">93</data>
+</edge>
+<edge source="CCL5" target="RPS18">
+  <data key="d1">0.604061221368643</data>
+  <data key="d2">113</data>
+</edge>
+<edge source="CCL5" target="PNRC1">
+  <data key="d1">0.744860663115867</data>
+  <data key="d2">67</data>
+</edge>
+<edge source="CCL5" target="RAC1">
+  <data key="d1">0.645913879541362</data>
+  <data key="d2">43</data>
+</edge>
+<edge source="CCL5" target="PPIA">
+  <data key="d1">0.70917491145618</data>
+  <data key="d2">83</data>
+</edge>
+<edge source="CCL5" target="SLC25A6">
+  <data key="d1">0.884958081119098</data>
+  <data key="d2">57</data>
+</edge>
+<edge source="CCL5" target="SLC25A5">
+  <data key="d1">0.918585931067681</data>
+  <data key="d2">28</data>
+</edge>
+<edge source="CCL5" target="RPL39">
+  <data key="d1">0.746991516763083</data>
+  <data key="d2">113</data>
+</edge>
+<edge source="CCL5" target="RPL10">
+  <data key="d1">0.752497699332401</data>
+  <data key="d2">113</data>
+</edge>
+<edge source="CCL5" target="CEBPD">
+  <data key="d1">0.782941376348091</data>
+  <data key="d2">30</data>
+</edge>
+<edge source="CCL5" target="RPL7">
+  <data key="d1">0.968275024517306</data>
+  <data key="d2">40</data>
+</edge>
+<edge source="CCL5" target="MTDH">
+  <data key="d1">1.0</data>
+  <data key="d2">20</data>
+</edge>
+<edge source="CCL5" target="RPL30">
+  <data key="d1">0.819866625845905</data>
+  <data key="d2">113</data>
+</edge>
+<edge source="CCL5" target="EIF3H">
+  <data key="d1">0.999556128195572</data>
+  <data key="d2">30</data>
+</edge>
+<edge source="CCL5" target="EEF1D">
+  <data key="d1">0.641349031576894</data>
+  <data key="d2">103</data>
+</edge>
+</graph></graphml>

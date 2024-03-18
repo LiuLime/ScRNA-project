@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d2" for="edge" attr.name="cell_n" attr.type="long"/>
+<key id="d1" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d0" for="graph" attr.name="name" attr.type="string"/>
+<graph edgedefault="undirected"><data key="d0">/Users/liuyuting/WorkSpace/ScRNA_project/03figure/corr_pval/cell_level_medianAge_corr0.6_p0.001//HCA.human_disease.PulmonaryFibrosisGSE135893|disease|Lung|Immune Cells-Nk Cell</data>
+<node id="CD52"/>
+<node id="CCL5"/>
+<node id="TXNIP"/>
+<node id="RPS7"/>
+<node id="ZFP36L2"/>
+<node id="DUSP2"/>
+<node id="RPL31"/>
+<node id="RPL37A"/>
+<node id="ARPC2"/>
+<node id="RPL15"/>
+<node id="RPSA"/>
+<node id="RPL24"/>
+<node id="FGFBP2"/>
+<node id="GZMA"/>
+<node id="BTF3"/>
+<node id="GNB2L1"/>
+<node id="HLA-A"/>
+<node id="HLA-E"/>
+<node id="CLIC1"/>
+<node id="RPS4X"/>
+<node id="PABPC1"/>
+<node id="IFITM2"/>
+<node id="IFITM1"/>
+<node id="CFL1"/>
+<node id="CTSW"/>
+<node id="CD3E"/>
+<node id="PRF1"/>
+<node id="RPS24"/>
+<node id="GAPDH"/>
+<node id="KLRD1"/>
+<node id="ATP5G2"/>
+<node id="HNRNPA1"/>
+<node id="NACA"/>
+<node id="BTG1"/>
+<node id="RPLP0"/>
+<node id="GZMH"/>
+<node id="GZMB"/>
+<edge source="CD52" target="CCL5">
+  <data key="d1">0.795243985778994</data>
+  <data key="d2">573</data>
+</edge>
+<edge source="CCL5" target="TXNIP">
+  <data key="d1">0.67379805908114</data>
+  <data key="d2">544</data>
+</edge>
+<edge source="CCL5" target="RPS7">
+  <data key="d1">0.663650624410998</data>
+  <data key="d2">1404</data>
+</edge>
+<edge source="CCL5" target="ZFP36L2">
+  <data key="d1">0.673457085222568</data>
+  <data key="d2">352</data>
+</edge>
+<edge source="CCL5" target="DUSP2">
+  <data key="d1">0.618571670848102</data>
+  <data key="d2">308</data>
+</edge>
+<edge source="CCL5" target="RPL31">
+  <data key="d1">0.878188537744113</data>
+  <data key="d2">121</data>
+</edge>
+<edge source="CCL5" target="RPL37A">
+  <data key="d1">0.609670169447516</data>
+  <data key="d2">667</data>
+</edge>
+<edge source="CCL5" target="ARPC2">
+  <data key="d1">0.719269950628049</data>
+  <data key="d2">147</data>
+</edge>
+<edge source="CCL5" target="RPL15">
+  <data key="d1">0.618686446488479</data>
+  <data key="d2">733</data>
+</edge>
+<edge source="CCL5" target="RPSA">
+  <data key="d1">0.716003815159124</data>
+  <data key="d2">646</data>
+</edge>
+<edge source="CCL5" target="RPL24">
+  <data key="d1">0.806029835024761</data>
+  <data key="d2">494</data>
+</edge>
+<edge source="CCL5" target="FGFBP2">
+  <data key="d1">0.758920288772235</data>
+  <data key="d2">207</data>
+</edge>
+<edge source="CCL5" target="GZMA">
+  <data key="d1">0.634785393492318</data>
+  <data key="d2">452</data>
+</edge>
+<edge source="CCL5" target="BTF3">
+  <data key="d1">0.815485183806706</data>
+  <data key="d2">193</data>
+</edge>
+<edge source="CCL5" target="GNB2L1">
+  <data key="d1">0.731441504675144</data>
+  <data key="d2">613</data>
+</edge>
+<edge source="CCL5" target="HLA-A">
+  <data key="d1">0.615407870622586</data>
+  <data key="d2">1839</data>
+</edge>
+<edge source="CCL5" target="HLA-E">
+  <data key="d1">0.629915015722389</data>
+  <data key="d2">490</data>
+</edge>
+<edge source="CCL5" target="CLIC1">
+  <data key="d1">0.8284750854003</data>
+  <data key="d2">138</data>
+</edge>
+<edge source="CCL5" target="RPS4X">
+  <data key="d1">0.606876909834308</data>
+  <data key="d2">1656</data>
+</edge>
+<edge source="CCL5" target="PABPC1">
+  <data key="d1">0.602254657918595</data>
+  <data key="d2">94</data>
+</edge>
+<edge source="CCL5" target="IFITM2">
+  <data key="d1">0.730698810678878</data>
+  <data key="d2">550</data>
+</edge>
+<edge source="CCL5" target="IFITM1">
+  <data key="d1">0.70063069516513</data>
+  <data key="d2">1152</data>
+</edge>
+<edge source="CCL5" target="CFL1">
+  <data key="d1">0.666883673535608</data>
+  <data key="d2">653</data>
+</edge>
+<edge source="CCL5" target="CTSW">
+  <data key="d1">0.631050456612411</data>
+  <data key="d2">285</data>
+</edge>
+<edge source="CCL5" target="CD3E">
+  <data key="d1">0.892455991600822</data>
+  <data key="d2">155</data>
+</edge>
+<edge source="CCL5" target="PRF1">
+  <data key="d1">0.629009172714703</data>
+  <data key="d2">414</data>
+</edge>
+<edge source="CCL5" target="RPS24">
+  <data key="d1">0.73276528987757</data>
+  <data key="d2">1507</data>
+</edge>
+<edge source="CCL5" target="GAPDH">
+  <data key="d1">0.601419036623368</data>
+  <data key="d2">675</data>
+</edge>
+<edge source="CCL5" target="KLRD1">
+  <data key="d1">0.625830173503985</data>
+  <data key="d2">146</data>
+</edge>
+<edge source="CCL5" target="ATP5G2">
+  <data key="d1">0.760223621008152</data>
+  <data key="d2">127</data>
+</edge>
+<edge source="CCL5" target="HNRNPA1">
+  <data key="d1">0.851067228053931</data>
+  <data key="d2">127</data>
+</edge>
+<edge source="CCL5" target="NACA">
+  <data key="d1">0.685854671936026</data>
+  <data key="d2">604</data>
+</edge>
+<edge source="CCL5" target="BTG1">
+  <data key="d1">0.755607825554445</data>
+  <data key="d2">443</data>
+</edge>
+<edge source="CCL5" target="RPLP0">
+  <data key="d1">0.63581236958379</data>
+  <data key="d2">833</data>
+</edge>
+<edge source="CCL5" target="GZMH">
+  <data key="d1">0.73753149744128</data>
+  <data key="d2">385</data>
+</edge>
+<edge source="CCL5" target="GZMB">
+  <data key="d1">0.692162148953015</data>
+  <data key="d2">728</data>
+</edge>
+</graph></graphml>
