@@ -6,11 +6,16 @@
 
 import pandas as pd
 import os
-import matplotlib.pyplot as plt
 import json
-import seaborn as sns
+import draw
 
 global fig_format
+
+
+def read_file(path) -> pd.DataFrame:
+    with open(path) as p:
+        data = pd.read_csv(p, header=0, sep="\t")
+    return data
 
 
 def check_folder(path):
@@ -18,7 +23,7 @@ def check_folder(path):
         raise FileNotFoundError
 
 
-def add_blank_marker(df, markers):
+def add_blank_marker(df, markers) -> pd.DataFrame:
     left_markers = [m for m in markers if m not in df.columns]
     add_df = pd.DataFrame(index=df.index, columns=left_markers)
     agg_df = pd.concat([df, add_df], axis=1)
@@ -26,16 +31,20 @@ def add_blank_marker(df, markers):
     return agg_df
 
 
-def add_blank_tissue(df, organs):
+def add_blank_tissue(df, organs) -> pd.DataFrame:
     left_organs = [o for o in organs if o not in df.index]
     add_df = pd.DataFrame(index=left_organs, columns=df.columns)
     agg_df = pd.concat([df, add_df], axis=0)
     return agg_df
 
 
-def df_arrange_by_tissue(df):
-    """same group and cellType would record sum value of them"""
+def df_arrange_by_tissue(df) -> pd.DataFrame:
+    """dataframe reshaped for drawing heatmap
+     re-arraged by **summing** counts with same group and tissue across studies.
 
+    :param: df: marker-degree dataframe
+    :return: new df for heatmap drawing
+    """
     data_tissue = df.groupby(by=["group", "tissue", "gene1"])["gene2"].sum().reset_index()
     data_tissue["group_tissue"] = data_tissue["tissue"] + "_" + data_tissue["group"]
     new_df = data_tissue.pivot_table(index="group_tissue", columns="gene1", values="gene2", aggfunc="sum")
@@ -43,8 +52,13 @@ def df_arrange_by_tissue(df):
     return new_df
 
 
-def df_arrange_by_cellType(df):
-    """same group and cellType would record mean value of them"""
+def df_arrange_by_cellType(df) -> pd.DataFrame:
+    """dataframe reshaped for drawing heatmap
+     re-arraged by **averaging** counts with same group and cellType across studies.
+
+    :param: df: marker-degree dataframe
+    :return: new df for heatmap drawing
+    """
     data_cell = df.groupby(by=["group", "cellType", "gene1"])["gene2"].mean().reset_index()
     data_cell["group_cell"] = data_cell["cellType"] + "_" + data_cell["group"]
     new_df = data_cell.pivot_table(index="group_cell", columns="gene1", values="gene2", aggfunc="mean")
@@ -52,9 +66,9 @@ def df_arrange_by_cellType(df):
     return new_df
 
 
-def df_arrange_by_tissueCell(df):
+def df_arrange_by_tissueCell(df) -> pd.DataFrame:
     """dataframe reshaped for drawing heatmap
-     re-arraged by summing counts with same group, tissue and cellType across studies.
+     re-arraged by **summing** counts with same group, tissue and cellType across studies.
 
     :param: df: marker-degree dataframe
     :return: new df for heatmap drawing
@@ -65,9 +79,9 @@ def df_arrange_by_tissueCell(df):
     return new_df
 
 
-def df_arrange_organ_list(tissue_df, level):
-    """ return group-tissue/cellType list in correlation analysis, used for presenting full organs for overview.
-        "study" was ignored.
+def df_arrange_organ_list(tissue_df, level) -> list:
+    """ return group-tissue/cellType list in correlation analysis, used for presenting full organs for
+    overview."study" was ignored.
     :param: tissue_df: study_tissue_cellType_list dataframe
     :param: level: "tissue" or "cell"
 
@@ -83,37 +97,6 @@ def df_arrange_organ_list(tissue_df, level):
         case _:
             raise TypeError
     return tissue_list
-
-
-def draw_heatmap(df, title):
-    # 设置图形大小
-    height_per_row = 0.5
-    width_per_col = 0.5
-    fig_height = df.shape[0] * height_per_row
-    fig_width = df.shape[1] * width_per_col if df.shape[1] > 3 else 4
-    cbar_kws = {"shrink": 0.5}  # color bar缩小到原来的一半
-    # 使用plt.subplots来创建图像和轴
-    fig, ax = plt.subplots(figsize=(fig_width + 1, fig_height + 1), constrained_layout=True)
-
-    # 绘制heatmap
-    sns.heatmap(df, annot=True, cmap="YlGnBu", fmt=".0f", square=True, ax=ax, cbar_kws=cbar_kws)
-
-    # 设置字体
-    plt.rcParams["font.family"] = fig_format["font_family"]
-
-    # 设置标题、轴标签和其他参数
-    ax.set_title("Heatmap of marker-related gene number", fontsize=fig_format["title_size"], fontweight="bold")
-    ax.set_ylabel("Group", fontsize=fig_format["font_size"])
-    ax.set_xlabel("Marker", fontsize=fig_format["font_size"])
-    ax.tick_params(axis='both', labelsize=fig_format["label_size"])
-
-    # 设置轴标签角度
-    plt.setp(ax.get_xticklabels(), rotation=90)
-    plt.setp(ax.get_yticklabels(), rotation=0)
-
-    # 保存图像时使用bbox_inches='tight'来自动调整边距
-    plt.savefig(f"{title}", dpi=300, bbox_inches='tight')
-    plt.close()
 
 
 def _excute_tissue(file):
@@ -134,7 +117,10 @@ def _excute_cell(file):
     return tissue_df, cell_df, tissue_cell_df
 
 
-def excute(path, level, title: str | dict, add_blank_markers=False, add_blank_organs=False, **kwargs):
+# def _excute_
+
+def excute(path, level, title: str | dict, add_blank_markers=False, add_blank_organs=False, add_marker_candidates=False,
+           **kwargs):
     check_folder(path)
     file = path + "marker_degree.csv"
     match level:
@@ -144,7 +130,7 @@ def excute(path, level, title: str | dict, add_blank_markers=False, add_blank_or
                 tissue_df = add_blank_marker(tissue_df, kwargs["markers"]).astype(float)
             if add_blank_organs:
                 tissue_df = add_blank_tissue(tissue_df, kwargs["organs"]).astype(float).sort_index(axis=0)
-            draw_heatmap(tissue_df, path + title)
+            draw.draw_heatmap(tissue_df, path + title, fig_format)
 
         case "cell":
             tissue_df, cell_df, tissue_cell_df = _excute_cell(file)
@@ -156,18 +142,12 @@ def excute(path, level, title: str | dict, add_blank_markers=False, add_blank_or
                 tissue_df = add_blank_tissue(tissue_df, kwargs["organs"]).astype(float).sort_index(axis=0)
                 cell_df = add_blank_tissue(cell_df, kwargs["organs"]).astype(float).sort_index(axis=0)
                 tissue_cell_df = add_blank_tissue(tissue_cell_df, kwargs["organs"]).astype(float).sort_index(axis=0)
-            draw_heatmap(tissue_df, path + title["tissue"])
-            draw_heatmap(cell_df, path + title["cell"])
-            draw_heatmap(tissue_cell_df, path + title["tissue_cell"])
+            draw.draw_heatmap(tissue_df, path + title["tissue"], fig_format)
+            draw.draw_heatmap(cell_df, path + title["cell"], fig_format)
+            draw.draw_heatmap(tissue_cell_df, path + title["tissue_cell"], fig_format)
 
         case _:
             raise TypeError("missing argument `level`=`tissue` or `cell`")
-
-
-def read_file(path):
-    with open(path) as p:
-        data = pd.read_csv(p, header=0, sep="\t")
-    return data
 
 
 with open("./config.json") as j:
@@ -195,29 +175,29 @@ path3 = fig_save_path + f"{folder_dict['t46']}corr{corr_shrefold}_p{p_shrefold}/
 path4 = fig_save_path + f"{folder_dict['c46']}corr{corr_shrefold}_p{p_shrefold}/"
 
 """heatmap with only full markers"""
-# excute(path1, level="tissue", markers=markers, title=fig_save_title_tissue_level, add_blank_markers=True)
-# excute(path2, level="cell", markers=markers, title=fig_save_title_cellType_level, add_blank_markers=True)
-# excute(path3, level="tissue", markers=markers, title=fig_save_title_tissue_level, add_blank_markers=True)
-# excute(path4, level="cell", markers=markers, title=fig_save_title_cellType_level, add_blank_markers=True)
+excute(path1, level="tissue", markers=markers, title=fig_save_title_tissue_level, add_blank_markers=True)
+excute(path2, level="cell", markers=markers, title=fig_save_title_cellType_level, add_blank_markers=True)
+excute(path3, level="tissue", markers=markers, title=fig_save_title_tissue_level, add_blank_markers=True)
+excute(path4, level="cell", markers=markers, title=fig_save_title_cellType_level, add_blank_markers=True)
 
 """heatmap with full markers and full organs"""
-organ1 = read_file(corrDataFolderBymedian + tissueFile)
-organ1_list = df_arrange_organ_list(organ1, level="tissue")
-
-organ2 = read_file(corrDataFolderBymedian + cellTypeFile)
-organ2_list = df_arrange_organ_list(organ2, level="cell")
-
-organ3 = read_file(corrDataFolderBy4060 + tissueFile)
-organ3_list = df_arrange_organ_list(organ3, level="tissue")
-
-organ4 = read_file(corrDataFolderBy4060 + cellTypeFile)
-organ4_list = df_arrange_organ_list(organ4, level="cell")
-
-excute(path1, level="tissue", organs=organ1_list, markers=markers, title=fig_save_title_tissue_level,
-       add_blank_markers=True, add_blank_organs=True)
-excute(path2, level="cell", organs=organ2_list, markers=markers, title=fig_save_title_cellType_level,
-       add_blank_markers=True, add_blank_organs=True)
-excute(path3, level="tissue", organs=organ3_list, markers=markers, title=fig_save_title_tissue_level,
-       add_blank_markers=True, add_blank_organs=True)
-excute(path4, level="cell", organs=organ4_list, markers=markers, title=fig_save_title_cellType_level,
-       add_blank_markers=True, add_blank_organs=True)
+# organ1 = read_file(corrDataFolderBymedian + tissueFile)
+# organ1_list = df_arrange_organ_list(organ1, level="tissue")
+#
+# organ2 = read_file(corrDataFolderBymedian + cellTypeFile)
+# organ2_list = df_arrange_organ_list(organ2, level="cell")
+#
+# organ3 = read_file(corrDataFolderBy4060 + tissueFile)
+# organ3_list = df_arrange_organ_list(organ3, level="tissue")
+#
+# organ4 = read_file(corrDataFolderBy4060 + cellTypeFile)
+# organ4_list = df_arrange_organ_list(organ4, level="cell")
+#
+# excute(path1, level="tissue", organs=organ1_list, markers=markers, title=fig_save_title_tissue_level,
+#        add_blank_markers=True, add_blank_organs=True)
+# excute(path2, level="cell", organs=organ2_list, markers=markers, title=fig_save_title_cellType_level,
+#        add_blank_markers=True, add_blank_organs=True)
+# excute(path3, level="tissue", organs=organ3_list, markers=markers, title=fig_save_title_tissue_level,
+#        add_blank_markers=True, add_blank_organs=True)
+# excute(path4, level="cell", organs=organ4_list, markers=markers, title=fig_save_title_cellType_level,
+#        add_blank_markers=True, add_blank_organs=True)

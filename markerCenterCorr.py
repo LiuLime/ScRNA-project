@@ -37,6 +37,7 @@ def create_network(nodes, highlight_nodes=None, save_name=None, save_fig=True, s
             save_graph_object(G, save_name)
         else:
             raise TypeError("missing argument `graph_name`")
+    plt.close()
     return G
 
 
@@ -106,7 +107,7 @@ def generate_count_from_dataframe(df, group_level, fig_save_path, markers):
     return result
 
 
-def create_graphs_from_csv_data(folder_path, file, group_level, fig_save_path, **kwargs):
+def create_graphs_from_csv_data(folder_path, file, group_level, fig_save_path, markers, **kwargs):
     """
     param:
         * kwargs: "corr_shrefold", "p_shrefold"
@@ -135,67 +136,81 @@ def create_folder(path):
 
 
 # %%
-with open("./config.json") as j:
-    config = json.load(j)
 
-fig_save_path = config["fig_save_path"]
-folder_dict = config["folder_dict"]
-corrDatafilebymedian = config["corrDataFolderBymedian"]
-corrDatafileby4060 = config["corrDataFolderBy40-60"]
-corr_shrefold = config["corr_shrefold"]
-p_shrefold = config["p_shrefold"]
-markers = config["markers"]
-TissueMarkerCorrFile = "tissue_level/agingMarkers-related_genePairCor_pLT0.2_1ageGrpGE50genes.txt"
-CellMarkerCorrFile = "tissue-cellType_level/agingMarkers-related_genePairCor_pLT0.2_1ageGrpGE50genes.txt"
 
-"""
-Aging markers-related correlation&p-value network <- median age
-p-value使用的双边检的值
-"""
+def main(config, corr_shrefold, p_shrefold):
+    fig_save_path = config["fig_save_path"]
+    folder_dict = config["folder_dict"]
+    corrDatafilebymedian = config["corrDataFolderBymedian"]
+    corrDatafileby4060 = config["corrDataFolderBy40-60"]
+    TissueMarkerCorrFile = "tissue_level/agingMarkers-related_genePairCor_pLT0.2_1ageGrpGE50genes.txt"
+    CellMarkerCorrFile = "tissue-cellType_level/agingMarkers-related_genePairCor_pLT0.2_1ageGrpGE50genes.txt"
+    markers = config["markers"]
+    """
+    Aging markers-related correlation&p-value network <- median age
+    p-value使用的双边检的值
+    """
+    # Tissue level
+    path1 = fig_save_path + f"{folder_dict['tm']}corr{corr_shrefold}_p{p_shrefold}/"
+    create_folder(path1)
+    create_graphs_from_csv_data(corrDatafilebymedian,
+                                TissueMarkerCorrFile,
+                                group_level="tissue",
+                                fig_save_path=path1,
+                                markers=markers,
+                                corr_shrefold=corr_shrefold,
+                                p_shrefold=p_shrefold,
+                                )
 
-# Tissue level
-path1 = fig_save_path + f"{folder_dict['tm']}corr{corr_shrefold}_p{p_shrefold}/"
-create_folder(path1)
-create_graphs_from_csv_data(corrDatafilebymedian,
-                            TissueMarkerCorrFile,
-                            group_level="tissue",
-                            fig_save_path=path1,
-                            corr_shrefold=corr_shrefold,
-                            p_shrefold=p_shrefold,
-                            )
+    # Cell level
+    path2 = fig_save_path + f"{folder_dict['cm']}corr{corr_shrefold}_p{p_shrefold}/"
+    create_folder(path2)
+    create_graphs_from_csv_data(corrDatafilebymedian,
+                                CellMarkerCorrFile,
+                                group_level="cell",
+                                fig_save_path=path2,
+                                markers=markers,
+                                corr_shrefold=corr_shrefold,
+                                p_shrefold=p_shrefold)
 
-# Cell level
-path2 = fig_save_path + f"{folder_dict['cm']}corr{corr_shrefold}_p{p_shrefold}/"
-create_folder(path2)
-create_graphs_from_csv_data(corrDatafilebymedian,
-                            CellMarkerCorrFile,
-                            group_level="cell",
-                            fig_save_path=path2,
-                            corr_shrefold=corr_shrefold,
-                            p_shrefold=p_shrefold)
+    """
+    Aging markers-related correlation network <- 40-60 age
+    """
+    # Tissue level
+    path3 = fig_save_path + f"{folder_dict['t46']}corr{corr_shrefold}_p{p_shrefold}/"
+    create_folder(path3)
+    create_graphs_from_csv_data(corrDatafileby4060,
+                                TissueMarkerCorrFile,
+                                group_level="tissue",
+                                fig_save_path=path3,
+                                markers=markers,
+                                corr_shrefold=corr_shrefold,
+                                p_shrefold=p_shrefold,
+                                )
 
-"""
-Aging markers-related correlation network <- 40-60 age
-"""
-# Tissue level
-path3 = fig_save_path + f"{folder_dict['t46']}corr{corr_shrefold}_p{p_shrefold}/"
-create_folder(path3)
-create_graphs_from_csv_data(corrDatafileby4060,
-                            TissueMarkerCorrFile,
-                            group_level="tissue",
-                            fig_save_path=path3,
-                            corr_shrefold=corr_shrefold,
-                            p_shrefold=p_shrefold,
-                            )
+    # Cell level
+    path4 = fig_save_path + f"{folder_dict['c46']}corr{corr_shrefold}_p{p_shrefold}/"
+    create_folder(path4)
+    create_graphs_from_csv_data(corrDatafileby4060,
+                                CellMarkerCorrFile,
+                                group_level="cell",
+                                fig_save_path=path4,
+                                markers=markers,
+                                corr_shrefold=corr_shrefold,
+                                p_shrefold=p_shrefold)
 
-# Cell level
-path4 = fig_save_path + f"{folder_dict['c46']}corr{corr_shrefold}_p{p_shrefold}/"
-create_folder(path4)
-create_graphs_from_csv_data(corrDatafileby4060,
-                            CellMarkerCorrFile,
-                            group_level="cell",
-                            fig_save_path=path4,
-                            corr_shrefold=corr_shrefold,
-                            p_shrefold=p_shrefold)
 
 # %%
+if __name__ == "__main__":
+    with open("./config.json") as j:
+        config = json.load(j)
+    # single output
+    # corr_shrefold = config["corr_shrefold"]
+    # p_shrefold = config["p_shrefold"]
+    # main(config, corr_shrefold, p_shrefold)
+    # multiple output
+    corr_shrefold_list = config["corr_shrefold_list"]
+    p_shrefold_list = config["p_shrefold_list"]
+    for c in corr_shrefold_list:
+        for p in p_shrefold_list:
+            main(config, c, p)
