@@ -4,7 +4,10 @@ Save ScRNA result into MySQL database
 @ Liu
 """
 
-import pymysql
+import mysql.connector
+from mysql.connector import errorcode
+
+import pandas as pd
 
 
 class sql:
@@ -18,93 +21,82 @@ class sql:
     >>>
     """
 
-    def __init__(self, db="ScRNA"):
+    def __init__(self, db):
         self.db = db
+        self.con = None
+        self.cur = None
 
     def __enter__(self):
-        self.connection = pymysql.Connection(host="localhost",
-                                             user="root",
-                                             db=self.db,
-                                             charset='utf8mb4')
-        self.cur = self.connection.cursor()
-        self.cur.execute(f"USE {self.db}")
+        self.con = mysql.connector.connect(host="localhost",
+                                           user="root",
+                                           charset='utf8mb4')
+
+        self.cur = self.con.cursor()
+        try:
+            print(f"Databse {self.db} chosen")
+            self.cur.execute(f"USE {self.db}")
+
+        except mysql.connector.Error as err:
+            if err.errno == errorcode.ER_BAD_DB_ERROR:
+                print("Database does not exist...")
+                self.createDB()
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.cur.close()
-        self.connection.close()
+        self.con.close()
 
-    def createTable(self, tableName):
-        """ Create tissue_cell_type table in database
+    def execute_query(self, query, params=None, return_object=True):
+        """
+        Execute a given SQL query with optional parameters and return the results.
+        """
+        # print("query-----",query)
+        try:
+            if params:
+                self.cur.execute(query, params)
+            else:
+                self.cur.execute(query)
 
-        tableName = f"tissue_cell_type"
+            if return_object:
+                return self.cur.fetchall()
+            else:
+                self.con.commit()
+        except mysql.connector.Error as err:
+            print(f"Error: {err}")
+        return None
+
+    def createDB(self):
+        self.cur.execute(f"CREATE DATABASE {self.db}")
+        print(f"Create {self.db} database...")
+
+    def createTable(self, tableName, arguments) -> None:
+        """ Create sql table in database, already contain 'id' and 'created' column
+        :param:
+        * tableName
+        * arguments: exp.'tissue varchar(100), tissueid NOT NULL, varchar(100), PRIMARY KEY (tissue,tissueid)'
         """
 
         sql = f"""CREATE TABLE IF NOT EXISTS {tableName} 
                (id INT NOT NULL AUTO_increment PRIMARY KEY, 
-               donar varchar(100), 
-               tissue varchar(100) NOT NULL, 
-               cell_type varchar(100), 
-               cell_id varchar(1000) NOT NULL, 
-               gene_name varchar(100) NOT NULL,
-               gene_expression DOUBLE,
                created timestamp default current_timestamp,
-               PRIMARY KEY (cell_id, gene_name))"""
+               {arguments})"""
 
         self.cur.execute(sql)
-        self.connection.commit()
+        self.con.commit()
 
-    def loadTable(self, file_path, table_name=""):
-        """Create table by loading txt file
-
-        """
-        with open(file_path, "r") as t:
-            file = t.readlines()
-        columns = file[0].strip("\n").split("\t")
-
-        # create table
-        column_input = ','.join([f"`{col}`" for col in columns])
-        columns_sql = ', '.join([f"`{col}` VARCHAR(255)" for col in columns])
-        sql1 = f"""CREATE TABLE IF NOT EXISTS {table_name} 
-        (id INT NOT NULL AUTO_increment PRIMARY KEY, 
-        {columns_sql}, 
-        created timestamp default current_timestamp)"""
-        self.cur.execute(sql1)
-        # input txt content
-        sql2 = f"LOAD DATA INFILE '{file_path}' INTO TABLE {table_name} IGNORE 1 LINES ({column_input})"
-        self.cur.execute(sql2)
-        self.connection.commit()
-
-    def store(self, tableName=None, infoLevel=False, **kwargs):
+    def store(self, tableName, column_dict:dict):
         """
 
         :param kwargs: tissue,celltype,cellid,donar,age,agetype,genename,expression,study,health_type,cell_num
         :return:
         """
+        column, value = list(zip(*column_dict.items()))  # tuple
+        placeholder = ",".join(['%s'] * len(column))
 
-        tissue = kwargs.get("tissue", "None")
-        celltype = kwargs.get("celltype", "None")
-        cellid = kwargs.get("cellid", "None")
-        donar = kwargs.get("donar", "None")
-        age = kwargs.get("age", "None")
-        agetype = kwargs.get("agetype", "None")
-        genename = kwargs.get("genename", "None")
-        expression = kwargs.get("expression", 0)
-        study = kwargs.get("study", "None")
-        health_type = kwargs.get("health_type", "None")
-        cell_num = kwargs.get("cell_num", -1)
-        if infoLevel is True:
-            sql = f"""INSERT IGNORE INTO infos 
-            (tissue, cell_type, donar, age, age_type, study, health_type, cell_num) 
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"""
-            self.cur.execute(sql, (tissue, celltype, donar, age, agetype, study, health_type, cell_num))
-        else:
-            sql1 = f"""INSERT IGNORE INTO {tableName} 
-            (donar, tissue, cell_type,cell_id, gene_name, gene_expression) 
-            VALUES (%s, %s, %s, %s, %s, %s)"""
-            self.cur.execute(sql1, (donar, tissue, celltype, cellid, genename, expression))
-
-        self.connection.commit()
+        sql = f"""INSERT IGNORE INTO {tableName} {column} VALUES ({placeholder})"""
+        print(sql)
+        self.cur.execute(sql, value)
+        self.con.commit()
 
     def check_exist(self, table, column, query):
         """
@@ -123,18 +115,46 @@ class sql:
         else:
             return True
 
-    def search(self, table, define_column, query_column, query):
+    def search(self, query_column, table, query):
         """
-        return one record, Nonetype was returned when not found
+        return all record, Nonetype was returned when not found
         """
-        if isinstance(define_column, str):
-            columns = f"`{define_column}` = %s"
-        if isinstance(define_column, list):
-            columns = ' AND '.join([f"`{col}` = %s" for col in define_column])
-            # print(columns, query)
-        sql = f"SELECT {query_column} FROM {table} WHERE {columns}"
-        self.cur.execute(sql, (query))
-        return self.cur.fetchone()
+
+        sql = f"SELECT {query_column} FROM {table} WHERE {query}"
+        print("search query--", sql)
+        self.cur.execute(sql)
+        return self.cur.fetchall()
 
     # def count(self, table, query_column, query):
     #     sql = f"SELECT {query_column} FROM {table} WHERE {define_column} = %s"
+
+    # def load(self, file_path, name="", set_primary_key: tuple = None):
+    #     """Create table by loading txt file
+    #
+    #     """
+    #     delimiter = utilss.detect_delimiter(file_path)
+    #
+    #     with open(file_path, "r") as t:
+    #         file = t.readlines()
+    #     columns = file[0].strip("\n").split(delimiter)
+    #
+    #     # create table
+    #     column_input = ','.join([f"`{col}`" for col in columns])
+    #     columns_sql = ', '.join([f"`{col}` VARCHAR(255)" for col in columns])
+    #
+    #     sql1 = f"""CREATE TABLE IF NOT EXISTS {name}
+    #     (id INT NOT NULL AUTO_increment PRIMARY KEY,
+    #     {columns_sql},
+    #     created timestamp default current_timestamp
+    #     )"""
+    #
+    #     print(sql1)
+    #     self.cur.execute(sql1)
+    #     # input txt content
+    #     sql2 = f"LOAD DATA INFILE '{file_path}' INTO TABLE {name} IGNORE 1 LINES ({column_input})"
+    #     print(sql2)
+    #     self.cur.execute(sql2)
+    #     if set_primary_key:
+    #         pri_sql = f"ALTER TABLE {name} ADD PRIMARY KEY {set_primary_key}"
+    #         self.cur.execute(pri_sql)
+    #     self.con.commit()

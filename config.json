@@ -1,16 +1,43 @@
-{
-  "rawDataFolder": "/Users/liuyuting/WorkSpace/ScRNA_project/mysql/17_human_TabulaSapiens/",
-  "corrDataFolderBy40-60":"/Users/liuyuting/WorkSpace/ScRNA_project/mysql/20230328_median_10humanStudies-20230410_40-60_5humanStudies.1ageGrpGE50cells/ageGrp_by40-60/",
-  "corrDataFolderBymedian": "/Users/liuyuting/WorkSpace/ScRNA_project/mysql/20230328_median_10humanStudies-20230410_40-60_5humanStudies.1ageGrpGE50cells/ageGrp_byMedian/",
-  "metaDataFolder": "/Users/liuyuting/WorkSpace/ScRNA_project/mysql/",
-  "donar_file": "/Users/liuyuting/WorkSpace/ScRNA_project/mysql/donor_summaries.txt",
-  "fig_save_path": "/Users/liuyuting/WorkSpace/ScRNA_project/03figure/corr_pval/",
-  "fig_config": {"fmt": "png","title_size": 14,"label_size": 14,"font_size": 14,"font_family": "arial"},
+{ "ageGrp_by40-60_tissue":"/Users/liuyuting/WorkSpace/ScRNA_project/mysql/20230328_median_10humanStudies-20230410_40-60_5humanStudies.1ageGrpGE50cells/ageGrp_by40-60/tissue_level/",
+  "ageGrp_by40-60_cell":"/Users/liuyuting/WorkSpace/ScRNA_project/mysql/20230328_median_10humanStudies-20230410_40-60_5humanStudies.1ageGrpGE50cells/ageGrp_by40-60/tissue-cellType_level/",
 
-  "folder_dict": {"tm":"tissue_level_medianAge_","cm":"cell_level_medianAge_","t46":"tissue_level_40-60Age_","c46":"cell_level_40-60Age_"},
-  "corr_shrefold": 0.7,
-  "log10p_abs_shrefold": 3,
-  "p_shrefold": 0.001,
-  "markers": ["CDKN2A", "ICAM1","GPNMB","IL1B","PLAUR","UPAR","TNFSF8","CDKN1A",
-    "SELE","CCL2","MMP2","SIRT2","TNFRSF10D","MMP3","MEG3","MMP9", "SIRT1","CCL5","RANTES","CD28","NOS3","IL1R2"]
+  "ageGrp_byMedian_tissue": "/Users/liuyuting/WorkSpace/ScRNA_project/mysql/20230328_median_10humanStudies-20230410_40-60_5humanStudies.1ageGrpGE50cells/ageGrp_byMedian/tissue_level/",
+  "ageGrp_byMedian_cell":"/Users/liuyuting/WorkSpace/ScRNA_project/mysql/20230328_median_10humanStudies-20230410_40-60_5humanStudies.1ageGrpGE50cells/ageGrp_byMedian/tissue-cellType_level/",
+
+  "tissueList": "study-tissue_list.txt",
+  "cellTypeList": "study-tissue-cellType_list.txt",
+
+  "CorrFolder": "allGenePairs_binMeanPearsonCor_mtx_pLT0.2_1ageGrpGE50genes/",
+  "tissuePvalueFile": "gene-tissue_mtx.log10P_greaterSide.txt",
+  "cellPvalueFile":"gene-tissue-cellType_mtx.log10P_greaterSide.txt",
+  "db_list": ["scrna_mt", "scrna_mc", "scrna_4060t", "scrna_4060c"],
+  "figSavePath": {"ageGrp_byMedian_tissue":"/Users/liuyuting/WorkSpace/ScRNA_project/03figure/ageGrp_byMedian/tissue_level/",
+                  "ageGrp_byMedian_cell":"/Users/liuyuting/WorkSpace/ScRNA_project/03figure/ageGrp_byMedian/tissue-cellType_level/",
+                  "ageGrp_by40-60_tissue":"/Users/liuyuting/WorkSpace/ScRNA_project/03figure/ageGrp_by40-60/tissue_level/",
+                  "ageGrp_by40-60_cell":"/Users/liuyuting/WorkSpace/ScRNA_project/03figure/ageGrp_by40-60/tissue-cellType_level/"},
+
+  "figSaveTitle": {"tissue":{"marker_simple":"tissue_heatmap_m.png",
+                              "marker_full": "tissue_heatmap_mf.png",
+                              "can_simple": "tissue_heatmap_mc.png",
+                              "can_full": "tissue_heatmap_mcf.png"},
+                    "cell": {"marker_simple":"cell_heatmap_m.png",
+                              "marker_full": "cell_heatmap_mf.png",
+                              "can_simple": "cell_heatmap_mc.png",
+                              "can_full": "cell_heatmap_mcf.png"},
+                    "tissue_cell": {"marker_simple":"tissueCell_heatmap_m.png",
+                      "marker_full": "tissueCell_heatmap_mf.png",
+                      "can_simple": "tissueCell_heatmap_mc.png",
+                      "can_full": "tissueCell_heatmap_mcf.png"}
+  },
+  "figConfig": {"fmt": "png","title_size": 14,"label_size": 14,"font_size": 14,"font_family": "arial"},
+
+  "corr_cutoff": 0.7,
+  "corr_cutoffs": [0.9,0.8,0.7,0.6,0.4],
+  "p_cutoff": 0.001,
+  "p_cutoffs": [0.001,0.01,0.1],
+  "log10p_abs_cutoff": 2,
+  "log10p_abs_cutoffs": [3, 2, 1],
+  "markers": ["CCL2","CCL5","CDKN1A","CDKN2A","CD28", "ICAM1","IL1B","IL1R2",
+              "GPNMB","MEG3","MMP2","MMP3","MMP9","NOS3","PLAUR","RANTES",
+              "SELE","SIRT1","SIRT2","TNFRSF10D","TNFSF8","UPAR"]
 }
