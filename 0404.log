@@ -1,0 +1,162 @@
+2024-04-04 17:20:42,968 | logger | DEBUG 🎙️ > USE scrna_mt, save path--->/Users/liuyuting/WorkSpace/ScRNA_project/03figure/ageGrp_byMedian/tissue_level/
+2024-04-04 17:20:42,977 | logger | DEBUG 🎙️ > init start
+2024-04-04 17:20:43,018 | logger | DEBUG 🎙️ > available_studies--->45:['s10g1t10', 's10g1t30', 's11g2t10', 's11g2t11', 's11g2t17', 's11g2t32', 's11g2t33', 's11g2t34', 's11g2t35', 's11g2t36', 's11g2t37', 's11g2t5', 's11g2t6', 's12g2t14', 's12g2t21', 's12g2t38', 's12g2t40', 's12g2t41', 's12g2t5', 's1g1t1', 's2g2t2', 's2g2t3', 's3g2t4', 's3g2t5', 's3g2t6', 's4g2t7', 's5g1t5', 's6g2t8', 's7g1t8', 's8g2t10', 's8g2t11', 's8g2t16', 's8g2t17', 's8g2t18', 's8g2t20', 's8g2t22', 's8g2t24', 's8g2t25', 's8g2t26', 's8g2t29', 's8g2t5', 's8g2t6', 's8g2t9', 's9g2t10', 's9g2t30']
+2024-04-04 17:20:43,018 | logger | DEBUG 🎙️ > get corr_dict s10g1t10 ---> START
+2024-04-04 17:20:43,629 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s10g1t10 ---> flag True
+2024-04-04 17:20:43,662 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:1/45 study:s10g1t10
+2024-04-04 17:20:43,662 | logger | DEBUG 🎙️ > get corr_dict s10g1t30 ---> START
+2024-04-04 17:20:43,874 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s10g1t30 ---> flag True
+2024-04-04 17:20:43,885 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:2/45 study:s10g1t30
+2024-04-04 17:20:43,885 | logger | DEBUG 🎙️ > get corr_dict s11g2t10 ---> START
+2024-04-04 17:20:44,162 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s11g2t10 ---> flag True
+2024-04-04 17:20:44,169 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:3/45 study:s11g2t10
+2024-04-04 17:20:44,169 | logger | DEBUG 🎙️ > get corr_dict s11g2t11 ---> START
+2024-04-04 17:20:44,978 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s11g2t11 ---> flag True
+2024-04-04 17:20:45,015 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:4/45 study:s11g2t11
+2024-04-04 17:20:45,015 | logger | DEBUG 🎙️ > get corr_dict s11g2t17 ---> START
+2024-04-04 17:20:45,105 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s11g2t17 ---> flag True
+2024-04-04 17:20:45,111 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:5/45 study:s11g2t17
+2024-04-04 17:20:45,111 | logger | DEBUG 🎙️ > get corr_dict s11g2t32 ---> START
+2024-04-04 17:20:45,138 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s11g2t32 ---> flag True
+2024-04-04 17:20:45,140 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:6/45 study:s11g2t32
+2024-04-04 17:20:45,140 | logger | DEBUG 🎙️ > get corr_dict s11g2t33 ---> START
+2024-04-04 17:20:45,192 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s11g2t33 ---> flag True
+2024-04-04 17:20:45,195 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:7/45 study:s11g2t33
+2024-04-04 17:20:45,195 | logger | DEBUG 🎙️ > get corr_dict s11g2t34 ---> START
+2024-04-04 17:20:45,730 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s11g2t34 ---> flag True
+2024-04-04 17:20:45,760 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:8/45 study:s11g2t34
+2024-04-04 17:20:45,760 | logger | DEBUG 🎙️ > get corr_dict s11g2t35 ---> START
+2024-04-04 17:20:46,548 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s11g2t35 ---> flag True
+2024-04-04 17:20:46,593 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:9/45 study:s11g2t35
+2024-04-04 17:20:46,593 | logger | DEBUG 🎙️ > get corr_dict s11g2t36 ---> START
+2024-04-04 17:20:46,653 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s11g2t36 ---> flag True
+2024-04-04 17:20:46,656 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:10/45 study:s11g2t36
+2024-04-04 17:20:46,656 | logger | DEBUG 🎙️ > get corr_dict s11g2t37 ---> START
+2024-04-04 17:20:46,691 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s11g2t37 ---> flag True
+2024-04-04 17:20:46,694 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:11/45 study:s11g2t37
+2024-04-04 17:20:46,694 | logger | DEBUG 🎙️ > get corr_dict s11g2t5 ---> START
+2024-04-04 17:20:48,527 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s11g2t5 ---> flag True
+2024-04-04 17:20:48,636 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:12/45 study:s11g2t5
+2024-04-04 17:20:48,636 | logger | DEBUG 🎙️ > get corr_dict s11g2t6 ---> START
+2024-04-04 17:20:49,802 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s11g2t6 ---> flag True
+2024-04-04 17:20:49,867 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:13/45 study:s11g2t6
+2024-04-04 17:20:49,867 | logger | DEBUG 🎙️ > get corr_dict s12g2t14 ---> START
+2024-04-04 20:15:02,082 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s12g2t14 ---> flag True
+2024-04-04 20:16:54,224 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:14/45 study:s12g2t14
+2024-04-04 20:16:54,224 | logger | DEBUG 🎙️ > get corr_dict s12g2t21 ---> START
+2024-04-04 21:26:39,011 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s12g2t21 ---> flag True
+2024-04-04 21:27:35,569 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:15/45 study:s12g2t21
+2024-04-04 21:27:35,570 | logger | DEBUG 🎙️ > get corr_dict s12g2t38 ---> START
+2024-04-04 21:27:40,499 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s12g2t38 ---> flag True
+2024-04-04 21:27:40,873 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:16/45 study:s12g2t38
+2024-04-04 21:27:40,873 | logger | DEBUG 🎙️ > get corr_dict s12g2t40 ---> START
+2024-04-04 21:29:04,268 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s12g2t40 ---> flag True
+2024-04-04 21:29:10,292 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:17/45 study:s12g2t40
+2024-04-04 21:29:10,292 | logger | DEBUG 🎙️ > get corr_dict s12g2t41 ---> START
+2024-04-04 21:31:39,530 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s12g2t41 ---> flag True
+2024-04-04 21:31:48,300 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:18/45 study:s12g2t41
+2024-04-04 21:31:48,300 | logger | DEBUG 🎙️ > get corr_dict s12g2t5 ---> START
+2024-04-04 21:47:28,142 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s12g2t5 ---> flag True
+2024-04-04 21:47:55,162 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:19/45 study:s12g2t5
+2024-04-04 21:47:55,163 | logger | DEBUG 🎙️ > get corr_dict s1g1t1 ---> START
+2024-04-04 21:48:28,454 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s1g1t1 ---> flag True
+2024-04-04 21:48:30,200 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:20/45 study:s1g1t1
+2024-04-04 21:48:30,200 | logger | DEBUG 🎙️ > get corr_dict s2g2t2 ---> START
+2024-04-05 00:16:15,105 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s2g2t2 ---> flag True
+2024-04-05 00:17:59,233 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:21/45 study:s2g2t2
+2024-04-05 00:17:59,234 | logger | DEBUG 🎙️ > get corr_dict s2g2t3 ---> START
+2024-04-05 00:28:03,564 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s2g2t3 ---> flag True
+2024-04-05 00:28:24,211 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:22/45 study:s2g2t3
+2024-04-05 00:28:24,211 | logger | DEBUG 🎙️ > get corr_dict s3g2t4 ---> START
+2024-04-05 00:28:25,867 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s3g2t4 ---> flag True
+2024-04-05 00:28:26,000 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:23/45 study:s3g2t4
+2024-04-05 00:28:26,000 | logger | DEBUG 🎙️ > get corr_dict s3g2t5 ---> START
+2024-04-05 00:28:26,579 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s3g2t5 ---> flag True
+2024-04-05 00:28:26,626 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:24/45 study:s3g2t5
+2024-04-05 00:28:26,627 | logger | DEBUG 🎙️ > get corr_dict s3g2t6 ---> START
+2024-04-05 00:28:26,815 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s3g2t6 ---> flag True
+2024-04-05 00:28:26,829 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:25/45 study:s3g2t6
+2024-04-05 00:28:26,829 | logger | DEBUG 🎙️ > get corr_dict s4g2t7 ---> START
+2024-04-05 01:18:18,814 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s4g2t7 ---> flag True
+2024-04-05 01:19:16,589 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:26/45 study:s4g2t7
+2024-04-05 01:19:16,589 | logger | DEBUG 🎙️ > get corr_dict s5g1t5 ---> START
+2024-04-05 01:19:19,951 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s5g1t5 ---> flag True
+2024-04-05 01:19:20,211 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:27/45 study:s5g1t5
+2024-04-05 01:19:20,211 | logger | DEBUG 🎙️ > get corr_dict s6g2t8 ---> START
+2024-04-05 01:19:20,873 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s6g2t8 ---> flag True
+2024-04-05 01:19:20,929 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:28/45 study:s6g2t8
+2024-04-05 01:19:20,929 | logger | DEBUG 🎙️ > get corr_dict s7g1t8 ---> START
+2024-04-05 01:19:21,686 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s7g1t8 ---> flag True
+2024-04-05 01:19:21,748 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:29/45 study:s7g1t8
+2024-04-05 01:19:21,748 | logger | DEBUG 🎙️ > get corr_dict s8g2t10 ---> START
+2024-04-05 01:19:22,285 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s8g2t10 ---> flag True
+2024-04-05 01:19:22,325 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:30/45 study:s8g2t10
+2024-04-05 01:19:22,325 | logger | DEBUG 🎙️ > get corr_dict s8g2t11 ---> START
+2024-04-05 01:19:32,637 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s8g2t11 ---> flag True
+2024-04-05 01:19:33,313 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:31/45 study:s8g2t11
+2024-04-05 01:19:33,313 | logger | DEBUG 🎙️ > get corr_dict s8g2t16 ---> START
+2024-04-05 01:19:33,374 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s8g2t16 ---> flag True
+2024-04-05 01:19:33,377 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:32/45 study:s8g2t16
+2024-04-05 01:19:33,377 | logger | DEBUG 🎙️ > get corr_dict s8g2t17 ---> START
+2024-04-05 01:19:33,409 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s8g2t17 ---> flag True
+2024-04-05 01:19:33,411 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:33/45 study:s8g2t17
+2024-04-05 01:19:33,411 | logger | DEBUG 🎙️ > get corr_dict s8g2t18 ---> START
+2024-04-05 01:19:34,963 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s8g2t18 ---> flag True
+2024-04-05 01:19:35,051 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:34/45 study:s8g2t18
+2024-04-05 01:19:35,051 | logger | DEBUG 🎙️ > get corr_dict s8g2t20 ---> START
+2024-04-05 01:20:13,432 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s8g2t20 ---> flag True
+2024-04-05 01:20:15,577 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:35/45 study:s8g2t20
+2024-04-05 01:20:15,577 | logger | DEBUG 🎙️ > get corr_dict s8g2t22 ---> START
+2024-04-05 01:20:17,487 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s8g2t22 ---> flag True
+2024-04-05 01:20:17,642 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:36/45 study:s8g2t22
+2024-04-05 01:20:17,642 | logger | DEBUG 🎙️ > get corr_dict s8g2t24 ---> START
+2024-04-05 01:20:17,657 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s8g2t24 ---> flag True
+2024-04-05 01:20:17,658 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:37/45 study:s8g2t24
+2024-04-05 01:20:17,658 | logger | DEBUG 🎙️ > get corr_dict s8g2t25 ---> START
+2024-04-05 01:20:19,257 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s8g2t25 ---> flag True
+2024-04-05 01:20:19,386 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:38/45 study:s8g2t25
+2024-04-05 01:20:19,386 | logger | DEBUG 🎙️ > get corr_dict s8g2t26 ---> START
+2024-04-05 01:20:20,692 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s8g2t26 ---> flag True
+2024-04-05 01:20:20,794 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:39/45 study:s8g2t26
+2024-04-05 01:20:20,794 | logger | DEBUG 🎙️ > get corr_dict s8g2t29 ---> START
+2024-04-05 01:20:25,085 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s8g2t29 ---> flag True
+2024-04-05 01:20:25,349 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:40/45 study:s8g2t29
+2024-04-05 01:20:25,349 | logger | DEBUG 🎙️ > get corr_dict s8g2t5 ---> START
+2024-04-05 01:20:28,174 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s8g2t5 ---> flag True
+2024-04-05 01:20:28,326 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:41/45 study:s8g2t5
+2024-04-05 01:20:28,326 | logger | DEBUG 🎙️ > get corr_dict s8g2t6 ---> START
+2024-04-05 01:20:30,919 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s8g2t6 ---> flag True
+2024-04-05 01:20:31,058 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:42/45 study:s8g2t6
+2024-04-05 01:20:31,058 | logger | DEBUG 🎙️ > get corr_dict s8g2t9 ---> START
+2024-04-05 01:20:32,414 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s8g2t9 ---> flag True
+2024-04-05 01:20:32,493 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:43/45 study:s8g2t9
+2024-04-05 01:20:32,493 | logger | DEBUG 🎙️ > get corr_dict s9g2t10 ---> START
+2024-04-05 01:20:32,772 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s9g2t10 ---> flag True
+2024-04-05 01:20:32,788 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:44/45 study:s9g2t10
+2024-04-05 01:20:32,788 | logger | DEBUG 🎙️ > get corr_dict s9g2t30 ---> START
+2024-04-05 01:20:33,052 | logger | DEBUG 🎙️ > --- get corr_dict_in_one_study s9g2t30 ---> flag True
+2024-04-05 01:20:33,068 | logger | DEBUG 🎙️ > save corr_dict in json ---> count:45/45 study:s9g2t30
+2024-04-05 01:20:33,068 | logger | DEBUG 🎙️ > finish corr_dict SHOW top2 ---> []
+2024-04-05 01:20:33,070 | logger | DEBUG 🎙️ > init start
+2024-04-05 01:20:33,229 | logger | DEBUG 🎙️ > available_studies--->45:['s10g1t10', 's10g1t30', 's11g2t10', 's11g2t11', 's11g2t17', 's11g2t32', 's11g2t33', 's11g2t34', 's11g2t35', 's11g2t36', 's11g2t37', 's11g2t5', 's11g2t6', 's12g2t14', 's12g2t21', 's12g2t38', 's12g2t40', 's12g2t41', 's12g2t5', 's1g1t1', 's2g2t2', 's2g2t3', 's3g2t4', 's3g2t5', 's3g2t6', 's4g2t7', 's5g1t5', 's6g2t8', 's7g1t8', 's8g2t10', 's8g2t11', 's8g2t16', 's8g2t17', 's8g2t18', 's8g2t20', 's8g2t22', 's8g2t24', 's8g2t25', 's8g2t26', 's8g2t29', 's8g2t5', 's8g2t6', 's8g2t9', 's9g2t10', 's9g2t30']
+2024-04-05 01:20:33,229 | logger | DEBUG 🎙️ > get corr_dict s10g1t10 ---> START
+/Users/liuyuting/Git_Liu/ScRNA-project/database/model.py:57: SAWarning: This declarative base already contains a class with the same class name and module name as database.model.s10g1t10, and will be replaced in the string-lookup table.
+  return type(table_name, (Base,), attributes)
+2024-04-05 01:20:33,231 | logger | ERROR 🎙️ > ERROR----->Table 's10g1t10' is already defined for this MetaData instance.  Specify 'extend_existing=True' to redefine options and columns on an existing Table object.
+Traceback (most recent call last):
+  File "/Users/liuyuting/Git_Liu/ScRNA-project/cutOff.py", line 100, in <module>
+    corr_dict = query.get_corr_dict_in_all_study(save_path + folder, save_json_file=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liuyuting/Git_Liu/ScRNA-project/cutOff.py", line 73, in get_corr_dict_in_all_study
+    corr_dict_in_all_study += self.get_corr_dict_in_one_study(study)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liuyuting/Git_Liu/ScRNA-project/cutOff.py", line 49, in get_corr_dict_in_one_study
+    flag, corr_dict_list = self.db.get_correlation_records_above_threshold(abbr_id, self.corr_threshold)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liuyuting/Git_Liu/ScRNA-project/database/db.py", line 22, in wrapper
+    success, information = func(self, *args, **kwargs)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liuyuting/Git_Liu/ScRNA-project/database/db.py", line 85, in get_correlation_records_above_threshold
+    return success, tasks
+           ^^^^^^^
+UnboundLocalError: cannot access local variable 'tasks' where it is not associated with a value
