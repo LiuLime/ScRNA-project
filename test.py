@@ -83,18 +83,48 @@ from sqlalchemy import text, create_engine
 # db_list = ["scrna_mt", "scrna_mc", "scrna_4060t", "scrna_4060c"]
 # db = db.databaseHelper(db_list[2])
 # db.init()
-# log.debug(db.get_table_cutoff('s8g2t20',0.8,2))
+#
+# log.debug(db.get_correlation_records_above_threshold('s8g2t20',0.8))
 
 # %%
-from utils.log import logger
-
-log = logger()
-log.error("test error")
-log.debug("test debug")
+# from utils.log import logger
+#
+# log = logger()
+# log.error("test error")
+# log.debug("test debug")
+#
+# #%%
+# import pandas as pd
+# test = [{'id': 191983, 'gene': 'A2ML1', 'log10p': '4.52676230992907', 'abbr_id': 's3g2t4'},
+#         {'id': 192095, 'gene': 'AC024293.1', 'log10p': '25.3048788411024', 'abbr_id': 's3g2t4'}]
+#
+# data=pd.DataFrame(test)
 
 #%%
-import pandas as pd
-test = [{'id': 191983, 'gene': 'A2ML1', 'log10p': '4.52676230992907', 'abbr_id': 's3g2t4'},
-        {'id': 192095, 'gene': 'AC024293.1', 'log10p': '25.3048788411024', 'abbr_id': 's3g2t4'}]
+# test=[{'id': 2, 'Table': 's12g2t41c25'}, {'id': 3, 'Table': 's3g2t4c13'}]
+# print(list(zip(*test[0].items())))
+#%%
+# import pandas as pd
+#
+# path = "/Users/liuyuting/WorkSpace/ScRNA_project/mysql/20230328_median_10humanStudies-20230410_40-60_5humanStudies.1ageGrpGE50cells/ageGrp_byMedian/tissue-cellType_level/log10p.csv"
+# data = pd.read_csv(path, sep=",",header=0)
+#
+# count=0
+# for idx, row in data.iterrows():
+#     if row["log10p"] =='#NAME?':
+#         count+=1
+# print(count)
 
-data=pd.DataFrame(test)
+#%%
+from MySQL import sql
+import pandas as pd
+test_p=pd.DataFrame([{"gene":"a","log10p":3,"abbr_id":"s1"},
+                     {"gene":"b","log10p":33,"abbr_id":"s2"}])
+
+s=sql('test')
+with s:
+    # tasks=s.get_avalible_studies()
+    # print(tasks)
+    # s.create_log10p_table(test_p)
+    table=s.screen_by_corr_log10p('s12g2t38',1,1)
+

@@ -8,6 +8,9 @@ import json
 import pandas as pd
 import utils as us
 import DrawTool
+from MySQL import sql
+from utils import common
+from utils.log import logger
 
 class dataFilter:
 
@@ -26,12 +29,12 @@ class dataFilter:
                                "cell": ["study", "group", "tissue", "cellType", "gene1"]}
         self.groupby = self.groupby_levels.get(self.level, None)
 
-    def filter_data_by_criteria(self):
-        """Filter dataframe by correalation value and pvalue, return dataframe slice"""
-        df_slice = self.df[abs(self.df[self.cor_col]) > self.corr_shrefold]
-        df_slice = df_slice[abs(df_slice[self.p1_col]) > self.p_shrefold]
-        df_slice = df_slice[abs(df_slice[self.p2_col]) > self.p_shrefold]
-        return df_slice
+    # def filter_data_by_criteria(self):
+    #     """Filter dataframe by correalation value and pvalue, return dataframe slice"""
+    #     df_slice = self.df[abs(self.df[self.cor_col]) > self.corr_shrefold]
+    #     df_slice = df_slice[abs(df_slice[self.p1_col]) > self.p_shrefold]
+    #     df_slice = df_slice[abs(df_slice[self.p2_col]) > self.p_shrefold]
+    #     return df_slice
 
     def generate_degree(self, df_slice):
         """ Prepare for heatmap.Return connection degree df from dataframe slice which filtered by criteria, save csv as 'degree.csv'

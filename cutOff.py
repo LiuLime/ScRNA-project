@@ -20,7 +20,6 @@ class QueryDB:
         self.db.init()
         self.log = logger()
 
-
     def set_filter(self, p_threshold, corr_threshold):
         """init p threshold, correlation threshold and log10p records above p threshold in the database"""
         self.p_threshold = p_threshold
@@ -38,30 +37,22 @@ class QueryDB:
         """extract list of log10p records above p_shreshold in the database"""
 
         flag, self.log10p_dict_list = self.db.get_log10p_records_above_threshold(self.p_threshold)
-        self.log.debug(f"log10p_dict init {flag}")
+        self.log.debug(f"log10p_dict init 🎉🎉🎉～～～～～{flag}")
         return self.log10p_dict_list
-
-    def search_in_log10p_dict(self, abbr_id, gene) -> str | None:
-        """check if pvalue of correlation gene pairs over p_threshold"""
-
-        gene_dict = {record["gene"]: record["log10p"] for record in self.log10p_dict_list if record["abbr_id"] == abbr_id}
-        # print("gene_dict keys", len(gene_dict.keys()))
-        if gene in gene_dict.keys():
-            return gene_dict[gene]
-        else:
-            return None
 
     def get_corr_dict_in_one_study(self, abbr_id) -> list[dict]:
         """get dict of gene pair info if over corr_threshold and p_threshold in single study"""
         new_corr_dict_list = []
         flag, corr_dict_list = self.db.get_correlation_records_above_threshold(abbr_id, self.corr_threshold)
+        temp_gene_dict = {record["gene"]: record["log10p"] for record in self.log10p_dict_list if
+                          record["abbr_id"] == abbr_id}  # 得到在当前study中的gene到log10p的映射mapping
         if flag:
             self.log.debug(f"--- get corr_dict_in_one_study {abbr_id} ---> flag {flag}")
 
             for record in corr_dict_list:
                 # print("record waiting search", record)
-                gene1_log10p = self.search_in_log10p_dict(abbr_id, record["gene1"])
-                gene2_log10p = self.search_in_log10p_dict(abbr_id, record["gene2"])
+                gene1_log10p = temp_gene_dict.get(record["gene1"], None)
+                gene2_log10p = temp_gene_dict.get(record["gene2"], None)
                 if gene1_log10p and gene2_log10p:
                     record["log10p1"] = gene1_log10p
                     record["log10p2"] = gene2_log10p

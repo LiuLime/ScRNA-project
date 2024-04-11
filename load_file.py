@@ -1,12 +1,13 @@
 import math
 
-import MySQL
+from MySQL import sql
 import pandas as pd
 from utils import common
 from utils.log import logger
+from database import db
 from sqlalchemy import create_engine, text
 from sqlalchemy.orm import sessionmaker
-
+import numpy as np
 import os
 import json
 
@@ -16,9 +17,11 @@ with open("./config.json") as c:
 
 def read_file(path):
     with open(path, "r") as p:
-        delimiter = name.detect_delimiter(path)
+        delimiter = common.detect_delimiter(path)
         data = pd.read_csv(p, delimiter=delimiter, header=0)
+
     return data
+
 
 
 class preprocessor:
@@ -37,10 +40,8 @@ class preprocessor:
 
         new_p["abbr_id"] = new_p["full_id"].map(id_map)
         new_p = new_p.drop("full_id", axis=1)
-        new_p.to_csv(folder + "log10p.csv", index=False, sep=",")
 
-        message = new_p.head(5)
-        self.log.debug(f"pvalue dataframe head--->{message}")
+        return new_p
 
     def CreateAbbrId(self, row: pd.Series):
         """return abbrevation id for each full study name"""
@@ -61,11 +62,11 @@ class preprocessor:
         """ create abbr_id for each study full title according to mysql database `study_id`,`group_id`,`tissue_id`,
         `cell_id`"""
 
-        data = pd.read_csv(file_path, delimiter=name.detect_delimiter(file_path), header=0)
+        data = pd.read_csv(file_path, delimiter=common.detect_delimiter(file_path), header=0)
         # print(data.columns)
         data["full_id"] = data.apply(lambda x: ":".join(x.astype(str)), axis=1)
 
-        self.sql = MySQL.sql("scrna_base")
+        self.sql = sql("scrna_base")
         with self.sql:
             data["abbr_id"] = data.apply(self.CreateAbbrId, axis=1)
         return data
@@ -79,13 +80,12 @@ class preprocessor:
     @staticmethod
     def fullID_to_abbrID(unique_full_ids) -> dict:
         """return full_id to abbr_id map"""
-        sql = MySQL.sql("scrna_base")
-        with sql:
+        sql_base = sql("scrna_base")
+
+        with sql_base:
             query = f"SELECT full_id, abbr_id FROM abbr_id WHERE full_id IN ({','.join(['%s'] * len(unique_full_ids))})"
-            results = sql.execute_query(query, unique_full_ids)
-        # print("results", results)
+            results = sql_base.execute_query(query, unique_full_ids)
         id_map = {full_id: abbr_id for full_id, abbr_id in results}
-        # print(id_map)
         return id_map
 
     def wide_to_long_corr_batch(self, folder, db):
@@ -102,7 +102,7 @@ class preprocessor:
         id_map = preprocessor.fullID_to_abbrID(unique_full_ids)
         print("studies in this project-----", len(id_map))
         # create table
-        sql = MySQL.sql(db)
+        sql_corr = sql(db)
 
         # fill data into tables
         for file, full_id in zip(file_list, unique_full_ids):
@@ -110,7 +110,7 @@ class preprocessor:
             self.log.debug(f"process corr df--->{message}")
             path = os.path.join(folder, file)
             with open(path, "r") as f:
-                data = pd.read_csv(f, delimiter=name.detect_delimiter(path), header=0).set_index("Unnamed: 0")
+                data = pd.read_csv(f, delimiter=common.detect_delimiter(path), header=0).set_index("Unnamed: 0")
             df_long = data.stack().reset_index()  # Not include NA value pairs
             df_long.columns = ['gene1', 'gene2', 'cor_pearson.binMean']
 
@@ -120,14 +120,14 @@ class preprocessor:
             # print("Input column names----", columns)
             trunksize = 5000
             truncktime = math.ceil(len(df_long) / trunksize)
-            with sql:
-                query1 = f"CREATE table if not exists {id_map[full_id]}(`gene1` varchar(255), `gene2` varchar(255), `cor_pearson.binMean` varchar(255),PRIMARY KEY (`gene1`, `gene2`))"
-                sql.execute_query(query1, return_object=False)
+            with sql_corr:
+                query1 = f"CREATE table if not exists {id_map[full_id]}(`gene1` varchar(30), `gene2` varchar(30), `cor_pearson.binMean` DOUBLE,PRIMARY KEY (`gene1`, `gene2`))"
+                sql_corr.execute_query(query1, return_object=False)
                 for times in range(truncktime):
                     batch = df_list_record[times * trunksize: (times + 1) * trunksize]
                     value = ','.join(str(i) for i in batch)
                     query2 = f"INSERT IGNORE INTO {id_map[full_id]}{columns} VALUES {value}"
-                    sql.execute_query(query2, return_object=False)
+                    sql_corr.execute_query(query2, return_object=False)
 
 
 save_path = "/Users/liuyuting/WorkSpace/ScRNA_project/mysql/"
@@ -151,13 +151,12 @@ pfile_list = [tissuePvalueFile, cellPvalueFile, tissuePvalueFile, cellPvalueFile
 study_list = [tissueList, cellTypeList, tissueList, cellTypeList]
 
 id_path_list = [ageGrp_byMedian_tissue + tissueList, ageGrp_byMedian_cell + cellTypeList]  # median age study id file
-
-corr_path_list = [group+CorrFolder for group in folder_list]  # correlation folder in 4 groups
+db_list = ["scrna_mt", "scrna_mc", "scrna_4060t", "scrna_4060c"]
+corr_path_list = [group + CorrFolder for group in folder_list]  # correlation folder in 4 groups
 folder_db = {"scrna_mt": ageGrp_byMedian_tissue + CorrFolder,
              "scrna_mc": ageGrp_byMedian_cell + CorrFolder,
              "scrna_4060t": ageGrp_by4060_tissue + CorrFolder,
              "scrna_4060c": ageGrp_by4060_cell + CorrFolder}
-
 
 """ 保存所有study对应id"""
 # for folder, file in list(zip(folder_list[2:], study_list[2:])):
@@ -166,21 +165,41 @@ folder_db = {"scrna_mt": ageGrp_byMedian_tissue + CorrFolder,
 #     df_list = id_df.to_dict(orient="list")
 #     df_list_record = list(zip(*df_list.values()))
 #     value = ','.join(str(i) for i in df_list_record)
-#     sql = MySQL.sql("scrna_base")
-#     with sql:
+#     s = sql("scrna_base")
+#     with s:
 #         query = f"INSERT IGNORE INTO `abbr_id` (`study`,`health_group`,`tissue`,`cellType`,`full_id`,`abbr_id`) VALUES {value}"
-#         sql.execute_query(query, return_object=False)
+#         s.execute_query(query, return_object=False)
 
 # id_df.to_csv(folder + "study_abbr_id_list.csv", sep=",", index=False)
 
 """保存p-value的long table"""
-# for folder, file in list(zip(folder_list, pfile_list)):
-#     print(file)
+# for folder, file, db in list(zip(folder_list, pfile_list, db_list)):
+#     print(file, db)
 #     p = preprocessor()
-#     p.wide_to_long_p(folder, file)
+#     new_p = p.wide_to_long_p(folder, file)
+#
+#     s = sql(db)
+#     with s:
+#         s.create_log10p_table()
+#         s.df_to_sql(new_p, 'log10p')
 
 """保存correlation的long table"""
 # for db, corr_path in folder_db.items():
 #     print(f"conduct {db} database from path {corr_path}")
 #     p = preprocessor()
 #     p.wide_to_long_corr_batch(corr_path, db)
+
+"""Create Index"""
+# for db_task in db_list:
+#     s = sql(db_task)
+#     with s:
+#         tasks = s.get_avalible_studies()
+#         s.create_index(tasks)
+
+"""join p file and corr file"""
+for db_task in db_list:
+    s = sql(db_task)
+    with s:
+        tasks = s.get_avalible_studies()
+        s.join_corr_log10p(tasks)
+# %%

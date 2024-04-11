@@ -51,7 +51,7 @@ class databaseHelper:
         session.close()
         return success, available_tasks
 
-    @connect
+
     def get_log10p_records_above_threshold(self, threshold) -> (bool, list):
         success = True
         try:
@@ -67,7 +67,7 @@ class databaseHelper:
         session.close()
         return success, tasks
 
-    @connect
+
     def get_correlation_records_above_threshold(self, table_name, threshold) -> (bool, list):
         success = True
         try:
@@ -83,3 +83,5 @@ class databaseHelper:
             success = False
         session.close()
         return success, tasks
+
+

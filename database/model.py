@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Numeric
+from sqlalchemy import Column, Integer, String, Numeric, Index
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
@@ -28,6 +28,9 @@ class Log10p(Base):
         return {'id': self.id, 'gene': self.gene, 'log10p': self.log10p, 'abbr_id': self.abbr_id}
 
 
+Index('idx_log10p', Log10p.gene, Log10p.log10p, Log10p.abbr_id)
+
+
 # def dynamic_corr_class(table_name):
 #     class table_name(Base):
 #         __tablename__ = table_name
@@ -46,12 +49,18 @@ def dynamic_corr_class(table_name):
     # Define class attributes (columns) in a dictionary
     attributes = {
         '__tablename__': table_name,
-        'gene1': Column(String(30), primary_key=True),
-        'gene2': Column(String(30), primary_key=True),
+        'id': Column(Integer, primary_key=True, autoincrement=True),
+        'gene1': Column(String(30)),
+        'gene2': Column(String(30)),
         'cor_pearson_binMean': Column("cor_pearson.binMean", Numeric),
-        'to_dict': lambda self: {'gene1': self.gene1, 'gene2': self.gene2,
+        'to_dict': lambda self: {'id': self.id, 'gene1': self.gene1, 'gene2': self.gene2,
                                  'cor_pearson.binMean': self.cor_pearson_binMean}
     }
 
     # Create a new class dynamically with a unique class name for each table
-    return type(table_name, (Base,), attributes)
+    cls = type(table_name, (Base,), attributes)
+
+    # After the class is created, define an Index on the desired columns.
+    # Note: Directly use the column attribute of the class.
+    Index('idx_corr', cls.gene1, cls.gene2, cls.cor_pearson_binMean)
+    return cls
