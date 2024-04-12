@@ -194,11 +194,6 @@ class sql:
             self.log.debug(f"(join_by_corr_log10p) {self.db} `{table_name}` finish ✌️✌️✌️")
         # return self.cur.fetchall()
 
-    def screen_by_threshold(self, corr_threshold, log10p_threshold):
-        query = f"""SELECT * FROM """
-
-
-
     def createTable(self, tableName, arguments) -> None:
         """ Create sql table in database, already contain 'id' and 'created' column
         :param:
