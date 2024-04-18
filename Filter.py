@@ -89,6 +89,7 @@ def process_group(load_folder: str,
 
     if arrow_list is None:
         arrow_list = os.listdir(load_folder)
+        arrow_list = [i for i in arrow_list if i.endswith('.arrow')]
 
     dfs = []
     d = dataFilter(markers)
@@ -141,6 +142,8 @@ if __name__ == "__main__":
     markers = config["markers"]
 
     for group in loadPath.keys():
+        # if group == 'scrna_mt':
+        #     continue
         process_group_batch(load_folder=loadPath[group]["joined"],
                             save_folder=loadPath[group]["save_path"],
                             corr_threshold_list=corr_cutoffs,

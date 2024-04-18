@@ -1,13 +1,13 @@
+"""transform pvalue file and correlation gene pair file as long table and load to mysql database
+2024/4/12
+"""
+
 import math
 
 from MySQL import sql
 import pandas as pd
 from utils import common
 from utils.log import logger
-from database import db
-from sqlalchemy import create_engine, text
-from sqlalchemy.orm import sessionmaker
-import numpy as np
 import os
 import json
 

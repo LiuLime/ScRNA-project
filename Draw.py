@@ -8,13 +8,15 @@ import pandas as pd
 import os
 import json
 import DrawTool
+from utils import common
 
 global fig_format
 
 
 def read_file(path) -> pd.DataFrame:
     with open(path) as p:
-        data = pd.read_csv(p, header=0, sep="\t")
+        delimiter = common.detect_delimiter(path)
+        data = pd.read_csv(p, header=0, sep=delimiter)
     return data
 
 
@@ -23,125 +25,125 @@ def check_folder(path):
         raise FileNotFoundError
 
 
-def add_blank_marker(df, markers) -> pd.DataFrame:
-    left_markers = [m for m in markers if m not in df.columns]
-    add_df = pd.DataFrame(index=df.index, columns=left_markers)
-    agg_df = pd.concat([df, add_df], axis=1)
-    agg_df = agg_df[markers]
-    return agg_df
+class arrange_df:
+    def __init__(self, level):
+        self.markers = None
+        self.level = level
+        self.groupby_levels = {"tissue": ["study", "group", "tissue", "gene1"],
+                               "cell": ["study", "group", "tissue", "cellType", "gene1"]}
+        self.groupby = self.groupby_levels.get(self.level, None)
 
+    def add_blank_marker(self, df, markers:list) -> pd.DataFrame:
+        self.markers = markers
+        left_markers = [m for m in markers if m not in df.columns]
+        add_df = pd.DataFrame(index=df.index, columns=left_markers)
+        agg_df = pd.concat([df, add_df], axis=1)
+        agg_df = agg_df[markers]
+        return agg_df
 
-def add_blank_tissue(df, organs) -> pd.DataFrame:
-    left_organs = [o for o in organs if o not in df.index]
-    add_df = pd.DataFrame(index=left_organs, columns=df.columns)
-    agg_df = pd.concat([df, add_df], axis=0)
-    return agg_df
+    def add_blank_tissue(self, df, organs:list) -> pd.DataFrame:
+        left_organs = [o for o in organs if o not in df.index]
+        add_df = pd.DataFrame(index=left_organs, columns=df.columns)
+        agg_df = pd.concat([df, add_df], axis=0)
+        return agg_df
 
+    def df_arrange_by_tissue(self, df) -> pd.DataFrame:
+        """dataframe reshaped for drawing heatmap
+         re-arraged by **summing** counts with same group and tissue across studies.
 
-def df_arrange_by_tissue(df) -> pd.DataFrame:
-    """dataframe reshaped for drawing heatmap
-     re-arraged by **summing** counts with same group and tissue across studies.
+        :param: df: marker-degree dataframe
+        :return: new df for heatmap drawing
+        """
+        data_tissue = df.groupby(by=["group", "tissue", "gene1"])["gene2"].sum().reset_index()
+        data_tissue.loc[:, "group_tissue"] = data_tissue["tissue"] + "_" + data_tissue["group"]
+        new_df = data_tissue.pivot_table(index="group_tissue", columns="gene1", values="gene2", aggfunc="sum")
 
-    :param: df: marker-degree dataframe
-    :return: new df for heatmap drawing
-    """
-    data_tissue = df.groupby(by=["group", "tissue", "gene1"])["gene2"].sum().reset_index()
-    data_tissue.loc[:, "group_tissue"] = data_tissue["tissue"] + "_" + data_tissue["group"]
-    new_df = data_tissue.pivot_table(index="group_tissue", columns="gene1", values="gene2", aggfunc="sum")
+        return new_df
 
-    return new_df
+    def df_arrange_by_cellType(self, df) -> pd.DataFrame:
+        """dataframe reshaped for drawing heatmap
+         re-arraged by **averaging** counts with same group and cellType across studies.
 
+        :param: df: marker-degree dataframe
+        :return: new df for heatmap drawing
+        """
+        data_cell = df.groupby(by=["group", "cellType", "gene1"])["gene2"].mean().reset_index()
+        data_cell.loc[:, "group_cell"] = data_cell["cellType"] + "_" + data_cell["group"]
+        new_df = data_cell.pivot_table(index="group_cell", columns="gene1", values="gene2", aggfunc="mean")
 
-def df_arrange_by_cellType(df) -> pd.DataFrame:
-    """dataframe reshaped for drawing heatmap
-     re-arraged by **averaging** counts with same group and cellType across studies.
+        return new_df
 
-    :param: df: marker-degree dataframe
-    :return: new df for heatmap drawing
-    """
-    data_cell = df.groupby(by=["group", "cellType", "gene1"])["gene2"].mean().reset_index()
-    data_cell.loc[:, "group_cell"] = data_cell["cellType"] + "_" + data_cell["group"]
-    new_df = data_cell.pivot_table(index="group_cell", columns="gene1", values="gene2", aggfunc="mean")
+    def df_arrange_by_tissueCell(self, df) -> pd.DataFrame:
+        """dataframe reshaped for drawing heatmap
+         re-arraged by **summing** counts with same group, tissue and cellType across studies.
 
-    return new_df
+        :param: df: marker-degree dataframe
+        :return: new df for heatmap drawing
+        """
+        df.loc[:, "group_tissue_cell"] = df["tissue"] + "_" + df["cellType"] + "_" + df["group"]
+        new_df = df.pivot_table(index="group_tissue_cell", columns="gene1", values="gene2", aggfunc="sum")
 
+        return new_df
 
-def df_arrange_by_tissueCell(df) -> pd.DataFrame:
-    """dataframe reshaped for drawing heatmap
-     re-arraged by **summing** counts with same group, tissue and cellType across studies.
+    def df_arrange_organ_list(self, tissue_df, level) -> list:
+        """ return group-tissue/cellType list in correlation analysis, used for presenting full organs for
+        overview."study" was ignored.
+        :param: tissue_df: study_tissue_cellType_list dataframe
+        :param: level: "tissue" or "cell"
 
-    :param: df: marker-degree dataframe
-    :return: new df for heatmap drawing
-    """
-    df.loc[:, "group_tissue_cell"] = df["tissue"] + "_" + df["cellType"] + "_" + df["group"]
-    new_df = df.pivot_table(index="group_tissue_cell", columns="gene1", values="gene2", aggfunc="sum")
+        :return: tissue or cellType list
+        """
+        match level:
+            case "tissue":
+                tissue_df.loc[:, "ID"] = tissue_df["tissue"] + "_" + tissue_df["group"]
+                tissue_list = tissue_df["ID"].unique().tolist()
+            case "cell":
+                tissue_df.loc[:, "ID"] = tissue_df["tissue"] + "_" + tissue_df["cellType"] + "_" + tissue_df["group"]
+                tissue_list = tissue_df["ID"].unique().tolist()
+            case _:
+                raise TypeError
+        return tissue_list
 
-    return new_df
+    def _process_tissue_level_markers(self, file):
+        data = pd.read_csv(file, sep=",", header=0)
+        data_slice = data[data["is_marker"] == "yes"]
+        tissue_df = self.df_arrange_by_tissue(data_slice)
+        return tissue_df
 
+    def _process_cell_level_markers(self, file):
+        data = pd.read_csv(file, sep=",", header=0)
+        data_slice = data[data["is_marker"] == "yes"]
 
-def df_arrange_organ_list(tissue_df, level) -> list:
-    """ return group-tissue/cellType list in correlation analysis, used for presenting full organs for
-    overview."study" was ignored.
-    :param: tissue_df: study_tissue_cellType_list dataframe
-    :param: level: "tissue" or "cell"
+        tissue_df = self.df_arrange_by_tissue(data_slice)
+        cell_df = self.df_arrange_by_cellType(data_slice)
+        tissue_cell_df = self.df_arrange_by_tissueCell(data_slice)
 
-    :return: tissue or cellType list
-    """
-    match level:
-        case "tissue":
-            tissue_df.loc[:, "ID"] = tissue_df["tissue"] + "_" + tissue_df["group"]
-            tissue_list = tissue_df["ID"].unique().tolist()
-        case "cell":
-            tissue_df.loc[:, "ID"] = tissue_df["tissue"] + "_" + tissue_df["cellType"] + "_" + tissue_df["group"]
-            tissue_list = tissue_df["ID"].unique().tolist()
-        case _:
-            raise TypeError
-    return tissue_list
+        return tissue_df, cell_df, tissue_cell_df
 
+    def _process_tissue_level_candidates(self, file):
+        """return dataframe with marker candidates which has top connections in not known marker groups, dealing with tissue level data"""
+        data = pd.read_csv(file, sep=",", header=0)
+        # median_value = data[data["is_marker"] == "yes"]["gene2"].max()
+        # data_slice = data[data["is_marker"] == "no"].sort_values(by="gene2", ascending=False)
+        # data_slice_max = data_slice[data["gene2"] >= median_value]
+        data_slice_max = data[data["is_marker"] == "no"].sort_values(by="gene2", ascending=False).head(20)
+        tissue_df = self.df_arrange_by_tissue(data_slice_max)
+        return tissue_df
 
-def _process_tissue_level_markers(file):
-    data = pd.read_csv(file, sep=",", header=0)
-    data_slice = data[data["is_marker"] == "yes"]
-    tissue_df = df_arrange_by_tissue(data_slice)
-    return tissue_df
+    def _process_cell_level_candidates(self, file):
+        """return dataframe with marker candidates which has top connections in not known marker groups, dealing with cell level data"""
 
+        data = pd.read_csv(file, sep=",", header=0)
+        # median_value = data[data["is_marker"] == "yes"]["gene2"].max()
+        # data_slice = data[data["is_marker"] == "no"].sort_values(by="gene2", ascending=False)
+        # data_slice_max = data_slice[data["gene2"] >= median_value]
+        data_slice_max = data[data["is_marker"] == "no"].sort_values(by="gene2", ascending=False).head(20)
 
-def _process_cell_level_markers(file):
-    data = pd.read_csv(file, sep=",", header=0)
-    data_slice = data[data["is_marker"] == "yes"]
+        tissue_df = self.df_arrange_by_tissue(data_slice_max)
+        cell_df = self.df_arrange_by_cellType(data_slice_max)
+        tissue_cell_df = self.df_arrange_by_tissueCell(data_slice_max)
 
-    tissue_df = df_arrange_by_tissue(data_slice)
-    cell_df = df_arrange_by_cellType(data_slice)
-    tissue_cell_df = df_arrange_by_tissueCell(data_slice)
-
-    return tissue_df, cell_df, tissue_cell_df
-
-
-def _process_tissue_level_candidates(file):
-    """return dataframe with marker candidates which has top connections in not known marker groups, dealing with tissue level data"""
-    data = pd.read_csv(file, sep=",", header=0)
-    # median_value = data[data["is_marker"] == "yes"]["gene2"].max()
-    # data_slice = data[data["is_marker"] == "no"].sort_values(by="gene2", ascending=False)
-    # data_slice_max = data_slice[data["gene2"] >= median_value]
-    data_slice_max = data[data["is_marker"] == "no"].sort_values(by="gene2", ascending=False).head(20)
-    tissue_df = df_arrange_by_tissue(data_slice_max)
-    return tissue_df
-
-
-def _process_cell_level_candidates(file):
-    """return dataframe with marker candidates which has top connections in not known marker groups, dealing with cell level data"""
-
-    data = pd.read_csv(file, sep=",", header=0)
-    # median_value = data[data["is_marker"] == "yes"]["gene2"].max()
-    # data_slice = data[data["is_marker"] == "no"].sort_values(by="gene2", ascending=False)
-    # data_slice_max = data_slice[data["gene2"] >= median_value]
-    data_slice_max = data[data["is_marker"] == "no"].sort_values(by="gene2", ascending=False).head(20)
-
-    tissue_df = df_arrange_by_tissue(data_slice_max)
-    cell_df = df_arrange_by_cellType(data_slice_max)
-    tissue_cell_df = df_arrange_by_tissueCell(data_slice_max)
-
-    return tissue_df, cell_df, tissue_cell_df
+        return tissue_df, cell_df, tissue_cell_df
 
 
 def excute(path, level, title: str | dict,
@@ -155,16 +157,18 @@ def excute(path, level, title: str | dict,
     tissue_df = pd.DataFrame()
     cell_df = pd.DataFrame()
     tissue_cell_df = pd.DataFrame()
+
     match level:
         case "tissue":
+            a = arrange_df(level="tissue")
             if process_markers:
-                tissue_df = _process_tissue_level_markers(file)
+                tissue_df = a._process_tissue_level_markers(file)
             if add_blank_markers:
-                tissue_df = add_blank_marker(tissue_df, kwargs["markers"])
+                tissue_df =a.add_blank_marker(tissue_df, kwargs["markers"])
             if add_blank_organs:
-                tissue_df = add_blank_tissue(tissue_df, kwargs["organs"])
+                tissue_df = a.add_blank_tissue(tissue_df, kwargs["organs"])
             if process_marker_candidates:
-                tissue_df_candidate = _process_tissue_level_candidates(file)
+                tissue_df_candidate = a._process_tissue_level_candidates(file)
                 tissue_df = pd.concat([tissue_df, tissue_df_candidate], axis=1)
 
             tissue_df = tissue_df.astype(float).sort_index(axis=0)
@@ -203,7 +207,6 @@ def main(process, config, c, p):
     corr_shrefold = c
     p_shrefold = p
 
-    
     # Aging markers-related gene number heatmap <- median age
     # path1 = fig_save_path + f"{folder_dict['tm']}corr{corr_shrefold}_log10p{p_shrefold}/"
     # path2 = fig_save_path + f"{folder_dict['cm']}corr{corr_shrefold}_log10p{p_shrefold}/"
@@ -268,29 +271,16 @@ def main(process, config, c, p):
 if __name__ == "__main__":
     with open("./config.json") as j:
         config = json.load(j)
-    fig_format = config["fig_config"]
-    fig_save_path = config["fig_save_path"]
-    folder_dict = config["folder_dict"]
+    fig_format = config["figConfig"]
+    loadPath = config["loadPath"]
     markers = config["markers"]
-    corrDataFolderBymedian = config["corrDataFolderBymedian"]
-    corrDataFolderBy4060 = config["corrDataFolderBy40-60"]
-    tissueFile = config["tissueFile"]
-    cellTypeFile = config["cellTypeFile"]
 
-    fig_save_title_tissue_level = config["fig_save_title_tissue_level"]
-    fig_save_title_cellType_level = config["fig_save_title_cellType_level"]
+    corr_shrefold_list = config["corr_cutoffs"]
+    p_shrefold_list = config["log10p_abs_cutoffs"]
 
-    # corr_shrefold_list = config["corr_shrefold_list"]
-    # p_shrefold_list = config["p_shrefold_list"]
-    # for c in corr_shrefold_list:
-    #     for p in p_shrefold_list:
-            # main("marker", config, c, p)  # output: {name}_m.png
-            # main("organ", config, c, p)  # output {name}_f.png
-            # main("candidate", config, c, p)  # output {name}_c.png
-            # main("simple_candidate", config, c, p)  # output {name}_mc.png
     corr = config["corr_shrefold"]
     p = config["log10p_abs_shrefold"]
-    main("marker", config, corr, p) # output: {name}_m.png
+    main("marker", config, corr, p)  # output: {name}_m.png
     print("marker sucess---------")
     # main("organ", config, corr, p) # output {name}_o.png
     # print("organ sucess--------")
