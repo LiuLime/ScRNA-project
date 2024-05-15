@@ -1,58 +1,3 @@
-# # %%
-# from sqlalchemy import create_engine, Column, Integer, String, ForeignKey
-# from sqlalchemy.orm import relationship, sessionmaker, declarative_base
-#
-# Base = declarative_base()
-#
-#
-# # 定义子表模型
-# class Child(Base):
-#     __tablename__ = 'child'
-#
-#     id = Column(Integer, primary_key=True)
-#     name = Column(String(30))
-#     # 假设有其他字段
-#
-#
-# # 定义总表模型，其中包含指向子表的外键
-# class Parent(Base):
-#     __tablename__ = 'parent'
-#
-#     id = Column(Integer, primary_key=True)
-#     child_id = Column(Integer, ForeignKey('child.id'))
-#
-#     # 通过relationship建立与Child模型的联系，这将允许我们方便地访问子表的实例
-#     child = relationship("Child")
-#
-#
-# # 创建数据库引擎
-# engine = create_engine('mysql+mysqlconnector://root@localhost:3306/test')
-#
-# # 创建所有表
-# Base.metadata.create_all(engine)
-#
-# # 创建会话
-# Session = sessionmaker(bind=engine)
-# session = Session()
-#
-# # 示例：创建一个Child实例和一个与之关联的Parent实例
-# # new_child = Child(name ="child 1")
-# # new_parent = Parent(child=new_child)
-# # session.add(new_parent)
-#
-# new_child = [Child("Child 1"), Child("Child2")]
-# new_parent=Parent(child=new_child)
-# session.add_all(new_parent)
-#
-#
-# session.commit()
-#
-# # 查询示例：获取所有Parent对象及其关联的Child对象
-# parents = session.query(Parent).all()
-# for parent in parents:
-#     print(f'Parent ID: {parent.id}, Child Name: {parent.child.name}')
-
-# %%
 from database import db
 from sqlalchemy import text, create_engine
 
@@ -127,51 +72,174 @@ from sqlalchemy import text, create_engine
 #     # s.create_log10p_table(test_p)
 #     table=s.screen_by_corr_log10p('s12g2t38',1,1)
 
+
 # %%
-import networkx as nx
-import matplotlib.pyplot as plt
+# import pandas as pd
+# import re
+#
+# data = pd.DataFrame({"gene1": ["ACTB.1", "ACTG1.1", "LINC00936"],
+#                      "gene2": [3, 6, 6],
+#                      "is_marker": ["no", "no", "no"],
+#                      "study": ["s8g2t16", "s8g2t16", "s8g2t16"]})
+# gene_list = pd.Series(["ACTG1.1", "LINC00936"])
+# new_data = data[data["gene1"].isin(gene_list)]
+#
+#
+# def map_non_coding_gene(x):
+#     pattern1 = "\."
+#     pattern2 = "^LINC\d+"
+#     pattern3 = "^(RPS|RPL)[0-9]{3,}"
+#     pattern4 = "^RF[0-9]{3,}"
+#     flag = False
+#     if re.search(pattern1, x):
+#         print(x, 1)
+#         flag = True
+#     elif re.search(pattern2, x):
+#         print(x, 2)
+#         flag = True
+#     elif re.search(pattern3, x):
+#         print(x, 3)
+#         flag = True
+#     elif re.search(pattern4, x):
+#         flag = True
+#     return flag
 
-# 创建一个图
-G = nx.Graph()
 
-# 添加节点，可以附带节点属性
-G.add_node('A', ratio=0.5)
-G.add_node('B', ratio=0.3)
-G.add_node('C', ratio=0.2)
+# non_coding_gene = data[data["gene1"].map(map_non_coding_gene)]
+# coding_gene = data.drop(non_coding_gene.index)
 
-# 添加边
-G.add_edge('A', 'B')
-G.add_edge('B', 'C')
-G.add_edge('A', 'C')
 
-# 绘图位置
-pos = nx.spring_layout(G)  # 生成一个布局
-
-# 绘制网络图
-nx.draw(G, pos, with_labels=True, node_color='skyblue', node_size=3000)
-
-# 添加节点比例标签
-for node, (x, y) in pos.items():
-    ratio = G.nodes[node]['ratio']
-    plt.text(x, y + 0.1, s=f'ratio={ratio}', bbox=dict(facecolor='white', alpha=0.5), horizontalalignment='center')
-
-# 显示图形
-plt.show()
+# %%
+# import re
+#
+# map_dict = {"s1": "a", "g1": "h", "t1": "eye", "c1": "cell"}
+#
+#
+# def parse_string(input_string):
+#     pattern = r'^(s\d+)?(g\d+)(t\d+)(c\d+)?$'
+#     match = re.match(pattern, input_string)
+#
+#     if match:
+#         s, g, t, c = match.groups()  # 这将返回一个包含结果的元组，如 ('s1', 'g2', 't2', 'c3') 或 ('s1', 'g2', 't2', None)
+#         print(s, g, t, c)
+#         full_id = "|".join([map_dict.get(s), map_dict.get(g), map_dict.get(t), map_dict.get(c)])
+#
+#         return full_id
+#     else:
+#         return "No match found."
+#
+#
+# test = pd.Series(["s1g1t1c1", "s1g1t1", "g1t1c1"])
+# test.applymap(parse_string, args=(map_dict))
 # %%
 import pandas as pd
-# pd.options.display.max_columns = 20
-import numpy as np
-import matplotlib.pyplot as plt
-import networkx as nx
+import drawNetwork
 
-# rng = np.random.RandomState(seed=5)
-# ints = rng.randint(1, 11, size=(3, 2))
-# a = ["A", "B", "C"]
-# b = ["D", "A", "E"]
-# df = pd.DataFrame(ints, columns=["weight", "cost"])
-# df[0] = a
-# df["b"] = b
-# G = nx.from_pandas_edgelist(df, 0, "b", ["weight", "cost"])
+p = drawNetwork.preprocess(filepath=None)
+df = pd.DataFrame({"node": ["ACTB.1", "ACTG1.1", "LINC00936", "AAA", "BBB"],
+                   "node_degree": [3, 6, 6, 6, 2]})
+# count=df.groupby(by=["node_degree"]).count().sort_values(by="node_degree",ascending=False)
+# max_rows=4
+# # df["cumulative_sum"]=count["node"].cumsum()
+# count["cumulative_sum"]=count["node"].cumsum()
+
+# cutoff=count[count['cumulative_sum'] <= max_rows]['cumulative_sum'].max()
+# selected_df = df[df.groupby("node_degree")['cumulative_sum'].transform('max') <= cutoff]
+
+p.cutoff_by_maxrows(df, sort_columns="node_degree", max_rows=4)
+# %%
+import pandas as pd
+
+# 创建示例数据
+data = {
+    'int_column': [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
+}
+df = pd.DataFrame(data)
+
+# 对整数列进行统计
+value_counts = df['int_column'].value_counts().sort_index(ascending=False)
+
+# 确定哪些组可以完全包含在输出中
+cumulative_count = 0
+included_groups = []
+
+for value, count in value_counts.items():
+    if cumulative_count + count <= 5:  # 例如这里的5可以替换为100或其他限制
+        cumulative_count += count
+        included_groups.append(value)
+    else:
+        break
+
+# 筛选出可以完全包含的组
+result = df[df['int_column'].isin(included_groups)]
+
+print(result)
+
+# %%
+import pandas as pd
+
+def jaccard_index(set1: set, set2: set) -> float:
+    """计算两个集合的Jaccard 相似度指数"""
+    if not set1 or not set2:
+        return 0.0
+    # 计算两个集合的交集
+    intersection = set1.intersection(set2)
+    # 计算两个集合的并集
+    union = set1.union(set2)
+    # 计算Jaccard指数
+    jaccard_index = len(intersection) / len(union)
+    return jaccard_index
+
+# 创建示例数据
+data1 = {
+    'int_column': [1, 4, 4, 4, 2, 2, 3, 3, 4, 4],
+    'test': ["a", "D", "d", "D", "B", "B", "C", "C", "C", "D"]
+}
+data2={'int_column': [2, 4, 5, 4, 2, 2, 3, 5, 3, 4],
+'test': ["a", "D", "d", "D", "B", "B", "C", "C", "C", "D"]
+}
+df1 = pd.DataFrame(data1)
+df2 = pd.DataFrame(data2)
+
+# print(df[df['int_column'] > 3])
+test_df1 = df1.groupby(by="int_column")["test"].apply(set)
+test_df2 = df2.groupby(by="int_column")["test"].apply(set)
+
+# 计算Jaccard指数
+jaccard_scores = {}
+for int_val in test_df1.index:
+    set1 = test_df1.get(int_val, set())
+    set2 = test_df2.get(int_val, set())
+    jaccard_scores[int_val] = jaccard_index(set1, set2)
+
+# 将Jaccard指数添加到df1
+new_df=df1.groupby(by="int_column")["test"].count().reset_index()
+new_df['jaccard_index'] = new_df['int_column'].map(jaccard_scores)
+
+print(new_df.reset_index)
+
+# %%
+from utils import common
+import json
+import Filter
+import pandas as pd
+
+with open("config.json") as p:
+    config = json.load(p)
+
+stringdb = config["stringdb_filepath"]
+
+link = common.read_file(stringdb["link"])
+info = common.read_file((stringdb["info"]))
+info_map = info.set_index("#string_protein_id")["preferred_name"].to_dict()
+
+filter_link = link[link["combined_score"] >= 900]
+filter_link.loc[:, "protein1"] = filter_link["protein1"].map(info_map)
+filter_link.loc[:, "protein2"] = filter_link["protein2"].map(info_map)
+
+#%%
+import pandas as pd
+import networkx as nx
 
 edges = pd.DataFrame(
     {
@@ -179,169 +247,19 @@ edges = pd.DataFrame(
         "target": [2, 2, 3],
         "weight": [3, 4, 15],
         "color": ["red", "blue", "yellow"],
-        "width": [1, 4, 5]
+        "width":[1, 4, 5]
 
     }
 )
 G = nx.from_pandas_edgelist(edges, edge_attr=True)
 pos = nx.spring_layout(G)
-tissue_nodes = edges["source"]
-target_nodes = edges["target"]
-nx.draw_networkx_nodes(G, pos=pos, nodelist=tissue_nodes, node_size=30, alpha=0.7, node_color="black", node_shape="v")
-nx.draw_networkx_nodes(G, pos=pos, nodelist=target_nodes, node_size=10, alpha=0.7, node_color="yellow", node_shape="o")
+tissue_nodes=edges["source"]
+target_nodes=edges["target"]
+nx.draw_networkx_nodes(G, pos=pos, nodelist=tissue_nodes,node_size=30, alpha=0.7,node_color="black", node_shape="v")
+nx.draw_networkx_nodes(G, pos=pos, nodelist=target_nodes,node_size=10, alpha=0.7,node_color="yellow", node_shape="o")
 
 nx.draw_networkx_edges(G, pos, edge_color=edges["color"], width=edges["width"])
-node_labels = {node: node for node in G.nodes}
+node_labels={node:node for node in G.nodes}
 nx.draw_networkx_labels(G, pos, labels=node_labels)
-edge_labels = nx.get_edge_attributes(G, "weight")
+edge_labels=nx.get_edge_attributes(G, "weight")
 nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels)
-
-# %% test pyvis
-from pyvis.network import Network
-import networkx as nx
-
-nx_graph = nx.cycle_graph(10)
-nx_graph.nodes[1]['title'] = 'Number 1'
-nx_graph.nodes[1]['group'] = 1
-nx_graph.nodes[3]['title'] = 'I belong to a different group!'
-nx_graph.nodes[3]['group'] = 10
-nx_graph.add_node(20, size=20, title='couple', group=2)
-nx_graph.add_node(21, size=15, title='couple', group=2)
-nx_graph.add_edge(20, 21, weight=5)
-nx_graph.add_node(25, size=25, label='lonely', title='lonely node', group=3)
-nt = Network('500px', '500px')
-# populates the nodes and edges data structures
-nt.from_nx(nx_graph)
-nt.show('nx.html')
-
-# %%
-import matplotlib.pyplot as plt
-import networkx as nx
-
-G = nx.Graph()
-#
-# G.add_edge("a", "b", weight={"weight":0.6,"line_wide":1})
-# G.add_edge("a", "c", weight={"weight":0.2,"line_wide":2})
-# G.add_edge("c", "d", weight={"weight":0.1,"line_wide":1.5})
-# G.add_edge("c", "e", weight={"weight":0.7,"line_wide":6})
-# G.add_edge("c", "f", weight={"weight":0.9,"line_wide":5})
-# G.add_edge("a", "d", weight={"weight":0.3,"line_wide":4})
-
-G.add_edge("a", "b", weight_=0.6, length=1)
-G.add_edge("a", "c", weight_=0.2, length=2)
-G.add_edge("c", "d", weight_=0.1, length=1.5)
-G.add_edge("c", "e", weight_=0.7, length=6)
-G.add_edge("c", "f", weight_=0.9, length=5)
-G.add_edge("a", "d", weight_=0.3, length=4)
-from pyvis.network import Network
-
-nt = Network('500px', '500px', filter_menu=True)
-nt.from_nx(G, edge_weight_transf=G.weight_)
-nt.show('nx2.html')
-# elarge = [(u, v) for (u, v, d) in G.edges(data=True) if d["weight_"] > 0.5]
-# esmall = [(u, v) for (u, v, d) in G.edges(data=True) if d["weight_"] <= 0.5]
-#
-# pos = nx.spring_layout(G, seed=7)  # positions for all nodes - seed for reproducibility
-#
-# # nodes
-# nx.draw_networkx_nodes(G, pos, node_size=700)
-#
-# # edges
-# nx.draw_networkx_edges(G, pos, edgelist=elarge, width=6)
-# nx.draw_networkx_edges(
-#     G, pos, edgelist=esmall, width=6, alpha=0.5, edge_color="b", style="dashed"
-# )
-#
-# # node labels
-# nx.draw_networkx_labels(G, pos, font_size=20, font_family="sans-serif")
-# # edge weight labels
-# edge_labels = nx.get_edge_attributes(G, "weight_")
-# nx.draw_networkx_edge_labels(G, pos, edge_labels)
-#
-# ax = plt.gca()
-# ax.margins(0.08)
-# plt.axis("off")
-# plt.tight_layout()
-# plt.show()
-
-# %%
-
-import matplotlib.pyplot as plt
-import networkx as nx
-
-G = nx.Graph()
-
-G.add_edge("a", "b", weight=0.6)
-G.add_edge("a", "c", weight=0.2)
-G.add_edge("c", "d", weight=0.1)
-G.add_edge("c", "e", weight=0.7)
-G.add_edge("c", "f", weight=0.9)
-G.add_edge("a", "d", weight=0.3)
-
-elarge = [(u, v) for (u, v, d) in G.edges(data=True) if d["weight"] > 0.5]
-esmall = [(u, v) for (u, v, d) in G.edges(data=True) if d["weight"] <= 0.5]
-
-pos = nx.spring_layout(G, seed=7)  # positions for all nodes - seed for reproducibility
-
-# nodes
-nx.draw_networkx_nodes(G, pos, node_size=700)
-
-# edges
-nx.draw_networkx_edges(G, pos, edgelist=elarge, width=6)
-nx.draw_networkx_edges(
-    G, pos, edgelist=esmall, width=6, alpha=0.5, edge_color="b", style="dashed"
-)
-
-# node labels
-nx.draw_networkx_labels(G, pos, font_size=20, font_family="sans-serif")
-# edge weight labels
-edge_labels = nx.get_edge_attributes(G, "weight")
-nx.draw_networkx_edge_labels(G, pos, edge_labels)
-
-ax = plt.gca()
-ax.margins(0.08)
-plt.axis("off")
-plt.tight_layout()
-plt.show()
-# %%
-import pandas as pd
-import re
-
-data = pd.DataFrame({"gene1": ["ACTB.1", "ACTG1.1", "LINC00936"],
-                     "gene2": [3, 5, 6],
-                     "is_marker": ["no", "no", "no"],
-                     "study": ["s8g2t16", "s8g2t16", "s8g2t16"]})
-
-
-def map_non_coding_gene(x):
-    pattern1 = "\."
-    pattern2 = "^LINC\d+"
-    pattern3 = "^(RPS|RPL)[0-9]{3,}"
-    pattern4 = "^RF[0-9]{3,}"
-    flag = False
-    if re.search(pattern1, x):
-        print(x, 1)
-        flag = True
-    elif re.search(pattern2, x):
-        print(x, 2)
-        flag = True
-    elif re.search(pattern3, x):
-        print(x, 3)
-        flag = True
-    elif re.search(pattern4,x):
-        flag = True
-    return flag
-
-
-non_coding_gene = data[data["gene1"].map(map_non_coding_gene)]
-coding_gene = data.drop(non_coding_gene.index)
-#%%
-import pandas as pd
-import numpy as np
-a=pd.Series([2,3,5,-6])
-np.abs(a).max()
-
-#%%
-import os
-for root,folder,file in os.walk("./03figure/ageGrp_byMedian/"):
-    print(root,folder,file)

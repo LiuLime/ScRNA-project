@@ -4,13 +4,22 @@ import matplotlib.patches as mpatches
 import networkx as nx
 import os
 import pandas as pd
+from utils import log, common
 
 
-def draw_heatmap(df, title, fig_format):
+def draw_heatmap(df,
+                 save_title: str = "heatmap.png",
+                 fig_format: dict | None = None,
+                 color_marker: bool = False,
+                 marker_list: list | None = None,
+                 fig_title: str = "Heatmap of gene pair connection number"):
     """ Heatmap
-
+    if color_marker is True, please pass marker_list argument, otherwise Userwarning will raise up.
     :param: df:dataframe
-    :param: title: title with full save path
+    :param: title: title with full save path and format
+    :param: color_marker: color x stick label or not
+    :param: marker_list: the list of color x stick label
+    :param: fig_title: figure title in heatmap.
     """
     # 设置图形大小
     height_per_row = 0.5
@@ -28,9 +37,9 @@ def draw_heatmap(df, title, fig_format):
     plt.rcParams["font.family"] = fig_format["font_family"]
 
     # 设置标题、轴标签和其他参数
-    ax.set_title("Heatmap of marker-related gene number", fontsize=fig_format["title_size"], fontweight="bold")
+    ax.set_title(fig_title, fontsize=fig_format["title_size"], fontweight="bold")
     ax.set_ylabel("Group", fontsize=fig_format["font_size"])
-    ax.set_xlabel("Marker", fontsize=fig_format["font_size"])
+    ax.set_xlabel("Candidate Marker", fontsize=fig_format["font_size"])
     ax.tick_params(axis='both', labelsize=fig_format["label_size"])
 
     # 设置轴标签角度
@@ -38,100 +47,88 @@ def draw_heatmap(df, title, fig_format):
     plt.setp(ax.get_yticklabels(), rotation=0)
 
     # 设置标签颜色
-    if len(ax.get_xticklabels()) > 22:  # marker has 22
-        for label in ax.get_xticklabels()[:22]:
-            label.set_color("tomato")
-        for label in ax.get_xticklabels()[22:]:
-            label.set_color("royalblue")
-        # 设置标签注释
-        # fig.text(1.02,0.16, 'X-label:', color='black', fontsize=fig_format["font_size"], verticalalignment='center')
-        # fig.text(1.02,0.14, '-- Markers', color='tomato', fontsize=fig_format["font_size"], verticalalignment='center')
-        # fig.text(1.02,0.12, '-- Candidates', color='royalblue', fontsize=fig_format["font_size"], verticalalignment='center')
+    if color_marker:
+        if not marker_list:
+            raise UserWarning("no marker list was defined")
+        for label in ax.get_xticklabels():
+            if label in marker_list:
+                label.set_color("tomato")
+        marker_patch = mpatches.Patch(color='tomato', label='Known markers')
+        plt.legend(handles=[marker_patch], loc='upper right', bbox_to_anchor=(1.1, 1.05), frameon=False)
 
-        marker_patch = mpatches.Patch(color='tomato', label='Markers')
-        candidate_patch = mpatches.Patch(color='royalblue', label='Candidates')
-        plt.legend(handles=[marker_patch, candidate_patch], loc='upper right', bbox_to_anchor=(1, 1), frameon=False)
+        # if len(ax.get_xticklabels()) > 22:  # marker has 22
+        #     for label in ax.get_xticklabels()[:22]:
+        #         label.set_color("tomato")
+        #     for label in ax.get_xticklabels()[22:]:
+        #         label.set_color("royalblue")
+        #     marker_patch = mpatches.Patch(color='tomato', label='Markers')
+        #     candidate_patch = mpatches.Patch(color='royalblue', label='Candidates')
+        #     plt.legend(handles=[marker_patch, candidate_patch], loc='upper right', bbox_to_anchor=(1, 1), frameon=False)
 
     # 保存图像时使用bbox_inches='tight'来自动调整边距
-    plt.savefig(f"{title}", dpi=300, bbox_inches='tight')
+    plt.savefig(f"{save_title}", dpi=300, bbox_inches='tight')
     plt.close()
 
 
-class drawNetwork:
-    def __init__(self,
-                 level: str,
-                 save_folder: str,
-                 highlight_nodes: list = None,
-                 save_fig: bool = True,
-                 save_object: bool = False):
+class network:
+    def __init__(self, save_path):
+        self.path = save_path
+        self.log = log.logger()
 
-        self.level = level
-        self.save_folder = save_folder
-        self.highlight_nodes = highlight_nodes
-        self.groupby_levels = {"tissue": ["study", "group", "tissue"], "cell": ["study", "group", "tissue", "cellType"]}
-        self.groupby = self.groupby_levels.get(self.level, None)
+    def save_node_degree(self, node_degree: dict) -> pd.DataFrame:
+        """generate node degree file"""
+        node_degree_df = (pd.DataFrame.from_dict(node_degree, orient="index")
+        .reset_index()
+        .set_axis(
+            ["node", "node_degree"], axis=1))
+        common.save_csv(node_degree_df,
+                        os.path.join(self.path, "node_degree.csv"))
+        return node_degree_df
 
-        self.save_fig = save_fig
-        self.save_object = save_object
+    def draw_network(self, edges: pd.DataFrame, net_name):
+        """draw network entry, save network.graphml, network.pdf, node_degree.csv"""
+        fig = plt.figure(figsize=(40, 50))
 
-    def draw_network(self, nodes, save_title):
-        save_path = os.path.join(self.save_folder, save_title)
+        G = nx.from_pandas_edgelist(edges, edge_attr=True)
+        # test to add single nodes
+        # blank_nodes = ["test1","test2","test3"]
+        # G.add_nodes_from(blank_nodes)
 
-        G = nx.Graph(name=save_title)
-        G.add_edges_from(nodes)
+        node_degree = dict(G.degree())
+        self.save_node_degree(node_degree)
 
-        if self.highlight_nodes:
-            node_colors = ["orange" if node in self.highlight_nodes else "blue" for node in G.nodes()]
-            node_labels = {node: node for node in self.highlight_nodes if node in G.nodes()}
-            pos = nx.spring_layout(G)
-            nx.draw_networkx_nodes(G, pos=pos, node_color=node_colors, node_size=15, alpha=0.7)
-            nx.draw_networkx_edges(G, pos, edge_color="grey")
-            nx.draw_networkx_labels(G, pos, labels=node_labels)
-        else:
-            nx.draw(G, with_labels=True, node_size=15, width=0.5, alpha=0.7)
+        nx.set_node_attributes(G, node_degree, 'degree_')
 
-        if self.save_fig:
-            self.save_graph_as_figure(save_path)
+        pos = nx.spring_layout(G, seed=10)
+        # pos = nx.shell_layout(G)
+        # pos = nx.circular_layout(G)
+        # pos = nx.kamada_kawai_layout(G)
 
-        if self.save_object:
-            self.save_graph_object(G, save_path)
+        # draw nodes
+        tissue_nodes = edges["source"]
+        target_nodes = edges["target"]
 
+        nx.draw_networkx_nodes(G, pos=pos, nodelist=tissue_nodes, alpha=0.7, node_color="orange",
+                               node_shape="o", node_size=500)
+        nx.draw_networkx_nodes(G, pos=pos, nodelist=target_nodes, alpha=0.7,
+                               node_color=[node_degree[n] for n in target_nodes],
+                               node_shape="o", node_size=[node_degree[n] * 100 for n in target_nodes], cmap="YlGn")
+        # nx.draw_networkx_nodes(G, pos=pos, nodelist=blank_nodes, alpha=0.7, node_color="red", node_shape="v", node_size=500)
+
+        # draw edges
+        nx.draw_networkx_edges(G, pos, edge_color="grey", width=edges["normConn"])
+
+        # draw labels
+        node_labels = {node: node for node in G.nodes}
+        nx.draw_networkx_labels(G, pos, labels=node_labels, )
+        self.save_net_as_graphml(G, os.path.join(self.path, net_name))
+        self.save_net_as_figure(os.path.join(self.path, net_name))
         plt.close()
-        return G
 
-    @staticmethod
-    def save_graph_as_figure(name, format="pdf"):
+    def save_net_as_figure(self, name, format="pdf"):
         plt.savefig(f"{name}.{format}")
+        self.log.debug(f"save network {name}.{format} 🍺🍺")
 
-    @staticmethod
-    def save_graph_object(G, name):
+    def save_net_as_graphml(self, G, name):
         nx.write_graphml(G, f"{name}.graphml")
-
-    @staticmethod
-    def generate_edge_attributes(x):
-        return tuple([x["gene1"], x["gene2"], {"weight": x["cor_pearson.binMean"]}])
-
-    def reshape_matrix_from_df(self, df: pd.DataFrame):
-        """
-        Reshape dataframe into the format for drawing network, save reshaped df as 'network_matrix.csv'
-        :param:
-            * df: dataframe
-            * markers: aging marker list
-
-        """
-
-        df.loc[:, "edge_attr"] = df.apply(lambda x: drawNetwork.generate_edge_attributes(x), axis=1)
-        if not self.groupby:
-            raise TypeError("invalid 'level' argument")
-        reshaped_matrix = df.groupby(by=self.groupby)["edge_attr"].apply(lambda x: x.tolist()).reset_index()
-        reshaped_matrix.to_csv(f"{self.save_folder}/network_matrix.csv", index=False)
-        return reshaped_matrix
-
-    def draw_network_from_df(self, df, markers):
-        self.highlight_nodes = markers
-        reshaped_matrix = self.reshape_matrix_from_df(df)
-
-        # draw network
-        for _, data in reshaped_matrix.iterrows():
-            save_title = "|".join([data[g] for g in self.groupby])
-            self.draw_network(nodes=data["edge_attr"], save_title=save_title)
+        self.log.debug(f"save network {name}.graphml 🍺🍺🍺")
