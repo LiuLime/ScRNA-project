@@ -22,17 +22,13 @@ logger = log.logger()
 
 
 class preprocess:
-    def __init__(self, filepath):
+    def __init__(self, filepath,
+                 non_coding_gene_savetitle="non_coding_gene.csv",
+                 fetch_top50_savetitle="degree_top50.csv"):
         self.path = filepath
+        self.non_coding_gene_savetitle = non_coding_gene_savetitle
+        self.fetch_top50_savetitle = fetch_top50_savetitle
         self.log = log.logger()
-        # self.degree_column = ['gene1', 'gene2', 'is_marker', 'abbr_id']
-        # self.degree_top50_column = []
-
-    # def unify_file(self, degree_df, degree_top50_df):
-    #     if degree_df:
-    #         self.degree_df = degree_df.set_axis(self.degree_column, axis=1)
-    #     if degree_top50_df:
-    #         self.degree_top50_df = degree_top50_df
 
     @staticmethod
     def map_non_coding_gene(x):
@@ -83,14 +79,17 @@ class preprocess:
         filter_df = df[df[rank_by] > 0]
         return filter_df.sort_values(by=rank_by, ascending=False).head(50)
 
-    def remove_non_coding_gene(self, df, save_title="non_coding_gene.csv"):
+    def remove_non_coding_gene(self, df):
         non_coding_gene = df[df["gene1"].map(preprocess.map_non_coding_gene)]
-        common.save_csv(non_coding_gene, os.path.join(self.path, save_title))
+        common.save_csv(non_coding_gene, os.path.join(self.path, self.non_coding_gene_savetitle))
         coding_gene = df.drop(non_coding_gene.index)
         return coding_gene
 
-    def fetch_top50(self, degree_df: pd.DataFrame, rank_by="gene2", save_title="degree_top50.csv") -> pd.DataFrame:
+    def fetch_top50(self, degree_df: pd.DataFrame, rank_by="gene2", fetch_by="gene2") -> pd.DataFrame:
         """fetch top 50 genes in each study-organ
+        :param: rank_by: 指降序排列的列
+        :param: fetch_by: 指后续画图gene1的connect列，是'gene1'的study和或者是'jaccard index'的study和
+
         input dataframe(columns=['gene1','gene2','jaccard_index','is_marker','abbr_id'])
         return dataframe(columns=["source", "target", "target_is_marker", "connect"]), save as 'degree_top50.csv'"""
         # 删除RNA gene, non-coding gene and ribosome gene(RPS|RPL series)
@@ -104,13 +103,26 @@ class preprocess:
         # 分割study和organ
         coding_gene_slice["study"] = coding_gene_slice["abbr_id"].apply(lambda x: re.search("s\d+", x)[0])
         coding_gene_slice["organ"] = coding_gene_slice["abbr_id"].apply(lambda x: re.search("g\d+t\d+(c\d+)?", x)[0])
+        top_df=self.fetch_top50_by_(fetch_by, coding_gene_slice)
+        return top_df
 
-        # sum same study's gene2
-        top_df = coding_gene_slice.groupby(by=["organ", "gene1", "is_marker", "jaccard_index"])[
-            "gene2"].sum().reset_index()
-        top_df.columns = ["source", "target", "target_is_marker", "jaccard_index", "connect"]
-        # save top 50 degree files
-        common.save_csv(top_df, os.path.join(self.path, save_title))
+    def fetch_top50_by_(self, by, coding_gene_slice):
+        # self.log.debug("fetch top 50 by")
+
+        match by:
+            case "gene2":
+                # sum same study's gene2
+                top_df = coding_gene_slice.groupby(by=["organ", "gene1", "is_marker", "jaccard_index"])[
+                    "gene2"].sum().reset_index()
+                top_df.columns = ["source", "target", "target_is_marker", "jaccard_index", "connect"]
+
+            case "jaccard_index":
+                # sum same study's jaccard_index
+                top_df = coding_gene_slice.groupby(by=["organ", "gene1", "is_marker"])[
+                    "jaccard_index"].sum().reset_index()
+                top_df.columns = ["source", "target", "target_is_marker", "connect"]
+        common.save_csv(top_df, os.path.join(self.path, self.fetch_top50_savetitle))
+
         return top_df
 
     @staticmethod
@@ -252,7 +264,7 @@ def main(pre=True, draw_network=True, draw_heatmap=True):
             p = preprocess(save_path)
             if pre:
                 # 取degree file中每个study的前50个（首先去掉了non-coding gene和ribosome gene）
-                top_df = p.fetch_top50(file, rank_by="jaccard_index")
+                top_df = p.fetch_top50(file, rank_by="jaccard_index", fetch_by="jaccard_index")
 
             # draw network
             if draw_network:

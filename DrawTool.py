@@ -31,7 +31,7 @@ def draw_heatmap(df,
     fig, ax = plt.subplots(figsize=(fig_width + 1, fig_height + 1), constrained_layout=True)
 
     # 绘制heatmap
-    sns.heatmap(df, annot=True, cmap="YlGnBu", fmt=".0f", square=True, ax=ax, cbar_kws=cbar_kws)
+    sns.heatmap(df, annot=True, cmap="YlGnBu", fmt=".2f", square=True, ax=ax, cbar_kws=cbar_kws)
 
     # 设置字体
     plt.rcParams["font.family"] = fig_format["font_family"]

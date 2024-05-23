@@ -78,15 +78,22 @@ class matchRealLink:
             self.real_link_threshold = 900
         else:
             self.real_link_threshold = real_link_threshold
+        self.filter_link = matchRealLink.filter_stringdb_combine_score(self.real_link_threshold)
+
+    def is_realpath(self, df_slice, abbr_id):
+        """create column `is_real_path`"""
+        df_slice = df_slice.set_index(["gene1", "gene2"])
+        filter_link = self.filter_link.set_index(["protein1", "protein2"])
+        df_slice["is_real_path"] = pd.Series(df_slice.index.isin(filter_link.index))
+        return df_slice
 
     def generate_realpath_similarity(self, df_slice, abbr_id):
         """evaluate similarity between calculate protein interaction link set with stringdb human protein link set by `jaccard index`
 
         """
         # filter stringdb protein link by combine score
-        filter_link = matchRealLink.filter_stringdb_combine_score(self.real_link_threshold)
 
-        filter_link_set = filter_link.groupby(by="protein1")["protein2"].apply(set)
+        filter_link_set = self.filter_link.groupby(by="protein1")["protein2"].apply(set)
         calculate_link_set = df_slice.groupby(by=["gene1"])["gene2"].apply(set)
         # 计算Jaccard指数
         jaccard_scores = {}
@@ -97,7 +104,7 @@ class matchRealLink:
 
         # 将Jaccard指数添加到df
         calculate_link = df_slice.groupby(by=["gene1"])["gene2"].count().reset_index()
-        calculate_link.loc[:,'jaccard_index'] = calculate_link["gene1"].map(jaccard_scores)
+        calculate_link.loc[:, 'jaccard_index'] = calculate_link["gene1"].map(jaccard_scores)
         calculate_link["is_marker"] = calculate_link["gene1"].apply(dataFilter.is_marker, markers=markers)
         calculate_link["abbr_id"] = abbr_id
         # print(calculate_link.head)

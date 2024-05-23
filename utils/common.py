@@ -2,11 +2,26 @@ import os
 
 import pandas as pd
 import csv
+from utils import log
+
+logger = log.logger()
 
 
 def create_folder(path):
     if not os.path.exists(path):
         os.makedirs(path)
+
+
+def read_file(path) -> pd.DataFrame:
+    with open(path, "r") as p:
+        delimiter = detect_delimiter(path)
+        data = pd.read_csv(p, header=0, sep=delimiter)
+    return data
+
+
+def save_csv(df: pd.DataFrame, path):
+    df.to_csv(path, index=False, sep=",")
+    logger.debug(f"save dataframe {path} 🍺")
 
 
 def replace_name(path, oldchar=":", newchar="|") -> None:

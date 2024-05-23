@@ -208,8 +208,10 @@ test_df2 = df2.groupby(by="int_column")["test"].apply(set)
 # 计算Jaccard指数
 jaccard_scores = {}
 for int_val in test_df1.index:
+
     set1 = test_df1.get(int_val, set())
     set2 = test_df2.get(int_val, set())
+
     jaccard_scores[int_val] = jaccard_index(set1, set2)
 
 # 将Jaccard指数添加到df1
@@ -263,3 +265,24 @@ node_labels={node:node for node in G.nodes}
 nx.draw_networkx_labels(G, pos, labels=node_labels)
 edge_labels=nx.get_edge_attributes(G, "weight")
 nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels)
+
+#%%
+import pandas as pd
+
+
+# 创建示例数据
+data1 = {
+    'int_column': [1, 4, 4, 4, 2, 2, 3, 3, 4, 4, 4],
+    'test': ["a", "D", "d", "D", "B", "B", "C", "C", "C", "D", "d"]
+}
+data2={'int_column': [2, 4, 4, 4, 2, 2, 3, 5, 3, 4],
+       'test': ["a", "D", "d", "D", "B", "B", "C", "C", "C", "D"]
+       }
+df1 = pd.DataFrame(data1)
+df2 = pd.DataFrame(data2)
+df1 = df1.set_index(["int_column","test"])
+df2 = df2.set_index(["int_column","test"])
+print(pd.Series(df1.index.isin(df2.index)))
+new_df = df1.copy().reset_index()
+a=pd.Series(df1.index.isin(df2.index))
+new_df["is_same"]= a
