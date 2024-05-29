@@ -1,5 +1,19 @@
 # ScRNA-project
-## 1. Structure
+## 1. Script structure
+**Load students ttest pvalue and pearson correlation value file to MySQL:**
+load_file.py
+MySQL.py
+**Merge gene pairs' pvalue and correlation value as long table and output as .arrow files**:
+jointable.py
+**Filter gene pairs according to pavlue, correlation (and jaccard index which calculate with stringdb real protein interaction):**
+Filter.py
+**Data visualization:**
+DrawTool.py
+drawNetwork.py
+**Common Tool**
+utils folder
+
+## 2. figure folder Structure
 ```
 corr_pval
 ├── tissue_level_40-60Age_corr{corr_value}_p{p_value}  # tissue level data from <40 and >60 years-old donars
