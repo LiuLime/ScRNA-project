@@ -1,17 +1,17 @@
 # ScRNA-project
 ## 1. Script structure
-**Load students ttest pvalue and pearson correlation value file to MySQL:**
-load_file.py
-MySQL.py
-**Merge gene pairs' pvalue and correlation value as long table and output as .arrow files**:
-jointable.py
-**Filter gene pairs according to pavlue, correlation (and jaccard index which calculate with stringdb real protein interaction):**
-Filter.py
-**Data visualization:**
-DrawTool.py
-drawNetwork.py
-**Common Tool**
-utils folder
+**Load students ttest pvalue and pearson correlation value file to MySQL:**    
+load_file.py    
+MySQL.py    
+**Merge gene pairs' pvalue and correlation value as long table and output as .arrow files**:    
+jointable.py    
+**Filter gene pairs according to pavlue, correlation (and jaccard index which calculate with stringdb real protein interaction):**    
+Filter.py    
+**Data visualization:**    
+DrawTool.py    
+drawNetwork.py    
+**Common Tool**    
+utils folder    
 
 ## 2. figure folder Structure
 ```
