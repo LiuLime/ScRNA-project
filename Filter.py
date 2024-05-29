@@ -38,9 +38,10 @@ class dataFilter:
     def __init__(self):
         self.corr_threshold = None
         self.p_threshold = None
+        self.m = matchRealLink()
         # self.markers = markers
 
-    def filter_data_by_criteria(self, df, corr_threshold, p_threshold, ):
+    def filter_data_by_criteria(self, df, corr_threshold, p_threshold, save_path):
         """Filter dataframe by correalation value and pvalue, return dataframe slice"""
         self.corr_threshold = corr_threshold
         self.p_threshold = p_threshold
@@ -48,7 +49,7 @@ class dataFilter:
             (abs(df["cor_pearson.binMean"]) >= self.corr_threshold) & (
                     abs(df["log10p1"]) >= self.p_threshold) & (
                     abs(df["log10p2"]) >= self.p_threshold)]
-
+        # common.save_csv(df_slice, os.path.join(save_path, "data_p_corr_filter.csv"))
         return df_slice
 
     def generate_degree(self, df_slice, abbr_id):
@@ -56,7 +57,11 @@ class dataFilter:
         :param: df_slice
         :return: degree dataframe
         """
-        degree = df_slice.groupby(by=["gene1"])[
+        df_slice = self.m.is_realpath(df_slice)  # mark stringdb interaction or not
+        df_slice = self.m.generate_realpath_similarity(df_slice)  # calculate jaccard_index
+        df_slice = df_slice[df_slice["is_real_path"]]  # only keep stringdb interaction
+
+        degree = df_slice.groupby(by=["gene1", "jaccard_index"])[
             "gene2"].count().reset_index()
         degree["is_marker"] = degree["gene1"].apply(dataFilter.is_marker, markers=markers)
         degree["abbr_id"] = abbr_id
@@ -80,21 +85,24 @@ class matchRealLink:
             self.real_link_threshold = real_link_threshold
         self.filter_link = matchRealLink.filter_stringdb_combine_score(self.real_link_threshold)
 
-    def is_realpath(self, df_slice, abbr_id):
+    def is_realpath(self, df_slice):
         """create column `is_real_path`"""
         df_slice = df_slice.set_index(["gene1", "gene2"])
         filter_link = self.filter_link.set_index(["protein1", "protein2"])
-        df_slice["is_real_path"] = pd.Series(df_slice.index.isin(filter_link.index))
+        is_real_path = pd.Series(df_slice.index.isin(filter_link.index))
+        df_slice = df_slice.reset_index()
+        df_slice["is_real_path"] = is_real_path
+        # print(df_slice.head())
         return df_slice
 
-    def generate_realpath_similarity(self, df_slice, abbr_id):
+    def generate_realpath_similarity(self, df_slice):
         """evaluate similarity between calculate protein interaction link set with stringdb human protein link set by `jaccard index`
 
         """
         # filter stringdb protein link by combine score
-
         filter_link_set = self.filter_link.groupby(by="protein1")["protein2"].apply(set)
         calculate_link_set = df_slice.groupby(by=["gene1"])["gene2"].apply(set)
+        
         # 计算Jaccard指数
         jaccard_scores = {}
         for int_val in calculate_link_set.index:
@@ -103,12 +111,10 @@ class matchRealLink:
             jaccard_scores[int_val] = matchRealLink.jaccard_index(set1, set2)
 
         # 将Jaccard指数添加到df
-        calculate_link = df_slice.groupby(by=["gene1"])["gene2"].count().reset_index()
-        calculate_link.loc[:, 'jaccard_index'] = calculate_link["gene1"].map(jaccard_scores)
-        calculate_link["is_marker"] = calculate_link["gene1"].apply(dataFilter.is_marker, markers=markers)
-        calculate_link["abbr_id"] = abbr_id
-        # print(calculate_link.head)
-        return calculate_link
+        df_slice.loc[:, 'jaccard_index'] = df_slice["gene1"].map(jaccard_scores)
+        # logger.debug("df with jaccard_index", df_slice.head(2))
+
+        return df_slice
 
     @staticmethod
     def filter_stringdb_combine_score(real_link_threshold: int) -> pd.DataFrame:
@@ -150,13 +156,13 @@ def process_group(load_folder: str,
 
     dfs = []
     d = dataFilter()
-    m = matchRealLink(real_link_threshold=900)
+    # m = matchRealLink(real_link_threshold=900)
 
     for s in arrow_list:
         df = read_arrow_to_pd(os.path.join(load_folder, s))
-        new_df = d.filter_data_by_criteria(df, corr_threshold, p_threshold, )
-        # new_df = d.generate_degree(new_df, abbr_id=s.replace(".arrow", ""))
-        new_df = m.generate_realpath_similarity(new_df, abbr_id=s.replace(".arrow", ""))
+        new_df = d.filter_data_by_criteria(df, corr_threshold, p_threshold, save_path)
+        new_df = d.generate_degree(new_df, abbr_id=s.replace(".arrow", ""))
+        # new_df = m.generate_realpath_similarity(new_df, abbr_id=s.replace(".arrow", ""))
         dfs.append(new_df)
         logger.debug(f"(process_group) {load_folder.split('/')[-2]} {s} count degree ✅")
     total_dfs = pd.concat(dfs, axis=0, ignore_index=True)

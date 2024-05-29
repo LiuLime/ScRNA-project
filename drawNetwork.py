@@ -24,11 +24,44 @@ logger = log.logger()
 class preprocess:
     def __init__(self, filepath,
                  non_coding_gene_savetitle="non_coding_gene.csv",
-                 fetch_top50_savetitle="degree_top50.csv"):
+                 fetch_top50_savetitle="degree_top50.csv", ):
         self.path = filepath
         self.non_coding_gene_savetitle = non_coding_gene_savetitle
         self.fetch_top50_savetitle = fetch_top50_savetitle
+        self.fetch_marker_savetitle = "degree_marker.csv"
         self.log = log.logger()
+
+    def fetch_marker(self, degree_df: pd.DataFrame) -> pd.DataFrame:
+        """fetch marker genes"""
+        coding_gene_slice = degree_df[degree_df["is_marker"] == "yes"]
+        coding_gene_slice["study"] = coding_gene_slice["abbr_id"].apply(lambda x: re.search("s\d+", x)[0])
+        coding_gene_slice["organ"] = coding_gene_slice["abbr_id"].apply(lambda x: re.search("g\d+t\d+(c\d+)?", x)[0])
+        top_df = coding_gene_slice.groupby(by=["organ", "gene1", "is_marker", "jaccard_index"])[
+            "gene2"].sum().reset_index()
+        top_df.columns = ["source", "target", "is_marker", "jaccard_index", "connect"]
+        common.save_csv(top_df, os.path.join(self.path, self.fetch_marker_savetitle))
+        return top_df
+
+    def fetch_top50(self, degree_df: pd.DataFrame, rank_by="gene2", fetch_by="gene2") -> pd.DataFrame:
+        """fetch top 50 genes in each study-organ
+        :param: rank_by: 指降序排列的列
+        :param: fetch_by: 指后续画图gene1的connect列，是'gene1'的study和或者是'jaccard index'的study和
+
+        input dataframe(columns=['gene1','gene2','jaccard_index','is_marker','abbr_id'])
+        return dataframe(columns=["source", "target", "is_marker", "connect"]), save as 'degree_top50.csv'"""
+        # 删除RNA gene, non-coding gene and ribosome gene(RPS|RPL series)
+        df = self.remove_non_coding_gene(degree_df)
+
+        # 取每个study的top50
+        coding_gene = df.sort_values(by=[rank_by], ascending=False)
+        coding_gene_slice = coding_gene.groupby(by=["abbr_id"]).apply(preprocess.top, rank_by=rank_by).reset_index(
+            drop=True)
+
+        # 分割study和organ
+        coding_gene_slice["study"] = coding_gene_slice["abbr_id"].apply(lambda x: re.search("s\d+", x)[0])
+        coding_gene_slice["organ"] = coding_gene_slice["abbr_id"].apply(lambda x: re.search("g\d+t\d+(c\d+)?", x)[0])
+        top_df = self.fetch_top50_by_(fetch_by, coding_gene_slice)
+        return top_df
 
     @staticmethod
     def map_non_coding_gene(x):
@@ -61,18 +94,6 @@ class preprocess:
         return flag
 
     @staticmethod
-    def parse_string(input_string, map_dict):
-        pattern = r'^(s\d+)?(g\d+)(t\d+)(c\d+)?$'
-        match = re.match(pattern, input_string)
-
-        if match:
-            s, g, t, c = match.groups()  # 这将返回一个包含结果的元组，如 ('s1', 'g2', 't2', 'c3') 或 ('s1', 'g2', 't2', None)
-
-            return s, g, t, c
-        else:
-            return "No match found."
-
-    @staticmethod
     def top(df: pd.DataFrame, rank_by) -> pd.DataFrame:
         """return top 50 records where the value of `rank_by` is greater than zero.
         If there are fewer than 50 such entries, return all entries where the value is greater than zero."""
@@ -85,27 +106,6 @@ class preprocess:
         coding_gene = df.drop(non_coding_gene.index)
         return coding_gene
 
-    def fetch_top50(self, degree_df: pd.DataFrame, rank_by="gene2", fetch_by="gene2") -> pd.DataFrame:
-        """fetch top 50 genes in each study-organ
-        :param: rank_by: 指降序排列的列
-        :param: fetch_by: 指后续画图gene1的connect列，是'gene1'的study和或者是'jaccard index'的study和
-
-        input dataframe(columns=['gene1','gene2','jaccard_index','is_marker','abbr_id'])
-        return dataframe(columns=["source", "target", "target_is_marker", "connect"]), save as 'degree_top50.csv'"""
-        # 删除RNA gene, non-coding gene and ribosome gene(RPS|RPL series)
-        df = self.remove_non_coding_gene(degree_df)
-
-        # 取每个study的top50
-        coding_gene = df.sort_values(by=[rank_by], ascending=False)
-        coding_gene_slice = coding_gene.groupby(by=["abbr_id"]).apply(preprocess.top, rank_by=rank_by).reset_index(
-            drop=True)
-
-        # 分割study和organ
-        coding_gene_slice["study"] = coding_gene_slice["abbr_id"].apply(lambda x: re.search("s\d+", x)[0])
-        coding_gene_slice["organ"] = coding_gene_slice["abbr_id"].apply(lambda x: re.search("g\d+t\d+(c\d+)?", x)[0])
-        top_df=self.fetch_top50_by_(fetch_by, coding_gene_slice)
-        return top_df
-
     def fetch_top50_by_(self, by, coding_gene_slice):
         # self.log.debug("fetch top 50 by")
 
@@ -114,13 +114,13 @@ class preprocess:
                 # sum same study's gene2
                 top_df = coding_gene_slice.groupby(by=["organ", "gene1", "is_marker", "jaccard_index"])[
                     "gene2"].sum().reset_index()
-                top_df.columns = ["source", "target", "target_is_marker", "jaccard_index", "connect"]
+                top_df.columns = ["source", "target", "is_marker", "jaccard_index", "connect"]
 
             case "jaccard_index":
                 # sum same study's jaccard_index
                 top_df = coding_gene_slice.groupby(by=["organ", "gene1", "is_marker"])[
                     "jaccard_index"].sum().reset_index()
-                top_df.columns = ["source", "target", "target_is_marker", "connect"]
+                top_df.columns = ["source", "target", "is_marker", "connect"]
         common.save_csv(top_df, os.path.join(self.path, self.fetch_top50_savetitle))
 
         return top_df
@@ -182,45 +182,13 @@ class preprocess:
         # 根据画heatmap的候选gene list得到degree df的切片
         new_degree_top50_df = degree_top50_df[degree_top50_df["target"].isin(gene_list)]
 
+        # transform abbr_id to full_id
+        new_degree_top50_df.loc[:, "source"] = new_degree_top50_df["source"].apply(map_id)
+        # print(new_degree_top50_df.head(3))
         # reshape df
         pivot_df = self.reshape_df(new_degree_top50_df)
-        return pivot_df
 
-    # def df_arrange_by_(self, degree_top50_df_slice, by: str, abbr_id_dict) -> pd.DataFrame:
-    #     """dataframe reshaped for drawing heatmap
-    #     degree_top50_df: columns=["source", "target", "target_is_marker", "connect", "normConn"]
-    #     `by`='t',re-arraged by **summing** counts with same group and tissue across cellType.
-    #     `by`='c',re-arraged by **averaging** counts with same group and cellType across tissue.
-    #     `by`='tc',only re-shape
-    #
-    #     :param: df: marker-degree dataframe
-    #     :param: by: "t","c","tc". Indicate dataframe arranged by `tissue`,`cellType`or`tissue+cellType`.
-    #
-    #     :return: new df for heatmap drawing
-    #     """
-    #
-    #     match by:
-    #         case "t":
-    #             degree_top50_df_slice["group"] = degree_top50_df_slice["source"].map(lambda x: re.search("g\d+", x)[0])
-    #             degree_top50_df_slice["tissue"] = degree_top50_df_slice["source"].map(lambda x: re.search("t\d+", x)[0])
-    #
-    #             data_tissue = degree_top50_df_slice.groupby(by=["group", "tissue", "target"])[
-    #                 "connect"].sum().reset_index()
-    #             data_tissue.loc[:, "group_tissue"] = data_tissue["tissue"] + "_" + \
-    #                                                  data_tissue["group"]
-    #             new_df = data_tissue.pivot_table(index="group_tissue", columns="target", values="count", aggfunc="sum")
-    #         case "c":
-    #             degree_top50_df_slice["group"] = degree_top50_df_slice["source"].map(lambda x: re.search("g\d+", x)[0])
-    #             degree_top50_df_slice["cellType"] = degree_top50_df_slice["source"].map(
-    #                 lambda x: re.search("c\d+", x)[0])
-    #             # average tissue in same cellType
-    #             data_cell = degree_top50_df_slice.groupby(by=["group", "cellType", "target"])[
-    #                 "connect"].mean().reset_index()
-    #             data_cell.loc[:, "group_cellType"] = data_cell["cellType"] + "_" + data_cell["group"]
-    #             new_df = data_cell.pivot_table(index="group_cellType", columns="target", values="count", aggfunc="mean")
-    #         case "tc":
-    #             pass
-    #     return new_df
+        return pivot_df
 
     def reshape_df(self, df) -> pd.DataFrame:
         """dataframe reshaped for drawing heatmap
@@ -234,22 +202,39 @@ class preprocess:
         return new_df
 
 
-def map_id():
-    abbr_id = common.read_file("./01datasource/abbr_id.csv")
-    study_id = common.read_file("./01datasource/study_id.csv")
-    group_id = common.read_file("./01datasource/group_id.csv")
-    tissue_id = common.read_file("./01datasource/tissue_id.csv")
-    cell_id = common.read_file("./01datasource/cell_id.csv")
-    abbr_id_dict = {
-        i["abbr_id"]: {"study": i["study"], "group": i["health_group"], "tissue": i["tissue"],
-                       "cellType": i["cellType"]}
-        for _, i in abbr_id.iterrows()
-    }
-    return abbr_id_dict
+def parse_string(input_string):
+    pattern = r'^(s\d+)?(g\d+)(t\d+)(c\d+)?$'
+    match = re.match(pattern, input_string)
+
+    if match:
+        s, g, t, c = match.groups()  # 这将返回一个包含结果的元组，如 ('s1', 'g2', 't2', 'c3') 或 ('s1', 'g2', 't2', None)
+        return s, g, t, c
+    else:
+        return "No match found."
+
+
+def map_id(abbr_id: str):
+    """map abbr id to full id"""
+    # study_id = common.read_file("./01datasource/study_id.csv")
+    # group_id = common.read_file("./01datasource/group_id.csv")
+    # tissue_id = common.read_file("./01datasource/tissue_id.csv")
+    # cell_id = common.read_file("./01datasource/cell_id.csv")
+    #
+    # study_id_dict = study_id.set_index("study_id")["study"].to_dict()
+    # group_id_dict = group_id.set_index("group_id")["health_group"].to_dict()
+    # tissue_id_dict = tissue_id.set_index("tissue_id")["tissue"].to_dict()
+    # cell_id_dict = cell_id.set_index("cell_id")["cell"].to_dict()
+
+    study, group, tissue, cell = parse_string(abbr_id)
+    study_full_id = study_id_dict.get(study)
+    group_full_id = group_id_dict.get(group)
+    tissue_full_id = tissue_id_dict.get(tissue)
+    cell_full_id = cell_id_dict.get(cell)
+    full_id = "|".join([i for i in [study_full_id, group_full_id, tissue_full_id, cell_full_id] if i is not None])
+    return full_id
 
 
 def main(pre=True, draw_network=True, draw_heatmap=True):
-    abbr_id_dict = map_id()
     for group in loadPath.keys():  # group-> 'scrna_mt'...
         logger.debug(f"Start process group {group}")
         group_path = loadPath[group]["save_path"]
@@ -264,10 +249,11 @@ def main(pre=True, draw_network=True, draw_heatmap=True):
             p = preprocess(save_path)
             if pre:
                 # 取degree file中每个study的前50个（首先去掉了non-coding gene和ribosome gene）
-                top_df = p.fetch_top50(file, rank_by="jaccard_index", fetch_by="jaccard_index")
+                top_df = p.fetch_top50(file, rank_by="gene2", fetch_by="gene2")
 
             # draw network
             if draw_network:
+                top_df = common.read_file(os.path.join(save_path, "degree_top50.csv"))
                 edges = p.prepare_file_for_net(top_df)
                 d = DrawTool.network(save_path)
                 d.draw_network(edges, folder)
@@ -284,7 +270,7 @@ def main(pre=True, draw_network=True, draw_heatmap=True):
                                                            max_node_degree_row=max_row
                                                            )
                 DrawTool.draw_heatmap(heatmap_table,
-                                      os.path.join(save_path, "heatmap.png"),
+                                      os.path.join(save_path, "heatmap_top50.png"),
                                       figConfig,
                                       color_marker=True,
                                       marker_list=markers,
@@ -300,9 +286,20 @@ if __name__ == "__main__":
     figConfig = config["figConfig"]
     loadPath = config["loadPath"]
     markers = config["markers"]
-    main(pre=True,
+
+    study_id = common.read_file("./01datasource/study_id.csv")
+    group_id = common.read_file("./01datasource/group_id.csv")
+    tissue_id = common.read_file("./01datasource/tissue_id.csv")
+    cell_id = common.read_file("./01datasource/cell_id.csv")
+
+    study_id_dict = study_id.set_index("study_id")["study"].to_dict()
+    group_id_dict = group_id.set_index("group_id")["health_group"].to_dict()
+    tissue_id_dict = tissue_id.set_index("tissue_id")["tissue"].to_dict()
+    cell_id_dict = cell_id.set_index("cell_id")["cell"].to_dict()
+
+    main(pre=False,
          draw_network=True,
-         draw_heatmap=True)
+         draw_heatmap=False)
     logger.debug("关闭客服大门😏👋👋")
 
 # test_file = read_file("./03figure/ageGrp_byMedian/tissue_level/corr0.9_log10p3/degree.csv")

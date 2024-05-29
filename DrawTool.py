@@ -31,7 +31,7 @@ def draw_heatmap(df,
     fig, ax = plt.subplots(figsize=(fig_width + 1, fig_height + 1), constrained_layout=True)
 
     # 绘制heatmap
-    sns.heatmap(df, annot=True, cmap="YlGnBu", fmt=".2f", square=True, ax=ax, cbar_kws=cbar_kws)
+    sns.heatmap(df, annot=True, cmap="YlGnBu", fmt=fig_format["fmt"], square=True, ax=ax, cbar_kws=cbar_kws)
 
     # 设置字体
     plt.rcParams["font.family"] = fig_format["font_family"]
@@ -110,17 +110,31 @@ class network:
 
         nx.draw_networkx_nodes(G, pos=pos, nodelist=tissue_nodes, alpha=0.7, node_color="orange",
                                node_shape="o", node_size=500)
+        # nx.draw_networkx_nodes(G, pos=pos, nodelist=target_nodes, alpha=0.7,
+        #                        node_color=[node_degree[n] for n in target_nodes],
+        #                        node_shape="o", node_size=[node_degree[n] * 100 for n in target_nodes], cmap="YlGn")
         nx.draw_networkx_nodes(G, pos=pos, nodelist=target_nodes, alpha=0.7,
                                node_color=[node_degree[n] for n in target_nodes],
-                               node_shape="o", node_size=[node_degree[n] * 100 for n in target_nodes], cmap="YlGn")
+                               node_shape="o", node_size=300, cmap="YlGn")
         # nx.draw_networkx_nodes(G, pos=pos, nodelist=blank_nodes, alpha=0.7, node_color="red", node_shape="v", node_size=500)
 
         # draw edges
         nx.draw_networkx_edges(G, pos, edge_color="grey", width=edges["normConn"])
 
         # draw labels
-        node_labels = {node: node for node in G.nodes}
-        nx.draw_networkx_labels(G, pos, labels=node_labels, )
+        # node_labels = {node: node for node in G.nodes}
+        # nx.draw_networkx_labels(G, pos, labels=node_labels, )
+
+        # draw tissue node labels
+        tissue_node_labels = {n: n for n in tissue_nodes}
+        nx.draw_networkx_labels(G, pos, labels=tissue_node_labels, )
+
+        # draw top 3 target node labels
+        # value_list = node_degree.values()
+        # threshold = sorted(value_list)[-5:]
+        target_node_labels = {n: n for n in target_nodes if node_degree[n] >= 3}
+        nx.draw_networkx_labels(G, pos, labels=target_node_labels, )
+
         self.save_net_as_graphml(G, os.path.join(self.path, net_name))
         self.save_net_as_figure(os.path.join(self.path, net_name))
         plt.close()

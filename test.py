@@ -132,113 +132,113 @@ from sqlalchemy import text, create_engine
 # test = pd.Series(["s1g1t1c1", "s1g1t1", "g1t1c1"])
 # test.applymap(parse_string, args=(map_dict))
 # %%
-import pandas as pd
-import drawNetwork
-
-p = drawNetwork.preprocess(filepath=None)
-df = pd.DataFrame({"node": ["ACTB.1", "ACTG1.1", "LINC00936", "AAA", "BBB"],
-                   "node_degree": [3, 6, 6, 6, 2]})
-# count=df.groupby(by=["node_degree"]).count().sort_values(by="node_degree",ascending=False)
-# max_rows=4
-# # df["cumulative_sum"]=count["node"].cumsum()
-# count["cumulative_sum"]=count["node"].cumsum()
-
-# cutoff=count[count['cumulative_sum'] <= max_rows]['cumulative_sum'].max()
-# selected_df = df[df.groupby("node_degree")['cumulative_sum'].transform('max') <= cutoff]
-
-p.cutoff_by_maxrows(df, sort_columns="node_degree", max_rows=4)
-# %%
-import pandas as pd
-
-# 创建示例数据
-data = {
-    'int_column': [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
-}
-df = pd.DataFrame(data)
-
-# 对整数列进行统计
-value_counts = df['int_column'].value_counts().sort_index(ascending=False)
-
-# 确定哪些组可以完全包含在输出中
-cumulative_count = 0
-included_groups = []
-
-for value, count in value_counts.items():
-    if cumulative_count + count <= 5:  # 例如这里的5可以替换为100或其他限制
-        cumulative_count += count
-        included_groups.append(value)
-    else:
-        break
-
-# 筛选出可以完全包含的组
-result = df[df['int_column'].isin(included_groups)]
-
-print(result)
-
-# %%
-import pandas as pd
-
-def jaccard_index(set1: set, set2: set) -> float:
-    """计算两个集合的Jaccard 相似度指数"""
-    if not set1 or not set2:
-        return 0.0
-    # 计算两个集合的交集
-    intersection = set1.intersection(set2)
-    # 计算两个集合的并集
-    union = set1.union(set2)
-    # 计算Jaccard指数
-    jaccard_index = len(intersection) / len(union)
-    return jaccard_index
-
-# 创建示例数据
-data1 = {
-    'int_column': [1, 4, 4, 4, 2, 2, 3, 3, 4, 4],
-    'test': ["a", "D", "d", "D", "B", "B", "C", "C", "C", "D"]
-}
-data2={'int_column': [2, 4, 5, 4, 2, 2, 3, 5, 3, 4],
-'test': ["a", "D", "d", "D", "B", "B", "C", "C", "C", "D"]
-}
-df1 = pd.DataFrame(data1)
-df2 = pd.DataFrame(data2)
-
-# print(df[df['int_column'] > 3])
-test_df1 = df1.groupby(by="int_column")["test"].apply(set)
-test_df2 = df2.groupby(by="int_column")["test"].apply(set)
-
-# 计算Jaccard指数
-jaccard_scores = {}
-for int_val in test_df1.index:
-
-    set1 = test_df1.get(int_val, set())
-    set2 = test_df2.get(int_val, set())
-
-    jaccard_scores[int_val] = jaccard_index(set1, set2)
-
-# 将Jaccard指数添加到df1
-new_df=df1.groupby(by="int_column")["test"].count().reset_index()
-new_df['jaccard_index'] = new_df['int_column'].map(jaccard_scores)
-
-print(new_df.reset_index)
-
-# %%
-from utils import common
-import json
-import Filter
-import pandas as pd
-
-with open("config.json") as p:
-    config = json.load(p)
-
-stringdb = config["stringdb_filepath"]
-
-link = common.read_file(stringdb["link"])
-info = common.read_file((stringdb["info"]))
-info_map = info.set_index("#string_protein_id")["preferred_name"].to_dict()
-
-filter_link = link[link["combined_score"] >= 900]
-filter_link.loc[:, "protein1"] = filter_link["protein1"].map(info_map)
-filter_link.loc[:, "protein2"] = filter_link["protein2"].map(info_map)
-
+# import pandas as pd
+# import drawNetwork
+#
+# p = drawNetwork.preprocess(filepath=None)
+# df = pd.DataFrame({"node": ["ACTB.1", "ACTG1.1", "LINC00936", "AAA", "BBB"],
+#                    "node_degree": [3, 6, 6, 6, 2]})
+# # count=df.groupby(by=["node_degree"]).count().sort_values(by="node_degree",ascending=False)
+# # max_rows=4
+# # # df["cumulative_sum"]=count["node"].cumsum()
+# # count["cumulative_sum"]=count["node"].cumsum()
+#
+# # cutoff=count[count['cumulative_sum'] <= max_rows]['cumulative_sum'].max()
+# # selected_df = df[df.groupby("node_degree")['cumulative_sum'].transform('max') <= cutoff]
+#
+# p.cutoff_by_maxrows(df, sort_columns="node_degree", max_rows=4)
+# # %%
+# import pandas as pd
+#
+# # 创建示例数据
+# data = {
+#     'int_column': [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
+# }
+# df = pd.DataFrame(data)
+#
+# # 对整数列进行统计
+# value_counts = df['int_column'].value_counts().sort_index(ascending=False)
+#
+# # 确定哪些组可以完全包含在输出中
+# cumulative_count = 0
+# included_groups = []
+#
+# for value, count in value_counts.items():
+#     if cumulative_count + count <= 5:  # 例如这里的5可以替换为100或其他限制
+#         cumulative_count += count
+#         included_groups.append(value)
+#     else:
+#         break
+#
+# # 筛选出可以完全包含的组
+# result = df[df['int_column'].isin(included_groups)]
+#
+# print(result)
+#
+# # %%
+# import pandas as pd
+#
+# def jaccard_index(set1: set, set2: set) -> float:
+#     """计算两个集合的Jaccard 相似度指数"""
+#     if not set1 or not set2:
+#         return 0.0
+#     # 计算两个集合的交集
+#     intersection = set1.intersection(set2)
+#     # 计算两个集合的并集
+#     union = set1.union(set2)
+#     # 计算Jaccard指数
+#     jaccard_index = len(intersection) / len(union)
+#     return jaccard_index
+#
+# # 创建示例数据
+# data1 = {
+#     'int_column': [1, 4, 4, 4, 2, 2, 3, 3, 4, 4],
+#     'test': ["a", "D", "d", "D", "B", "B", "C", "C", "C", "D"]
+# }
+# data2={'int_column': [2, 4, 5, 4, 2, 2, 3, 5, 3, 4],
+# 'test': ["a", "D", "d", "D", "B", "B", "C", "C", "C", "D"]
+# }
+# df1 = pd.DataFrame(data1)
+# df2 = pd.DataFrame(data2)
+#
+# # print(df[df['int_column'] > 3])
+# test_df1 = df1.groupby(by="int_column")["test"].apply(set)
+# test_df2 = df2.groupby(by="int_column")["test"].apply(set)
+#
+# # 计算Jaccard指数
+# jaccard_scores = {}
+# for int_val in test_df1.index:
+#
+#     set1 = test_df1.get(int_val, set())
+#     set2 = test_df2.get(int_val, set())
+#
+#     jaccard_scores[int_val] = jaccard_index(set1, set2)
+#
+# # 将Jaccard指数添加到df1
+# new_df=df1.groupby(by="int_column")["test"].count().reset_index()
+# new_df['jaccard_index'] = new_df['int_column'].map(jaccard_scores)
+#
+# print(new_df.reset_index)
+#
+# # %%
+# from utils import common
+# import json
+# import Filter
+# import pandas as pd
+#
+# with open("config.json") as p:
+#     config = json.load(p)
+#
+# stringdb = config["stringdb_filepath"]
+#
+# link = common.read_file(stringdb["link"])
+# info = common.read_file((stringdb["info"]))
+# info_map = info.set_index("#string_protein_id")["preferred_name"].to_dict()
+#
+# filter_link = link[link["combined_score"] >= 900]
+# filter_link.loc[:, "protein1"] = filter_link["protein1"].map(info_map)
+# filter_link.loc[:, "protein2"] = filter_link["protein2"].map(info_map)
+#
 #%%
 import pandas as pd
 import networkx as nx
@@ -257,32 +257,47 @@ G = nx.from_pandas_edgelist(edges, edge_attr=True)
 pos = nx.spring_layout(G)
 tissue_nodes=edges["source"]
 target_nodes=edges["target"]
+node_degree = dict(G.degree())
+draw_node_labels={n:n for n in target_nodes if node_degree[n] > 1}
+
 nx.draw_networkx_nodes(G, pos=pos, nodelist=tissue_nodes,node_size=30, alpha=0.7,node_color="black", node_shape="v")
 nx.draw_networkx_nodes(G, pos=pos, nodelist=target_nodes,node_size=10, alpha=0.7,node_color="yellow", node_shape="o")
 
 nx.draw_networkx_edges(G, pos, edge_color=edges["color"], width=edges["width"])
 node_labels={node:node for node in G.nodes}
-nx.draw_networkx_labels(G, pos, labels=node_labels)
+
+nx.draw_networkx_labels(G, pos, labels=draw_node_labels)
 edge_labels=nx.get_edge_attributes(G, "weight")
 nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels)
-
+#
+# #%%
+# import pandas as pd
+#
+#
+# # 创建示例数据
+# data1 = {
+#     'int_column': [1, 4, 4, 4, 2, 2, 3, 3, 4, 4, 4],
+#     'test': ["a", "D", "d", "D", "B", "B", "C", "C", "C", "D", "d"]
+# }
+# data2={'int_column': [2, 4, 4, 4, 2, 2, 3, 5, 3, 4],
+#        'test': ["a", "D", "d", "D", "B", "B", "C", "C", "C", "D"]
+#        }
+# df1 = pd.DataFrame(data1)
+# df2 = pd.DataFrame(data2)
+# df1 = df1.set_index(["int_column","test"])
+# df2 = df2.set_index(["int_column","test"])
+# print(pd.Series(df1.index.isin(df2.index)))
+# new_df = df1.copy().reset_index()
+# a=pd.Series(df1.index.isin(df2.index))
+# new_df["is_same"]= a
 #%%
+from utils import common
 import pandas as pd
-
-
-# 创建示例数据
+import drawNetwork
 data1 = {
-    'int_column': [1, 4, 4, 4, 2, 2, 3, 3, 4, 4, 4],
-    'test': ["a", "D", "d", "D", "B", "B", "C", "C", "C", "D", "d"]
-}
-data2={'int_column': [2, 4, 4, 4, 2, 2, 3, 5, 3, 4],
-       'test': ["a", "D", "d", "D", "B", "B", "C", "C", "C", "D"]
-       }
+        'int_column': [1, 4, 4],
+        'test': ["g1t4", "g2t5c7", "s2g1t10c10"]
+    }
 df1 = pd.DataFrame(data1)
-df2 = pd.DataFrame(data2)
-df1 = df1.set_index(["int_column","test"])
-df2 = df2.set_index(["int_column","test"])
-print(pd.Series(df1.index.isin(df2.index)))
-new_df = df1.copy().reset_index()
-a=pd.Series(df1.index.isin(df2.index))
-new_df["is_same"]= a
+df1=df1["test"].apply(drawNetwork.map_id)
+print(df1)
