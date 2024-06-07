@@ -1,6 +1,9 @@
 """
-根据相关性和p-value筛出dataframe切片，并进行可视化
+read arrow file
+根据相关性和p-value筛出dataframe切片
+save `degree.csv`
 
+@ Liu
 """
 
 import os
@@ -8,8 +11,14 @@ import json
 import pandas as pd
 from utils import common, log
 import pyarrow as pa
+import MySQL
 
 logger = log.logger()
+with open("./config.json") as c:
+    config = json.load(c)
+
+markers = config["markers"]
+stringdb = config["stringdb_filepath"]
 
 
 def read_arrow_to_pd(path):
@@ -38,8 +47,7 @@ class dataFilter:
     def __init__(self):
         self.corr_threshold = None
         self.p_threshold = None
-        self.m = matchRealLink()
-        # self.markers = markers
+        self.m = matchRealLink(stringdb)
 
     def filter_data_by_criteria(self, df, corr_threshold, p_threshold, save_path):
         """Filter dataframe by correalation value and pvalue, return dataframe slice"""
@@ -52,38 +60,16 @@ class dataFilter:
         # common.save_csv(df_slice, os.path.join(save_path, "data_p_corr_filter.csv"))
         return df_slice
 
-    def generate_degree(self, df_slice, abbr_id):
-        """ Prepare for heatmap.Return connection degree df from dataframe slice which filtered by criteria, save csv as 'degree.csv'
-        :param: df_slice
-        :return: degree dataframe
-        """
-        df_slice = self.m.is_realpath(df_slice)  # mark stringdb interaction or not
-        df_slice = self.m.generate_realpath_similarity(df_slice)  # calculate jaccard_index
-        df_slice = df_slice[df_slice["is_real_path"]]  # only keep stringdb interaction
-
-        degree = df_slice.groupby(by=["gene1", "jaccard_index"])[
-            "gene2"].count().reset_index()
-        degree["is_marker"] = degree["gene1"].apply(dataFilter.is_marker, markers=markers)
-        degree["abbr_id"] = abbr_id
-        # degree.to_csv(f"{self.save_folder}/degree.csv", index=False)
-        return degree
-
-    @staticmethod
-    def is_marker(x, markers: list) -> str:
-        if x in markers:
-            return "yes"
-        else:
-            return "no"
-
 
 class matchRealLink:
-    def __init__(self, real_link_threshold=None):
+    def __init__(self, stringdb, real_link_threshold=None):
         """integrate stringdb protein real link info with calculate link info"""
         if real_link_threshold is None:
             self.real_link_threshold = 900
         else:
             self.real_link_threshold = real_link_threshold
-        self.filter_link = matchRealLink.filter_stringdb_combine_score(self.real_link_threshold)
+        self.filter_link = self.filter_stringdb_combine_score(self.real_link_threshold)
+        self.stringdb = stringdb
 
     def is_realpath(self, df_slice):
         """create column `is_real_path`"""
@@ -92,7 +78,6 @@ class matchRealLink:
         is_real_path = pd.Series(df_slice.index.isin(filter_link.index))
         df_slice = df_slice.reset_index()
         df_slice["is_real_path"] = is_real_path
-        # print(df_slice.head())
         return df_slice
 
     def generate_realpath_similarity(self, df_slice):
@@ -102,7 +87,7 @@ class matchRealLink:
         # filter stringdb protein link by combine score
         filter_link_set = self.filter_link.groupby(by="protein1")["protein2"].apply(set)
         calculate_link_set = df_slice.groupby(by=["gene1"])["gene2"].apply(set)
-        
+
         # 计算Jaccard指数
         jaccard_scores = {}
         for int_val in calculate_link_set.index:
@@ -112,18 +97,16 @@ class matchRealLink:
 
         # 将Jaccard指数添加到df
         df_slice.loc[:, 'jaccard_index'] = df_slice["gene1"].map(jaccard_scores)
-        # logger.debug("df with jaccard_index", df_slice.head(2))
 
         return df_slice
 
-    @staticmethod
-    def filter_stringdb_combine_score(real_link_threshold: int) -> pd.DataFrame:
+    def filter_stringdb_combine_score(self, real_link_threshold: int) -> pd.DataFrame:
         """match network link with stringdb real world protein interaction link
         :param: protein_link_threshold: int,range[1,999], means 1%~99.9%
         """
 
-        link = common.read_file(stringdb["link"])
-        info = common.read_file((stringdb["info"]))
+        link = common.read_file(self.stringdb["link"])
+        info = common.read_file((self.stringdb["info"]))
         info_map = info.set_index("#string_protein_id")["preferred_name"].to_dict()
 
         filter_link = link[link["combined_score"] >= real_link_threshold]
@@ -144,6 +127,31 @@ class matchRealLink:
         return jaccard_index
 
 
+def is_marker(x, marker_list: list) -> str:
+    if x in marker_list:
+        return "yes"
+    else:
+        return "no"
+
+
+def generate_degree(df_slice, abbr_id, stringdb_, marker_list=None):
+    """ Prepare for heatmap.Return connection degree df from dataframe slice which filtered by criteria, save csv as 'degree.csv'
+        :param: df_slice
+        :return: degree dataframe
+        """
+    m = matchRealLink(stringdb_)
+    df_slice = m.is_realpath(df_slice)  # mark stringdb interaction or not
+    df_slice = m.generate_realpath_similarity(df_slice)  # calculate jaccard_index
+    df_slice = df_slice[df_slice["is_real_path"]]  # only keep stringdb interaction
+
+    degree = df_slice.groupby(by=["gene1", "jaccard_index"])[
+        "gene2"].count().reset_index()
+    degree["is_marker"] = degree["gene1"].apply(is_marker, marker_list=marker_list)
+    degree["abbr_id"] = abbr_id
+    # degree.to_csv(f"{self.save_folder}/degree.csv", index=False)
+    return degree
+
+
 def process_group(load_folder: str,
                   corr_threshold: float,
                   p_threshold: float,
@@ -156,13 +164,14 @@ def process_group(load_folder: str,
 
     dfs = []
     d = dataFilter()
-    # m = matchRealLink(real_link_threshold=900)
 
     for s in arrow_list:
         df = read_arrow_to_pd(os.path.join(load_folder, s))
         new_df = d.filter_data_by_criteria(df, corr_threshold, p_threshold, save_path)
-        new_df = d.generate_degree(new_df, abbr_id=s.replace(".arrow", ""))
-        # new_df = m.generate_realpath_similarity(new_df, abbr_id=s.replace(".arrow", ""))
+        new_df = generate_degree(new_df,
+                                 abbr_id=s.replace(".arrow", ""),
+                                 stringdb_=stringdb,
+                                 marker_list=markers)
         dfs.append(new_df)
         logger.debug(f"(process_group) {load_folder.split('/')[-2]} {s} count degree ✅")
     total_dfs = pd.concat(dfs, axis=0, ignore_index=True)
@@ -178,6 +187,7 @@ def process_group(load_folder: str,
 
 def process_group_batch(load_folder: str,
                         save_folder: str,
+
                         corr_threshold_list: list,
                         p_threshold_list: list,
 
@@ -193,32 +203,3 @@ def process_group_batch(load_folder: str,
                           save_path=sub_save_folder)
             logger.debug(
                 f"(process_group_batch) {load_folder.split('/')[-2]}:corr{cor}_log10p{log10p} count finish 🎉🎉🎉～～～")
-
-
-if __name__ == "__main__":
-    logger.debug("开启客服大门🙄🧨🚪")
-
-    with open("./config.json") as c:
-        config = json.load(c)
-
-    loadPath = config["loadPath"]
-    corr_cutoffs = config["corr_cutoffs"]
-    log10p_abs_cutoffs = config["log10p_abs_cutoffs"]
-    markers = config["markers"]
-    stringdb = config["stringdb_filepath"]
-    for group in loadPath.keys():
-        # if group == 'scrna_mt':
-        #     continue
-        process_group_batch(load_folder=loadPath[group]["joined"],
-                            save_folder=loadPath[group]["save_path"],
-                            corr_threshold_list=corr_cutoffs,
-                            p_threshold_list=log10p_abs_cutoffs,
-                            )
-
-    # test_folder = "./01datasource/joined_table/scrna_4060t/"
-    # process_group_batch(load_folder=test_folder,
-    #                         save_folder="./02result/ageGrp_by40-60/",
-    #                         corr_threshold_list=[0.8],
-    #                         p_threshold_list=[3],
-    #                        )
-    logger.debug("关闭客服大门😊🧑‍🤝‍")

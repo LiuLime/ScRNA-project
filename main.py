@@ -1,69 +1,41 @@
-import pymysql.cursors
-import pyarrow as pa
+import os
+import json
 import pandas as pd
+from utils import common, log
+import pyarrow as pa
+from Filter import process_group_batch
 
-# 数据库连接参数
-host = '数据库地址'
-user = '用户名'
-password = '密码'
-database = '数据库名'
-tables = []
-# 初始化 Arrow Table Schema
-# 需要根据实际查询结果的列类型来定义，这里只是一个示例
-schema = pa.schema([
-    ('gene1', pa.string()),
-    ('gene2', pa.string()),
-    ('cor', pa.float64()),
-    ('p1', pa.float64()),
-    ('p2', pa.float64()),
-    # 根据你的数据添加更多列
-])
+logger = log.logger()
 
-# 连接数据库
-connection = pymysql.connect(host=host, user=user, password=password, database=database,
-                             cursorclass=pymysql.cursors.SSCursor)
 
-try:
-    cursor = connection.cursor()
-    for table_name in tables:
-        cursor.execute(
-            f"""
-           SELECT a.gene1,
-       a.`log10p`      AS p1,
-       a.gene2,
-       log10p.`log10p` AS p2,
-       a.`cor_pearson.binMean`
-FROM (SELECT s12g2t14.`gene1`,
-             s12g2t14.`gene2`,
-             s12g2t14.`cor_pearson.binMean`,
-             log10p.log10p
+def excute_filter():
+    """根据相关性和p-value筛出dataframe切片"""
+    for group in loadPath.keys():
+        process_group_batch(load_folder=loadPath[group]["joined"],
+                            save_folder=loadPath[group]["save_path"],
 
-      FROM s12g2t14
-               INNER JOIN log10p ON (s12g2t14.gene1 = log10p.`gene` and log10p.`abbr_id` = 's12g2t14')) AS a
-         INNER JOIN log10p ON (a.gene2 = log10p.`gene` and log10p.`abbr_id` = 's12g2t14')
-            """
-        )
-        # 初始化 Arrow 文件写入器
-        with pa.OSFile(f'{table_name}.arrow', 'wb') as sink:
-            with pa.ipc.new_file(sink, schema) as writer:
+                            corr_threshold_list=corr_cutoffs,
+                            p_threshold_list=log10p_abs_cutoffs,
+                            )
 
-                # 分批读取和处理数据
-                while True:
-                    # 读取一批数据，大小可根据内存调整
-                    batch_data = cursor.fetchmany(size=10000)
-                    if not batch_data:
-                        break  # 数据读取完毕
 
-                    # 转换为 Pandas DataFrame
-                    df = pd.DataFrame(batch_data, columns=[desc[0] for desc in cursor.description])
+if __name__ == "__main__":
+    logger.debug("开启客服大门🙄🧨🚪")
 
-                    # 转换 DataFrame 为 Arrow RecordBatch
-                    batch = pa.RecordBatch.from_pandas(df, schema=schema, preserve_index=False)
+    with open("./config.json") as c:
+        config = json.load(c)
 
-                    # 写入 Arrow 文件
-                    writer.write_batch(batch)
-                    print(f"{table_name}成功保存为 Arrow 文件")
+    loadPath = config["loadPath"]
+    corr_cutoffs = config["corr_cutoffs"]
+    log10p_abs_cutoffs = config["log10p_abs_cutoffs"]
 
-finally:
-    cursor.close()
-    connection.close()
+    # Excute filtering and matching stringdb
+    excute_filter()
+
+    # test_folder = "./01datasource/joined_table/scrna_4060t/"
+    # process_group_batch(load_folder=test_folder,
+    #                         save_folder="./02result/ageGrp_by40-60/",
+    #                         corr_threshold_list=[0.8],
+    #                         p_threshold_list=[3],
+    #                        )
+    logger.debug("关闭客服大门😊🧑‍🤝‍")
