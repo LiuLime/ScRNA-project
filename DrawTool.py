@@ -1,9 +1,16 @@
+from typing import Any
+
+import matplotlib as mpl
 import matplotlib.pyplot as plt
 import seaborn as sns
 import matplotlib.patches as mpatches
+import matplotlib.cm as cm
+from scipy.cluster.hierarchy import dendrogram, linkage, set_link_color_palette
+
 import networkx as nx
 import os
 import pandas as pd
+import numpy as np
 from utils import log, common
 
 
@@ -67,6 +74,85 @@ def draw_heatmap(df,
 
     # 保存图像时使用bbox_inches='tight'来自动调整边距
     plt.savefig(f"{save_title}", dpi=300, bbox_inches='tight')
+    plt.close()
+
+
+def _dendro(Z, y: np.ndarray | None = None, no_plot: bool = True, show_leaf_counts: bool = True, leaf_font_size=3,
+            draw_hline: int | None = None, ax: Any = None):
+    dendro = dendrogram(Z,
+                        orientation='top',
+                        labels=y,
+                        ax=ax,
+                        leaf_rotation=90,
+                        leaf_font_size=leaf_font_size,
+                        color_threshold=draw_hline,
+                        distance_sort='descending',
+                        show_leaf_counts=show_leaf_counts,
+                        no_plot=no_plot, )
+    return dendro
+
+
+def draw_dendrogram(Z,
+                    y: np.ndarray,
+                    draw_hline: int,
+                    no_plot: bool = True,
+                    save_figure: bool = False,
+                    save_path: str = None,
+                    save_figure_hier: str = None):
+    colors = cm.rainbow(np.linspace(0, 1, draw_hline))
+    set_link_color_palette([mpl.colors.rgb2hex(rgb[:3]) for rgb in colors])
+
+    # scipy绘制树状图
+    plt.figure(figsize=(120, 70), constrained_layout=True)
+    dendro = _dendro(Z, y, draw_hline=draw_hline, no_plot=no_plot)
+    plt.axhline(draw_hline, color='k')
+
+    if save_figure:
+        plt.savefig(f"{save_path}{save_figure_hier}.pdf")
+
+    plt.show()
+    set_link_color_palette(None)
+    plt.close()
+    return dendro
+
+
+def draw_dendro_with_heatmap(Z,
+                             y,
+                             pivot_df,
+                             draw_hline: int,
+                             font_size: int | None = 3,
+                             dendro_show_leaf: bool = True,
+                             hmp_xticklabels: bool = True,
+                             save_figure: bool = False,
+                             save_path: str = None,
+                             save_figure_hier: str = None, ):
+    # fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(100, 8),
+    #                                gridspec_kw={'height_ratios': [1, 3]}) #加了sharex=True的话dendro会显示不全
+    fig = plt.figure(figsize=(120, 70), constrained_layout=True)
+    gs = fig.add_gridspec(2, 1, height_ratios=(1, 1), left=0.1, right=0.9, bottom=0.1, top=0.9,
+                          wspace=0.05, hspace=0.05)
+    ax1 = fig.add_subplot(gs[0, 0])
+    ax2 = fig.add_subplot(gs[1, 0])
+
+    colors = cm.rainbow(np.linspace(0, 1, draw_hline))
+    set_link_color_palette([mpl.colors.rgb2hex(rgb[:3]) for rgb in colors])
+
+    dn = dendrogram(Z, ax=ax1, labels=y.to_numpy(),
+                    leaf_rotation=90,
+                    show_leaf_counts=dendro_show_leaf,
+                    leaf_font_size=font_size,
+                    color_threshold=draw_hline, )
+    ax1.axhline(draw_hline, color='k')
+    sorted_idx = dn['leaves']
+    sorted_df = pivot_df.iloc[sorted_idx]
+    hmp_data = sorted_df.T
+    sns.heatmap(hmp_data, ax=ax2, cmap='viridis', cbar=False, xticklabels=hmp_xticklabels)
+
+    if save_figure:
+        plt.savefig(f"{save_path}{save_figure_hier}.pdf", bbox_inches='tight')
+    plt.tight_layout()
+    plt.show()
+    set_link_color_palette(None)
     plt.close()
 
 
@@ -146,3 +232,5 @@ class network:
     def save_net_as_graphml(self, G, name):
         nx.write_graphml(G, f"{name}.graphml")
         self.log.debug(f"save network {name}.graphml 🍺🍺🍺")
+
+# %%

@@ -1,16 +1,17 @@
 """
 Define marker pattern by clustering
 
-
 @ 2024/5/31 Liu
 """
 
 from sql import *
 import pandas as pd
 import matplotlib.pyplot as plt
-from utils import common
 from collections import Counter
 import json
+
+from utils import common
+from DrawTool import draw_dendrogram, _dendro, draw_dendro_with_heatmap
 
 
 def replace_nonzero(x):
@@ -26,12 +27,14 @@ with open("./config.json") as j:
     markers = config["markers"]
     loadPath = config["loadPath"]
 
-db = "scrna_mt"
+db = "scrna_mc"
 save_path = loadPath[db]["save_path_clus"]
 
-cut_number = 21
-save_figure_hier = "hierarchy_ward"
-save_cluster_hier = f"hierarchy_ward_clus{cut_number}"
+cut_threshold = 25
+linkage_method = "ward"  # "ward"得用euclidean metric
+pdist_metric = "euclidean"  # distance metric for binary data: "jaccard","hamming","yule","dice"
+save_figure_hier = f"hier_{linkage_method}_{pdist_metric}_hmp_dist{cut_threshold}_top1000_old"  # top1000还是top100，old还是young，在pickTopP.sql文件里最后一行改。
+save_cluster_hier = f"hier_{linkage_method}_{pdist_metric}_hmp_dist{cut_threshold}_top1000_old"
 # %%
 # 取出log10p top 2000
 s = sql(db=db)
@@ -40,93 +43,53 @@ with s:
 
 # 转换为gene*tissue 0-1 形式
 top_p.loc[:, "is_in"] = top_p["log10p"].apply(replace_nonzero)
+
 pivot_df = top_p.pivot_table(values="is_in", index="gene", columns="abbr_id", fill_value=0)
 
 X = pivot_df.values
 y = pivot_df.index
 
 # %% 层次聚类
-from scipy.cluster.hierarchy import dendrogram, linkage, fcluster
+from scipy.cluster.hierarchy import dendrogram, linkage, fcluster, set_link_color_palette, cophenet
+from scipy.cluster.hierarchy import cophenet
+from scipy.spatial.distance import pdist
 
-linked = linkage(X, method='ward')  # 'single','complete', 'average', 'ward'
+# Perform hierarchical/agglomerative clustering.
+Z = linkage(X, method=linkage_method, metric=pdist_metric)  # 'single','complete', 'average', 'ward'
 
-# scipy绘制树状图
-plt.figure(figsize=(100, 70))
-dendrogram(linked,
-           orientation='top',
-            
-           distance_sort='descending',
-           show_leaf_counts=False)
-plt.savefig(f"{save_path}/{save_figure_hier}.pdf")
-plt.show()
-plt.close()
+
+def check_cluster_effect(Z, X):
+    """check the Cophenetic Correlation Coefficient. This compares (correlates) the actual pairwise distances
+    of all samples to those implied by the hierarchical clustering."""
+    c, coph_dists = cophenet(Z, pdist(X))
+    print(c)
+
+
+check_cluster_effect(Z, X)
+# %%
+# draw figure-upper clustering; lower heatmap
+draw_dendro_with_heatmap(Z,
+                         y,
+                         pivot_df,
+                         draw_hline=cut_threshold,
+                         font_size=1,
+                         dendro_show_leaf=True,
+                         hmp_xticklabels=True,
+                         save_figure=True,
+                         save_path=save_path,
+                         save_figure_hier=save_figure_hier)
+
 # %% fcluster标记cluster label
-
-f1 = fcluster(linked, cut_number, criterion='maxclust')
-f1_count = Counter(f1)
-f1_count = pd.DataFrame(f1_count.items(), columns=["cluster_idx", "gene_nums"])
-hier_cluster_ = pd.DataFrame({"gene": y, "cluster": f1})
-hier_cluster_.loc[:, "is_marker"] = hier_cluster_["gene"].apply(is_marker, args=(markers,))
-common.save_csv(hier_cluster_, f"{save_path}/{save_cluster_hier}.csv")
-common.save_csv(f1_count, f"{save_path}/{save_cluster_hier}_counts.csv")
-print(f"Clusters number: {f1_count}")
-
-# %%
-# kmeans
-# from sklearn.cluster import KMeans
-
-# krange = 2001
-# save_title = "kmeans_cluster_2000"
+# from scipy.cluster.hierarchy import fcluster
 #
-# inertia = []
-# for k in range(1, krange, 10):
-#     kmeans = KMeans(n_clusters=k, random_state=0, n_init="auto")
-#     kmeans.fit(X)
-#     inertia.append(kmeans.inertia_)
+# f1 = fcluster(Z, cut_threshold, criterion='distance')
+# f1_count = Counter(f1)
 #
-# cluster_res = pd.DataFrame({"gene": y, "labels": kmeans.labels_})
-# common.save_csv(cluster_res, f"{save_path}/{save_title}.csv")
+# f1_count = pd.DataFrame(f1_count.items(), columns=["cluster_idx", "gene_nums"])
 #
-# plt.plot(range(1, krange, 10), inertia, marker='o')
-# plt.xlabel('Number of clusters')
-# plt.ylabel('Inertia')
-# plt.title('Elbow Method')
-# plt.savefig(f"{save_path}/{save_title}.pdf")
-# plt.show()
-# plt.close()
-
-# %%
-# # 使用scikit-learn确定聚类
-# from sklearn.cluster import AgglomerativeClustering
-# cluster = AgglomerativeClustering(n_clusters=3, affinity='euclidean', linkage='ward')
-# cluster.fit_predict(X)
+# hier_cluster_ = pd.DataFrame({"gene": y, "cluster": f1, "color": dn['leaves_color_list']})
 #
-# # 可视化聚类结果
-# plt.scatter(X[:, 0], X[:, 1], c=cluster.labels_, cmap='rainbow')
-# plt.show()
-# %% PCA
-# from sklearn.decomposition import PCA
-# import matplotlib.pyplot as plt
-# import mglearn
-# from sklearn.preprocessing import StandardScaler, RobustScaler
-#
-#
-# def pca_fig(X1):
-#     plt.figure(figsize=(8, 8))
-#     mglearn.discrete_scatter(X1[:, 0], X1[:, 1], X1)
-#     plt.legend(y, loc="best")
-#     plt.gca().set_aspect("equal")
-#     plt.xlabel("First principal component")
-#     plt.ylabel("Second principal component")
-#
-#
-# pca = PCA(n_components=2, random_state=22)
-#
-# # 没有scaler
-# X_pca = pca.fit_transform(X)
-# plt.scatter(X_pca[:, 0], X_pca[:, 1])
-# # scaler
-# # scaler = RobustScaler()
-# # X_scaler = scaler.fit_transform(X)
-# # X_scaler = pca.fit_transform(X_scaler)
-# # plt.scatter(X_scaler[:, 0], X_scaler[:, 1])
+# hier_cluster_.loc[:, "is_marker"] = hier_cluster_["gene"].apply(is_marker, args=(markers,))
+# common.save_csv(hier_cluster_, f"{save_path}/{save_cluster_hier}.csv")
+# common.save_csv(f1_count, f"{save_path}/{save_cluster_hier}_counts.csv")
+# print(f"Clusters number: {f1_count}")

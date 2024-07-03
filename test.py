@@ -6,7 +6,7 @@ data = {"abbr_id": ["ta", "tb", "tb", "tc"],
 df = pd.DataFrame(data)
 new_df = df.pivot_table(values="pvalue", index="gene", columns="abbr_id", fill_value=0)
 
-#%%
+# %%
 import numpy as np
 from sklearn.cluster import AgglomerativeClustering
 
@@ -25,14 +25,14 @@ labels = clustering.labels_
 
 print("Cluster labels:", labels)
 
-#%%
+# %%
 from sql import *
 
-s =sql(db = "scrna_mt")
+s = sql(db="scrna_mt")
 with s:
-        results = s.filter_data_by_rank()
+    results = s.filter_data_by_rank()
 
-#%%
+# %%
 # Import the dendrogram function and the ward clustering function from SciPy
 from scipy.cluster.hierarchy import dendrogram, ward
 from sklearn.datasets import make_blobs
@@ -57,4 +57,52 @@ ax.text(bounds[1], 4, ' three clusters', va='center', fontdict={'size': 15})
 plt.xlabel("Sample index")
 plt.ylabel("Cluster distance")
 
+# %%
+import numpy as np
+from scipy.cluster.hierarchy import dendrogram, linkage, set_link_color_palette
+import matplotlib.cm as cm
+import matplotlib as mpl
 
+ytdist = np.array([662., 877., 255., 412., 996., 295., 468., 268.,
+                   400., 754., 564., 138., 219., 869., 669.])
+# colors_cool = cm.get_cmap('jet', 10)
+cmap = cm.rainbow(np.linspace(0, 1, 10))
+# set_link_color_palette(colors_cool)
+set_link_color_palette([mpl.colors.rgb2hex(rgb[:3]) for rgb in cmap])
+Z = linkage(ytdist, 'single')
+dn = dendrogram(Z, color_threshold=230)
+
+dn['color_list']
+# %%
+import matplotlib as mpl
+from matplotlib.pyplot import cm
+from scipy.cluster import hierarchy
+
+cmap = cm.rainbow(np.linspace(0, 1, 10))
+# hierarchy.set_link_color_palette([mpl.colors.rgb2hex(rgb[:3]) for rgb in cmap])
+
+print([mpl.colors.rgb2hex(rgb[:3]) for rgb in cmap])
+
+# %%
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+def sample_colormap(cmap_name, n_colors):
+    """从指定的颜色映射中取样 n 个颜色"""
+    cmap = plt.cm.get_cmap(cmap_name)  # 获取颜色映射
+    colors = [cmap(i) for i in np.linspace(0, 1, n_colors)]  # 均匀地从颜色映射中取样
+    return colors
+
+
+# 示例：从 'viridis' 颜色映射中取样 10 个颜色
+sampled_colors = sample_colormap('viridis', 10)
+print(sampled_colors)
+
+# %%
+import numpy as np
+from scipy.cluster.hierarchy import dendrogram, linkage
+from scipy.spatial.distance import pdist
+a = np.array([[1.0, 0.0, 1.0, 0.0],[1.0, 0.0, 0.0, 1.0]])
+b = np.array([1.0, 0.0, 0.0, 1.0])
+X= pdist(a,metric="jaccard")
