@@ -101,8 +101,32 @@ print(sampled_colors)
 
 # %%
 import numpy as np
-from scipy.cluster.hierarchy import dendrogram, linkage
+from scipy.cluster.hierarchy import dendrogram, linkage, fcluster
 from scipy.spatial.distance import pdist
-a = np.array([[1.0, 0.0, 1.0, 0.0],[1.0, 0.0, 0.0, 1.0]])
-b = np.array([1.0, 0.0, 0.0, 1.0])
-X= pdist(a,metric="jaccard")
+from collections import Counter
+import pandas as pd
+
+# a = np.array([[1.0, 0.0, 1.0, 0.0], [1.0, 0.0, 0.0, 1.0], [1.0, 0.0, 0.0, 1.0]])
+# b = np.array([1.0, 0.0, 0.0, 1.0])
+# X = pdist(a, metric="jaccard")
+
+df = pd.DataFrame({"o1": [1.0, 0.0, 1.0, 0.0], "o2": [1.0, 0.0, 0.0, 1.0], "o3": [1.0, 0.0, 0.0, 1.0]},
+                  index=["idx1", "idx2", "idx3", "idx4"])
+X2 = linkage(df, method='ward')
+dn = dendrogram(X2, no_plot=True)
+f = fcluster(X2, 3, criterion='maxclust')
+f_count = Counter(f)
+
+# %%
+import pandas as pd
+
+data = {"abbr_id": ["ta", "tb", "tb", "tc"],
+        "gene": ["g1", "g2", "g1", "g3"],
+        "value": [1, 1, 3, 4]
+        }
+df = pd.DataFrame(data)
+sort_index = [0, 3, 2, 1]
+df_row = df.iloc[sort_index]
+df_row2 = df[[True, False, True, False]]
+df_col = df[["gene", "abbr_id", "value"]]
+

@@ -5,12 +5,15 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import matplotlib.patches as mpatches
 import matplotlib.cm as cm
-from scipy.cluster.hierarchy import dendrogram, linkage, set_link_color_palette
+from scipy.cluster.hierarchy import dendrogram, linkage, set_link_color_palette, ward, complete, average, centroid, \
+    single
+from scipy.spatial.distance import pdist
 
 import networkx as nx
 import os
 import pandas as pd
 import numpy as np
+
 from utils import log, common
 
 
@@ -92,61 +95,108 @@ def _dendro(Z, y: np.ndarray | None = None, no_plot: bool = True, show_leaf_coun
     return dendro
 
 
-def draw_dendrogram(Z,
-                    y: np.ndarray,
-                    draw_hline: int,
-                    no_plot: bool = True,
-                    save_figure: bool = False,
-                    save_path: str = None,
-                    save_figure_hier: str = None):
-    colors = cm.rainbow(np.linspace(0, 1, draw_hline))
-    set_link_color_palette([mpl.colors.rgb2hex(rgb[:3]) for rgb in colors])
-
-    # scipy绘制树状图
-    plt.figure(figsize=(120, 70), constrained_layout=True)
-    dendro = _dendro(Z, y, draw_hline=draw_hline, no_plot=no_plot)
-    plt.axhline(draw_hline, color='k')
-
-    if save_figure:
-        plt.savefig(f"{save_path}{save_figure_hier}.pdf")
-
-    plt.show()
-    set_link_color_palette(None)
-    plt.close()
-    return dendro
+def pdist_matrix(X, hier_method: str, pdist_metric: str):
+    z = pdist(X, pdist_metric)
+    match hier_method:
+        case "ward":
+            return ward(z)
+        case "single":
+            return single(z)
+        case "complete":
+            return complete(z)
+        case "average":
+            return average(z)
+        case "centroid":
+            return centroid(z)
 
 
-def draw_dendro_with_heatmap(Z,
-                             y,
-                             pivot_df,
-                             draw_hline: int,
+def draw_dendro_with_heatmap(pivot_df: pd.DataFrame,
+                             hier_method: str,
+                             pdist_metric: str,
+                             draw_hline: float,
+                             draw_vline: float,
                              font_size: int | None = 3,
                              dendro_show_leaf: bool = True,
                              hmp_xticklabels: bool = True,
+                             hmp_yticklabels: bool = True,
                              save_figure: bool = False,
                              save_path: str = None,
-                             save_figure_hier: str = None, ):
-    # fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(100, 8),
-    #                                gridspec_kw={'height_ratios': [1, 3]}) #加了sharex=True的话dendro会显示不全
-    fig = plt.figure(figsize=(120, 70), constrained_layout=True)
-    gs = fig.add_gridspec(2, 1, height_ratios=(1, 1), left=0.1, right=0.9, bottom=0.1, top=0.9,
-                          wspace=0.05, hspace=0.05)
-    ax1 = fig.add_subplot(gs[0, 0])
-    ax2 = fig.add_subplot(gs[1, 0])
+                             save_figure_hier: str = None,
+                             column_cluster: bool = True,
+                             row_cluster: bool = True) -> tuple[
+    np.ndarray | None, dict | None, np.ndarray | None, dict | None]:
+    """Draw heatmap with dendrogram cluster (row cluster or/and column cluster)
+    param:
+    ------
+    pivot_df: pd.DataFrame, column is tissue, row is gene (observation variance)
+    hier_method: str, scipy.cluster.hierarchy.linkage clustering method
+    pdist_metric: str, scipy.cluster.hierarchy.linkage distance calculation metric
+    draw_hline: float, column cluster max pdistance line
+    draw_vline: float, row cluster max pdistance line
+    font_size: int | None = 3,
+    dendro_show_leaf: bool = True,
+    hmp_xticklabels: bool = True,
+    save_figure: bool = False,
+    save_path: str = None,
+    save_figure_hier: str = None,
+    column_cluster: bool = True,
+    row_cluster: bool = True
 
-    colors = cm.rainbow(np.linspace(0, 1, draw_hline))
+    return:
+    -------
+    calculated linkage matrix `Z_col`, `Z_row` at the circumstance column_cluster or/and row_cluster is True,else return None
+    """
+    fig = plt.figure(figsize=(12, 7), constrained_layout=True)
+    gs = fig.add_gridspec(2, 2,
+                          height_ratios=(1, 1),
+                          width_ratios=(1, 5),
+                          left=0.1, right=0.9, bottom=0.1, top=0.9,
+                          wspace=0.01, hspace=0.01)
+    # ax0 = fig.add_subplot(gs[0, 0])
+    ax1 = fig.add_subplot(gs[0, 1])  # column_cluster
+    ax2 = fig.add_subplot(gs[1, 0])  # row_cluster
+    ax3 = fig.add_subplot(gs[1, 1])  # heatmap
+
+    colors = cm.rainbow(np.linspace(0, 1, 25))
     set_link_color_palette([mpl.colors.rgb2hex(rgb[:3]) for rgb in colors])
+    Z_col, dn_col, Z_row, dn_row = None, None, None, None
 
-    dn = dendrogram(Z, ax=ax1, labels=y.to_numpy(),
-                    leaf_rotation=90,
-                    show_leaf_counts=dendro_show_leaf,
-                    leaf_font_size=font_size,
-                    color_threshold=draw_hline, )
-    ax1.axhline(draw_hline, color='k')
-    sorted_idx = dn['leaves']
-    sorted_df = pivot_df.iloc[sorted_idx]
-    hmp_data = sorted_df.T
-    sns.heatmap(hmp_data, ax=ax2, cmap='viridis', cbar=False, xticklabels=hmp_xticklabels)
+    if column_cluster:  # pivot_df row gene
+        X_col = pivot_df.values
+        y_col = pivot_df.index.tolist()
+        # Z_col = linkage(X_col, method=hier_method, metric=pdist_metric)
+        Z_col = pdist_matrix(X_col, hier_method=hier_method, pdist_metric=pdist_metric)
+        dn_col = dendrogram(Z_col, ax=ax1, labels=y_col,
+                            leaf_rotation=90,
+                            show_leaf_counts=dendro_show_leaf,
+                            leaf_font_size=font_size,
+                            color_threshold=draw_hline,
+                            orientation="top")
+        ax1.axhline(draw_hline, color='k')
+        sorted_idx = dn_col['leaves']
+        pivot_df = pivot_df.iloc[sorted_idx,]
+
+    if row_cluster:  # pivot_df column tissue
+        X_row = pivot_df.T.values
+        y_row = pivot_df.columns.tolist()
+        # Z_row = linkage(X_row, method=hier_method, metric=pdist_metric)
+        Z_row = pdist_matrix(X_row, hier_method=hier_method, pdist_metric=pdist_metric)
+
+        dn_row = dendrogram(Z_row, ax=ax2, labels=y_row,
+                            leaf_rotation=0,
+                            show_leaf_counts=dendro_show_leaf,
+                            leaf_font_size=font_size,
+                            color_threshold=draw_vline,
+                            orientation="left")
+        ax2.axvline(draw_vline, color='k')
+        sorted_idx = dn_row['ivl']  # the root of dendrogram(left) divergent from bottom of figure, need reverse
+        print("sorted_idx",sorted_idx)
+
+        sorted_idx.reverse()
+        print("sorted_idx_reverse",sorted_idx)
+        pivot_df = pivot_df.loc[:, sorted_idx]
+    hmp_data = pivot_df.T
+    sns.heatmap(hmp_data, ax=ax3, cmap='viridis', cbar=False, xticklabels=hmp_xticklabels, yticklabels=hmp_yticklabels)
 
     if save_figure:
         plt.savefig(f"{save_path}{save_figure_hier}.pdf", bbox_inches='tight')
@@ -154,6 +204,48 @@ def draw_dendro_with_heatmap(Z,
     plt.show()
     set_link_color_palette(None)
     plt.close()
+    return Z_col, dn_col, Z_row, dn_row
+
+
+# def draw_dendro_with_heatmap(Z,
+#                              y,
+#                              pivot_df,
+#                              draw_hline: int,
+#                              font_size: int | None = 3,
+#                              dendro_show_leaf: bool = True,
+#                              hmp_xticklabels: bool = True,
+#                              save_figure: bool = False,
+#                              save_path: str = None,
+#                              save_figure_hier: str = None,
+#                              ):
+#
+#     fig = plt.figure(figsize=(120, 70), constrained_layout=True)
+#     gs = fig.add_gridspec(2, 1, height_ratios=(1, 1), left=0.1, right=0.9, bottom=0.1, top=0.9,
+#                           wspace=0.05, hspace=0.05)
+#     ax1 = fig.add_subplot(gs[0, 0])
+#     ax2 = fig.add_subplot(gs[1, 0])
+#
+#     colors = cm.rainbow(np.linspace(0, 1, draw_hline))
+#     set_link_color_palette([mpl.colors.rgb2hex(rgb[:3]) for rgb in colors])
+#
+#     dn = dendrogram(Z, ax=ax1, labels=y.to_numpy(),
+#                     leaf_rotation=90,
+#                     show_leaf_counts=dendro_show_leaf,
+#                     leaf_font_size=font_size,
+#                     color_threshold=draw_hline, )
+#     ax1.axhline(draw_hline, color='k')
+#     print(dn["ivl"])
+#     sorted_idx = dn['leaves']
+#     sorted_df = pivot_df.iloc[sorted_idx]
+#     hmp_data = sorted_df.T
+#     sns.heatmap(hmp_data, ax=ax2, cmap='viridis', cbar=False, xticklabels=hmp_xticklabels)
+#
+#     if save_figure:
+#         plt.savefig(f"{save_path}{save_figure_hier}.pdf", bbox_inches='tight')
+#     plt.tight_layout()
+#     plt.show()
+#     set_link_color_palette(None)
+#     plt.close()
 
 
 class network:
