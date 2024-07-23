@@ -1,5 +1,5 @@
 import os
-
+import re
 import pandas as pd
 import csv
 from utils import log
@@ -63,6 +63,41 @@ def detect_delimiter(file_path):
         sniffer.preferred = [';', ',', '\t', ' ']
         dialect = sniffer.sniff(sample)
         return dialect.delimiter
+
+
+class converter:
+    def __init__(self):
+        study_id = read_file("./01datasource/study_id.csv")
+        group_id = read_file("./01datasource/group_id.csv")
+        tissue_id = read_file("./01datasource/tissue_id.csv")
+        cell_id = read_file("./01datasource/cell_id.csv")
+
+        self.study_id_dict = study_id.set_index("study_id")["study"].to_dict()
+        self.group_id_dict = group_id.set_index("group_id")["health_group"].to_dict()
+        self.tissue_id_dict = tissue_id.set_index("tissue_id")["tissue"].to_dict()
+        self.cell_id_dict = cell_id.set_index("cell_id")["cell"].to_dict()
+
+    @staticmethod
+    def parse_string(input_string):
+        pattern = r'^(s\d+)?(g\d+)(t\d+)(c\d+)?$'
+        match = re.match(pattern, input_string)
+
+        if match:
+            s, g, t, c = match.groups()  # 这将返回一个包含结果的元组，如 ('s1', 'g2', 't2', 'c3') 或 ('s1', 'g2', 't2', None)
+            return s, g, t, c
+        else:
+            return "No match found."
+
+    def convert_abbrid_to_fullname(self, abbr_id: str):
+        """convert abbr id to full id"""
+
+        study, group, tissue, cell = converter.parse_string(abbr_id)
+        study_full_id = self.study_id_dict.get(study)
+        group_full_id = self.group_id_dict.get(group)
+        tissue_full_id = self.tissue_id_dict.get(tissue)
+        cell_full_id = self.cell_id_dict.get(cell)
+        full_id = "|".join([i for i in [study_full_id, group_full_id, tissue_full_id, cell_full_id] if i is not None])
+        return full_id
 
 
 class process_title:

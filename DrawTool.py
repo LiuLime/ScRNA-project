@@ -110,11 +110,31 @@ def pdist_matrix(X, hier_method: str, pdist_metric: str):
             return centroid(z)
 
 
+def calculate_pdist(pivot_df: pd.DataFrame,
+                    hier_method: str,
+                    pdist_metric: str,
+                    column_cluster: bool = True,
+                    row_cluster: bool = True) -> tuple[np.ndarray | None, np.ndarray | None]:
+    Z_col, Z_row = None, None
+
+    if column_cluster:  # pivot_df row gene
+        X_col = pivot_df.values
+        y_col = pivot_df.index.tolist()
+        Z_col = pdist_matrix(X_col, hier_method=hier_method, pdist_metric=pdist_metric)
+    if row_cluster:  # pivot_df column tissue
+        X_row = pivot_df.T.values
+        y_row = pivot_df.columns.tolist()
+        Z_row = pdist_matrix(X_row, hier_method=hier_method, pdist_metric=pdist_metric)
+    return Z_col, Z_row
+
+
 def draw_dendro_with_heatmap(pivot_df: pd.DataFrame,
-                             hier_method: str,
-                             pdist_metric: str,
-                             draw_hline: float,
-                             draw_vline: float,
+                             Z_col: np.ndarray,
+                             Z_row: np.ndarray,
+                             dendro_hline: float,
+                             dendro_vline: float,
+                             hmp_col_cluster_sizes: list | None = None,
+                             hmp_row_cluster_sizes: list | None = None,
                              font_size: int | None = 3,
                              dendro_show_leaf: bool = True,
                              hmp_xticklabels: bool = True,
@@ -123,8 +143,7 @@ def draw_dendro_with_heatmap(pivot_df: pd.DataFrame,
                              save_path: str = None,
                              save_figure_hier: str = None,
                              column_cluster: bool = True,
-                             row_cluster: bool = True) -> tuple[
-    np.ndarray | None, dict | None, np.ndarray | None, dict | None]:
+                             row_cluster: bool = True) -> tuple[dict | None, dict | None]:
     """Draw heatmap with dendrogram cluster (row cluster or/and column cluster)
     param:
     ------
@@ -157,54 +176,62 @@ def draw_dendro_with_heatmap(pivot_df: pd.DataFrame,
     ax2 = fig.add_subplot(gs[1, 0])  # row_cluster
     ax3 = fig.add_subplot(gs[1, 1])  # heatmap
 
-    colors = cm.rainbow(np.linspace(0, 1, 25))
+    colors = cm.rainbow(np.linspace(0, 1, 10))
     set_link_color_palette([mpl.colors.rgb2hex(rgb[:3]) for rgb in colors])
-    Z_col, dn_col, Z_row, dn_row = None, None, None, None
+    dn_col, dn_row = None, None
 
     if column_cluster:  # pivot_df row gene
-        X_col = pivot_df.values
+        # X_col = pivot_df.values
         y_col = pivot_df.index.tolist()
         # Z_col = linkage(X_col, method=hier_method, metric=pdist_metric)
-        Z_col = pdist_matrix(X_col, hier_method=hier_method, pdist_metric=pdist_metric)
+        # Z_col = pdist_matrix(X_col, hier_method=hier_method, pdist_metric=pdist_metric)
         dn_col = dendrogram(Z_col, ax=ax1, labels=y_col,
                             leaf_rotation=90,
                             show_leaf_counts=dendro_show_leaf,
                             leaf_font_size=font_size,
-                            color_threshold=draw_hline,
+                            color_threshold=dendro_hline,
                             orientation="top")
-        ax1.axhline(draw_hline, color='k')
+        ax1.axhline(dendro_hline, color='k', linestyle="--")
         sorted_idx = dn_col['leaves']
         pivot_df = pivot_df.iloc[sorted_idx,]
 
     if row_cluster:  # pivot_df column tissue
-        X_row = pivot_df.T.values
+        # X_row = pivot_df.T.values
         y_row = pivot_df.columns.tolist()
         # Z_row = linkage(X_row, method=hier_method, metric=pdist_metric)
-        Z_row = pdist_matrix(X_row, hier_method=hier_method, pdist_metric=pdist_metric)
+        # Z_row = pdist_matrix(X_row, hier_method=hier_method, pdist_metric=pdist_metric)
 
         dn_row = dendrogram(Z_row, ax=ax2, labels=y_row,
                             leaf_rotation=0,
                             show_leaf_counts=dendro_show_leaf,
                             leaf_font_size=font_size,
-                            color_threshold=draw_vline,
+                            color_threshold=dendro_vline,
                             orientation="left")
-        ax2.axvline(draw_vline, color='k')
-        sorted_idx = dn_row['ivl']  # the root of dendrogram(left) divergent from bottom of figure, need reverse
-        print("sorted_idx",sorted_idx)
-
-        sorted_idx.reverse()
-        print("sorted_idx_reverse",sorted_idx)
+        ax2.axvline(dendro_vline, color='k', linestyle="--")
+        sorted_idx = dn_row['ivl']
+        sorted_idx.reverse()  # the root of dendrogram(left) divergent from bottom of figure, need reverse
         pivot_df = pivot_df.loc[:, sorted_idx]
+
     hmp_data = pivot_df.T
     sns.heatmap(hmp_data, ax=ax3, cmap='viridis', cbar=False, xticklabels=hmp_xticklabels, yticklabels=hmp_yticklabels)
-
+    # draw lines according to cluster result
+    if hmp_col_cluster_sizes is not None:
+        x_positions = np.cumsum(hmp_col_cluster_sizes)[:-1]
+        for pos in x_positions:
+            ax3.axvline(x=pos, color='orange', linestyle='--')
+    if hmp_row_cluster_sizes is not None:
+        hmp_row_cluster_sizes.reverse()  # the root of dendrogram(left) divergent from bottom of figure, need reverse
+        y_positions = np.cumsum(hmp_row_cluster_sizes)[:-1]
+        for pos in y_positions:
+            ax3.axhline(y=pos, color='white', linestyle='--')
+    # save figure
     if save_figure:
         plt.savefig(f"{save_path}{save_figure_hier}.pdf", bbox_inches='tight')
     plt.tight_layout()
-    plt.show()
+    # plt.show()
     set_link_color_palette(None)
     plt.close()
-    return Z_col, dn_col, Z_row, dn_row
+    return dn_col, dn_row
 
 
 # def draw_dendro_with_heatmap(Z,

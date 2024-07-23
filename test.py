@@ -105,7 +105,8 @@ from scipy.cluster.hierarchy import dendrogram, linkage, fcluster
 from scipy.spatial.distance import pdist
 from collections import Counter
 import pandas as pd
-
+import seaborn as sns
+import matplotlib.pyplot as plt
 # a = np.array([[1.0, 0.0, 1.0, 0.0], [1.0, 0.0, 0.0, 1.0], [1.0, 0.0, 0.0, 1.0]])
 # b = np.array([1.0, 0.0, 0.0, 1.0])
 # X = pdist(a, metric="jaccard")
@@ -116,6 +117,11 @@ X2 = linkage(df, method='ward')
 dn = dendrogram(X2, no_plot=True)
 f = fcluster(X2, 3, criterion='maxclust')
 f_count = Counter(f)
+fig, ax = plt.subplots()
+hmp=sns.heatmap(df, ax=ax)
+ax.axhline(1,color='orange',linestyle='--')
+ax.axvline(2,color='green',linestyle='--')
+
 
 # %%
 import pandas as pd
@@ -130,3 +136,8 @@ df_row = df.iloc[sort_index]
 df_row2 = df[[True, False, True, False]]
 df_col = df[["gene", "abbr_id", "value"]]
 
+#%%
+import networkx as nx
+import pandas as pd
+edges=pd.DataFrame({"source":["a","b","c"],"target":["b","a","b"],"notice":[True,True,False]})
+G = nx.from_pandas_edgelist(edges, edge_attr=True)

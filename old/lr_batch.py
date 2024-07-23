@@ -151,7 +151,7 @@ def main(argv):
 
 if __name__ == '__main__':
     if len(sys.argv) != 4:
-        print('Usage: python ./main.py {DATA_FOLDER_PATH} {SAVE_PATH} {FILE_END}')
+        print('Usage: python ./main_wang.py {DATA_FOLDER_PATH} {SAVE_PATH} {FILE_END}')
         print(
             'Example: DATA_FOLDER_PATH = /Users/human_TabulaSapiens/exp SAVE_PATH = /Users/human_TabulaSapiens/output/ FILE_END=_merge.csv' )
         sys.exit(1)
